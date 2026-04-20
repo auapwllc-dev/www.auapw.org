@@ -19,7 +19,7 @@ function BrandLogo({ brand }: { brand: string }) {
 
   return (
     <div
-      className="luxury-logo-tile w-full h-[16px] sm:h-[24px] flex items-center justify-center overflow-hidden rounded-lg"
+      className="luxury-logo-tile w-full h-[40px] sm:h-[52px] flex items-center justify-center overflow-hidden rounded-lg"
       aria-label={`${brand} logo`}
     >
       {logoUrl && !imgFailed ? (
@@ -35,7 +35,7 @@ function BrandLogo({ brand }: { brand: string }) {
           className="w-full h-full flex items-center justify-center rounded-lg"
           style={{ background: `linear-gradient(135deg, ${color}, ${color}dd, ${color}88)` }}
         >
-          <span className="text-[6px] font-black text-white/90 uppercase tracking-wider leading-none select-none" style={{ textShadow: "0 2px 6px rgba(0,0,0,0.6), 0 0 12px rgba(255,255,255,0.1)" }}>
+          <span className="text-[11px] font-black text-white/90 uppercase tracking-wider leading-none select-none" style={{ textShadow: "0 2px 6px rgba(0,0,0,0.6), 0 0 12px rgba(255,255,255,0.1)" }}>
             {initials}
           </span>
         </div>
@@ -49,7 +49,7 @@ function BrandCard({ brand }: { brand: string }) {
     <Link
       href={`/makes/${encodeURIComponent(brand.toLowerCase().replace(/\s+/g, "-"))}`}
       aria-label={`View ${brand} parts`}
-      className="group relative flex flex-col items-center gap-1 p-1 sm:p-2 rounded-xl cursor-pointer transition-all duration-300
+      className="group relative flex flex-col items-center gap-1.5 p-2 sm:p-2.5 rounded-xl cursor-pointer transition-all duration-300
         border border-border/20
         hover:border-primary/40 hover:shadow-[0_12pt_40px_rgba(0,0,0,0.5),0_0_0_1px_rgba(232,232,232,0.2)] hover:-translate-y-1.5
         focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/60"
@@ -64,7 +64,7 @@ function BrandCard({ brand }: { brand: string }) {
           <Eye className="w-4 h-4 text-white opacity-0 group-hover:opacity-100 scale-75 group-hover:scale-100 transition-all duration-300 drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)]" style={{ fontSize: '1px' }} />
         </div>
       </div>
-      <span className="text-[6px] sm:text-[8px] font-bold text-center leading-tight text-muted-foreground/70 group-hover:text-foreground transition-colors tracking-wide uppercase truncate w-full text-center">
+      <span className="text-[9px] sm:text-[10px] font-bold text-center leading-tight text-muted-foreground/70 group-hover:text-foreground transition-colors tracking-wide uppercase truncate w-full text-center">
         {brand}
       </span>
     </Link>
@@ -122,7 +122,7 @@ export function BrandLogosSection() {
 
         {/* Brand Grid */}
         <ul
-          className="grid grid-cols-4 sm:grid-cols-5 md:grid-cols-6 lg:grid-cols-8 gap-1 sm:gap-1.5 list-none p-0 m-0"
+          className="grid grid-cols-4 sm:grid-cols-5 md:grid-cols-6 lg:grid-cols-8 gap-2 sm:gap-2.5 list-none p-0 m-0"
           role="tabpanel"
           aria-label={`Brands starting with ${activeTab}`}
         >
