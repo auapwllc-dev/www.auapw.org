@@ -28,6 +28,15 @@ export const metadata: Metadata = {
   alternates: {
     canonical: 'https://www.auapw.org',
   },
+  icons: {
+    icon: [
+      { url: '/logo.png', type: 'image/png', sizes: '1024x1024' },
+    ],
+    apple: [
+      { url: '/logo.png', type: 'image/png', sizes: '1024x1024' },
+    ],
+    shortcut: '/logo.png',
+  },
   robots: {
     index: true,
     follow: true,
@@ -46,12 +55,21 @@ export const metadata: Metadata = {
     title: 'AUAPW.ORG - Quality Used Auto Parts | Engines, Transmissions & More',
     description: 'Your trusted source for quality used auto parts. Shop engines, transmissions, body parts and more from 2,000+ verified salvage yards nationwide.',
     locale: 'en_US',
+    images: [
+      {
+        url: '/logo.png',
+        width: 1024,
+        height: 1024,
+        alt: 'AUAPW.ORG Logo',
+      },
+    ],
   },
   twitter: {
     card: 'summary_large_image',
     site: '@auapworg',
     title: 'AUAPW.ORG - Quality Used Auto Parts',
     description: 'Your trusted source for quality used auto parts. Engines, transmissions, body parts and more from 2,000+ verified salvage yards.',
+    images: ['/logo.png'],
   },
   other: {
     'mobile-web-app-capable': 'yes',
