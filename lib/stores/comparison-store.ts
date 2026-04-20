@@ -11,6 +11,15 @@ export interface ComparisonItem {
   warranty?: string
   location?: string
   rating?: number
+  // Enhanced specs for detailed comparison
+  year?: string
+  mileage?: string
+  oem?: boolean
+  compatibility?: string
+  weight?: string
+  dimensions?: string
+  material?: string
+  color?: string
 }
 
 interface ComparisonStore {

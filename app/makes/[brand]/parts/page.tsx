@@ -318,6 +318,10 @@ export default function BrandPartsPage() {
                         condition: "Used OEM",
                         warranty: "6-Month Warranty",
                         rating: 4.8,
+                        oem: true,
+                        year: "2018-2024",
+                        mileage: "45,000-85,000 mi",
+                        compatibility: `Fits most ${brand} models`,
                       })
                     }
                     

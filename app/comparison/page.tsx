@@ -72,6 +72,10 @@ export default function ComparisonPage() {
     { label: 'Part Type', key: 'partType' },
     { label: 'Condition', key: 'condition', icon: CheckCircle },
     { label: 'Warranty', key: 'warranty', icon: Shield },
+    { label: 'Year Range', key: 'year' },
+    { label: 'Mileage', key: 'mileage' },
+    { label: 'OEM Part', key: 'oem', format: (val) => val ? 'Yes - Genuine OEM' : 'Aftermarket' },
+    { label: 'Compatibility', key: 'compatibility' },
     { label: 'Location', key: 'location', icon: Truck },
     { 
       label: 'Rating', 
