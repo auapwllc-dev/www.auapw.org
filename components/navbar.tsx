@@ -121,12 +121,8 @@ export function Navbar() {
 
           {/* Logo + Wordmark */}
           <Link href="/" className="flex items-center gap-1 sm:gap-4 shrink-0 group header-boss-logo-group min-w-0">
-            {/* Mobile: tiny logo */}
-            <div className="sm:hidden header-boss-logo-ring" style={{ width: 28, height: 28, flexShrink: 0 }}>
-              <Logo size="sm" priority showGlow />
-            </div>
-            {/* Desktop: normal logo */}
-            <div className="hidden sm:flex header-boss-logo-ring" style={{ width: 48, height: 48 }}>
+            {/* Single responsive logo */}
+            <div className="header-boss-logo-ring w-7 h-7 sm:w-12 sm:h-12 flex items-center justify-center flex-shrink-0">
               <Logo size="sm" priority showGlow />
             </div>
             {/* Mobile: tiny bold brand name */}
