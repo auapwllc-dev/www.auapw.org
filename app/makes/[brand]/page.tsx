@@ -325,17 +325,16 @@ export default function BrandPage() {
                       alignItems: 'center',
                       justifyContent: 'center',
                       gap: '0.4rem',
-                      padding: '0.5rem 0.75rem',
+                      padding: '0.55rem 0.75rem',
                       borderRadius: '9999px',
-                      fontSize: '0.72rem',
+                      fontSize: '0.7rem',
                       fontWeight: 700,
                       letterSpacing: '0.07em',
                       textTransform: 'uppercase',
                       color: '#ffffff',
                       textDecoration: 'none',
-                      background: 'linear-gradient(180deg, rgba(50,50,60,0.95) 0%, rgba(12,12,18,1) 45%, rgba(8,8,14,1) 55%, rgba(35,35,45,0.9) 100%)',
-                      boxShadow: '0 0 0 1.5px rgba(180,180,200,0.55), inset 0 1px 3px rgba(255,255,255,0.12), inset 0 -1px 3px rgba(0,0,0,0.4), 0 3px 8px rgba(0,0,0,0.5)',
-                      position: 'relative',
+                      background: 'linear-gradient(180deg, #3a3a4a 0%, #111118 40%, #080810 60%, #1e1e2a 100%)',
+                      boxShadow: '0 0 0 2px rgba(160,160,200,0.6), inset 0 1px 3px rgba(255,255,255,0.15), inset 0 -1px 3px rgba(0,0,0,0.5), 0 4px 10px rgba(0,0,0,0.6)',
                       whiteSpace: 'nowrap',
                     }}
                   >
@@ -343,9 +342,9 @@ export default function BrandPage() {
                       <rect x="2" y="4" width="20" height="16" rx="2" strokeWidth="2" fill="none"/>
                       <path d="M2 8l10 7 10-7" strokeWidth="2" strokeLinecap="round"/>
                     </svg>
-                    <span style={{ color: '#ffffff' }}>GET QUOTE</span>
+                    <span style={{ color: '#ffffff', textShadow: '0 1px 3px rgba(0,0,0,0.8)' }}>GET QUOTE</span>
                   </Link>
-                  {/* CALL button */}
+                  {/* CALL button — pill shaped, always visible in dark + light mode */}
                   <a
                     href={`tel:${PHONE_SALES.replace(/-/g, "")}`}
                     title={`Call ${PHONE_DISPLAY}`}
@@ -354,18 +353,19 @@ export default function BrandPage() {
                       display: 'inline-flex',
                       alignItems: 'center',
                       justifyContent: 'center',
-                      width: '2.25rem',
-                      height: '2.25rem',
+                      gap: '0.3rem',
                       flexShrink: 0,
-                      borderRadius: '0.5rem',
-                      background: 'linear-gradient(145deg, rgba(220,220,232,0.85) 0%, rgba(160,160,175,0.7) 15%, rgba(18,18,28,1) 35%, rgba(8,8,16,1) 55%, rgba(14,14,24,1) 75%, rgba(148,148,168,0.65) 90%, rgba(195,195,212,0.8) 100%)',
-                      boxShadow: '0 0 0 1.5px rgba(190,190,210,0.6), inset 0 1.5px 4px rgba(255,255,255,0.18), inset 0 -1.5px 4px rgba(0,0,0,0.4), 0 3px 10px rgba(0,0,0,0.5)',
+                      padding: '0.55rem 0.7rem',
+                      borderRadius: '9999px',
+                      background: 'linear-gradient(180deg, #2a2a3a 0%, #0e0e18 40%, #080810 60%, #1a1a28 100%)',
+                      boxShadow: '0 0 0 2px rgba(160,160,200,0.6), inset 0 1px 3px rgba(255,255,255,0.15), inset 0 -1px 3px rgba(0,0,0,0.5), 0 4px 10px rgba(0,0,0,0.6)',
                       textDecoration: 'none',
                     }}
                   >
-                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" style={{ width: '1rem', height: '1rem', fill: '#ffffff', filter: 'drop-shadow(0 1px 2px rgba(0,0,0,0.6))' }}>
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" style={{ width: '0.9rem', height: '0.9rem', fill: '#ffffff', flexShrink: 0, filter: 'drop-shadow(0 1px 2px rgba(0,0,0,0.8))' }}>
                       <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
                     </svg>
+                    <span style={{ color: '#ffffff', fontSize: '0.65rem', fontWeight: 700, letterSpacing: '0.05em', textShadow: '0 1px 3px rgba(0,0,0,0.8)' }}>CALL</span>
                   </a>
                 </div>
               </div>
