@@ -55,32 +55,32 @@ export function Footer() {
   return (
     <footer className="bg-card/95 backdrop-blur-xl border-t border-border/30 relative overflow-hidden w-full automotive-pattern">
       {/* Top brand strip with logos */}
-      <div className="border-b border-border/20 py-3 sm:py-4 overflow-x-auto">
+      <div className="border-b border-border/20 py-2 sm:py-3 md:py-4 overflow-x-auto">
         <div className="mx-auto w-full max-w-7xl px-3 sm:px-4 md:px-6 lg:px-8">
-          <div className="flex items-center gap-2 mb-2 sm:mb-3">
-            <span className="text-[9px] sm:text-[10px] font-black tracking-[0.2em] uppercase text-3d-subtle whitespace-nowrap">Popular Brands</span>
+          <div className="flex items-center gap-2 mb-1.5 sm:mb-2">
+            <span className="text-[8px] sm:text-[9px] font-black tracking-[0.15em] uppercase text-3d-subtle whitespace-nowrap">Popular Brands</span>
             <div className="flex-1 h-px bg-border/30" />
           </div>
-          <div className="flex flex-wrap gap-1.5 sm:gap-2">
-            {CAR_MAKES.slice(0, 12).map((brand) => (
+          <div className="flex flex-wrap gap-1 sm:gap-1.5 md:gap-2">
+            {CAR_MAKES.slice(0, 8).map((brand) => (
               <Link
                 key={brand}
                 href={`/makes/${encodeURIComponent(brand.toLowerCase().replace(/\s+/g, "-"))}`}
-                className="flex items-center gap-1.5 sm:gap-2 px-2 sm:px-3 py-1.5 sm:py-2 rounded-lg bg-background/50 hover:bg-background border border-border/30 hover:border-border/50 transition-all group whitespace-nowrap text-xs sm:text-sm"
+                className="flex items-center gap-1 sm:gap-1.5 px-1.5 sm:px-2.5 md:px-3 py-1 sm:py-1.5 md:py-2 rounded-md bg-background/50 hover:bg-background border border-border/30 hover:border-border/50 transition-all group whitespace-nowrap text-[11px] sm:text-xs md:text-sm"
                 title={`${brand} Parts`}
               >
                 <BrandLogo brand={brand} />
-                <span className="font-black tracking-wide text-3d-subtle hidden sm:inline">
+                <span className="font-black tracking-wide text-3d-subtle hidden md:inline">
                   {brand}
                 </span>
               </Link>
             ))}
             <Link
               href="/makes"
-              className="flex items-center gap-1.5 sm:gap-2 px-3 sm:px-4 py-1.5 sm:py-2 rounded-lg bg-primary/10 hover:bg-primary/20 border border-primary/30 transition-all text-primary text-[10px] sm:text-xs font-bold whitespace-nowrap"
+              className="flex items-center gap-1 sm:gap-1.5 px-2 sm:px-2.5 md:px-3 py-1 sm:py-1.5 md:py-2 rounded-md bg-primary/10 hover:bg-primary/20 border border-primary/30 transition-all text-primary text-[10px] sm:text-xs font-bold whitespace-nowrap"
             >
-              View All
-              <ExternalLink className="w-2.5 h-2.5 sm:w-3 sm:h-3" />
+              More
+              <ExternalLink className="w-2 h-2 sm:w-2.5 sm:h-2.5 md:w-3 md:h-3" />
             </Link>
           </div>
         </div>
