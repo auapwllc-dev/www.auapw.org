@@ -238,8 +238,13 @@ export default function AcuraPartsPage() {
               {filteredParts.map((part) => (
                 <article key={part.id} className="group relative flex flex-col rounded-xl border border-border/50 bg-card overflow-hidden hover:border-red-500/40 transition-all duration-300 hover:shadow-lg hover:shadow-red-500/10">
                   {/* USED badge */}
-                  <div className="absolute top-3 left-3 z-10 px-2 py-1 rounded bg-amber-500/90 text-[10px] font-bold uppercase tracking-wider text-black">
+                  <div className="absolute top-3 left-3 z-10 px-2 py-1 rounded bg-amber-500/90 text-[10px] font-bold uppercase tracking-wider text-black shadow-md">
                     Used Part
+                  </div>
+                  
+                  {/* Recycled OEM badge - top right */}
+                  <div className="absolute top-3 right-3 z-10 px-2 py-1 rounded bg-red-600/90 text-[9px] font-bold uppercase tracking-wider text-white shadow-md">
+                    OEM
                   </div>
                   
                   {/* Image */}
@@ -250,6 +255,12 @@ export default function AcuraPartsPage() {
                       fill
                       className="object-cover group-hover:scale-105 transition-transform duration-500"
                     />
+                    {/* USED PARTS watermark overlay */}
+                    <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+                      <div className="rotate-[-15deg] opacity-15">
+                        <span className="text-3xl font-black uppercase tracking-widest text-white whitespace-nowrap">USED</span>
+                      </div>
+                    </div>
                     <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
                     <div className="absolute bottom-2 left-2 px-2 py-1 rounded bg-black/70 text-[9px] font-semibold text-white/80 uppercase tracking-wide">
                       {part.partType}

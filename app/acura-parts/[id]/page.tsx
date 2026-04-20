@@ -103,19 +103,38 @@ export default function AcuraPartDetailPage() {
                   priority
                 />
                 
+                {/* USED PARTS Watermark Overlay */}
+                <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-5">
+                  <div className="rotate-[-15deg] opacity-20">
+                    <span className="text-6xl md:text-7xl font-black uppercase tracking-widest text-white whitespace-nowrap">USED PART</span>
+                  </div>
+                </div>
+                
                 {/* Badges */}
                 <div className="absolute top-4 left-4 flex flex-col gap-2 z-10">
-                  <span className="px-3 py-1.5 rounded-lg bg-amber-500/90 text-sm font-bold uppercase tracking-wide text-black">
+                  <span className="px-3 py-1.5 rounded-lg bg-amber-500/90 text-sm font-bold uppercase tracking-wide text-black shadow-lg">
                     Used Part
                   </span>
-                  <span className="px-3 py-1.5 rounded-lg bg-green-500/90 text-sm font-bold text-black">
+                  <span className="px-3 py-1.5 rounded-lg bg-green-500/90 text-sm font-bold text-black shadow-lg">
                     In Stock
                   </span>
+                </div>
+
+                {/* Condition indicator */}
+                <div className="absolute top-4 right-4 z-10">
+                  <div className="px-3 py-1.5 rounded-lg bg-red-600/90 text-sm font-bold text-white shadow-lg">
+                    RECYCLED OEM
+                  </div>
                 </div>
 
                 {/* Corner badge */}
                 <div className="absolute bottom-4 right-4 px-3 py-1.5 rounded-lg bg-black/80 border border-white/10 text-xs text-white/80 z-10">
                   OEM Quality Recycled
+                </div>
+                
+                {/* Diagonal banner */}
+                <div className="absolute -left-8 top-16 z-10 rotate-[-45deg] bg-amber-500 text-black font-bold text-[10px] uppercase tracking-wider py-1 px-10 shadow-lg">
+                  Used Parts
                 </div>
               </div>
 
