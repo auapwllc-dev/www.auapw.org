@@ -45,7 +45,7 @@ export function HeroSection() {
             {/* Headline */}
             <h1 className="font-sans leading-tight text-balance max-w-3xl" style={{ fontFamily: "system-ui" }}>
               <span className="block text-[0.7rem] sm:text-[0.9rem] font-black tracking-[0.2em] uppercase text-muted-foreground mb-2" style={{ fontFamily: "system-ui" }}>Your Trusted Partner</span>
-              <span className="block mercury-heading text-[1.6rem] sm:text-[clamp(1.6rem,4vw,3rem)] font-black" style={{ fontFamily: "system-ui", fontSize: "60px", lineHeight: "1.1", fontWeight: "800" }}>Premium Quality Used Auto Parts</span>
+              <span className="block mercury-heading text-[1.6rem] sm:text-[clamp(1.6rem,4vw,3rem)] font-black" style={{ fontFamily: "system-ui", fontSize: "60px", lineHeight: "1.2", fontWeight: "800" }}>Premium Quality Used Auto Parts</span>
             </h1>
 
             {/* Key stats */}
