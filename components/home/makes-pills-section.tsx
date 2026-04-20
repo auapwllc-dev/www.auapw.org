@@ -17,12 +17,12 @@ export function MakesPillsSection() {
             View All Makes &rarr;
           </Link>
         </div>
-        <div className="flex flex-wrap gap-2">
+        <div className="flex flex-wrap gap-1 sm:gap-2">
           {CAR_MAKES.map((make) => (
             <Link
               key={make}
               href="/makes"
-              className="inline-block px-4 py-2.5 border border-border/50 bg-gradient-to-br from-foreground/[0.08] to-foreground/[0.03] text-[11px] font-semibold tracking-[0.1em] uppercase text-muted-foreground rounded-sm transition-all hover:bg-foreground/10 hover:border-primary/40 hover:text-foreground"
+              className="inline-block px-2 py-1 sm:px-4 sm:py-2.5 border border-border/50 bg-gradient-to-br from-foreground/[0.08] to-foreground/[0.03] text-[9px] sm:text-[11px] font-semibold tracking-[0.06em] sm:tracking-[0.1em] uppercase text-muted-foreground rounded-sm transition-all hover:bg-foreground/10 hover:border-primary/40 hover:text-foreground"
               style={{ boxShadow: "inset 0 1px 0 rgba(255,255,255,.06)" }}
             >
               {make}

@@ -1463,7 +1463,7 @@ footer .wordmark-3d {
   -webkit-text-fill-color: unset;
 }
 
-/* ────────────────────────────────────���������───────────────
+/* ────────────────────────────────────�����������───────────────
    3D EXTRUSION EFFECTS — NAVBAR ELEMENTS
    ──────────────────────────────────────────────────── */
 
@@ -4069,6 +4069,54 @@ footer .wordmark-3d {
   .gap-8 {
     gap: 1.25rem !important;
   }
+}
+
+/* Mobile premium chrome phone icon button */
+.mobile-chrome-call-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 0.45rem;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  color: #e0e0e8;
+  text-decoration: none;
+  flex-shrink: 0;
+  background: linear-gradient(
+    145deg,
+    rgba(235, 235, 245, 0.88) 0%,
+    rgba(175, 175, 192, 0.78) 15%,
+    rgba(22, 22, 32, 0.98) 35%,
+    rgba(12, 12, 20, 1) 55%,
+    rgba(18, 18, 28, 0.99) 75%,
+    rgba(155, 155, 172, 0.68) 90%,
+    rgba(195, 195, 212, 0.82) 100%
+  );
+  box-shadow:
+    0 0 0 1.5px rgba(195, 195, 218, 0.62),
+    inset 0 2px 5px rgba(255, 255, 255, 0.20),
+    inset 0 -2px 5px rgba(0, 0, 0, 0.42),
+    0 3px 10px rgba(0, 0, 0, 0.52),
+    0 1px 3px rgba(0, 0, 0, 0.28);
+}
+.mobile-chrome-call-btn:hover {
+  transform: scale(1.09);
+  box-shadow:
+    0 0 0 1.5px rgba(215, 215, 238, 0.72),
+    inset 0 2px 5px rgba(255, 255, 255, 0.26),
+    inset 0 -2px 5px rgba(0, 0, 0, 0.52),
+    0 4px 14px rgba(0, 0, 0, 0.62),
+    0 1px 4px rgba(0, 0, 0, 0.32);
+}
+.mobile-chrome-call-btn:active {
+  transform: scale(0.92);
+  box-shadow:
+    0 0 0 1.5px rgba(175, 175, 198, 0.52),
+    inset 0 3px 7px rgba(0, 0, 0, 0.32),
+    inset 0 -1px 3px rgba(255, 255, 255, 0.08),
+    0 1px 4px rgba(0, 0, 0, 0.42);
 }
 
 /* Metallic "GET QUOTE" premium button */
