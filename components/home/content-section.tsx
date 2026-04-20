@@ -128,15 +128,15 @@ export function ContentSection() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-left mb-8 pt-8 border-t border-border/30">
             <div className="bg-secondary/20 p-6 rounded-lg flex flex-col items-center text-center">
               <div className="text-sm font-black text-3d-accent mb-2 uppercase tracking-wide">Premium Quality</div>
-              <p className="text-xs text-muted-foreground leading-relaxed">Every component is tested, inspected, and verified to meet OEM specifications before shipment.</p>
+              <p className="text-xs text-muted-foreground leading-relaxed" style={{ fontFamily: 'system-ui' }}>Every component is tested, inspected, and verified to meet OEM specifications before shipment.</p>
             </div>
             <div className="bg-secondary/20 p-6 rounded-lg flex flex-col items-center text-center">
               <div className="text-sm font-black text-3d-accent mb-2 uppercase tracking-wide">Unbeatable Savings</div>
-              <p className="text-xs text-muted-foreground leading-relaxed">Save 40-70% compared to new OEM parts. Same quality, fraction of the dealership cost.</p>
+              <p className="text-xs text-muted-foreground leading-relaxed" style={{ fontFamily: 'system-ui' }}>Save 40-70% compared to new OEM parts. Same quality, fraction of the dealership cost.</p>
             </div>
             <div className="bg-secondary/20 p-6 rounded-lg flex flex-col items-center text-center">
               <div className="text-sm font-black text-3d-accent mb-2 uppercase tracking-wide">Complete Protection</div>
-              <p className="text-xs text-muted-foreground leading-relaxed">30 to 180-day warranty on all parts. Free returns within 30 days if not satisfied.</p>
+              <p className="text-xs text-muted-foreground leading-relaxed" style={{ fontFamily: 'system-ui' }}>30 to 180-day warranty on all parts. Free returns within 30 days if not satisfied.</p>
             </div>
           </div>
 
