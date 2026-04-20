@@ -19,23 +19,23 @@ function BrandLogo({ brand }: { brand: string }) {
 
   return (
     <div
-      className="luxury-logo-tile w-full h-[56px] flex items-center justify-center overflow-hidden rounded-lg"
+      className="luxury-logo-tile w-full h-[38px] sm:h-[48px] md:h-[56px] flex items-center justify-center overflow-hidden rounded-md sm:rounded-lg"
       aria-label={`${brand} logo`}
     >
       {logoUrl && !imgFailed ? (
         <img
           src={logoUrl}
           alt={`${brand} logo`}
-          className="w-full h-full object-cover rounded-lg"
+          className="w-full h-full object-cover rounded-md sm:rounded-lg"
           loading="lazy"
           onError={() => setImgFailed(true)}
         />
       ) : (
         <div
-          className="w-full h-full flex items-center justify-center rounded-lg"
+          className="w-full h-full flex items-center justify-center rounded-md sm:rounded-lg"
           style={{ background: `linear-gradient(135deg, ${color}, ${color}dd, ${color}88)` }}
         >
-          <span className="text-[14px] font-black text-white/90 uppercase tracking-wider leading-none select-none" style={{ textShadow: "0 2px 6px rgba(0,0,0,0.6), 0 0 12px rgba(255,255,255,0.1)" }}>
+          <span className="text-[9px] sm:text-[11px] md:text-[14px] font-black text-white/90 uppercase tracking-wider leading-none select-none" style={{ textShadow: "0 2px 6px rgba(0,0,0,0.6), 0 0 12px rgba(255,255,255,0.1)" }}>
             {initials}
           </span>
         </div>
@@ -49,22 +49,22 @@ function BrandCard({ brand }: { brand: string }) {
     <Link
       href={`/makes/${encodeURIComponent(brand.toLowerCase().replace(/\s+/g, "-"))}`}
       aria-label={`View ${brand} parts`}
-      className="group relative flex flex-col items-center gap-2 p-2 rounded-xl cursor-pointer transition-all duration-300
+      className="group relative flex flex-col items-center gap-1 sm:gap-2 p-1 sm:p-2 rounded-lg sm:rounded-xl cursor-pointer transition-all duration-300
         border border-border/20
-        hover:border-primary/40 hover:shadow-[0_12pt_40px_rgba(0,0,0,0.5),0_0_0_1px_rgba(232,232,232,0.2)] hover:-translate-y-1.5
+        hover:border-primary/40 hover:shadow-[0_12pt_40px_rgba(0,0,0,0.5),0_0_0_1px_rgba(232,232,232,0.2)] hover:-translate-y-1
         focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/60"
       style={{ background: "rgba(16,19,28,0.85)", backdropFilter: "blur(16px)" }}
     >
       {/* Chrome highlight edge */}
-      <div className="absolute top-0 left-3 right-3 h-px rounded-full opacity-60 group-hover:opacity-100 transition-opacity" style={{ background: "linear-gradient(90deg, transparent, rgba(255,255,255,0.18), transparent)" }} />
-      <div className="relative w-full overflow-hidden rounded-lg">
+      <div className="absolute top-0 left-2 right-2 h-px rounded-full opacity-60 group-hover:opacity-100 transition-opacity" style={{ background: "linear-gradient(90deg, transparent, rgba(255,255,255,0.18), transparent)" }} />
+      <div className="relative w-full overflow-hidden rounded-md sm:rounded-lg">
         <BrandLogo brand={brand} />
         {/* Hover overlay */}
-        <div className="absolute inset-0 flex items-center justify-center bg-black/0 group-hover:bg-black/50 rounded-lg transition-all duration-300">
-          <Eye className="w-5 h-5 text-white opacity-0 group-hover:opacity-100 scale-75 group-hover:scale-100 transition-all duration-300 drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)]" />
+        <div className="absolute inset-0 flex items-center justify-center bg-black/0 group-hover:bg-black/50 rounded-md sm:rounded-lg transition-all duration-300">
+          <Eye className="w-3 h-3 sm:w-5 sm:h-5 text-white opacity-0 group-hover:opacity-100 scale-75 group-hover:scale-100 transition-all duration-300 drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)]" />
         </div>
       </div>
-      <span className="text-[10px] font-bold text-center leading-tight text-muted-foreground/70 group-hover:text-foreground transition-colors tracking-wide uppercase">
+      <span className="text-[7px] sm:text-[9px] md:text-[10px] font-bold text-center leading-tight text-muted-foreground/70 group-hover:text-foreground transition-colors tracking-wide uppercase line-clamp-1 w-full">
         {brand}
       </span>
     </Link>
@@ -102,14 +102,14 @@ export function BrandLogosSection() {
         </div>
 
         {/* A–Z Tab Bar */}
-        <div className="flex flex-wrap justify-center gap-1 mb-8" role="tablist" aria-label="Filter brands by letter">
+        <div className="flex flex-wrap justify-center gap-0.5 sm:gap-1 mb-5 sm:mb-8" role="tablist" aria-label="Filter brands by letter">
           {tabs.map((tab) => (
             <button
               key={tab}
               role="tab"
               aria-selected={activeTab === tab}
               onClick={() => setActiveTab(tab)}
-              className={`min-w-[36px] h-8 px-2.5 rounded text-[11px] font-bold tracking-wide transition-all ${
+              className={`min-w-[22px] sm:min-w-[30px] h-5 sm:h-7 px-1 sm:px-2 rounded text-[8px] sm:text-[10px] font-bold tracking-wide transition-all ${
                 activeTab === tab
                   ? "bg-primary text-primary-foreground shadow-[0_2px_10px_rgba(0,0,0,0.25)]"
                   : "bg-secondary text-muted-foreground hover:text-foreground hover:bg-secondary/80"
@@ -122,7 +122,7 @@ export function BrandLogosSection() {
 
         {/* Brand Grid */}
         <ul
-          className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 lg:grid-cols-8 gap-2.5 list-none p-0 m-0"
+          className="grid grid-cols-4 xs:grid-cols-5 sm:grid-cols-5 md:grid-cols-6 lg:grid-cols-8 xl:grid-cols-10 gap-1 sm:gap-2 md:gap-2.5 list-none p-0 m-0"
           role="tabpanel"
           aria-label={`Brands starting with ${activeTab}`}
         >

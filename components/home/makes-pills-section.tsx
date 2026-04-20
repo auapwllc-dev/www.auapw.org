@@ -20,7 +20,7 @@ export function MakesPillsSection() {
             View All Makes &rarr;
           </Link>
         </div>
-        <div className="flex flex-wrap gap-[3px] sm:gap-1 md:gap-1.5">
+        <div className="flex flex-wrap gap-[2px] sm:gap-[3px] md:gap-1.5">
           {CAR_MAKES.map((make) => (
             <Link
               key={make}

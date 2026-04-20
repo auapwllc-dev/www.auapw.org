@@ -777,7 +777,7 @@ footer .wordmark-3d {
 .delay-2 { animation-delay: 0.25s; opacity: 0; }
 .delay-3 { animation-delay: 0.45s; opacity: 0; }
 
-/* ��─ Glass Card with Ghost Scan ─────────────────────── */
+/* ���─ Glass Card with Ghost Scan ─────────────────────── */
 
 .glass-card {
   background: rgba(19,22,30,0.72);
@@ -1904,7 +1904,7 @@ footer .wordmark-3d {
 
 /* ───────────────────────────────────��────────────────
    PREMIUM 3D EMBLEM EFFECTS
-   ──────────────────────────────────────────────────── */
+   ───���──────────────────────────────────────────────── */
 
 @keyframes gear-rotate {
   from { transform: rotate(0deg); }
@@ -2057,20 +2057,23 @@ footer .wordmark-3d {
 }
 
 /* ─────────────────────────────────────────────────────────
-   CHROME BRAND PILLS — Ultra-compact mobile brand tabs
+   CHROME BRAND PILLS — Small boxes on mobile, larger on desktop
    Steel mirror effect with responsive sizing
    ──────────────────────────────────────────────────────── */
 .chrome-brand-pill {
-  display: inline-block;
-  /* Ultra-compact on mobile, scales up on larger screens */
-  padding: 2px 5px;
-  font-size: 5.5px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  /* Mobile: small readable box */
+  padding: 3px 6px;
+  font-size: 8px;
   font-weight: 800;
   letter-spacing: 0.04em;
   text-transform: uppercase;
   text-decoration: none;
   white-space: nowrap;
-  border-radius: 3px;
+  border-radius: 4px;
+  line-height: 1.2;
   transition: all 0.2s ease;
   /* Chrome steel gradient background */
   background: linear-gradient(
@@ -2083,9 +2086,9 @@ footer .wordmark-3d {
     rgba(100,105,120,0.25) 90%,
     rgba(180,185,200,0.35) 100%
   );
-  color: rgba(200,205,220,0.85);
+  color: rgba(200,205,220,0.9);
   /* Chrome border effect */
-  border: 1px solid rgba(160,165,185,0.3);
+  border: 1px solid rgba(160,165,185,0.35);
   box-shadow:
     inset 0 1px 0 rgba(255,255,255,0.1),
     inset 0 -1px 0 rgba(0,0,0,0.2),
@@ -2110,8 +2113,8 @@ footer .wordmark-3d {
 /* Tablet breakpoint — slightly larger */
 @media (min-width: 640px) {
   .chrome-brand-pill {
-    padding: 3px 7px;
-    font-size: 6.5px;
+    padding: 4px 9px;
+    font-size: 9px;
     letter-spacing: 0.05em;
     border-radius: 4px;
   }
@@ -2121,7 +2124,7 @@ footer .wordmark-3d {
 @media (min-width: 768px) {
   .chrome-brand-pill {
     padding: 6px 12px;
-    font-size: 9px;
+    font-size: 10px;
     letter-spacing: 0.08em;
     border-radius: 5px;
   }
@@ -3507,7 +3510,7 @@ footer .wordmark-3d {
   border-left: 2px solid rgba(255, 255, 255, 0.3);
   padding-left: 12px;
 }
-/* ────────────────────────────────────────────────────
+/* ───────────────────────────────────────���────────────
    METAL ICONS — Brushed Steel Gradient Icons
    ──────────────────────────────────────────────────── */
 
