@@ -9,7 +9,7 @@ import { Slider } from '@/components/ui/slider'
 import { Checkbox } from '@/components/ui/checkbox'
 import Link from 'next/link'
 import Image from 'next/image'
-import { Heart, BarChart3, ShoppingCart, Search } from 'lucide-react'
+import { Heart, BarChart3, ShoppingCart, Search, Mail, MessageSquare, ArrowRight, Phone } from 'lucide-react'
 import { mockParts, conditions, warranties, locations } from '@/lib/mock-data'
 import { useFilterStore } from '@/lib/stores/filter-store'
 import { useCartStore } from '@/lib/stores/cart-store'
@@ -241,6 +241,20 @@ export default function PartsPage() {
               {filteredParts.length === 0 ? (
                 <div className="text-center py-12">
                   <p className="text-foreground/60">No parts found matching your filters</p>
+                  <div className="mt-6 space-y-3">
+                    <p className="text-sm text-foreground/70">Don&apos;t see the right part? Our team can source from additional yards not listed here.</p>
+                    <div className="flex flex-col sm:flex-row gap-3 justify-center">
+                      <a href="tel:8888185001" className="auapw-btn auapw-btn-green">
+                        <Phone className="w-4 h-4" />
+                        Call (888) 818-5001
+                      </a>
+                      <Link href="/quote" className="browse-btn">
+                        <MessageSquare className="w-4 h-4" />
+                        Get A Quote
+                        <ArrowRight className="w-4 h-4" />
+                      </Link>
+                    </div>
+                  </div>
                 </div>
               ) : (
                 <div className="grid grid-cols-1 gap-3 sm:gap-4" role="region" aria-label="Parts inventory">
@@ -265,10 +279,10 @@ export default function PartsPage() {
                           </div>
                           <p className="text-base sm:text-lg font-bold text-blue-400 mt-2">${part.price.toFixed(2)}</p>
                         </div>
-                        <div className="flex flex-row sm:flex-col gap-2 justify-start mt-2 sm:mt-0">
+                        <div className="flex flex-col sm:flex-row gap-2 justify-start mt-2 sm:mt-0 w-full sm:w-auto">
                           <button
                             onClick={() => handleAddToCart(part)}
-                            className="auapw-btn auapw-btn-blue auapw-btn-sm"
+                            className="auapw-btn auapw-btn-blue auapw-btn-sm flex-1 sm:flex-none"
                             aria-label="Add to cart"
                             title="Add to cart"
                           >
@@ -277,7 +291,7 @@ export default function PartsPage() {
                           </button>
                           <button
                             onClick={() => handleAddToWishlist(part)}
-                            className="auapw-btn auapw-btn-red auapw-btn-sm"
+                            className="auapw-btn auapw-btn-red auapw-btn-sm flex-1 sm:flex-none"
                             aria-label="Add to wishlist"
                             title="Add to wishlist"
                           >
@@ -285,16 +299,51 @@ export default function PartsPage() {
                           </button>
                           <button
                             onClick={() => handleAddToComparison(part)}
-                            className="auapw-btn auapw-btn-silver auapw-btn-sm"
+                            className="auapw-btn auapw-btn-silver auapw-btn-sm flex-1 sm:flex-none"
                             aria-label="Add to comparison"
                             title="Add to comparison"
                           >
                             <BarChart3 className="w-4 h-4" />
                           </button>
+                          <button
+                            onClick={() => window.location.href = '/quote'}
+                            className="get-quote-btn flex-1 sm:flex-none"
+                            aria-label="Get quote for this part"
+                            title="Get quote"
+                          >
+                            <Mail className="w-4 h-4" />
+                            <span>Quote</span>
+                          </button>
                         </div>
                       </div>
                     </article>
                   ))}
+                </div>
+              )}
+
+              {/* Upsell section */}
+              {filteredParts.length > 0 && (
+                <div className="mt-8 sm:mt-12 p-4 sm:p-6 rounded-lg bg-gradient-to-r from-blue-500/10 to-cyan-500/10 border border-blue-500/20">
+                  <div className="text-center space-y-4">
+                    <h3 className="text-lg sm:text-xl font-bold">Don&apos;t see the right part?</h3>
+                    <p className="text-sm text-foreground/70 max-w-2xl mx-auto">
+                      Our team can source from additional yards not listed here. Call or request a quote for immediate assistance.
+                    </p>
+                    <div className="flex flex-col sm:flex-row gap-3 justify-center">
+                      <a href="tel:8888185001" className="auapw-btn auapw-btn-green">
+                        <Phone className="w-4 h-4" />
+                        Call (888) 818-5001
+                      </a>
+                      <Link href="/quote" className="get-quote-btn">
+                        <Mail className="w-4 h-4" />
+                        GET QUOTE
+                      </Link>
+                      <Link href="/catalog" className="browse-btn">
+                        <ArrowRight className="w-4 h-4" />
+                        Browse Inventory
+                      </Link>
+                    </div>
+                  </div>
                 </div>
               )}
             </div>
