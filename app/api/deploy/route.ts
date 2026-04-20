@@ -4,18 +4,17 @@ import path from "node:path";
 import crypto from "node:crypto";
 import { VERCEL_API_URL } from "@/app/utils/constants";
 
-const token = process.env.ACCESS_TOKEN;
-const teamId = process.env.TEAM_ID;
-
-if (!token) {
-  throw new Error("ACCESS_TOKEN is required");
-}
-
-if (!teamId) {
-  throw new Error("TEAM_ID is required");
-}
-
 export async function POST(req: NextRequest) {
+  const token = process.env.ACCESS_TOKEN;
+  const teamId = process.env.TEAM_ID;
+
+  if (!token) {
+    return NextResponse.json({ error: "ACCESS_TOKEN is required" }, { status: 500 });
+  }
+  if (!teamId) {
+    return NextResponse.json({ error: "TEAM_ID is required" }, { status: 500 });
+  }
+
   try {
     const formData = await req.formData();
     const templateKey = formData.get("template") as string;
@@ -54,7 +53,7 @@ export async function POST(req: NextRequest) {
       `${VERCEL_API_URL}/v2/files?teamId=${teamId}`,
       {
         method: "POST",
-        body: localFileBuffer || file,
+        body: (localFileBuffer || file) as BodyInit,
         headers: {
           Authorization: `Bearer ${token}`,
           "Content-Type": "application/octet-stream",

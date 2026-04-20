@@ -1,41 +1,100 @@
-import './globals.css';
-import type { Metadata } from 'next';
-import { Geist, Geist_Mono } from 'next/font/google';
-import { SpeedInsights } from '@vercel/speed-insights/next';
-import Footer from './footer';
+import type { Metadata, Viewport } from "next"
+import { Analytics } from "@vercel/analytics/next"
+import {
+  Oxanium as V0_Font_Oxanium,
+  Source_Code_Pro as V0_Font_Source_Code_Pro,
+  Source_Serif_4 as V0_Font_Source_Serif_4,
+} from "next/font/google"
+import "./globals.css"
+
+const oxanium = V0_Font_Oxanium({
+  subsets: ["latin"],
+  weight: ["200", "300", "400", "500", "600", "700", "800"],
+  variable: "--font-oxanium",
+  display: "swap",
+})
+
+const sourceCodePro = V0_Font_Source_Code_Pro({
+  subsets: ["latin"],
+  weight: ["200", "300", "400", "500", "600", "700", "800", "900"],
+  variable: "--font-source-code-pro",
+  display: "swap",
+})
+
+const sourceSerif4 = V0_Font_Source_Serif_4({
+  subsets: ["latin"],
+  weight: ["200", "300", "400", "500", "600", "700", "800", "900"],
+  variable: "--font-source-serif-4",
+  display: "swap",
+})
 
 export const metadata: Metadata = {
-  title: 'Claim Deployments Demo',
-  description: 'Claiming deployments using Project transfer flow'
-};
+  metadataBase: new URL("https://auapw.org"),
+  title: {
+    default: "AUAPW - All Used Auto Parts Warehouse | Premium Quality Used Auto Parts",
+    template: "%s | AUAPW",
+  },
+  description:
+    "Find genuine OEM used engines, transmissions, and auto parts from 2,000+ verified salvage yards nationwide. Save up to 70% with free shipping and a 12-month warranty.",
+  keywords: [
+    "used auto parts",
+    "used engines",
+    "used transmissions",
+    "auto parts warehouse",
+    "salvage yards",
+    "OEM parts",
+    "AUAPW",
+  ],
+  openGraph: {
+    title: "AUAPW - All Used Auto Parts Warehouse",
+    description:
+      "Premium quality used auto parts from 2,000+ verified salvage yards. Free shipping. 12-month warranty.",
+    url: "https://auapw.org",
+    siteName: "AUAPW",
+    images: [{ url: "/images/auapw-logo.jpeg", width: 512, height: 512, alt: "AUAPW Logo" }],
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "AUAPW - All Used Auto Parts Warehouse",
+    description: "Premium quality used auto parts from 2,000+ verified salvage yards.",
+    images: ["/images/auapw-logo.jpeg"],
+  },
+  icons: {
+    icon: [
+      { url: "/icon-light-32x32.png", media: "(prefers-color-scheme: light)" },
+      { url: "/icon-dark-32x32.png", media: "(prefers-color-scheme: dark)" },
+      { url: "/icon.svg", type: "image/svg+xml" },
+    ],
+    apple: "/apple-icon.png",
+  },
+  generator: "v0.app",
+}
 
-const geistSans = Geist({
-  variable: '--font-geist-sans',
-  subsets: ['latin']
-});
-
-const geistMono = Geist_Mono({
-  variable: '--font-geist-mono',
-  subsets: ['latin']
-});
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#d53c3c" },
+    { media: "(prefers-color-scheme: dark)", color: "#1a1a1a" },
+  ],
+}
 
 export default function RootLayout({
-  children
+  children,
 }: Readonly<{
-  children: React.ReactNode;
+  children: React.ReactNode
 }>) {
   return (
     <html
       lang="en"
-      className={`${geistSans.className} ${geistMono.className} antialiased h-full`}
+      className={`dark ${oxanium.variable} ${sourceCodePro.variable} ${sourceSerif4.variable} bg-background`}
     >
-      <body className="flex min-h-full flex-col justify-between items-center sm:bg-neutral-50 sm:px-6">
-        <div className="flex-1 sm:flex-none bg-white rounded-xl sm:shadow-md overflow-hidden sm:border sm:border-neutral-200 p-6 sm:my-auto w-full max-w-2xl">
-          {children}
-        </div>
-        <Footer />
-        <SpeedInsights />
+      <body className="font-sans antialiased">
+        {children}
+        {process.env.NODE_ENV === "production" && <Analytics />}
       </body>
     </html>
-  );
+  )
 }
