@@ -3849,9 +3849,19 @@ footer .wordmark-3d {
   transform: translateY(0) scale(0.98);
 }
 
-/* Button text styling */
+/* Button text styling - ALWAYS white */
+.auapw-btn,
 .auapw-btn span {
+  color: #ffffff !important;
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+/* Button icons - ALWAYS white */
+.auapw-btn svg {
+  color: #ffffff !important;
+  stroke: #ffffff !important;
+  fill: none !important;
+  filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.4));
 }
 
 /* Subtext for two-line buttons like "Engine / In Stock" */
@@ -4861,7 +4871,17 @@ footer .wordmark-3d {
 .get-quote-btn svg {
   width: 1.25rem;
   height: 1.25rem;
-  filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.3));
+  color: #ffffff !important;
+  stroke: #ffffff !important;
+  fill: none !important;
+  filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.5));
+}
+
+/* Ensure text is always white */
+.get-quote-btn,
+.get-quote-btn span {
+  color: #ffffff !important;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
 }
 
 /* Browse Inventory button - simple dark pill */
@@ -4911,11 +4931,22 @@ footer .wordmark-3d {
 .browse-btn svg {
   width: 1rem;
   height: 1rem;
+  color: #ffffff !important;
+  stroke: #ffffff !important;
+  fill: none !important;
   transition: transform 0.25s ease-out;
+  filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.4));
 }
 
 .browse-btn:hover svg {
   transform: translateX(4px);
+}
+
+/* Ensure text is always white */
+.browse-btn,
+.browse-btn span {
+  color: #ffffff !important;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
 }
 
 /* v0 rebuild cache busting */
