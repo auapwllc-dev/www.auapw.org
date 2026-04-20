@@ -4126,12 +4126,88 @@ footer .wordmark-3d {
   text-shadow: 0 1px 3px rgba(0, 0, 0, 0.6) !important;
 }
 
-/* Dark mode: ensure all button text is white and visible */
-.dark .auapw-btn,
-.dark .auapw-btn span,
-.dark .get-quote-btn,
-.dark .browse-btn {
+/* ════════════════════════════════════════════════════════════
+   CATEGORY CARD BUTTONS — DARK MODE & LIGHT MODE HIGHLIGHTS
+   Desktop version with proper contrast in both themes
+   ════════════════════════════════════════════════════════════ */
+
+/* DARK MODE — GET QUOTE button */
+.dark a[href*="/quote?make"] {
   color: #ffffff !important;
+}
+
+.dark a[href*="/quote?make"] svg {
+  stroke: #ffffff !important;
+  color: #ffffff !important;
+}
+
+.dark a[href*="/quote?make"] span {
+  color: #ffffff !important;
+}
+
+/* DARK MODE — CALL button */
+.dark a[href^="tel:"][style*="2.25rem"] {
+  color: #ffffff !important;
+}
+
+.dark a[href^="tel:"][style*="2.25rem"] svg {
+  fill: #ffffff !important;
+  color: #ffffff !important;
+}
+
+/* LIGHT MODE — GET QUOTE button - stronger styling for visibility */
+.light a[href*="/quote?make"] {
+  color: #ffffff !important;
+  background: linear-gradient(180deg, rgba(35, 35, 45, 0.95) 0%, rgba(10, 10, 16, 1) 45%, rgba(8, 8, 14, 1) 55%, rgba(30, 30, 40, 0.9) 100%) !important;
+  box-shadow: 0 0 0 1.5px rgba(160, 160, 180, 0.7), inset 0 1px 3px rgba(255, 255, 255, 0.1), inset 0 -1px 3px rgba(0, 0, 0, 0.5), 0 3px 8px rgba(0, 0, 0, 0.6) !important;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.7) !important;
+}
+
+.light a[href*="/quote?make"] svg {
+  stroke: #ffffff !important;
+  color: #ffffff !important;
+}
+
+.light a[href*="/quote?make"] span {
+  color: #ffffff !important;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.7) !important;
+}
+
+/* LIGHT MODE — CALL button - darker chrome for light background */
+.light a[href^="tel:"][style*="2.25rem"] {
+  color: #ffffff !important;
+  background: linear-gradient(145deg, rgba(200, 200, 215, 0.9) 0%, rgba(140, 140, 160, 0.75) 15%, rgba(16, 16, 26, 1) 35%, rgba(8, 8, 14, 1) 55%, rgba(12, 12, 22, 1) 75%, rgba(130, 130, 150, 0.65) 90%, rgba(180, 180, 200, 0.85) 100%) !important;
+  box-shadow: 0 0 0 1.5px rgba(170, 170, 190, 0.8), inset 0 1.5px 4px rgba(255, 255, 255, 0.15), inset 0 -1.5px 4px rgba(0, 0, 0, 0.5), 0 3px 10px rgba(0, 0, 0, 0.6) !important;
+}
+
+.light a[href^="tel:"][style*="2.25rem"] svg {
+  fill: #ffffff !important;
+  color: #ffffff !important;
+  filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.7)) !important;
+}
+
+/* Hover states - both modes */
+.dark a[href*="/quote?make"]:hover,
+.light a[href*="/quote?make"]:hover,
+.dark a[href^="tel:"][style*="2.25rem"]:hover,
+.light a[href^="tel:"][style*="2.25rem"]:hover {
+  transform: translateY(-2px) !important;
+}
+
+.dark a[href*="/quote?make"]:hover {
+  box-shadow: 0 0 0 1.5px rgba(180, 180, 200, 0.7), inset 0 1px 3px rgba(255, 255, 255, 0.15), inset 0 -1px 3px rgba(0, 0, 0, 0.4), 0 5px 12px rgba(0, 0, 0, 0.6) !important;
+}
+
+.light a[href*="/quote?make"]:hover {
+  box-shadow: 0 0 0 1.5px rgba(180, 180, 200, 0.8), inset 0 1.5px 4px rgba(255, 255, 255, 0.2), inset 0 -1.5px 4px rgba(0, 0, 0, 0.4), 0 5px 12px rgba(0, 0, 0, 0.6) !important;
+}
+
+.dark a[href^="tel:"][style*="2.25rem"]:hover {
+  box-shadow: 0 0 0 1.5px rgba(200, 200, 220, 0.7), inset 0 2px 4px rgba(255, 255, 255, 0.2), inset 0 -2px 4px rgba(0, 0, 0, 0.3), 0 5px 12px rgba(0, 0, 0, 0.6) !important;
+}
+
+.light a[href^="tel:"][style*="2.25rem"]:hover {
+  box-shadow: 0 0 0 1.5px rgba(180, 180, 200, 0.8), inset 0 2px 4px rgba(255, 255, 255, 0.2), inset 0 -2px 4px rgba(0, 0, 0, 0.4), 0 5px 12px rgba(0, 0, 0, 0.6) !important;
 }
 
 .dark .auapw-btn svg,
