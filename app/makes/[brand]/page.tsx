@@ -6,7 +6,7 @@ import { Footer } from "@/components/footer"
 import { BrandLogosSection } from "@/components/brand-logos"
 import { CAR_MAKES, CAR_MODELS, BRAND_COLORS, PART_CATEGORIES, MODEL_YEAR_RANGES, getBrandLogoUrl, getBrandCarImageUrl, PHONE_SALES, PHONE_DISPLAY } from "@/lib/data"
 import { ALL_PARTS, getBrandContent } from "@/lib/parts-content"
-import { Search, Phone, ArrowLeft, Shield, Clock, Truck, Star, ChevronDown, Package, Undo2, Globe, Headphones } from "lucide-react"
+import { Search, Phone, ArrowLeft, Shield, Clock, Truck, Star, ChevronDown, Package, Undo2, Globe, Headphones, ChevronRight } from "lucide-react"
 import Link from "next/link"
 import Image from "next/image"
 import { useState, useMemo } from "react"
@@ -56,8 +56,11 @@ function BrandHeroBanner({ brand, color }: { brand: string; color: string }) {
           ))}
         </div>
         <div className="flex flex-wrap justify-center gap-3">
-          <Link href={`/search?make=${encodeURIComponent(brand)}`} className="inline-flex items-center gap-2 px-6 py-3 bg-white text-gray-900 font-bold rounded-lg hover:bg-white/90 transition-all shadow-lg">
-            <Search className="w-5 h-5" /> Search {brand} Parts
+          <Link href={`/makes/${brand.toLowerCase().replace(/\s+/g, "-")}/parts`} className="inline-flex items-center gap-2 px-6 py-3 bg-white text-gray-900 font-bold rounded-lg hover:bg-white/90 transition-all shadow-lg">
+            <Package className="w-5 h-5" /> Browse {brand} Parts
+          </Link>
+          <Link href={`/search?make=${encodeURIComponent(brand)}`} className="inline-flex items-center gap-2 px-6 py-3 bg-white/10 backdrop-blur-sm border border-white/30 text-white font-bold rounded-lg hover:bg-white/20 transition-all">
+            <Search className="w-5 h-5" /> Search Parts
           </Link>
           <a href={`tel:${PHONE_SALES.replace(/-/g, "")}`} className="inline-flex items-center gap-2 px-6 py-3 bg-white/10 backdrop-blur-sm border border-white/30 text-white font-bold rounded-lg hover:bg-white/20 transition-all">
             <Phone className="w-5 h-5" /> Call {PHONE_DISPLAY}
