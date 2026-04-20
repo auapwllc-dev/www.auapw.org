@@ -1,66 +1,48 @@
-import type { Metadata } from 'next'
-
+import type { Metadata, Viewport } from 'next'
+import { Roboto } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
+import { ThemeProvider } from '@/components/theme-provider'
+import { AuthProvider } from '@/lib/auth-context'
 import './globals.css'
-import { Oxanium as V0_Font_Oxanium, Source_Code_Pro as V0_Font_Source_Code_Pro, Source_Serif_4 as V0_Font_Source_Serif_4 } from 'next/font/google'
 
-// Initialize fonts
-const _oxanium = V0_Font_Oxanium({ subsets: ['latin'], weight: ["200","300","400","500","600","700","800"] })
-const _sourceCodePro = V0_Font_Source_Code_Pro({ subsets: ['latin'], weight: ["200","300","400","500","600","700","800","900"] })
-const _sourceSerif_4 = V0_Font_Source_Serif_4({ subsets: ['latin'], weight: ["200","300","400","500","600","700","800","900"] })
+const roboto = Roboto({
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "700", "900"],
+  variable: "--font-sans",
+  display: "swap",
+})
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://auapw.org'),
-  title: {
-    default: 'AUAPW — Quality Used Auto Parts | Engines, Transmissions & More',
-    template: '%s | AUAPW.ORG',
+  metadataBase: new URL('https://www.auapw.org'),
+  title: 'AUAPW.ORG - Quality Used Auto Parts | Engines, Transmissions & More',
+  description: 'AUAPW.ORG - Your trusted source for quality used auto parts. Shop engines, transmissions, body parts and more from 2,000+ verified salvage yards nationwide. Free shipping, 6-month warranty.',
+  generator: 'v0.dev',
+  alternates: {
+    canonical: 'https://www.auapw.org',
   },
-  description:
-    'AUAPW.ORG — Premium quality used auto parts. Shop engines, transmissions, body parts and more from 2,000+ verified salvage yards nationwide. Free shipping, 6-month warranty.',
-  keywords: [
-    'used auto parts',
-    'used engines',
-    'used transmissions',
-    'salvage yard',
-    'auto parts warehouse',
-    'OEM replacement parts',
-  ],
-  alternates: { canonical: 'https://auapw.org' },
   openGraph: {
     type: 'website',
-    url: 'https://auapw.org',
+    url: 'https://www.auapw.org',
     siteName: 'AUAPW.ORG',
-    title: 'AUAPW — Quality Used Auto Parts',
-    description:
-      'Premium quality used auto parts from 2,000+ verified salvage yards. Free shipping, 6-month warranty.',
-    images: [{ url: '/images/hero-warehouse.jpg', width: 1200, height: 630, alt: 'AUAPW warehouse' }],
+    title: 'AUAPW.ORG - Quality Used Auto Parts | Engines, Transmissions & More',
+    description: 'Your trusted source for quality used auto parts. Shop engines, transmissions, body parts and more from 2,000+ verified salvage yards nationwide.',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'AUAPW — Quality Used Auto Parts',
-    description:
-      'Premium quality used auto parts from 2,000+ verified salvage yards. Free shipping, 6-month warranty.',
-    images: ['/images/hero-warehouse.jpg'],
+    site: '@auapworg',
+    title: 'AUAPW.ORG - Quality Used Auto Parts',
+    description: 'Your trusted source for quality used auto parts. Engines, transmissions, body parts and more from 2,000+ verified salvage yards.',
   },
-  robots: { index: true, follow: true },
-  generator: 'v0.app',
-  icons: {
-    icon: [
-      {
-        url: '/icon-light-32x32.png',
-        media: '(prefers-color-scheme: light)',
-      },
-      {
-        url: '/icon-dark-32x32.png',
-        media: '(prefers-color-scheme: dark)',
-      },
-      {
-        url: '/icon.svg',
-        type: 'image/svg+xml',
-      },
-    ],
-    apple: '/apple-icon.png',
-  },
+}
+
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  minimumScale: 1,
+  maximumScale: 5,
+  userScalable: true,
+  viewportFit: 'cover',
+  themeColor: '#0d0f16',
 }
 
 export default function RootLayout({
@@ -68,11 +50,34 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode
 }>) {
+  // Script to prevent flash of wrong theme
+  const themeScript = `
+    (function() {
+      try {
+        var theme = localStorage.getItem('auapw-theme');
+        var resolved = theme;
+        if (!theme || theme === 'system') {
+          resolved = window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+        }
+        document.documentElement.classList.add(resolved);
+      } catch (e) {
+        document.documentElement.classList.add('dark');
+      }
+    })();
+  `
+
   return (
-    <html lang="en" className="bg-background">
-      <body className="font-sans antialiased">
-        {children}
-        {process.env.NODE_ENV === 'production' && <Analytics />}
+    <html lang="en" suppressHydrationWarning>
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: themeScript }} />
+      </head>
+      <body className={`${roboto.variable} font-sans antialiased bg-background text-foreground`}>
+        <AuthProvider>
+          <ThemeProvider>
+            {children}
+          </ThemeProvider>
+        </AuthProvider>
+        <Analytics />
       </body>
     </html>
   )

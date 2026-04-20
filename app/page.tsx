@@ -1,29 +1,29 @@
-import { SiteHeader } from "@/components/site-header"
-import { HeroSearch } from "@/components/hero-search"
-import { PartsGrid } from "@/components/parts-grid"
-import { MakesGrid } from "@/components/makes-grid"
-import { WhyChoose } from "@/components/why-choose"
-import { HowItWorks } from "@/components/how-it-works"
-import { Reviews } from "@/components/reviews"
-import { FaqSection } from "@/components/faq-section"
-import { CtaBanner } from "@/components/cta-banner"
-import { SiteFooter } from "@/components/site-footer"
+import { Navbar } from "@/components/navbar"
+import { Footer } from "@/components/footer"
+import { BrandLogosSection } from "@/components/brand-logos"
+import { HeroSection } from "@/components/home/hero-section"
+import { ContentSection } from "@/components/home/content-section"
+import { BrandValuesSection } from "@/components/home/brand-values-section"
+import { CategoriesSection } from "@/components/home/categories-section"
+import { ProcessSection } from "@/components/home/process-section"
+import { TestimonialsSection } from "@/components/home/testimonials-section"
+import { CTASection } from "@/components/home/cta-section"
 
-export default function Page() {
+export default function HomePage() {
   return (
-    <div className="min-h-screen flex flex-col bg-background text-foreground">
-      <SiteHeader />
-      <main className="flex-1">
-        <HeroSearch />
-        <PartsGrid />
-        <MakesGrid />
-        <WhyChoose />
-        <HowItWorks />
-        <Reviews />
-        <FaqSection />
-        <CtaBanner />
+    <>
+      <Navbar />
+      <main>
+        <HeroSection />
+        <ContentSection />
+        <BrandValuesSection />
+        <CategoriesSection />
+        <ProcessSection />
+        <TestimonialsSection />
+        <CTASection />
+        <BrandLogosSection />
       </main>
-      <SiteFooter />
-    </div>
+      <Footer />
+    </>
   )
 }
