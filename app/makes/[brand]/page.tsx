@@ -89,9 +89,9 @@ function ModelYearBadge({ model, yearRange }: { model: string; yearRange?: [numb
   const isActive = end === 0 || end >= currentYear
   return (
     <div className="flex items-center justify-between gap-2">
-      <span className="text-sm font-medium">{model}</span>
+      <span className="text-sm font-medium text-foreground">{model}</span>
       {label && (
-        <span className={`text-[10px] font-semibold px-2 py-0.5 rounded ${isActive ? "bg-green-500/10 text-green-400 border border-green-500/20" : "bg-muted text-muted-foreground"}`}>
+        <span className={`text-[10px] font-semibold px-2 py-0.5 rounded ${isActive ? "bg-green-500/10 text-green-600 dark:text-green-400 border border-green-500/20" : "bg-muted text-muted-foreground"}`}>
           {label}
         </span>
       )}
@@ -211,7 +211,7 @@ export default function BrandPage() {
 
         {/* Brand Introduction - like old site */}
         <section className="mx-auto max-w-7xl px-6 pb-12">
-          <h2 className="text-2xl md:text-3xl font-bold mb-6">{brand} Used Auto Parts</h2>
+          <h2 className="text-2xl md:text-3xl font-bold mb-6 text-foreground">{brand} Used Auto Parts</h2>
           <div className="prose prose-invert max-w-none">
             <p className="text-sm text-muted-foreground leading-relaxed mb-4">{brandContent.intro}</p>
             <p className="text-sm text-muted-foreground leading-relaxed mb-4">{brandContent.detailedDescription}</p>
@@ -227,7 +227,7 @@ export default function BrandPage() {
             <div className="w-8 h-px bg-gradient-to-r from-transparent to-primary/50" />
             <span className="text-[0.65rem] font-bold tracking-[0.3em] uppercase text-primary">{brand} Parts Catalog</span>
           </div>
-          <h2 className="text-2xl font-bold mb-2">{brand} Available Parts</h2>
+          <h2 className="text-2xl font-bold mb-2 text-foreground">{brand} Available Parts</h2>
           <p className="text-sm text-muted-foreground mb-8 max-w-xl">{brandContent.partsIntro}</p>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
@@ -279,7 +279,7 @@ export default function BrandPage() {
             <div className="w-8 h-px bg-gradient-to-r from-transparent to-primary/50" />
             <span className="text-[0.65rem] font-bold tracking-[0.3em] uppercase text-primary">{models.length} Models Available</span>
           </div>
-          <h2 className="text-2xl font-bold mb-2">Available {brand} Models</h2>
+          <h2 className="text-2xl font-bold mb-2 text-foreground">Available {brand} Models</h2>
           <p className="text-sm text-muted-foreground mb-8 max-w-xl">
             Browse used OEM parts for every {brand} model ever produced. Year ranges shown indicate production history.
           </p>
@@ -300,12 +300,12 @@ export default function BrandPage() {
 
         {/* Parts Categories */}
         <section className="mx-auto max-w-7xl px-6 pb-12">
-          <h2 className="text-2xl font-bold mb-6">{brand} Parts by Category</h2>
+          <h2 className="text-2xl font-bold mb-6 text-foreground">{brand} Parts by Category</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
             {PART_CATEGORIES.map((cat) => (
-              <div key={cat.id} className="p-5 rounded-xl border border-border/50 bg-card hover:bg-card/80 transition-all flex flex-col gap-3">
+              <div key={cat.id} className="p-5 rounded-xl border border-border bg-card hover:bg-muted transition-all flex flex-col gap-3">
                 <Link href={`/parts/${cat.id}`} className="hover:text-primary transition-colors">
-                  <h3 className="text-lg font-bold">{cat.label}</h3>
+                  <h3 className="text-lg font-bold text-foreground">{cat.label}</h3>
                 </Link>
                 <p className="text-sm text-muted-foreground">{cat.parts.length} part types available</p>
                 <div className="flex flex-wrap gap-1">
@@ -347,38 +347,38 @@ export default function BrandPage() {
         {/* How to Order / Shipping / Warranty / Return - like old site */}
         <section className="mx-auto max-w-7xl px-6 pb-12">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div className="p-6 rounded-xl border border-border/50 bg-card">
+            <div className="p-6 rounded-xl border border-border bg-card">
               <div className="flex items-center gap-3 mb-4">
                 <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center"><Search className="w-5 h-5 text-primary" /></div>
-                <h3 className="text-lg font-bold">How do I order a used part?</h3>
+                <h3 className="text-lg font-bold text-foreground">How do I order a used part?</h3>
               </div>
               <p className="text-sm text-muted-foreground leading-relaxed">{brandContent.orderingProcess}</p>
             </div>
-            <div className="p-6 rounded-xl border border-border/50 bg-card">
+            <div className="p-6 rounded-xl border border-border bg-card">
               <div className="flex items-center gap-3 mb-4">
                 <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center"><Truck className="w-5 h-5 text-primary" /></div>
-                <h3 className="text-lg font-bold">Free Shipping in the USA</h3>
+                <h3 className="text-lg font-bold text-foreground">Free Shipping in the USA</h3>
               </div>
               <p className="text-sm text-muted-foreground leading-relaxed">{brandContent.shippingInfo}</p>
             </div>
-            <div className="p-6 rounded-xl border border-border/50 bg-card">
+            <div className="p-6 rounded-xl border border-border bg-card">
               <div className="flex items-center gap-3 mb-4">
                 <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center"><Shield className="w-5 h-5 text-primary" /></div>
-                <h3 className="text-lg font-bold">Do we provide a warranty?</h3>
+                <h3 className="text-lg font-bold text-foreground">Do we provide a warranty?</h3>
               </div>
               <p className="text-sm text-muted-foreground leading-relaxed">{brandContent.warrantyInfo}</p>
             </div>
-            <div className="p-6 rounded-xl border border-border/50 bg-card">
+            <div className="p-6 rounded-xl border border-border bg-card">
               <div className="flex items-center gap-3 mb-4">
                 <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center"><Undo2 className="w-5 h-5 text-primary" /></div>
-                <h3 className="text-lg font-bold">Can I return the order?</h3>
+                <h3 className="text-lg font-bold text-foreground">Can I return the order?</h3>
               </div>
               <p className="text-sm text-muted-foreground leading-relaxed">{brandContent.returnPolicy}</p>
             </div>
-            <div className="p-6 rounded-xl border border-border/50 bg-card md:col-span-2">
+            <div className="p-6 rounded-xl border border-border bg-card md:col-span-2">
               <div className="flex items-center gap-3 mb-4">
                 <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center"><Globe className="w-5 h-5 text-primary" /></div>
-                <h3 className="text-lg font-bold">Is it better to buy online?</h3>
+                <h3 className="text-lg font-bold text-foreground">Is it better to buy online?</h3>
               </div>
               <p className="text-sm text-muted-foreground leading-relaxed">{brandContent.whyBuyOnline}</p>
             </div>
@@ -391,7 +391,7 @@ export default function BrandPage() {
             <div className="w-8 h-px bg-gradient-to-r from-transparent to-primary/50" />
             <span className="text-[0.65rem] font-bold tracking-[0.3em] uppercase text-primary">Frequently Asked Questions</span>
           </div>
-          <h2 className="text-2xl font-bold mb-2">Used {brand} Parts FAQ</h2>
+          <h2 className="text-2xl font-bold mb-2 text-foreground">Used {brand} Parts FAQ</h2>
           <p className="text-sm text-muted-foreground mb-8 max-w-xl">
             Everything you need to know about buying used {brand} auto parts from our nationwide network.
           </p>
