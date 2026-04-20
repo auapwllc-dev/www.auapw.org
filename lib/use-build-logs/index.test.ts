@@ -36,7 +36,7 @@ describe("getLogWithType", () => {
     expect(getLogWithType(log, undefined)?.level).toBe("warning");
   });
 
-  it("does not treat deprecationwarning as warning", () => {
+  it("does not treat DeprecationWarning as warning", () => {
     const log = makeRawLog("DeprecationWarning: this API is deprecated");
     expect(getLogWithType(log, undefined)?.level).toBeUndefined();
   });
