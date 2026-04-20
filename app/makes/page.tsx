@@ -20,8 +20,8 @@ function MakeLogo({ brand, size = "sm" }: { brand: string; size?: "sm" | "lg" })
   const logoUrl = getBrandLogoUrl(brand)
   const color = BRAND_COLORS[brand] || "#333"
   const initials = getInitials(brand)
-  const w = size === "lg" ? "w-[140px] h-[84px]" : "w-[96px] h-[56px] sm:w-[120px] sm:h-[72px] md:w-[140px] md:h-[80px]"
-  const textSize = size === "lg" ? "text-xl" : "text-[11px] sm:text-[13px] md:text-[14px]"
+  const w = size === "lg" ? "w-[120px] h-[72px]" : "w-[80px] h-[48px] sm:w-[100px] sm:h-[60px]"
+  const textSize = size === "lg" ? "text-lg" : "text-[8px] sm:text-[11px]"
 
   return (
     <div className={`${w} luxury-logo-tile flex items-center justify-center rounded-lg shrink-0 overflow-hidden`}>
@@ -94,7 +94,7 @@ export default function MakesPage() {
           </div>
 
           {/* Brands Grid */}
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-3 sm:gap-4 mb-8 sm:mb-12" role="tabpanel">
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-2 sm:gap-2.5 mb-8 sm:mb-12" role="tabpanel">
             {filteredMakes.map((make) => {
               const isActive = selectedMake === make
               return (
@@ -109,19 +109,19 @@ export default function MakesPage() {
                       setSelectedMake(make)
                     }
                   }}
-                  className={`group relative flex flex-col items-center gap-3 sm:gap-3.5 py-4 px-3 sm:py-5 sm:px-4 rounded-xl border transition-all cursor-pointer ${
+                  className={`group relative flex flex-col items-center gap-2.5 py-3.5 px-2.5 rounded-lg border transition-all cursor-pointer ${
                     isActive
-                      ? "bg-primary/15 border-primary/60 -translate-y-1 shadow-[0_8px_32px_rgba(0,0,0,0.25)]"
-                      : "bg-card border-border/40 hover:-translate-y-0.5 hover:border-primary/40 hover:shadow-[0_4px_20px_rgba(0,0,0,0.15)]"
+                      ? "bg-primary/15 border-primary/60 -translate-y-1 shadow-[0_8px_32px_rgba(0,0,0,0.2)]"
+                      : "bg-card border-border/40 hover:-translate-y-0.5 hover:border-primary/30"
                   }`}
                 >
                   <div className="relative w-full">
                     <MakeLogo brand={make} />
                     <div className="absolute inset-0 flex items-center justify-center bg-black/0 group-hover:bg-black/40 rounded-md transition-all duration-200">
-                      <Eye className="w-4 h-4 sm:w-5 sm:h-5 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-200 drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)]" />
+                      <Eye className="w-3.5 h-3.5 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-200" />
                     </div>
                   </div>
-                  <span className={`text-[11px] sm:text-[12px] md:text-[13px] font-semibold text-center leading-tight tracking-wide uppercase truncate w-full ${isActive ? "text-foreground" : "text-muted-foreground group-hover:text-foreground"} transition-colors`}>
+                  <span className={`text-[7px] sm:text-[9px] font-semibold text-center leading-tight truncate w-full text-center ${isActive ? "text-foreground" : "text-muted-foreground"}`}>
                     {make}
                   </span>
                 </Link>
