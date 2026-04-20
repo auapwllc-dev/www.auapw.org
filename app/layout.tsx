@@ -6,11 +6,15 @@ import { AuthProvider } from '@/lib/auth-context'
 import { MobileThemeFab } from '@/components/mobile-theme-fab'
 import './globals.css'
 
+// Enable ISR with 60 second revalidation for all pages
+export const revalidate = 60
+
 const roboto = Roboto({
   subsets: ["latin"],
   weight: ["300", "400", "500", "700", "900"],
   variable: "--font-sans",
   display: "swap",
+  preload: true,
 })
 
 export const metadata: Metadata = {
@@ -77,11 +81,12 @@ export const metadata: Metadata = {
 export const viewport: Viewport = {
   width: 'device-width',
   initialScale: 1,
-  minimumScale: 1,
   maximumScale: 5,
   userScalable: true,
-  viewportFit: 'cover',
-  themeColor: '#0d0f16',
+  themeColor: [
+    { media: '(prefers-color-scheme: light)', color: '#f4f5f7' },
+    { media: '(prefers-color-scheme: dark)', color: '#0f1117' },
+  ],
 }
 
 export default function RootLayout({
