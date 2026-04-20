@@ -2,7 +2,7 @@
 
 import Link from "next/link"
 import { Menu, X, Zap, ShoppingCart, Heart, Home, ChevronDown, Globe, MessageSquare, Phone } from "lucide-react"
-import { useState } from "react"
+import { useState, useEffect, useRef } from "react"
 import { BrandWordmark } from "@/components/brand-wordmark"
 import { Logo } from "@/components/logo"
 import { ThemeToggle } from "@/components/theme-toggle"
@@ -19,8 +19,33 @@ import {
 
 export function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false)
+  const [hidden, setHidden] = useState(false)
+  const lastScrollY = useRef(0)
   const cartItems = useCartStore((state) => state.getTotalItems())
   const wishlistCount = useWishlistStore((state) => state.getCount())
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentY = window.scrollY
+      const diff = currentY - lastScrollY.current
+      // Only hide on desktop scroll down; always visible on mobile
+      const isMobile = window.innerWidth < 640
+      if (isMobile) {
+        setHidden(false)
+      } else if (currentY < 80) {
+        setHidden(false)
+      } else if (diff > 4) {
+        setHidden(true)
+        if (mobileOpen) setMobileOpen(false)
+      } else if (diff < -4) {
+        setHidden(false)
+      }
+      lastScrollY.current = currentY
+    }
+
+    window.addEventListener("scroll", handleScroll, { passive: true })
+    return () => window.removeEventListener("scroll", handleScroll)
+  }, [mobileOpen])
 
   const navItems = [
     { label: "Home", href: "/", icon: Home },
@@ -58,7 +83,10 @@ export function Navbar() {
   ]
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50">
+    <nav
+      className="fixed top-0 left-0 right-0 z-50 transition-transform duration-300 ease-in-out"
+      style={{ transform: hidden ? "translateY(-110%)" : "translateY(0)" }}
+    >
       {/* ── Animated premium banner with scrolling text ────────────────────────── */}
       <div className="header-boss-banner">
         <div className="header-boss-banner-scroll">
@@ -89,14 +117,21 @@ export function Navbar() {
       <div className="header-boss-container">
         <div className="header-boss-bg" />
 
-        <div className="mx-auto w-full px-3 sm:px-4 md:px-6 lg:px-8 flex items-center h-full justify-between gap-2 sm:gap-4 relative z-10">
+        <div className="mx-auto w-full px-2 sm:px-4 md:px-6 lg:px-8 flex items-center h-full justify-between gap-1 sm:gap-4 relative z-10">
 
-          {/* Logo + Wordmark — premium left anchor */}
-          <Link href="/" className="flex items-center gap-4 shrink-0 group header-boss-logo-group">
-            <div className="header-boss-logo-ring">
-              <Logo size="md" priority showGlow />
+          {/* Logo + Wordmark */}
+          <Link href="/" className="flex items-center gap-1 sm:gap-4 shrink-0 group header-boss-logo-group min-w-0">
+            {/* Single responsive logo */}
+            <div className="header-boss-logo-ring w-7 h-7 sm:w-12 sm:h-12 flex items-center justify-center flex-shrink-0">
+              <Logo size="sm" priority showGlow />
             </div>
-            <div className="flex flex-col justify-center pt-[2px]">
+            {/* Mobile: tiny bold brand name */}
+            <div className="flex flex-col justify-center sm:hidden min-w-0">
+              <span className="wordmark-3d leading-none" style={{ fontSize: '0.55rem', letterSpacing: '0.05em' }}>𝐀𝐔𝐀𝐏𝐖.𝑶𝑹𝑮</span>
+              <span className="wordmark-sub font-bold uppercase leading-none mt-px" style={{ fontSize: '0.3rem', letterSpacing: '0.12em' }}>Auto Parts</span>
+            </div>
+            {/* Desktop: full wordmark */}
+            <div className="hidden sm:flex flex-col justify-center pt-[2px]">
               <BrandWordmark size="nav" showSubline />
             </div>
           </Link>
@@ -176,13 +211,13 @@ export function Navbar() {
           </div>
 
           {/* Right — CTA, phone, menu */}
-          <div className="flex items-center gap-3 shrink-0">
-            {/* Theme toggle */}
+          <div className="flex items-center gap-1 sm:gap-3 shrink-0">
+            {/* Theme toggle — desktop only */}
             <div className="hidden sm:block">
               <ThemeToggle />
             </div>
 
-            {/* Cart indicator */}
+            {/* Cart indicator — desktop only */}
             <Link href="/cart" className="relative hidden sm:flex items-center justify-center w-9 h-9 rounded-lg hover:bg-white/10 transition-colors" title="Cart">
               <ShoppingCart className="w-5 h-5 text-foreground" />
               {cartItems > 0 && (
@@ -192,30 +227,36 @@ export function Navbar() {
               )}
             </Link>
 
-            {/* Desktop: Premium GET QUOTE button (hidden on mobile) */}
+            {/* Desktop: FREE QUOTE button */}
             <Link href="/quote" className="hidden sm:flex auapw-btn auapw-btn-amber auapw-btn-sm">
               <MessageSquare className="w-4 h-4" />
               <span>Free Quote</span>
             </Link>
 
-            {/* Mobile: Phone and Email icons (shown only on mobile) */}
-            <div className="flex items-center gap-2 sm:hidden">
-              <a href="tel:8888185001" className="flex items-center justify-center w-9 h-9 rounded-lg bg-green-500/20 border border-green-500/40 hover:bg-green-500/30 transition-colors">
-                <Phone className="w-4 h-4 text-green-400" />
-              </a>
-              <a href="mailto:support@auapw.org" className="flex items-center justify-center w-9 h-9 rounded-lg bg-teal-500/20 border border-teal-500/40 hover:bg-teal-500/30 transition-colors">
-                <MessageSquare className="w-4 h-4 text-teal-400" />
-              </a>
-            </div>
-
-            {/* Mobile menu toggle - larger touch target for accessibility */}
+            {/* Mobile menu toggle */}
             <button
-              className="lg:hidden flex items-center justify-center w-10 h-10 rounded-lg border border-white/20 bg-white/5 hover:bg-white/10 active:scale-95 transition-all"
+              className="lg:hidden flex flex-col items-center justify-center rounded-md border border-white/25 bg-white/8 hover:bg-white/15 active:scale-90 transition-all duration-150 cursor-pointer gap-[4px] px-1.5"
+              style={{ width: '1.75rem', height: '1.75rem' }}
               onClick={() => setMobileOpen(!mobileOpen)}
+              onKeyDown={(e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                  e.preventDefault()
+                  setMobileOpen(!mobileOpen)
+                }
+              }}
               aria-label={mobileOpen ? "Close menu" : "Open menu"}
               aria-expanded={mobileOpen}
+              type="button"
             >
-              {mobileOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+              {mobileOpen ? (
+                <X className="w-3 h-3 text-white" />
+              ) : (
+                <>
+                  <span className="w-full h-[1.5px] bg-white rounded-full" />
+                  <span className="w-3/4 h-[1.5px] bg-white/70 rounded-full" />
+                  <span className="w-full h-[1.5px] bg-white rounded-full" />
+                </>
+              )}
             </button>
           </div>
         </div>
@@ -227,92 +268,148 @@ export function Navbar() {
       {/* ── Mobile drawer ──────────────────────── */}
       {mobileOpen && (
         <>
-          {/* Backdrop overlay */}
-          <div 
-            className="fixed inset-0 bg-black/60 backdrop-blur-sm z-40 lg:hidden"
+          {/* Backdrop */}
+          <div
+            className="fixed inset-0 bg-black/75 lg:hidden"
             onClick={() => setMobileOpen(false)}
+            style={{ zIndex: 9998 }}
             aria-hidden="true"
           />
-          <div className="header-boss-mobile-drawer z-50">
-            <div className="px-4 py-4 flex flex-col gap-2 max-h-[80vh] overflow-y-auto">
-              {/* Main Navigation */}
+
+          <div
+            className="fixed left-0 right-0 lg:hidden"
+            style={{
+              top: '92px',
+              zIndex: 9999,
+              maxHeight: 'calc(100vh - 92px)',
+              overflowY: 'auto',
+              background: 'rgba(8,10,16,0.97)',
+              backdropFilter: 'blur(32px)',
+              WebkitBackdropFilter: 'blur(32px)',
+              borderBottom: '1px solid rgba(255,255,255,0.08)',
+            }}
+          >
+            <div className="px-3 py-3 flex flex-col gap-2.5">
+
+              {/* ── Quick-contact strip ── */}
               <div className="grid grid-cols-2 gap-2">
-                {navItems.map((item) => (
-                  <Link
-                    key={item.href}
-                    href={item.href}
-                    onClick={() => setMobileOpen(false)}
-                    className="flex items-center gap-2 px-3 py-3 rounded-lg bg-white/5 hover:bg-white/10 active:bg-white/15 transition-colors text-sm font-medium"
-                  >
-                    {item.icon && <item.icon className="w-4 h-4 opacity-70" />}
-                    {item.label}
-                  </Link>
-                ))}
-              </div>
-
-              <div className="h-px bg-white/10 my-2" />
-
-              {/* Parts Categories Section */}
-              <div className="flex items-center gap-2 px-2">
-                <span className="text-xs font-bold tracking-wider uppercase text-primary">Parts by Category</span>
-              </div>
-              <div className="grid grid-cols-3 gap-1.5">
-                {partsCategories.map((cat) => (
-                  <Link
-                    key={cat.href}
-                    href={cat.href}
-                    onClick={() => setMobileOpen(false)}
-                    className="px-2 py-2 text-xs rounded-md bg-primary/10 hover:bg-primary/20 active:bg-primary/30 transition-colors truncate text-center text-primary"
-                  >
-                    {cat.label}
-                  </Link>
-                ))}
-              </div>
-
-              <div className="h-px bg-white/10 my-2" />
-
-              {/* Review All Website Section */}
-              <div className="flex items-center gap-2 px-2">
-                <Globe className="w-4 h-4 text-blue-400" />
-                <span className="text-xs font-bold tracking-wider uppercase text-blue-400">All Pages</span>
-              </div>
-              <div className="grid grid-cols-3 gap-1.5">
-                {allPages.map((page) => (
-                  <Link
-                    key={page.href}
-                    href={page.href}
-                    onClick={() => setMobileOpen(false)}
-                    className="px-2 py-2 text-xs rounded-md bg-white/5 hover:bg-white/10 active:bg-white/15 transition-colors truncate text-center"
-                  >
-                    {page.label}
-                  </Link>
-                ))}
-              </div>
-
-              <div className="h-px bg-white/10 my-2" />
-
-              {/* Quick actions + Theme */}
-              <div className="grid grid-cols-3 gap-2">
-                <Link href="/cart" onClick={() => setMobileOpen(false)} className="flex items-center justify-center gap-1.5 px-3 py-2.5 rounded-lg bg-blue-500/10 text-blue-400 text-xs font-medium">
-                  <ShoppingCart className="w-4 h-4" />
-                  {cartItems > 0 ? cartItems : "Cart"}
+                <a
+                  href="tel:8888185001"
+                  className="flex items-center justify-center gap-2 py-2.5 rounded-lg bg-green-500/15 border border-green-500/30 hover:bg-green-500/25 active:scale-95 transition-all"
+                >
+                  <Phone className="w-4 h-4 text-green-400 shrink-0" />
+                  <span className="text-xs font-black text-green-300 tracking-wide">(888) 818-5001</span>
+                </a>
+                <Link
+                  href="/quote"
+                  onClick={() => setMobileOpen(false)}
+                  className="flex items-center justify-center gap-2 py-2.5 rounded-lg bg-amber-500/15 border border-amber-500/30 hover:bg-amber-500/25 active:scale-95 transition-all"
+                >
+                  <MessageSquare className="w-4 h-4 text-amber-400 shrink-0" />
+                  <span className="text-xs font-black text-amber-300 tracking-wide">FREE QUOTE</span>
                 </Link>
-                <div className="flex items-center justify-center px-3 py-2.5 rounded-lg bg-white/5">
+              </div>
+
+              {/* ── Divider ── */}
+              <div className="h-px bg-white/8" />
+
+              {/* ── Main nav ── */}
+              <div>
+                <p className="text-[9px] font-black tracking-[0.2em] uppercase text-white/30 px-1 mb-1.5">Navigate</p>
+                <div className="grid grid-cols-2 gap-1.5">
+                  {navItems.map((item) => (
+                    <Link
+                      key={item.href}
+                      href={item.href}
+                      onClick={() => setMobileOpen(false)}
+                      className="flex items-center gap-2 px-3 py-2.5 rounded-lg bg-white/5 hover:bg-white/10 active:bg-white/15 transition-colors"
+                    >
+                      {item.icon && <item.icon className="w-3.5 h-3.5 text-white/50 shrink-0" />}
+                      <span className="text-xs font-semibold text-white/80">{item.label}</span>
+                    </Link>
+                  ))}
+                </div>
+              </div>
+
+              {/* ── Divider ── */}
+              <div className="h-px bg-white/8" />
+
+              {/* ── Parts categories ── */}
+              <div>
+                <p className="text-[9px] font-black tracking-[0.2em] uppercase text-primary/60 px-1 mb-1.5">Parts by Category</p>
+                <div className="grid grid-cols-3 gap-1">
+                  {partsCategories.map((cat) => (
+                    <Link
+                      key={cat.href}
+                      href={cat.href}
+                      onClick={() => setMobileOpen(false)}
+                      className="px-1.5 py-2 text-[10px] font-semibold rounded-md bg-primary/10 hover:bg-primary/20 active:bg-primary/30 transition-colors truncate text-center text-primary/90 leading-tight"
+                    >
+                      {cat.label}
+                    </Link>
+                  ))}
+                </div>
+              </div>
+
+              {/* ── Divider ── */}
+              <div className="h-px bg-white/8" />
+
+              {/* ── All pages ── */}
+              <div>
+                <p className="text-[9px] font-black tracking-[0.2em] uppercase text-blue-400/60 px-1 mb-1.5 flex items-center gap-1.5">
+                  <Globe className="w-3 h-3" />
+                  All Pages
+                </p>
+                <div className="grid grid-cols-3 gap-1">
+                  {allPages.map((page) => (
+                    <Link
+                      key={page.href}
+                      href={page.href}
+                      onClick={() => setMobileOpen(false)}
+                      className="px-1.5 py-2 text-[10px] font-medium rounded-md bg-white/5 hover:bg-white/10 active:bg-white/15 transition-colors truncate text-center text-white/60"
+                    >
+                      {page.label}
+                    </Link>
+                  ))}
+                </div>
+              </div>
+
+              {/* ── Divider ── */}
+              <div className="h-px bg-white/8" />
+
+              {/* ── Cart / Wishlist / Theme ── */}
+              <div className="grid grid-cols-3 gap-1.5 pb-1">
+                <Link
+                  href="/cart"
+                  onClick={() => setMobileOpen(false)}
+                  className="relative flex items-center justify-center gap-1.5 py-2.5 rounded-lg bg-blue-500/10 border border-blue-500/20 hover:bg-blue-500/20 active:scale-95 transition-all"
+                >
+                  <ShoppingCart className="w-4 h-4 text-blue-400" />
+                  <span className="text-[10px] font-bold text-blue-300">Cart</span>
+                  {cartItems > 0 && (
+                    <span className="absolute -top-1 -right-1 w-4 h-4 rounded-full bg-blue-500 text-white text-[9px] font-black flex items-center justify-center">
+                      {cartItems}
+                    </span>
+                  )}
+                </Link>
+                <Link
+                  href="/wishlist"
+                  onClick={() => setMobileOpen(false)}
+                  className="relative flex items-center justify-center gap-1.5 py-2.5 rounded-lg bg-pink-500/10 border border-pink-500/20 hover:bg-pink-500/20 active:scale-95 transition-all"
+                >
+                  <Heart className="w-4 h-4 text-pink-400" />
+                  <span className="text-[10px] font-bold text-pink-300">Saved</span>
+                  {wishlistCount > 0 && (
+                    <span className="absolute -top-1 -right-1 w-4 h-4 rounded-full bg-pink-500 text-white text-[9px] font-black flex items-center justify-center">
+                      {wishlistCount}
+                    </span>
+                  )}
+                </Link>
+                <div className="flex items-center justify-center py-2.5 rounded-lg bg-white/5 border border-white/10">
                   <ThemeToggle />
                 </div>
               </div>
 
-              {/* Contact + CTA */}
-              <div className="grid grid-cols-2 gap-2 mt-1">
-                <a href="tel:8888185001" className="auapw-btn auapw-btn-green auapw-btn-sm">
-                  <Phone className="w-4 h-4" />
-                  <span>(888) 818-5001</span>
-                </a>
-                <Link href="/quote" onClick={() => setMobileOpen(false)} className="auapw-btn auapw-btn-amber auapw-btn-sm">
-                  <MessageSquare className="w-4 h-4" />
-                  <span>Free Quote</span>
-                </Link>
-              </div>
             </div>
           </div>
         </>

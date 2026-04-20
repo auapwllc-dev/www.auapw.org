@@ -11,19 +11,22 @@ export function MakesPillsSection() {
               <div className="w-8 h-px bg-gradient-to-r from-transparent to-primary/50" />
               <span className="text-[0.65rem] font-bold tracking-[0.3em] uppercase text-primary">All Makes & Models</span>
             </div>
-            <h2 className="font-serif text-[clamp(1.75rem,4vw,3rem)] font-bold text-foreground text-balance">Shop by Brand</h2>
+            <div>
+              <h2 className="font-serif text-[clamp(1.75rem,4vw,3rem)] font-bold text-foreground text-balance mb-1">Shop by Brand</h2>
+              <p className="text-muted-foreground text-xs sm:text-sm font-semibold tracking-tight">Quality used parts for every make — {CAR_MAKES.length} brands, 2,000+ verified yards</p>
+            </div>
           </div>
           <Link href="/makes" className="inline-flex items-center justify-center gap-2 px-5 py-3 text-[0.68rem] font-bold tracking-[0.18em] uppercase border border-border/60 text-muted-foreground rounded-sm hover:border-foreground/50 hover:text-foreground transition-all shrink-0">
             View All Makes &rarr;
           </Link>
         </div>
-        <div className="flex flex-wrap gap-2">
+        <div className="flex flex-wrap gap-[3px] sm:gap-1 md:gap-1.5">
           {CAR_MAKES.map((make) => (
             <Link
               key={make}
-              href="/makes"
-              className="inline-block px-4 py-2.5 border border-border/50 bg-gradient-to-br from-foreground/[0.08] to-foreground/[0.03] text-[11px] font-semibold tracking-[0.1em] uppercase text-muted-foreground rounded-sm transition-all hover:bg-foreground/10 hover:border-primary/40 hover:text-foreground"
-              style={{ boxShadow: "inset 0 1px 0 rgba(255,255,255,.06)" }}
+              href={`/makes/${encodeURIComponent(make.toLowerCase().replace(/\s+/g, "-"))}`}
+              className="chrome-brand-pill"
+              title={`${make} Parts`}
             >
               {make}
             </Link>

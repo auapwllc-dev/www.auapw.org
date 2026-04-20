@@ -2,9 +2,8 @@
 
 import { useComparisonStore } from '@/lib/stores/comparison-store'
 import { useCartStore } from '@/lib/stores/cart-store'
-import { Button } from '@/components/ui/button'
 import Link from 'next/link'
-import { Trash2, Scale } from 'lucide-react'
+import { Trash2, Scale, ShoppingCart } from 'lucide-react'
 import { Navbar } from '@/components/navbar'
 import { Footer } from '@/components/footer'
 
@@ -76,8 +75,8 @@ export default function ComparisonPage() {
               <Scale className="w-16 h-16 mb-4 opacity-40" />
               <h2 className="text-2xl font-semibold mb-2">No parts to compare</h2>
               <p className="text-foreground/60 mb-6">Add parts from inventory to start comparing</p>
-              <Link href="/parts">
-                <Button size="lg">Browse Parts</Button>
+              <Link href="/parts" className="auapw-btn auapw-btn-blue auapw-btn-lg">
+                Browse Parts
               </Link>
             </div>
           ) : (
@@ -116,10 +115,17 @@ export default function ComparisonPage() {
                           <div className="flex gap-2">
                             <button
                               onClick={() => handleAddToCart(item)}
-                              className="flex-1 flex items-center justify-center gap-2 px-3 py-2 bg-blue-600 hover:bg-blue-700 rounded text-sm font-medium transition-colors"
+                              className="auapw-btn auapw-btn-blue auapw-btn-sm"
+                              aria-label="Add to cart"
                             >
-                              <img src="/images/icon-add-to-cart.png" alt="" className="w-4 h-4" />
+                              <ShoppingCart className="w-4 h-4" />
                               Add
+                            </button>
+                            <button
+                              onClick={() => removeItem(item.id)}
+                              className="auapw-btn auapw-btn-red auapw-btn-sm"
+                            >
+                              <Trash2 className="w-4 h-4" />
                             </button>
                             <button
                               onClick={() => removeItem(item.id)}
@@ -147,7 +153,7 @@ export default function ComparisonPage() {
                         <button
                           key={part.id}
                           onClick={() => handleAddPartToComparison(part.id)}
-                          className="text-left p-3 border border-white/10 rounded hover:bg-white/10 transition-colors text-sm"
+                          className="auapw-btn auapw-btn-silver auapw-btn-sm w-full text-left"
                         >
                           <p className="font-medium truncate">{part.name}</p>
                           <p className="text-foreground/60 text-xs">${part.price.toFixed(2)}</p>
@@ -161,12 +167,12 @@ export default function ComparisonPage() {
               <div className="flex gap-4 justify-end">
                 <button
                   onClick={clearComparison}
-                  className="px-6 py-2 text-sm font-medium text-red-400 hover:text-red-300 transition-colors border border-red-400/20 rounded-lg hover:bg-red-400/5"
+                  className="auapw-btn auapw-btn-red auapw-btn-sm"
                 >
                   Clear Comparison
                 </button>
-                <Link href="/parts">
-                  <Button size="lg">Back to Parts</Button>
+                <Link href="/parts" className="auapw-btn auapw-btn-blue auapw-btn-lg">
+                  Back to Parts
                 </Link>
               </div>
             </div>

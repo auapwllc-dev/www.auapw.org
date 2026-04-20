@@ -3,6 +3,7 @@ import { Roboto } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
 import { ThemeProvider } from '@/components/theme-provider'
 import { AuthProvider } from '@/lib/auth-context'
+import { MobileThemeFab } from '@/components/mobile-theme-fab'
 import './globals.css'
 
 const roboto = Roboto({
@@ -17,8 +18,26 @@ export const metadata: Metadata = {
   title: 'AUAPW.ORG - Quality Used Auto Parts | Engines, Transmissions & More',
   description: 'AUAPW.ORG - Your trusted source for quality used auto parts. Shop engines, transmissions, body parts and more from 2,000+ verified salvage yards nationwide. Free shipping, 6-month warranty.',
   generator: 'v0.dev',
+  applicationName: 'AUAPW.ORG',
+  referrer: 'origin-when-cross-origin',
+  formatDetection: {
+    email: true,
+    address: true,
+    telephone: true,
+  },
   alternates: {
     canonical: 'https://www.auapw.org',
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
   },
   openGraph: {
     type: 'website',
@@ -26,12 +45,19 @@ export const metadata: Metadata = {
     siteName: 'AUAPW.ORG',
     title: 'AUAPW.ORG - Quality Used Auto Parts | Engines, Transmissions & More',
     description: 'Your trusted source for quality used auto parts. Shop engines, transmissions, body parts and more from 2,000+ verified salvage yards nationwide.',
+    locale: 'en_US',
   },
   twitter: {
     card: 'summary_large_image',
     site: '@auapworg',
     title: 'AUAPW.ORG - Quality Used Auto Parts',
     description: 'Your trusted source for quality used auto parts. Engines, transmissions, body parts and more from 2,000+ verified salvage yards.',
+  },
+  other: {
+    'mobile-web-app-capable': 'yes',
+    'apple-mobile-web-app-capable': 'yes',
+    'apple-mobile-web-app-status-bar-style': 'black-translucent',
+    'apple-mobile-web-app-title': 'AUAPW.ORG',
   },
 }
 
@@ -75,6 +101,7 @@ export default function RootLayout({
         <AuthProvider>
           <ThemeProvider>
             {children}
+            <MobileThemeFab />
           </ThemeProvider>
         </AuthProvider>
         <Analytics />

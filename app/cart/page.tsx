@@ -1,8 +1,6 @@
 'use client'
 
 import { useCartStore } from '@/lib/stores/cart-store'
-import { Button } from '@/components/ui/button'
-import { Input } from '@/components/ui/input'
 import Link from 'next/link'
 import { useState } from 'react'
 import { Trash2, Plus, Minus, ShoppingBag } from 'lucide-react'
@@ -41,8 +39,8 @@ export default function CartPage() {
               <ShoppingBag className="w-16 h-16 mb-4 opacity-40" />
               <h2 className="text-2xl font-semibold mb-2">Your cart is empty</h2>
               <p className="text-foreground/60 mb-6">Start adding parts to get started</p>
-              <Link href="/parts">
-                <Button size="lg">Continue Shopping</Button>
+              <Link href="/parts" className="auapw-btn auapw-btn-blue auapw-btn-lg">
+                Continue Shopping
               </Link>
             </div>
           ) : (
@@ -128,20 +126,20 @@ export default function CartPage() {
                   </div>
 
                   <Link href="/checkout" className="w-full">
-                    <Button size="lg" className="w-full">
+                    <button className="auapw-btn auapw-btn-blue w-full auapw-btn-lg">
                       Proceed to Checkout
-                    </Button>
+                    </button>
                   </Link>
 
                   <Link href="/parts" className="w-full">
-                    <Button variant="outline" size="lg" className="w-full">
+                    <button className="auapw-btn auapw-btn-silver w-full auapw-btn-lg">
                       Continue Shopping
-                    </Button>
+                    </button>
                   </Link>
 
                   <button
                     onClick={clearCart}
-                    className="w-full py-2 text-sm text-red-400 hover:text-red-300 transition-colors"
+                    className="auapw-btn auapw-btn-red w-full auapw-btn-sm"
                   >
                     Clear Cart
                   </button>

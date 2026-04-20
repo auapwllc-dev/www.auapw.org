@@ -66,49 +66,49 @@ export function HeroSection() {
             {/* Feature highlights grid */}
             <div className="w-full grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 text-left mt-2">
               {[
-                { title: "Fast Same Day Shipping", desc: "Orders placed and available ship same day to reduce your downtime." },
-                { title: "Hassle Free Returns", desc: "Simple return process with clear instructions and reasonable return windows." },
-                { title: "Expert Technical Support", desc: "Fitment, compatibility, and installation guidance from our support team." },
-                { title: "Competitive Pricing", desc: "Transparent quotes with no hidden fees — straightforward pricing up front." },
-                { title: "Certified Quality Inspections", desc: "Parts verified for condition and functionality before they reach you." },
-                { title: "Eco Recycling Network", desc: "Environmentally responsible recycling that reduces automotive waste." },
-                { title: "Dealer & DIY Friendly", desc: "Same quality access and support for both professional dealers and DIY buyers." },
-                { title: "Local Pickup Available", desc: "Nationwide coverage with local pickup options to save time and shipping costs." },
+                { title: "Fast 24-Hour Response", desc: "After choosing your desired used engines and used transmissions and contacting a dealer, you will receive a response in less than 24 hours. All you need is internet access – no need to roam around different junkyards to find a car part – we do it all for you." },
+                { title: "Nationwide US Coverage", desc: "We partner with 2,000+ top-rated junkyards and salvage yards across all 50 states, giving you access to the largest network of quality used auto parts in the United States." },
+                { title: "User-Friendly Search", desc: "Our intuitive search tool connects you instantly with qualified suppliers. Simply enter your vehicle details and find the exact part you need – no phone calls, no driving around." },
+                { title: "Verified Supplier Network", desc: "Every yard in our network is vetted for quality, reliability, and customer service. We connect you only with trusted suppliers who meet our strict standards." },
+                { title: "Hassle-Free Experience", desc: "Skip the traditional junkyard search. Our platform handles the hard work – sourcing, verifying, and coordinating – so you get quality parts delivered right to your door." },
+                { title: "Competitive Pricing", desc: "Save 40-70% compared to new OEM parts. Transparent quotes with no hidden fees – straightforward pricing from trusted US-based suppliers." },
+                { title: "Quality Guaranteed", desc: "All parts undergo certified inspections before shipping. Every eligible part comes with a 30-180 day warranty for your peace of mind." },
+                { title: "Dealer & DIY Friendly", desc: "Whether you are a professional mechanic or a DIY enthusiast, our platform provides the same premium access, expert support, and seamless ordering experience." },
               ].map(({ title, desc }) => (
                 <div key={title}
                   className="flex flex-col gap-1 p-3 rounded-lg"
                   style={{ background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.07)" }}
                 >
-                  <span className="text-sm font-bold tracking-wide text-primary">{title}</span>
-                  <span className="text-sm font-bold tracking-wide text-foreground leading-relaxed">{desc}</span>
+                  <span className="text-sm font-bold tracking-tight text-primary">{title}</span>
+                  <span className="text-sm font-semibold tracking-tight text-foreground leading-relaxed">{desc}</span>
                 </div>
               ))}
             </div>
 
             {/* Why Buy Parts Online */}
             <div className="w-full mt-4 pt-6 border-t border-white/10">
-              <h2 className="text-primary font-bold tracking-wide text-center text-lg sm:text-xl mb-4 uppercase">Why Buy Used Auto Parts Online?</h2>
+              <h2 className="text-primary font-bold tracking-tight text-center text-lg sm:text-xl mb-4 uppercase">Your Trusted US-Based Auto Parts Platform</h2>
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 text-left">
                 {[
                   {
-                    title: "Save 40–70% vs. New OEM",
-                    body: "Used OEM parts deliver the same fit and performance as new ones at a fraction of the dealership cost. You get factory-quality parts without paying factory-new prices."
+                    title: "America's Largest Parts Network",
+                    body: "AUAPW.ORG connects you with over 2,000 top junkyards and salvage yards across the United States. Our extensive network ensures you find the right part, whether it is a common component or a rare discontinued item."
                   },
                   {
-                    title: "Access a Nationwide Inventory",
-                    body: "Searching online connects you to 2,000+ verified yards across all 50 states. Rare, discontinued, or hard-to-find parts that aren't available locally are often just a search away."
+                    title: "Seamless Search Experience",
+                    body: "Our user-friendly search tool makes finding used auto parts effortless. Enter your vehicle details, browse available options, and connect with qualified suppliers – all from the comfort of your home or shop."
                   },
                   {
-                    title: "Skip the Junkyard Hassle",
-                    body: "No more driving from yard to yard or making calls all day. Online search gives you instant quotes, part availability, and fast shipping directly to your door or shop."
+                    title: "Reliable Supplier Connections",
+                    body: "We serve as your trusted connector to pre-qualified suppliers nationwide. Every yard in our network is verified for quality and reliability, ensuring you receive top-quality service and genuine OEM parts."
                   },
                 ].map(({ title, body }) => (
                   <div key={title}
                     className="p-4 rounded-lg flex flex-col gap-2"
                     style={{ background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.09)" }}
                   >
-                    <span className="text-sm font-bold tracking-wide text-primary">{title}</span>
-                    <p className="text-sm font-bold tracking-wide text-foreground leading-relaxed">{body}</p>
+                    <span className="text-sm font-bold tracking-tight text-primary">{title}</span>
+                    <p className="text-sm font-semibold tracking-tight text-foreground leading-relaxed">{body}</p>
                   </div>
                 ))}
               </div>
@@ -116,7 +116,7 @@ export function HeroSection() {
 
             {/* What Are the Benefits */}
             <div className="w-full pt-6 border-t border-white/10">
-              <h2 className="text-primary font-bold tracking-wide text-center text-lg sm:text-xl mb-4 uppercase">Benefits of Choosing AUAPW.ORG</h2>
+              <h2 className="text-primary font-bold tracking-tight text-center text-lg sm:text-xl mb-4 uppercase">Benefits of Choosing AUAPW.ORG</h2>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-left">
                 {[
                   {
@@ -148,8 +148,8 @@ export function HeroSection() {
                     className="p-4 rounded-lg flex flex-col gap-2"
                     style={{ background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.09)" }}
                   >
-                    <span className="text-sm font-bold tracking-wide text-primary">{title}</span>
-                    <p className="text-sm font-bold tracking-wide text-foreground leading-relaxed">{body}</p>
+                    <span className="text-sm font-bold tracking-tight text-primary">{title}</span>
+                    <p className="text-sm font-semibold tracking-tight text-foreground leading-relaxed">{body}</p>
                   </div>
                 ))}
               </div>
@@ -157,14 +157,14 @@ export function HeroSection() {
 
             {/* How It Works */}
             <div className="w-full pt-6 border-t border-white/10">
-              <h2 className="text-primary font-bold tracking-wide text-center text-lg sm:text-xl mb-4 uppercase">How It Works</h2>
+              <h2 className="text-primary font-bold tracking-tight text-center text-lg sm:text-xl mb-4 uppercase">How It Works</h2>
               <div className="grid grid-cols-1 sm:grid-cols-4 gap-4 text-center">
 
                 {/* Step 01 */}
                 <div className="p-4 rounded-lg flex flex-col items-center gap-3" style={{ background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.09)" }}>
-                  <span className="text-2xl font-bold tracking-wide text-primary/40">01</span>
-                  <span className="text-sm font-bold tracking-wide text-primary uppercase">Search Your Part</span>
-                  <p className="text-sm font-bold tracking-wide text-foreground leading-relaxed">Enter your vehicle year, make, model, and the part you need to get matched results instantly.</p>
+                  <span className="text-2xl font-bold tracking-tight text-primary/40">01</span>
+                  <span className="text-sm font-bold tracking-tight text-primary uppercase">Search Your Part</span>
+                  <p className="text-sm font-semibold tracking-tight text-foreground leading-relaxed">Enter your vehicle year, make, model, and the part you need to get matched results instantly.</p>
                   <Link href="/parts" className="mt-auto w-full auapw-btn auapw-btn-silver auapw-btn-sm">
                     <Search className="w-4 h-4" />
                     <span>Find Your Part</span>
@@ -173,9 +173,9 @@ export function HeroSection() {
 
                 {/* Step 02 */}
                 <div className="p-4 rounded-lg flex flex-col items-center gap-3" style={{ background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.09)" }}>
-                  <span className="text-2xl font-bold tracking-wide text-primary/40">02</span>
-                  <span className="text-sm font-bold tracking-wide text-primary uppercase">Get a Free Quote</span>
-                  <p className="text-sm font-bold tracking-wide text-foreground leading-relaxed">Receive a transparent, no-obligation quote from our verified network with clear pricing upfront.</p>
+                  <span className="text-2xl font-bold tracking-tight text-primary/40">02</span>
+                  <span className="text-sm font-bold tracking-tight text-primary uppercase">Get a Free Quote</span>
+                  <p className="text-sm font-semibold tracking-tight text-foreground leading-relaxed">Receive a transparent, no-obligation quote from our verified network with clear pricing upfront.</p>
                   <Link href="/quote" className="mt-auto w-full auapw-btn auapw-btn-blue auapw-btn-sm">
                     <MessageSquare className="w-4 h-4" />
                     <span>Free Quote</span>

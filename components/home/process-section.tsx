@@ -10,10 +10,6 @@ const steps = [
 export function ProcessSection() {
   return (
     <section className="py-20 relative overflow-hidden bg-[#0d0f16]">
-      <div
-        className="absolute inset-0"
-        style={{ backgroundImage: "radial-gradient(circle, rgba(255,255,255,0.022) 1px, transparent 1px)", backgroundSize: "24px 24px" }}
-      />
       <div className="metal-line absolute top-0 left-0 right-0" />
       <div className="metal-line absolute bottom-0 left-0 right-0" />
 
@@ -21,11 +17,6 @@ export function ProcessSection() {
 
         {/* Section header */}
         <div className="text-center mb-12">
-          <div className="flex items-center justify-center gap-4 mb-5">
-            <div className="h-px w-10 bg-border/60" />
-            <span className="process-label-led text-[0.6rem] font-black tracking-[0.38em] uppercase">Simple Process</span>
-            <div className="h-px w-10 bg-border/60" />
-          </div>
           <h2 className="process-heading-led font-sans text-[clamp(1.6rem,4vw,2.8rem)] font-black tracking-[0.08em] uppercase text-3d-bold">
             How It Works
           </h2>

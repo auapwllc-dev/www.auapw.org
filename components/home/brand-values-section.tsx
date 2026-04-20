@@ -4,18 +4,18 @@ import { CheckCircle2, Handshake, Award, Wrench } from "lucide-react"
 
 const values = [
   {
-    title: "Trusted Partner",
-    description: "Our repeated commitment to being your trusted partner reinforces reliability and aims to build lasting relationships with our customers.",
+    title: "Your Trusted US Partner",
+    description: "As a US-based platform, we connect car owners and repair professionals with America's most reliable junkyards and salvage yards. Our commitment to quality relationships ensures you always have a dependable partner in sourcing auto parts.",
     Icon: Handshake
   },
   {
-    title: "Premium Quality",
-    description: "Premium Quality Used Auto Parts ensures we don't offer low-grade or damaged items. We guarantee excellence in every part.",
+    title: "Premium Quality Guarantee",
+    description: "Every supplier in our nationwide network is vetted for quality and reliability. We only connect you with yards that meet our strict standards, ensuring you receive genuine OEM parts that perform like new.",
     Icon: Award
   },
   {
     title: "Comprehensive Solutions",
-    description: "For All Vehicles & Automotive Services & Solutions indicate we cater to a wide range of needs and vehicle types.",
+    description: "From engines and transmissions to body parts and accessories, our extensive US network covers all vehicle makes and models. One platform, thousands of qualified suppliers, endless possibilities.",
     Icon: Wrench
   }
 ]
@@ -30,7 +30,7 @@ export function BrandValuesSection() {
             Why Choose AUAPW
           </h2>
           <p className="text-muted-foreground text-[0.9rem] sm:text-[1rem] leading-relaxed max-w-2xl mx-auto">
-            We position ourselves as a dependable choice for car owners seeking quality and comprehensive support
+            Your reliable US-based platform connecting you with top junkyards and salvage yards nationwide. We make sourcing quality used auto parts simple, fast, and hassle-free.
           </p>
         </div>
 
@@ -41,8 +41,8 @@ export function BrandValuesSection() {
               <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-4">
                 <value.Icon className="w-5 h-5 sm:w-6 sm:h-6 text-primary" />
               </div>
-              <h3 className="text-base sm:text-lg font-bold text-foreground text-3d-subtle mb-2 sm:mb-3">{value.title}</h3>
-              <p className="text-muted-foreground text-[0.85rem] sm:text-[0.95rem] leading-relaxed">
+              <h3 className="text-base sm:text-lg font-bold tracking-tight text-foreground text-3d-subtle mb-2 sm:mb-3">{value.title}</h3>
+              <p className="text-muted-foreground text-[0.85rem] sm:text-[0.95rem] leading-relaxed tracking-tight">
                 {value.description}
               </p>
             </div>
@@ -51,27 +51,27 @@ export function BrandValuesSection() {
 
         {/* Main Value Proposition */}
         <div className="glass-card rounded-xl sm:rounded-2xl p-6 sm:p-8 lg:p-10 backdrop-blur-sm border border-primary/10 mb-10 sm:mb-16">
-          <h3 className="text-lg sm:text-xl font-bold text-foreground text-3d-subtle mb-4 sm:mb-6">Our Complete Approach</h3>
+          <h3 className="text-lg sm:text-xl font-bold tracking-tight text-foreground text-3d-subtle mb-4 sm:mb-6">The AUAPW Advantage</h3>
           
           <div className="space-y-3 sm:space-y-4">
             <div className="flex gap-3 sm:gap-4">
               <CheckCircle2 className="w-4 h-4 sm:w-5 sm:h-5 text-primary flex-shrink-0 mt-0.5 sm:mt-1" />
-              <p className="text-muted-foreground text-[0.85rem] sm:text-[0.95rem] leading-relaxed">
-                <strong className="text-foreground">Routine Maintenance to Complex Repairs:</strong> Our holistic approach caters to a wide spectrum of automotive needs, ensuring customers can find everything they require under one roof.
+              <p className="text-muted-foreground text-[0.85rem] sm:text-[0.95rem] leading-relaxed tracking-tight">
+                <strong className="text-foreground">2,000+ Verified US Suppliers:</strong> We collaborate with the top junkyards and salvage yards across all 50 states, giving you access to America&apos;s largest network of quality used auto parts.
               </p>
             </div>
             
             <div className="flex gap-3 sm:gap-4">
               <CheckCircle2 className="w-4 h-4 sm:w-5 sm:h-5 text-primary flex-shrink-0 mt-0.5 sm:mt-1" />
-              <p className="text-muted-foreground text-[0.85rem] sm:text-[0.95rem] leading-relaxed">
-                <strong className="text-foreground">Go-To Resource for All Things Automotive:</strong> We position ourselves not just as a parts supplier but as your comprehensive resource, fostering a sense of trust and dependency among customers.
+              <p className="text-muted-foreground text-[0.85rem] sm:text-[0.95rem] leading-relaxed tracking-tight">
+                <strong className="text-foreground">User-Friendly Search Tool:</strong> Our intuitive platform makes finding used auto parts effortless. Simply enter your vehicle details and instantly connect with qualified suppliers who have the exact part you need.
               </p>
             </div>
             
             <div className="flex gap-3 sm:gap-4">
               <CheckCircle2 className="w-4 h-4 sm:w-5 sm:h-5 text-primary flex-shrink-0 mt-0.5 sm:mt-1" />
-              <p className="text-muted-foreground text-[0.85rem] sm:text-[0.95rem] leading-relaxed">
-                <strong className="text-foreground">Customer Satisfaction First:</strong> We value customer satisfaction and aim to be your go-to resource for automotive needs, positioning ourselves as a dependable choice for quality and comprehensive support.
+              <p className="text-muted-foreground text-[0.85rem] sm:text-[0.95rem] leading-relaxed tracking-tight">
+                <strong className="text-foreground">Seamless Experience:</strong> No more roaming around junkyards or making endless phone calls. We handle the sourcing so you can focus on what matters – getting your vehicle back on the road.
               </p>
             </div>
           </div>
@@ -80,8 +80,8 @@ export function BrandValuesSection() {
         {/* Trust Statement */}
         <div className="text-center px-2">
           <div className="inline-block glass-card rounded-xl sm:rounded-2xl p-6 sm:p-8 backdrop-blur-sm border border-primary/10 max-w-2xl">
-            <p className="text-foreground text-base sm:text-lg leading-relaxed">
-              Whether you&apos;re looking for specific parts or require expert service, we position ourselves as a dependable choice for car owners seeking <span className="text-primary font-bold">quality and comprehensive support</span>.
+            <p className="text-foreground text-base sm:text-lg leading-relaxed tracking-tight">
+              AUAPW.ORG is your reliable connector to America&apos;s finest salvage yards. We bring <span className="text-primary font-bold">top-quality service, verified suppliers, and a seamless experience</span> right to your fingertips – no hassle, no guesswork, just quality parts delivered.
             </p>
           </div>
         </div>
