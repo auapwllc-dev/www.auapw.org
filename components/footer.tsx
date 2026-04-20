@@ -17,8 +17,6 @@ export function Footer() {
     { label: "Radiator", href: "/parts/cooling" },
     { label: "AC Compressor", href: "/parts/cooling" },
   ]
-  const popularMakes = CAR_MAKES.slice(0, 8)
-
   return (
     <footer className="bg-card/95 backdrop-blur-xl border-t border-border/30 relative overflow-hidden w-full automotive-pattern">
       {/* Top brand strip with logos */}
@@ -51,7 +49,7 @@ export function Footer() {
       </div>
 
       <div className="mx-auto w-full max-w-7xl px-3 sm:px-4 md:px-6 lg:px-8">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8 sm:gap-10 lg:gap-14 py-10 sm:py-14 lg:py-20">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-10 lg:gap-14 py-10 sm:py-14 lg:py-20">
           {/* Brand Column */}
           <div className="lg:col-span-1">
             <div className="flex items-center gap-3 sm:gap-4 mb-5 sm:mb-8">
@@ -99,23 +97,22 @@ export function Footer() {
           </div>
 
           {/* Popular Makes */}
-          <div className="embossed-col p-3 sm:p-5">
+          <div className="embossed-col p-3 sm:p-5 lg:col-span-2">
             <h3 className="text-xs sm:text-sm font-black tracking-[0.2em] uppercase text-foreground text-3d-section mb-4 sm:mb-6 pb-2 sm:pb-3 border-b-2 border-primary/50 inline-block">
-              Popular Makes
+              Shop by Make
             </h3>
-            <ul className="space-y-2 sm:space-y-3">
-              {popularMakes.map((make) => (
-                <li key={make}>
-                  <Link 
-                    href={`/makes/${encodeURIComponent(make.toLowerCase().replace(/\s+/g, "-"))}`} 
-                    className="text-xs sm:text-sm text-muted-foreground hover:text-primary transition-all duration-200 flex items-center gap-2 font-bold tracking-tight text-3d-subtle"
-                  >
-                    <span className="w-1.5 h-1.5 rounded-full bg-primary/70 hover:bg-primary transition-colors flex-shrink-0" />
-                    <span className="truncate">{make}</span>
-                  </Link>
-                </li>
+            <div className="flex flex-wrap gap-[3px] sm:gap-1">
+              {CAR_MAKES.map((make) => (
+                <Link
+                  key={make}
+                  href={`/makes/${encodeURIComponent(make.toLowerCase().replace(/\s+/g, "-"))}`}
+                  className="chrome-brand-pill"
+                  title={`${make} Used Auto Parts`}
+                >
+                  {make}
+                </Link>
               ))}
-            </ul>
+            </div>
           </div>
 
           {/* Quick Links */}
