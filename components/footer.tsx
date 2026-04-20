@@ -3,7 +3,7 @@
 import Link from "next/link"
 import Image from "next/image"
 import { CAR_MAKES, PART_CATEGORIES, PHONE_DISPLAY, CONTACT_EMAIL, getBrandLogoUrl, BRAND_COLORS } from "@/lib/data"
-import { ExternalLink } from "lucide-react"
+import { ExternalLink, Phone, Mail, MapPin } from "lucide-react"
 import { BrandWordmark } from "@/components/brand-wordmark"
 import { Logo } from "@/components/logo"
 import { useState } from "react"
@@ -89,17 +89,21 @@ export function Footer() {
               Premium quality used auto parts from 2,000+ verified yards nationwide. 30-180 day warranty on every part.
             </p>
             <div className="space-y-3 sm:space-y-4">
-              <a href="tel:8888185001" className="inline-block hover:-translate-y-1 transition-transform duration-200 w-full">
-                <img src="/images/button-call-us-5001.png" alt="Call Us (888) 818-5001" className="w-full h-auto drop-shadow-lg" />
+              <a href="tel:8888185001" className="auapw-btn auapw-btn-green auapw-btn-sm w-full">
+                <Phone className="w-4 h-4 flex-shrink-0" />
+                <span>(888) 818-5001</span>
               </a>
-              <a href="mailto:support@auapw.org" className="inline-block hover:-translate-y-1 transition-transform duration-200 w-full">
-                <img src="/images/button-support-email.png" alt="Email Us support@auapw.org" className="w-full h-auto drop-shadow-lg" />
+              <a href="mailto:support@auapw.org" className="auapw-btn auapw-btn-teal auapw-btn-sm w-full">
+                <Mail className="w-4 h-4 flex-shrink-0" />
+                <span>support@auapw.org</span>
               </a>
-              <a href="mailto:info@auapw.org" className="inline-block hover:-translate-y-1 transition-transform duration-200 w-full">
-                <img src="/images/button-info-email.png" alt="Email Us info@auapw.org" className="w-full h-auto drop-shadow-lg" />
+              <a href="mailto:info@auapw.org" className="auapw-btn auapw-btn-blue auapw-btn-sm w-full">
+                <Mail className="w-4 h-4 flex-shrink-0" />
+                <span>info@auapw.org</span>
               </a>
-              <a href="https://maps.google.com/?q=107+Myrtle+Ave+Woodbine+NJ+08270" target="_blank" rel="noopener noreferrer" className="inline-block hover:-translate-y-1 transition-transform duration-200 w-full">
-                <img src="/images/button-location-address.png" alt="Location: 107 Myrtle Ave, Woodbine, NJ 08270" className="w-full h-auto drop-shadow-lg" />
+              <a href="https://maps.google.com/?q=107+Myrtle+Ave+Woodbine+NJ+08270" target="_blank" rel="noopener noreferrer" className="auapw-btn auapw-btn-silver auapw-btn-sm w-full">
+                <MapPin className="w-4 h-4 flex-shrink-0" />
+                <span>Woodbine, NJ 08270</span>
               </a>
             </div>
           </div>
