@@ -20,13 +20,12 @@ export function MakesPillsSection() {
             View All Makes &rarr;
           </Link>
         </div>
-        <div className="flex flex-wrap gap-0.5 sm:gap-1 md:gap-2">
+        <div className="flex flex-wrap gap-[3px] sm:gap-1 md:gap-1.5">
           {CAR_MAKES.map((make) => (
             <Link
               key={make}
               href={`/makes/${encodeURIComponent(make.toLowerCase().replace(/\s+/g, "-"))}`}
-              className="inline-block px-1.5 py-0.5 sm:px-2 sm:py-1 md:px-4 md:py-2.5 border border-border/50 bg-gradient-to-br from-foreground/[0.08] to-foreground/[0.03] text-[7px] sm:text-[8px] md:text-[11px] font-semibold tracking-[0.05em] sm:tracking-[0.08em] md:tracking-[0.1em] uppercase text-muted-foreground rounded-sm transition-all hover:bg-foreground/10 hover:border-primary/40 hover:text-foreground whitespace-nowrap"
-              style={{ boxShadow: "inset 0 1px 0 rgba(255,255,255,.06)" }}
+              className="chrome-brand-pill"
               title={`${make} Parts`}
             >
               {make}

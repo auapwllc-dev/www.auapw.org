@@ -777,7 +777,7 @@ footer .wordmark-3d {
 .delay-2 { animation-delay: 0.25s; opacity: 0; }
 .delay-3 { animation-delay: 0.45s; opacity: 0; }
 
-/* ── Glass Card with Ghost Scan ─────────────────────── */
+/* ��─ Glass Card with Ghost Scan ─────────────────────── */
 
 .glass-card {
   background: rgba(19,22,30,0.72);
@@ -2056,34 +2056,158 @@ footer .wordmark-3d {
   100% { transform: translateX(350%) skewX(-12deg); }
 }
 
-.luxury-logo-tile {
-  position: relative;
-  border: 1px solid rgba(255,255,255,0.08);
-  box-shadow: 0 2px 8px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.06);
-  transition: all 0.3s ease;
+/* ─────────────────────────────────────────────────────────
+   CHROME BRAND PILLS — Ultra-compact mobile brand tabs
+   Steel mirror effect with responsive sizing
+   ──────────────────────────────────────────────────────── */
+.chrome-brand-pill {
+  display: inline-block;
+  /* Ultra-compact on mobile, scales up on larger screens */
+  padding: 2px 5px;
+  font-size: 5.5px;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  text-decoration: none;
+  white-space: nowrap;
+  border-radius: 3px;
+  transition: all 0.2s ease;
+  /* Chrome steel gradient background */
+  background: linear-gradient(
+    165deg,
+    rgba(180,185,200,0.35) 0%,
+    rgba(100,105,120,0.25) 15%,
+    rgba(20,22,30,0.92) 35%,
+    rgba(12,14,20,0.98) 55%,
+    rgba(18,20,28,0.95) 75%,
+    rgba(100,105,120,0.25) 90%,
+    rgba(180,185,200,0.35) 100%
+  );
+  color: rgba(200,205,220,0.85);
+  /* Chrome border effect */
+  border: 1px solid rgba(160,165,185,0.3);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.1),
+    inset 0 -1px 0 rgba(0,0,0,0.2),
+    0 1px 3px rgba(0,0,0,0.25);
 }
 
+.chrome-brand-pill:hover {
+  color: rgba(240,242,255,1);
+  border-color: rgba(200,205,225,0.5);
+  transform: translateY(-1px);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.15),
+    inset 0 -1px 0 rgba(0,0,0,0.25),
+    0 2px 6px rgba(0,0,0,0.35),
+    0 0 8px rgba(180,185,210,0.15);
+}
+
+.chrome-brand-pill:active {
+  transform: scale(0.95);
+}
+
+/* Tablet breakpoint — slightly larger */
+@media (min-width: 640px) {
+  .chrome-brand-pill {
+    padding: 3px 7px;
+    font-size: 6.5px;
+    letter-spacing: 0.05em;
+    border-radius: 4px;
+  }
+}
+
+/* Desktop breakpoint — full size */
+@media (min-width: 768px) {
+  .chrome-brand-pill {
+    padding: 6px 12px;
+    font-size: 9px;
+    letter-spacing: 0.08em;
+    border-radius: 5px;
+  }
+}
+
+/* Steel chrome mirror effect for brand logo tiles */
+.luxury-logo-tile {
+  position: relative;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  /* Chrome steel frame border */
+  border: 1.5px solid transparent;
+  background:
+    linear-gradient(135deg, rgba(18,20,28,1), rgba(22,24,32,1)) padding-box,
+    linear-gradient(
+      145deg,
+      rgba(220,225,235,0.7) 0%,
+      rgba(160,165,180,0.5) 15%,
+      rgba(60,65,80,0.4) 30%,
+      rgba(30,32,42,0.6) 50%,
+      rgba(60,65,80,0.4) 70%,
+      rgba(160,165,180,0.5) 85%,
+      rgba(220,225,235,0.7) 100%
+    ) border-box;
+  box-shadow:
+    /* Outer chrome rim glow */
+    0 0 0 1px rgba(200,205,220,0.25),
+    /* Inner chrome highlight */
+    inset 0 1px 0 rgba(255,255,255,0.15),
+    inset 0 -1px 0 rgba(0,0,0,0.3),
+    /* Depth shadow */
+    0 4px 12px rgba(0,0,0,0.4),
+    0 8px 24px rgba(0,0,0,0.25);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Chrome sweep highlight */
+.luxury-logo-tile::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 50%;
+  background: linear-gradient(
+    180deg,
+    rgba(255,255,255,0.12) 0%,
+    rgba(255,255,255,0.04) 60%,
+    transparent 100%
+  );
+  border-radius: 0.5rem 0.5rem 50% 50%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Animated chrome sweep */
 .luxury-logo-tile::after {
   content: '';
   position: absolute;
   inset: 0;
   background: linear-gradient(
-    90deg,
-    transparent,
-    rgba(255,255,255,0.08),
-    rgba(255,255,255,0.2),
-    rgba(255,255,255,0.08),
-    transparent
+    105deg,
+    transparent 0%,
+    transparent 40%,
+    rgba(255,255,255,0.15) 45%,
+    rgba(255,255,255,0.35) 50%,
+    rgba(255,255,255,0.15) 55%,
+    transparent 60%,
+    transparent 100%
   );
-  width: 35%;
-  animation: logo-chrome-sweep 6s ease-in-out infinite;
+  animation: logo-chrome-sweep 4s ease-in-out infinite;
   pointer-events: none;
   border-radius: inherit;
+  z-index: 2;
 }
 
 .luxury-logo-tile:hover {
-  box-shadow: 0 4px 20px rgba(0,0,0,0.5), 0 0 12px rgba(232,232,232,0.12), inset 0 1px 0 rgba(255,255,255,0.1);
-  border-color: rgba(255,255,255,0.15);
+  transform: translateY(-2px) scale(1.02);
+  box-shadow:
+    0 0 0 1.5px rgba(220,225,240,0.4),
+    inset 0 1px 0 rgba(255,255,255,0.2),
+    inset 0 -1px 0 rgba(0,0,0,0.35),
+    0 6px 20px rgba(0,0,0,0.5),
+    0 12px 40px rgba(0,0,0,0.3),
+    0 0 20px rgba(200,210,230,0.1);
+  border-color: rgba(200,210,230,0.5);
 }
 
 /* ── Animated Gear Backdrop ─────────────────────────── */

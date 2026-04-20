@@ -1,41 +1,8 @@
-"use client"
-
 import Link from "next/link"
-import Image from "next/image"
-import { CAR_MAKES, PART_CATEGORIES, PHONE_DISPLAY, CONTACT_EMAIL, getBrandLogoUrl, BRAND_COLORS } from "@/lib/data"
-import { ExternalLink, Phone, Mail, MapPin } from "lucide-react"
+import { CAR_MAKES, PART_CATEGORIES, PHONE_DISPLAY, CONTACT_EMAIL } from "@/lib/data"
+import { Phone, Mail, MapPin } from "lucide-react"
 import { BrandWordmark } from "@/components/brand-wordmark"
 import { Logo } from "@/components/logo"
-import { useState } from "react"
-
-function BrandLogo({ brand }: { brand: string }) {
-  const [failed, setFailed] = useState(false)
-  const url = getBrandLogoUrl(brand)
-  const color = BRAND_COLORS[brand] || "#333"
-  const initials = brand.split(/[\s-]+/).map(w => w[0]).join("").slice(0, 2).toUpperCase()
-
-  if (!url || failed) {
-    return (
-      <div 
-        className="w-6 h-6 sm:w-8 sm:h-8 rounded-md flex items-center justify-center text-[8px] sm:text-[9px] font-bold text-white/90"
-        style={{ background: `linear-gradient(135deg, ${color}, ${color}cc)` }}
-      >
-        {initials}
-      </div>
-    )
-  }
-
-  return (
-    <Image
-      src={url}
-      alt={brand}
-      width={32}
-      height={32}
-      className="w-6 h-6 sm:w-8 sm:h-8 rounded-md object-cover"
-      onError={() => setFailed(true)}
-    />
-  )
-}
 
 export function Footer() {
   const popularPartLinks = [
@@ -61,26 +28,23 @@ export function Footer() {
             <span className="text-[8px] sm:text-[9px] font-black tracking-[0.15em] uppercase text-3d-subtle whitespace-nowrap">Popular Brands</span>
             <div className="flex-1 h-px bg-border/30" />
           </div>
-          <div className="flex flex-wrap gap-0.5 sm:gap-1 md:gap-2">
-            {CAR_MAKES.slice(0, 8).map((brand) => (
+          <div className="flex flex-wrap gap-[3px] sm:gap-1 md:gap-1.5">
+            {CAR_MAKES.slice(0, 12).map((brand) => (
               <Link
                 key={brand}
                 href={`/makes/${encodeURIComponent(brand.toLowerCase().replace(/\s+/g, "-"))}`}
-                className="inline-block px-1.5 py-0.5 sm:px-2 sm:py-1 md:px-2.5 md:py-1.5 rounded-md bg-background/50 hover:bg-background border border-border/30 hover:border-border/50 transition-all group whitespace-nowrap text-[7px] sm:text-[8px] md:text-xs"
+                className="chrome-brand-pill"
                 title={`${brand} Parts`}
               >
-                <BrandLogo brand={brand} />
-                <span className="font-bold tracking-tight text-3d-subtle hidden md:inline ml-1">
-                  {brand}
-                </span>
+                {brand}
               </Link>
             ))}
             <Link
               href="/makes"
-              className="inline-flex items-center gap-0.5 sm:gap-1 px-1.5 sm:px-2 md:px-2.5 py-0.5 sm:py-1 md:py-1.5 rounded-md bg-primary/10 hover:bg-primary/20 border border-primary/30 transition-all text-primary text-[7px] sm:text-[8px] md:text-xs font-bold whitespace-nowrap"
+              className="chrome-brand-pill"
+              style={{ background: 'linear-gradient(165deg, rgba(120,160,200,0.4) 0%, rgba(40,80,120,0.3) 15%, rgba(15,25,40,0.95) 35%, rgba(8,15,25,1) 55%, rgba(12,20,35,0.97) 75%, rgba(40,80,120,0.3) 90%, rgba(120,160,200,0.4) 100%)', borderColor: 'rgba(100,150,200,0.4)', color: 'rgba(150,190,230,0.95)' }}
             >
-              More
-              <ExternalLink className="w-1.5 h-1.5 sm:w-2 sm:h-2 md:w-2.5 md:h-2.5" />
+              +More
             </Link>
           </div>
         </div>
