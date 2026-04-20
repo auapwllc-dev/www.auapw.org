@@ -4218,6 +4218,103 @@ footer .wordmark-3d {
     0 1px 4px rgba(0, 0, 0, 0.42);
 }
 
+/* ── Floating GET QUOTE FAB button ── */
+.get-quote-fab {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.3rem;
+  width: 3.5rem;
+  height: 3.5rem;
+  flex-direction: column;
+  border-radius: 0.75rem;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  color: #e8e4d0;
+  /* Metallic black/chrome with amber tint */
+  background: linear-gradient(
+    160deg,
+    rgba(200, 185, 120, 0.85) 0%,
+    rgba(160, 140, 80, 0.75) 10%,
+    rgba(18, 16, 10, 0.99) 30%,
+    rgba(10, 9, 5, 1) 55%,
+    rgba(14, 12, 8, 0.99) 75%,
+    rgba(140, 120, 70, 0.7) 92%,
+    rgba(180, 165, 100, 0.8) 100%
+  );
+  box-shadow:
+    0 0 0 1.5px rgba(200, 180, 100, 0.55),
+    inset 0 2px 6px rgba(255, 220, 100, 0.12),
+    inset 0 -2px 5px rgba(0, 0, 0, 0.45),
+    0 4px 14px rgba(0, 0, 0, 0.55),
+    0 1px 3px rgba(0, 0, 0, 0.3);
+}
+.get-quote-fab:hover {
+  transform: translateY(-2px) scale(1.05);
+  box-shadow:
+    0 0 0 1.5px rgba(220, 200, 120, 0.65),
+    inset 0 2px 6px rgba(255, 220, 100, 0.16),
+    inset 0 -2px 5px rgba(0, 0, 0, 0.52),
+    0 6px 18px rgba(0, 0, 0, 0.62),
+    0 1px 4px rgba(0, 0, 0, 0.35);
+}
+.get-quote-fab:active {
+  transform: scale(0.93);
+  box-shadow:
+    0 0 0 1.5px rgba(180, 160, 90, 0.48),
+    inset 0 3px 8px rgba(0, 0, 0, 0.35),
+    0 1px 3px rgba(0, 0, 0, 0.4);
+}
+
+/* ── Floating CALL FAB button ── */
+.call-fab {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.3rem;
+  width: 3.5rem;
+  height: 3.5rem;
+  flex-direction: column;
+  border-radius: 0.75rem;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  color: #dce8e0;
+  /* Metallic chrome with green tint */
+  background: linear-gradient(
+    145deg,
+    rgba(140, 200, 155, 0.82) 0%,
+    rgba(100, 160, 118, 0.72) 12%,
+    rgba(14, 22, 16, 0.99) 30%,
+    rgba(8, 14, 10, 1) 55%,
+    rgba(11, 18, 13, 0.99) 75%,
+    rgba(90, 148, 108, 0.65) 90%,
+    rgba(120, 175, 135, 0.78) 100%
+  );
+  box-shadow:
+    0 0 0 1.5px rgba(120, 190, 140, 0.52),
+    inset 0 2px 6px rgba(140, 220, 160, 0.1),
+    inset 0 -2px 5px rgba(0, 0, 0, 0.42),
+    0 4px 14px rgba(0, 0, 0, 0.52),
+    0 1px 3px rgba(0, 0, 0, 0.28);
+}
+.call-fab:hover {
+  transform: translateY(-2px) scale(1.05);
+  box-shadow:
+    0 0 0 1.5px rgba(140, 210, 158, 0.62),
+    inset 0 2px 6px rgba(140, 220, 160, 0.14),
+    inset 0 -2px 5px rgba(0, 0, 0, 0.48),
+    0 6px 18px rgba(0, 0, 0, 0.58);
+}
+.call-fab:active {
+  transform: scale(0.93);
+  box-shadow:
+    0 0 0 1.5px rgba(100, 170, 120, 0.45),
+    inset 0 3px 8px rgba(0, 0, 0, 0.3),
+    0 1px 3px rgba(0, 0, 0, 0.38);
+}
+
 /* Mobile premium chrome phone icon button */
 .mobile-chrome-call-btn {
   display: flex;
