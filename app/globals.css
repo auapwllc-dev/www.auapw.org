@@ -4078,7 +4078,57 @@ footer .wordmark-3d {
   );
 }
 
-/* ─── Mobile Responsive Adjustments ─── */
+/* Light mode: ensure button text is always visible */
+.light .auapw-btn,
+.light .auapw-btn span {
+  color: #ffffff !important;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.6) !important;
+}
+
+.light .auapw-btn-blue,
+.light .auapw-btn-green,
+.light .auapw-btn-amber,
+.light .auapw-btn-red,
+.light .auapw-btn-teal,
+.light .auapw-btn-silver {
+  color: #ffffff !important;
+}
+
+.light .auapw-btn svg {
+  color: #ffffff !important;
+}
+
+/* Light mode: get-quote and browse buttons */
+.light .get-quote-btn {
+  color: #ffffff !important;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.6) !important;
+}
+
+.light .get-quote-btn svg,
+.light .browse-btn svg {
+  color: #ffffff !important;
+  fill: #ffffff !important;
+}
+
+.light .browse-btn {
+  color: #ffffff !important;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.6) !important;
+}
+
+/* Dark mode: ensure all button text is white and visible */
+.dark .auapw-btn,
+.dark .auapw-btn span,
+.dark .get-quote-btn,
+.dark .browse-btn {
+  color: #ffffff !important;
+}
+
+.dark .auapw-btn svg,
+.dark .get-quote-btn svg,
+.dark .browse-btn svg {
+  color: #ffffff !important;
+  fill: #ffffff !important;
+}
 @media (max-width: 640px) {
   .auapw-btn {
     padding: 0.625rem 1rem;
