@@ -4071,6 +4071,153 @@ footer .wordmark-3d {
   }
 }
 
+/* Compact GET QUOTE button for parts rows */
+.parts-quote-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.3rem;
+  padding: 0.3rem 0.6rem;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  border-radius: 0.375rem;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-decoration: none;
+  background: linear-gradient(
+    180deg,
+    rgba(210, 210, 225, 0.88) 0%,
+    rgba(185, 185, 202, 0.82) 8%,
+    rgba(14, 14, 22, 0.98) 22%,
+    rgba(8, 8, 16, 1) 50%,
+    rgba(11, 11, 20, 0.99) 78%,
+    rgba(168, 168, 188, 0.78) 92%,
+    rgba(152, 152, 172, 0.88) 100%
+  );
+  color: #e8e8f0;
+  box-shadow:
+    0 0 0 1.5px rgba(195, 195, 218, 0.58),
+    inset 0 1.5px 4px rgba(255, 255, 255, 0.18),
+    inset 0 -1.5px 4px rgba(0, 0, 0, 0.4),
+    0 2px 8px rgba(0, 0, 0, 0.5),
+    0 1px 3px rgba(0, 0, 0, 0.28);
+}
+.parts-quote-btn:hover {
+  transform: translateY(-1px);
+  box-shadow:
+    0 0 0 1.5px rgba(215, 215, 238, 0.68),
+    inset 0 1.5px 4px rgba(255, 255, 255, 0.22),
+    inset 0 -1.5px 4px rgba(0, 0, 0, 0.48),
+    0 3px 10px rgba(0, 0, 0, 0.58),
+    0 1px 4px rgba(0, 0, 0, 0.32);
+}
+.parts-quote-btn:active {
+  transform: translateY(0);
+  box-shadow:
+    0 0 0 1.5px rgba(175, 175, 198, 0.48),
+    inset 0 2px 6px rgba(0, 0, 0, 0.3),
+    0 1px 3px rgba(0, 0, 0, 0.4);
+}
+
+/* Compact chrome call button for parts rows (icon only) */
+.parts-call-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.75rem;
+  height: 1.75rem;
+  border-radius: 0.375rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-decoration: none;
+  flex-shrink: 0;
+  color: #d8d8e8;
+  background: linear-gradient(
+    145deg,
+    rgba(225, 225, 238, 0.85) 0%,
+    rgba(168, 168, 185, 0.75) 15%,
+    rgba(18, 18, 28, 0.98) 35%,
+    rgba(10, 10, 18, 1) 55%,
+    rgba(14, 14, 24, 0.99) 75%,
+    rgba(148, 148, 165, 0.65) 90%,
+    rgba(188, 188, 205, 0.78) 100%
+  );
+  box-shadow:
+    0 0 0 1.5px rgba(188, 188, 212, 0.58),
+    inset 0 1.5px 4px rgba(255, 255, 255, 0.16),
+    inset 0 -1.5px 4px rgba(0, 0, 0, 0.38),
+    0 2px 8px rgba(0, 0, 0, 0.48),
+    0 1px 3px rgba(0, 0, 0, 0.25);
+}
+.parts-call-btn:hover {
+  transform: scale(1.08);
+  box-shadow:
+    0 0 0 1.5px rgba(208, 208, 232, 0.68),
+    inset 0 1.5px 4px rgba(255, 255, 255, 0.2),
+    inset 0 -1.5px 4px rgba(0, 0, 0, 0.45),
+    0 3px 10px rgba(0, 0, 0, 0.55);
+}
+.parts-call-btn:active {
+  transform: scale(0.93);
+  box-shadow:
+    0 0 0 1.5px rgba(168, 168, 192, 0.48),
+    inset 0 2px 6px rgba(0, 0, 0, 0.28),
+    0 1px 3px rgba(0, 0, 0, 0.38);
+}
+
+/* Brand page chrome call button (larger, with text) */
+.brand-chrome-call-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  padding: 0.9rem 1.8rem;
+  font-size: 0.9rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  border-radius: 9999px;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  text-decoration: none;
+  color: #e0e0ea;
+  background: linear-gradient(
+    145deg,
+    rgba(232, 232, 245, 0.88) 0%,
+    rgba(175, 175, 192, 0.78) 15%,
+    rgba(20, 20, 32, 0.98) 35%,
+    rgba(10, 10, 20, 1) 55%,
+    rgba(16, 16, 28, 0.99) 75%,
+    rgba(155, 155, 172, 0.68) 90%,
+    rgba(195, 195, 212, 0.82) 100%
+  );
+  box-shadow:
+    0 0 0 2px rgba(200, 200, 222, 0.65),
+    inset 0 2.5px 7px rgba(255, 255, 255, 0.22),
+    inset 0 -2.5px 7px rgba(0, 0, 0, 0.45),
+    0 4px 16px rgba(0, 0, 0, 0.58),
+    0 1px 4px rgba(0, 0, 0, 0.3);
+}
+.brand-chrome-call-btn:hover {
+  transform: translateY(-2px);
+  box-shadow:
+    0 0 0 2px rgba(218, 218, 240, 0.75),
+    inset 0 2.5px 7px rgba(255, 255, 255, 0.28),
+    inset 0 -2.5px 7px rgba(0, 0, 0, 0.52),
+    0 6px 20px rgba(0, 0, 0, 0.65),
+    0 1px 5px rgba(0, 0, 0, 0.35);
+}
+.brand-chrome-call-btn:active {
+  transform: translateY(0);
+  box-shadow:
+    0 0 0 2px rgba(178, 178, 200, 0.55),
+    inset 0 4px 10px rgba(0, 0, 0, 0.35),
+    0 1px 4px rgba(0, 0, 0, 0.42);
+}
+
 /* Mobile premium chrome phone icon button */
 .mobile-chrome-call-btn {
   display: flex;

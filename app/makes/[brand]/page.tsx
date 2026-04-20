@@ -232,15 +232,43 @@ export default function BrandPage() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
             {ALL_PARTS.map((part) => (
-              <Link
+              <div
                 key={part.slug}
-                href={`/search?make=${encodeURIComponent(brand)}&part=${encodeURIComponent(part.name)}`}
-                className="flex items-center gap-3 px-4 py-3 rounded-lg border border-border/50 bg-card hover:bg-card/80 hover:border-primary/30 transition-all group"
+                className="flex items-center gap-2 px-3 py-3 rounded-lg border border-border/50 bg-card hover:bg-card/80 hover:border-primary/30 transition-all group"
               >
                 <Package className="w-4 h-4 text-primary flex-shrink-0" />
-                <span className="text-sm font-medium group-hover:text-primary transition-colors">{part.name}</span>
-                <span className="ml-auto text-[10px] px-2 py-0.5 rounded bg-green-500/10 text-green-400 border border-green-500/20 font-semibold">In Stock</span>
-              </Link>
+                <Link
+                  href={`/search?make=${encodeURIComponent(brand)}&part=${encodeURIComponent(part.name)}`}
+                  className="text-sm font-medium group-hover:text-primary transition-colors flex-1 min-w-0 truncate"
+                >
+                  {part.name}
+                </Link>
+                <div className="flex items-center gap-1.5 flex-shrink-0 ml-auto">
+                  {/* Compact GET QUOTE button */}
+                  <Link
+                    href={`/quote?make=${encodeURIComponent(brand)}&part=${encodeURIComponent(part.name)}`}
+                    className="parts-quote-btn"
+                    title="Get a quote"
+                  >
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-3 h-3 flex-shrink-0">
+                      <rect x="2" y="4" width="20" height="16" rx="2" stroke="currentColor" strokeWidth="2" fill="none"/>
+                      <path d="M2 8l10 7 10-7" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+                    </svg>
+                    <span>Quote</span>
+                  </Link>
+                  {/* Compact chrome call button */}
+                  <a
+                    href={`tel:${PHONE_SALES.replace(/-/g, "")}`}
+                    className="parts-call-btn"
+                    title={`Call ${PHONE_DISPLAY}`}
+                    aria-label="Call us"
+                  >
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-3.5 h-3.5">
+                      <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z" fill="currentColor"/>
+                    </svg>
+                  </a>
+                </div>
+              </div>
             ))}
           </div>
         </section>
@@ -275,16 +303,43 @@ export default function BrandPage() {
           <h2 className="text-2xl font-bold mb-6">{brand} Parts by Category</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
             {PART_CATEGORIES.map((cat) => (
-              <Link key={cat.id} href={`/parts/${cat.id}`} className="p-6 rounded-xl border border-border/50 bg-card hover:bg-card/80 hover:-translate-y-1 transition-all">
-                <h3 className="text-lg font-bold mb-2">{cat.label}</h3>
-                <p className="text-sm text-muted-foreground mb-3">{cat.parts.length} part types</p>
+              <div key={cat.id} className="p-5 rounded-xl border border-border/50 bg-card hover:bg-card/80 transition-all flex flex-col gap-3">
+                <Link href={`/parts/${cat.id}`} className="hover:text-primary transition-colors">
+                  <h3 className="text-lg font-bold">{cat.label}</h3>
+                </Link>
+                <p className="text-sm text-muted-foreground">{cat.parts.length} part types available</p>
                 <div className="flex flex-wrap gap-1">
                   {cat.parts.slice(0, 4).map((part) => (
                     <span key={part} className="text-xs px-2 py-1 rounded bg-muted text-muted-foreground">{part}</span>
                   ))}
                   {cat.parts.length > 4 && <span className="text-xs px-2 py-1 rounded bg-muted text-muted-foreground">+{cat.parts.length - 4} more</span>}
                 </div>
-              </Link>
+                {/* Action buttons */}
+                <div className="flex items-center gap-2 mt-auto pt-1">
+                  <Link
+                    href={`/quote?make=${encodeURIComponent(brand)}&category=${encodeURIComponent(cat.label)}`}
+                    className="get-quote-btn flex-1 justify-center text-xs py-2 px-3"
+                    style={{ padding: '0.5rem 0.75rem', fontSize: '0.7rem', letterSpacing: '0.06em' }}
+                  >
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-3.5 h-3.5 flex-shrink-0">
+                      <rect x="2" y="4" width="20" height="16" rx="2" stroke="currentColor" strokeWidth="2" fill="none"/>
+                      <path d="M2 8l10 7 10-7" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+                    </svg>
+                    GET QUOTE
+                  </Link>
+                  <a
+                    href={`tel:${PHONE_SALES.replace(/-/g, "")}`}
+                    className="brand-chrome-call-btn"
+                    style={{ width: '2.25rem', height: '2.25rem', borderRadius: '0.5rem' }}
+                    title={`Call ${PHONE_DISPLAY}`}
+                    aria-label="Call us"
+                  >
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-4 h-4">
+                      <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z" fill="currentColor"/>
+                    </svg>
+                  </a>
+                </div>
+              </div>
             ))}
           </div>
         </section>
@@ -352,12 +407,23 @@ export default function BrandPage() {
           <div className="rounded-2xl p-8 md:p-12 text-center" style={{ background: `linear-gradient(135deg, ${color}dd, ${color}aa)` }}>
             <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">Need a Specific {brand} Part?</h2>
             <p className="text-white/80 mb-6 max-w-xl mx-auto">
-              Our team can source any {brand} part from our network of 2,000+ verified yards. Get a free quote today -- no obligation.
+              Our team can source any {brand} part from our network of 2,000+ verified yards. Get a free quote today — no obligation.
             </p>
-            <div className="flex flex-wrap justify-center gap-4">
-              <Link href="/quote" className="inline-flex items-center gap-2 px-6 py-3 bg-white text-gray-900 font-bold rounded-lg hover:bg-white/90 transition-all">Get Free Quote</Link>
-              <a href={`tel:${PHONE_SALES.replace(/-/g, "")}`} className="inline-flex items-center gap-2 px-6 py-3 bg-white/10 border border-white/30 text-white font-bold rounded-lg hover:bg-white/20 transition-all">
-                <Phone className="w-5 h-5" /> {PHONE_DISPLAY}
+            <div className="flex flex-wrap justify-center gap-4 items-center">
+              {/* Premium metallic GET QUOTE button */}
+              <Link href="/quote" className="get-quote-btn">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-5 h-5 flex-shrink-0">
+                  <rect x="2" y="4" width="20" height="16" rx="2" stroke="currentColor" strokeWidth="1.8" fill="none"/>
+                  <path d="M2 8l10 7 10-7" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round"/>
+                </svg>
+                GET QUOTE
+              </Link>
+              {/* Chrome phone button */}
+              <a href={`tel:${PHONE_SALES.replace(/-/g, "")}`} className="brand-chrome-call-btn">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-5 h-5 flex-shrink-0">
+                  <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z" fill="currentColor"/>
+                </svg>
+                {PHONE_DISPLAY}
               </a>
             </div>
           </div>
