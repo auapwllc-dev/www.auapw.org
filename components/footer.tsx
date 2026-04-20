@@ -38,9 +38,18 @@ function BrandLogo({ brand }: { brand: string }) {
 }
 
 export function Footer() {
-  const popularPartLinks = PART_CATEGORIES.flatMap(c =>
-    c.parts.slice(0, 2).map(p => ({ label: p, href: `/parts/${c.id}` }))
-  ).slice(0, 10)
+  const popularPartLinks = [
+    { label: "Complete Engine", href: "/parts/engines" },
+    { label: "Long Block Engine", href: "/parts/engines" },
+    { label: "Automatic Transmission", href: "/parts/transmissions" },
+    { label: "Manual Transmission", href: "/parts/transmissions" },
+    { label: "Axle Assembly Front", href: "/parts/drivetrain" },
+    { label: "Axle Assembly Rear", href: "/parts/drivetrain" },
+    { label: "Alternator", href: "/parts/electrical" },
+    { label: "Starter Motor", href: "/parts/electrical" },
+    { label: "Radiator", href: "/parts/cooling" },
+    { label: "AC Compressor", href: "/parts/cooling" },
+  ]
   const popularMakes = CAR_MAKES.slice(0, 8)
 
   return (
