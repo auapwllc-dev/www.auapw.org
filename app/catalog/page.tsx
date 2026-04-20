@@ -217,7 +217,7 @@ export default function CatalogPage() {
               <select
                 value={sortBy}
                 onChange={(e) => setSortBy(e.target.value)}
-                className="px-4 py-2 bg-background border border-border rounded-lg text-foreground focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="auapw-btn auapw-btn-silver auapw-btn-sm"
               >
                 <option value="name">Sort: A-Z</option>
                 <option value="price-asc">Sort: Price Low to High</option>
@@ -242,10 +242,10 @@ export default function CatalogPage() {
                     <button
                       key={category}
                       onClick={() => setSelectedCategory(category)}
-                      className={`block w-full text-left px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
+                      className={`auapw-btn auapw-btn-sm w-full text-left ${
                         selectedCategory === category
-                          ? 'bg-blue-600 text-white'
-                          : 'text-foreground/70 hover:bg-background/50 hover:text-foreground'
+                          ? 'auapw-btn-blue'
+                          : 'auapw-btn-silver'
                       }`}
                     >
                       {category}
@@ -264,7 +264,7 @@ export default function CatalogPage() {
                         setSearchQuery('')
                         setSelectedCategory('All Parts')
                       }}
-                      className="auapw-btn auapw-btn-blue"
+                      className="auapw-btn auapw-btn-blue auapw-btn-lg"
                     >
                       Clear Filters
                     </button>
@@ -274,10 +274,10 @@ export default function CatalogPage() {
                     {filteredParts.map((part) => (
                       <div
                         key={part.id}
-                        className="bg-background border border-border rounded-lg p-4 sm:p-6 hover:shadow-lg transition-all duration-300 hover:border-border/50"
+                        className="bg-background border border-border rounded-lg p-4 sm:p-6 hover:shadow-lg transition-all duration-300 hover:border-border/50 flex flex-col"
                       >
                         {/* Part Header */}
-                        <div className="mb-3">
+                        <div className="mb-3 flex-1">
                           <h3 className="text-lg font-bold text-foreground mb-1 truncate">
                             {part.name}
                           </h3>
@@ -286,11 +286,17 @@ export default function CatalogPage() {
                           </p>
                         </div>
 
-                        {/* Status Badge */}
-                        <div className="inline-block mb-3">
-                          <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-green-900/30 text-green-300 border border-green-700/50">
-                            {part.status}
-                          </span>
+                        {/* Status Button */}
+                        <div className="mb-4">
+                          <button
+                            disabled
+                            className="auapw-btn auapw-btn-green auapw-btn-sm auapw-btn-subtext w-full text-center opacity-70"
+                          >
+                            <div className="flex flex-col items-center w-full">
+                              <span className="btn-main">{part.name}</span>
+                              <span className="btn-sub">In Stock</span>
+                            </div>
+                          </button>
                         </div>
 
                         {/* Price */}
@@ -301,10 +307,10 @@ export default function CatalogPage() {
                         </div>
 
                         {/* Action Buttons */}
-                        <div className="flex flex-col gap-2">
+                        <div className="flex flex-col gap-2 mt-auto">
                           <button
                             onClick={() => handleAddToCart(part)}
-                            className="auapw-btn auapw-btn-blue w-full auapw-btn-sm"
+                            className="auapw-btn auapw-btn-blue w-full"
                             aria-label={`Add ${part.name} to cart`}
                           >
                             <ShoppingCart className="w-4 h-4" />
@@ -313,19 +319,21 @@ export default function CatalogPage() {
                           <div className="flex gap-2">
                             <button
                               onClick={() => handleAddToWishlist(part)}
-                              className="auapw-btn auapw-btn-red auapw-btn-sm flex-1"
+                              className="auapw-btn auapw-btn-red flex-1"
                               aria-label={`Add ${part.name} to wishlist`}
                               title="Add to wishlist"
                             >
                               <Heart className="w-4 h-4" />
+                              <span className="hidden sm:inline">Save</span>
                             </button>
                             <button
                               onClick={() => handleAddToComparison(part)}
-                              className="auapw-btn auapw-btn-silver auapw-btn-sm flex-1"
+                              className="auapw-btn auapw-btn-silver flex-1"
                               aria-label={`Add ${part.name} to comparison`}
                               title="Add to comparison"
                             >
                               <BarChart3 className="w-4 h-4" />
+                              <span className="hidden sm:inline">Compare</span>
                             </button>
                           </div>
                         </div>
