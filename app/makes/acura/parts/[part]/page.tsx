@@ -23,7 +23,8 @@ import {
   Phone, 
   MessageSquare,
   CheckCircle,
-  ArrowLeft
+  ArrowLeft,
+  Search
 } from "lucide-react"
 
 function FAQItem({ question, answer }: { question: string; answer: string }) {
@@ -354,6 +355,80 @@ export default function AcuraPartPage() {
             </div>
           </div>
         )}
+
+        {/* Don't see the right part? */}
+        <div className="mx-auto max-w-[1280px] px-6 py-16">
+          <div className="bg-gradient-to-br from-background via-card to-background border border-border/30 rounded-2xl p-8 md:p-12">
+            <h2 className="text-2xl md:text-3xl font-bold text-center mb-3">
+              DON&apos;T SEE THE RIGHT PART?
+            </h2>
+            <p className="text-center text-muted-foreground mb-4 max-w-2xl mx-auto">
+              Our team can source from additional yards not listed here.
+            </p>
+            <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto">
+              Call or request a quote for immediate assistance.
+            </p>
+            
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+              {/* Phone button with embossed styling */}
+              <div className="flex justify-center md:justify-end">
+                <a
+                  href={`tel:${PHONE_SALES.replace(/-/g, "")}`}
+                  className="relative w-56 h-56 rounded-full flex items-center justify-center overflow-hidden group"
+                  style={{
+                    background: `linear-gradient(180deg, #3a3c42 0%, #18191d 18%, #0e0f11 50%, #18191d 82%, #3a3c42 100%)`,
+                    boxShadow: `
+                      0 0 0 8px #2a2c32,
+                      0 0 0 12px #0a0a0c,
+                      0 0 0 16px #484b52,
+                      0 12px 40px rgba(0,0,0,0.8),
+                      inset 0 1px 0 rgba(255,255,255,0.12),
+                      inset 0 -1px 0 rgba(0,0,0,0.5)
+                    `
+                  }}
+                >
+                  {/* Animated accent dot */}
+                  <div className="absolute -top-6 -left-6 w-12 h-12 rounded-full bg-purple-500 opacity-40 animate-pulse" />
+                  
+                  {/* Button content */}
+                  <div className="relative z-10 flex flex-col items-center gap-3 text-white text-center">
+                    <Phone className="w-8 h-8" />
+                    <span className="font-bold tracking-widest text-sm">CALL</span>
+                    <span className="font-bold text-lg tracking-wider">{PHONE_DISPLAY}</span>
+                  </div>
+                  
+                  {/* Hover glow effect */}
+                  <div className="absolute inset-0 rounded-full opacity-0 group-hover:opacity-20 transition-opacity bg-gradient-to-br from-white via-transparent to-transparent" />
+                </a>
+              </div>
+
+              {/* Quote request card */}
+              <div className="flex justify-center md:justify-start">
+                <Link
+                  href={`/quote?make=Acura&part=${encodeURIComponent(part.name)}`}
+                  className="relative w-56 h-56 rounded-3xl flex flex-col items-center justify-center overflow-hidden group bg-gradient-to-br from-blue-400 to-blue-600 p-8 shadow-2xl border border-blue-300/50 hover:shadow-blue-500/50 transition-all"
+                >
+                  {/* Card content */}
+                  <div className="relative z-10 flex flex-col items-center gap-4 text-white text-center">
+                    <div className="w-16 h-16 rounded-2xl border-2 border-white flex items-center justify-center bg-white/10">
+                      <MessageSquare className="w-8 h-8" />
+                    </div>
+                    <div>
+                      <p className="text-xs font-semibold uppercase tracking-widest text-blue-100 mb-1">Request</p>
+                      <p className="font-bold text-2xl leading-tight">Free Quote</p>
+                    </div>
+                    <span className="text-xs font-semibold uppercase px-3 py-1 rounded-full bg-blue-300/20 border border-blue-200/30 text-blue-100 mt-2">
+                      Premium Industry
+                    </span>
+                  </div>
+                  
+                  {/* Hover effect */}
+                  <div className="absolute inset-0 bg-gradient-to-tr from-transparent to-white/20 opacity-0 group-hover:opacity-100 transition-opacity" />
+                </Link>
+              </div>
+            </div>
+          </div>
+        </div>
 
         {/* Final CTA */}
         <div className="mx-auto max-w-[1280px] px-6 pb-16">
