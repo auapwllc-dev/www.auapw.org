@@ -3,6 +3,7 @@ import { Roboto } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
 import { ThemeProvider } from '@/components/theme-provider'
 import { AuthProvider } from '@/lib/auth-context'
+import { MobileThemeFab } from '@/components/mobile-theme-fab'
 import './globals.css'
 
 const roboto = Roboto({
@@ -100,6 +101,7 @@ export default function RootLayout({
         <AuthProvider>
           <ThemeProvider>
             {children}
+            <MobileThemeFab />
           </ThemeProvider>
         </AuthProvider>
         <Analytics />
