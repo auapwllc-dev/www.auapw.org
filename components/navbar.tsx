@@ -92,10 +92,18 @@ export function Navbar() {
         <div className="mx-auto w-full px-3 sm:px-4 md:px-6 lg:px-8 flex items-center h-full justify-between gap-2 sm:gap-4 relative z-10">
 
           {/* Logo + Wordmark — premium left anchor */}
-          <Link href="/" className="flex items-center gap-2 sm:gap-4 shrink-0 group header-boss-logo-group">
-            <div className="header-boss-logo-ring">
+          <Link href="/" className="flex items-center gap-1.5 sm:gap-4 shrink-0 group header-boss-logo-group">
+            <div className="header-boss-logo-ring h-10 w-10 sm:h-12 sm:w-12 flex items-center justify-center">
               <Logo size="sm" priority showGlow />
             </div>
+            {/* Mobile: compact brand name */}
+            <div className="flex flex-col justify-center pt-[2px] sm:hidden">
+              <div className="flex flex-col gap-0">
+                <span className="wordmark-3d text-[0.65rem] leading-tight">𝐀𝐔𝐀𝐏𝐖</span>
+                <span className="wordmark-sub text-[0.35rem] font-bold tracking-[0.15em] uppercase">Auto Parts</span>
+              </div>
+            </div>
+            {/* Desktop: full wordmark */}
             <div className="flex flex-col justify-center pt-[2px] hidden sm:block">
               <BrandWordmark size="nav" showSubline />
             </div>
