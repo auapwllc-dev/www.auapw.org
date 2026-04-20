@@ -217,7 +217,13 @@ export function HeroSection() {
 
             {/* Used Engines / Used Transmissions / Book Appointment — 3-column */}
             <div className="w-full pt-6 border-t border-white/10">
-              <h2 className="text-primary font-bold tracking-wide text-center text-lg sm:text-xl mb-6 uppercase">Used Engines · Used Transmissions · Truck Parts</h2>
+              <h2 className="text-primary font-bold tracking-wide text-center text-base sm:text-lg md:text-xl mb-6 uppercase leading-relaxed">
+                <span className="block sm:inline">Used Engines</span>
+                <span className="hidden sm:inline"> · </span>
+                <span className="block sm:inline">Used Transmissions</span>
+                <span className="hidden sm:inline"> · </span>
+                <span className="block sm:inline">Truck Parts</span>
+              </h2>
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 text-left">
 
                 {/* Used Engines */}
