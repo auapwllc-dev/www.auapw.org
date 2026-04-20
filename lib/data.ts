@@ -1,10 +1,10 @@
 export const CAR_MAKES = [
   "Acura","Alfa Romeo","AMC","Aston Martin","Audi","Austin","BMW","Buick","Cadillac",
-  "Chevrolet","Chrysler","Daewoo","Dodge","Eagle","Fiat","Ford","Geo","GMC","Honda",
+  "Chevrolet","Chrysler","Daewoo","Daihatsu","Dodge","Eagle","Fiat","Ford","Geo","GMC","Honda",
   "Hummer","Hyundai","Infiniti","Isuzu","Jaguar","Jeep","Kia","Land Rover","Lexus",
-  "Lincoln","Mazda","Mercedes-Benz","Mercury","Mitsubishi","Nissan","Oldsmobile",
-  "Plymouth","Pontiac","Saab","Saturn","Scion","Subaru","Suzuki","Toyota",
-  "Volkswagen","Volvo"
+  "Lincoln","Mazda","Mercedes-Benz","Mercury","Mini","Mitsubishi","Nissan","Oldsmobile",
+  "Opel","Peugeot","Plymouth","Pontiac","Porsche","Renault","Saab","Saturn","Scion",
+  "Subaru","Suzuki","Toyota","Triumph","Volkswagen","Volvo"
 ]
 
 export const CAR_MODELS: Record<string, string[]> = {
@@ -53,6 +53,13 @@ export const CAR_MODELS: Record<string, string[]> = {
   "Toyota": ["4Runner","86","Avalon","C-HR","Camry","Celica","Corolla","Corolla Cross","Corona","Cressida","Crown","Echo","FJ Cruiser","GR86","GR Corolla","GR Supra","Highlander","Land Cruiser","Matrix","MR2","Paseo","Pickup","Previa","Prius","Prius Prime","RAV4","RAV4 Prime","Sequoia","Sienna","Solara","Starlet","Supra","T100","Tacoma","Tercel","Tundra","Van","Venza","Yaris"],
   "Volkswagen": ["Arteon","Atlas","Atlas Cross Sport","Beetle","Cabrio","Cabriolet","CC","Corrado","Dasher","Eos","Fox","Golf","Golf GTI","Golf R","ID.4","Jetta","Karmann Ghia","New Beetle","Passat","Phaeton","Quantum","Rabbit","Routan","Scirocco","Taos","Thing","Tiguan","Touareg","Vanagon"],
   "Volvo": ["122","142","144","164","240","242","244","245","262","264","740","745","760","780","850","940","960","C30","C40","C70","S40","S60","S70","S80","S90","V40","V50","V60","V70","V90","XC40","XC60","XC70","XC90"],
+  "Daihatsu": ["Charade","Charmant","Cuore","Feroza","Hijet","Materia","Move","Rocky","Sirion","Terios","YRV"],
+  "Mini": ["Clubman","Clubvan","Convertible","Cooper","Cooper S","Countryman","Coupe","Hardtop","John Cooper Works","Paceman","Roadster"],
+  "Opel": ["Agila","Antara","Astra","Calibra","Cascada","Corsa","Crossland","Frontera","Grandland","Insignia","Kadett","Meriva","Mokka","Omega","Signum","Tigra","Vectra","Vivaro","Zafira"],
+  "Peugeot": ["106","107","108","205","206","207","208","306","307","308","405","406","407","408","508","607","806","Expert","Partner","Traveller","2008","3008","4007","4008","5008"],
+  "Porsche": ["356","911","912","914","918","924","928","930","944","959","962","968","Boxster","Carrera","Cayenne","Cayman","Macan","Panamera","Spyder","Taycan"],
+  "Renault": ["4","5","9","11","12","14","18","19","21","25","Captur","Clio","Duster","Espace","Fluence","Kadjar","Kangoo","Koleos","Laguna","Latitude","Master","Megane","Modus","Safrane","Scenic","Symbol","Talisman","Twingo","Twizy","Vel Satis","Wind","Zoe"],
+  "Triumph": ["Bonneville","GT6","Herald","Spitfire","Stag","TR2","TR3","TR4","TR5","TR6","TR7","TR8","Vitesse"],
 }
 
 // Model year ranges for all brands (start year - end year, 0 = still in production)
