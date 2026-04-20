@@ -10,6 +10,10 @@ const steps = [
 export function ProcessSection() {
   return (
     <section className="py-20 relative overflow-hidden bg-[#0d0f16]">
+      <div
+        className="absolute inset-0"
+        style={{ backgroundImage: "radial-gradient(circle, rgba(255,255,255,0.022) 1px, transparent 1px)", backgroundSize: "24px 24px" }}
+      />
       <div className="metal-line absolute top-0 left-0 right-0" />
       <div className="metal-line absolute bottom-0 left-0 right-0" />
 
