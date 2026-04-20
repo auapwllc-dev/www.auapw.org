@@ -4096,6 +4096,7 @@ footer .wordmark-3d {
 
 .light .auapw-btn svg {
   color: #ffffff !important;
+  stroke: #ffffff !important;
 }
 
 /* Light mode: get-quote and browse buttons */
@@ -4107,7 +4108,7 @@ footer .wordmark-3d {
 .light .get-quote-btn svg,
 .light .browse-btn svg {
   color: #ffffff !important;
-  fill: #ffffff !important;
+  stroke: #ffffff !important;
 }
 
 .light .browse-btn {
@@ -4127,7 +4128,18 @@ footer .wordmark-3d {
 .dark .get-quote-btn svg,
 .dark .browse-btn svg {
   color: #ffffff !important;
-  fill: #ffffff !important;
+  stroke: #ffffff !important;
+}
+
+/* Universal button SVG visibility fix */
+.auapw-btn svg,
+.get-quote-btn svg,
+.browse-btn svg,
+.parts-call-btn svg,
+.brand-chrome-call-btn svg {
+  color: #ffffff !important;
+  stroke: currentColor !important;
+  filter: drop-shadow(0 1px 2px rgba(0,0,0,0.4));
 }
 @media (max-width: 640px) {
   .auapw-btn {
@@ -4429,7 +4441,7 @@ footer .wordmark-3d {
   transition: all 0.2s ease;
   text-decoration: none;
   flex-shrink: 0;
-  color: #d8d8e8;
+  color: #ffffff;
   background: linear-gradient(
     145deg,
     rgba(225, 225, 238, 0.85) 0%,
@@ -4446,6 +4458,14 @@ footer .wordmark-3d {
     inset 0 -1.5px 4px rgba(0, 0, 0, 0.38),
     0 2px 8px rgba(0, 0, 0, 0.48),
     0 1px 3px rgba(0, 0, 0, 0.25);
+}
+.parts-call-btn svg {
+  width: 0.875rem;
+  height: 0.875rem;
+  color: #ffffff !important;
+  fill: #ffffff !important;
+  flex-shrink: 0;
+  filter: drop-shadow(0 1px 2px rgba(0,0,0,0.5));
 }
 .parts-call-btn:hover {
   transform: scale(1.08);
@@ -4523,6 +4543,30 @@ footer .wordmark-3d {
     0 0 0 2px rgba(178, 178, 200, 0.55),
     inset 0 4px 10px rgba(0, 0, 0, 0.35),
     0 1px 4px rgba(0, 0, 0, 0.42);
+}
+
+/* Light mode: ensure call button icons are always visible */
+.light .parts-call-btn,
+.light .brand-chrome-call-btn {
+  color: #ffffff !important;
+}
+
+.light .parts-call-btn svg,
+.light .brand-chrome-call-btn svg {
+  color: #ffffff !important;
+  fill: #ffffff !important;
+}
+
+/* Dark mode: ensure call button icons are always visible */
+.dark .parts-call-btn,
+.dark .brand-chrome-call-btn {
+  color: #ffffff !important;
+}
+
+.dark .parts-call-btn svg,
+.dark .brand-chrome-call-btn svg {
+  color: #ffffff !important;
+  fill: #ffffff !important;
 }
 
 /* ─────────────────────────────────────────────────────────
