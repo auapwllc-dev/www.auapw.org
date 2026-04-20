@@ -66,7 +66,7 @@ export function HeroSection() {
             {/* Feature highlights grid */}
             <div className="w-full grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 text-left mt-2">
               {[
-                { title: "Fast Same Day Shipping", desc: "Orders placed and available ship same day to reduce your downtime." },
+                { title: "Fast Same Day Shipping", desc: "No matter where you are, get your parts delivered straight to your door. Most orders ship nationwide in 24 hours or less." },
                 { title: "Hassle Free Returns", desc: "Simple return process with clear instructions and reasonable return windows." },
                 { title: "Expert Technical Support", desc: "Fitment, compatibility, and installation guidance from our support team." },
                 { title: "Competitive Pricing", desc: "Transparent quotes with no hidden fees — straightforward pricing up front." },
