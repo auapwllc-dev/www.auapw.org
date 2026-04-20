@@ -2,7 +2,7 @@
 
 import { useState } from "react"
 import { CAR_MAKES, CAR_MODELS, YEARS } from "@/lib/data"
-import { Phone, AlertCircle, CheckCircle2 } from "lucide-react"
+import { Phone, AlertCircle, CheckCircle2, Mail, Loader2 } from "lucide-react"
 
 const CONTACT_EMAIL = "aupworld@gmail.com"
 const PHONE_DISPLAY = "(888) 818-5001"
@@ -96,16 +96,16 @@ export function QuoteForm({ defaultPart = "", compact = false }: QuoteFormProps)
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
             <a
               href="tel:8888185001"
-              className="inline-flex items-center justify-center gap-2 px-4 py-2.5 bg-primary text-primary-foreground font-bold text-sm rounded-lg hover:bg-primary/90 transition-all"
+              className="auapw-btn auapw-btn-green"
             >
               <Phone className="w-4 h-4" />
               {PHONE_DISPLAY}
             </a>
             <a
               href={`mailto:${CONTACT_EMAIL}`}
-              className="inline-flex items-center justify-center gap-2 px-4 py-2.5 border border-border text-foreground font-bold text-sm rounded-lg bg-muted/30 hover:bg-muted/60 transition-all"
+              className="auapw-btn auapw-btn-teal"
             >
-              <img src="/images/icon-email-logo.png" alt="Email" className="w-4 h-4" />
+              <Mail className="w-4 h-4" />
               {CONTACT_EMAIL}
             </a>
           </div>
@@ -116,7 +116,7 @@ export function QuoteForm({ defaultPart = "", compact = false }: QuoteFormProps)
             setMake(""); setModel(""); setName(""); setPhone("")
             setEmail(""); setZip(""); setMessage(""); setPart(defaultPart)
           }}
-          className="text-sm text-primary hover:underline"
+          className="auapw-btn auapw-btn-silver auapw-btn-sm mt-4"
         >
           Submit another request
         </button>
@@ -246,9 +246,17 @@ export function QuoteForm({ defaultPart = "", compact = false }: QuoteFormProps)
           <div className="mt-auto pt-3 sm:pt-4">
             <button
               type="submit"
-              className="w-full relative overflow-hidden rounded-full transition-all hover:shadow-lg hover:shadow-black/40"
+              className="auapw-btn auapw-btn-amber w-full auapw-btn-lg"
+              disabled={loading}
             >
-              <img src="/images/button-get-quote.png" alt="Get A Quote" className="w-full h-auto block" />
+              {loading ? (
+                <>
+                  <Loader2 className="w-4 h-4 animate-spin" />
+                  Sending...
+                </>
+              ) : (
+                "Get A Quote"
+              )}
             </button>
             <p className="text-[9px] sm:text-[10px] text-muted-foreground mt-2 sm:mt-3 leading-relaxed">
               Clicking the button will open your email client with your quote details pre-filled to send to {CONTACT_EMAIL}.

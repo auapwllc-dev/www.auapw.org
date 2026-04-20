@@ -2,9 +2,8 @@
 
 import { useWishlistStore } from '@/lib/stores/wishlist-store'
 import { useCartStore } from '@/lib/stores/cart-store'
-import { Button } from '@/components/ui/button'
 import Link from 'next/link'
-import { Trash2, Heart } from 'lucide-react'
+import { Trash2, Heart, ShoppingCart } from 'lucide-react'
 import Image from 'next/image'
 import { Navbar } from '@/components/navbar'
 import { Footer } from '@/components/footer'
@@ -46,8 +45,8 @@ export default function WishlistPage() {
               <Heart className="w-16 h-16 mb-4 opacity-40" />
               <h2 className="text-2xl font-semibold mb-2">Your wishlist is empty</h2>
               <p className="text-foreground/60 mb-6">Start adding parts to your wishlist</p>
-              <Link href="/parts" className="w-44 inline-block hover:-translate-y-1 transition-transform duration-200">
-                <img src="/images/button-find-your-part.jpg" alt="Browse Parts" className="w-full h-auto drop-shadow-xl" />
+              <Link href="/parts" className="auapw-btn auapw-btn-blue auapw-btn-lg">
+                Browse Parts
               </Link>
             </div>
           ) : (
@@ -72,17 +71,19 @@ export default function WishlistPage() {
                     <div className="flex flex-col gap-2 justify-start">
                       <button
                         onClick={() => removeItem(item.id)}
-                        className="text-foreground/60 hover:text-red-400 transition-colors p-2 hover:bg-white/10 rounded"
+                        className="auapw-btn auapw-btn-red auapw-btn-sm w-full"
                         aria-label="Remove from wishlist"
                       >
-                        <Trash2 className="w-5 h-5" />
+                        <Trash2 className="w-4 h-4" />
+                        <span>Remove</span>
                       </button>
                       <button
                         onClick={() => handleAddToCart(item)}
-                        className="text-foreground/60 hover:text-green-400 transition-colors p-2 hover:bg-white/10 rounded flex items-center justify-center w-10 h-10"
+                        className="auapw-btn auapw-btn-blue auapw-btn-sm w-full"
                         aria-label="Add to cart"
                       >
-                        <img src="/images/icon-add-to-cart.png" alt="Add to cart" className="w-5 h-5" />
+                        <ShoppingCart className="w-4 h-4" />
+                        <span>Add to Cart</span>
                       </button>
                     </div>
                   </div>
@@ -93,12 +94,12 @@ export default function WishlistPage() {
               <div className="flex gap-4 justify-end">
                 <button
                   onClick={clearWishlist}
-                  className="px-6 py-2 text-sm font-medium text-red-400 hover:text-red-300 transition-colors border border-red-400/20 rounded-lg hover:bg-red-400/5"
+                  className="auapw-btn auapw-btn-red auapw-btn-sm"
                 >
                   Clear Wishlist
                 </button>
-                <Link href="/parts" className="w-44 inline-block hover:-translate-y-1 transition-transform duration-200">
-                  <img src="/images/button-find-your-part.jpg" alt="Continue Shopping" className="w-full h-auto drop-shadow-xl" />
+                <Link href="/parts" className="auapw-btn auapw-btn-blue auapw-btn-lg">
+                  Continue Shopping
                 </Link>
               </div>
             </div>
