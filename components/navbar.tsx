@@ -92,11 +92,11 @@ export function Navbar() {
         <div className="mx-auto w-full px-3 sm:px-4 md:px-6 lg:px-8 flex items-center h-full justify-between gap-2 sm:gap-4 relative z-10">
 
           {/* Logo + Wordmark — premium left anchor */}
-          <Link href="/" className="flex items-center gap-4 shrink-0 group header-boss-logo-group">
+          <Link href="/" className="flex items-center gap-2 sm:gap-4 shrink-0 group header-boss-logo-group">
             <div className="header-boss-logo-ring">
-              <Logo size="md" priority showGlow />
+              <Logo size="sm" priority showGlow />
             </div>
-            <div className="flex flex-col justify-center pt-[2px]">
+            <div className="flex flex-col justify-center pt-[2px] hidden sm:block">
               <BrandWordmark size="nav" showSubline />
             </div>
           </Link>

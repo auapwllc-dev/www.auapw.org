@@ -3861,4 +3861,187 @@ footer .wordmark-3d {
   height: 0.75rem;
 }
 
+/* ─── Comprehensive Mobile Responsive Fixes ─── */
+@media (max-width: 640px) {
+  /* Base body and container fixes */
+  html, body {
+    overflow-x: hidden;
+    width: 100%;
+  }
+  
+  main, section, div {
+    overflow-x: hidden;
+  }
+  
+  /* Text wrapping on mobile */
+  h1, h2, h3, h4, h5, h6 {
+    word-break: break-word;
+    overflow-wrap: break-word;
+    hyphens: auto;
+    line-height: 1.2;
+  }
+  
+  p, span, li, a {
+    word-break: break-word;
+    overflow-wrap: break-word;
+  }
+  
+  /* Container padding fixes */
+  .mx-auto {
+    padding-left: 0.75rem !important;
+    padding-right: 0.75rem !important;
+  }
+  
+  .px-6 {
+    padding-left: 0.75rem !important;
+    padding-right: 0.75rem !important;
+  }
+  
+  .px-8 {
+    padding-left: 0.75rem !important;
+    padding-right: 0.75rem !important;
+  }
+  
+  /* Grid collapse to single column */
+  .grid-cols-2, .grid-cols-3, .grid-cols-4, .grid-cols-5 {
+    grid-template-columns: 1fr !important;
+  }
+  
+  /* Flex direction for small screens */
+  .flex-col, .flex-row {
+    flex-direction: column;
+  }
+  
+  .flex-row {
+    flex-direction: column;
+  }
+  
+  /* Image sizing on mobile */
+  img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+  }
+  
+  /* Button sizing */
+  .auapw-btn {
+    width: 100%;
+    min-height: 44px;
+    font-size: 0.7rem;
+    padding: 0.5rem 0.875rem;
+  }
+  
+  /* Table responsiveness */
+  table {
+    font-size: 0.75rem;
+  }
+  
+  th, td {
+    padding: 0.5rem 0.25rem;
+  }
+  
+  /* Dropdown menu responsive */
+  .dropdown-menu, .dropdown-content {
+    max-width: 90vw;
+    max-height: 50vh;
+    overflow-y: auto;
+  }
+  
+  /* Modal fixes */
+  .modal, [role="dialog"] {
+    width: 90vw;
+    max-width: 90vw;
+    padding: 1rem;
+  }
+  
+  /* Form elements on mobile */
+  input, textarea, select {
+    font-size: 16px;
+    min-height: 44px;
+    width: 100%;
+  }
+  
+  /* Ensure buttons are touchable */
+  button, a[role="button"], [role="button"] {
+    min-height: 44px;
+    min-width: 44px;
+  }
+  
+  /* Typography scaling */
+  .text-lg {
+    font-size: 1rem !important;
+  }
+  
+  .text-xl {
+    font-size: 1.125rem !important;
+  }
+  
+  .text-2xl {
+    font-size: 1.25rem !important;
+  }
+  
+  .text-3xl {
+    font-size: 1.5rem !important;
+  }
+  
+  .text-4xl {
+    font-size: 1.75rem !important;
+  }
+  
+  .text-5xl {
+    font-size: 2rem !important;
+  }
+  
+  /* Spacing fixes */
+  .gap-6 {
+    gap: 0.75rem !important;
+  }
+  
+  .gap-8 {
+    gap: 1rem !important;
+  }
+  
+  .gap-12 {
+    gap: 1.5rem !important;
+  }
+  
+  /* Hero section mobile */
+  .hero-content {
+    padding: 1rem;
+    text-align: center;
+  }
+  
+  /* Hide unnecessary elements on mobile */
+  .hidden-mobile {
+    display: none !important;
+  }
+  
+  /* Section padding */
+  section {
+    padding-left: 0.75rem !important;
+    padding-right: 0.75rem !important;
+  }
+}
+
+/* Tablet fixes (640px - 1024px) */
+@media (min-width: 641px) and (max-width: 1024px) {
+  .px-6 {
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+  }
+  
+  .px-8 {
+    padding-left: 1.5rem !important;
+    padding-right: 1.5rem !important;
+  }
+  
+  .gap-6 {
+    gap: 1rem !important;
+  }
+  
+  .gap-8 {
+    gap: 1.25rem !important;
+  }
+}
+
 /* v0 rebuild cache busting */
