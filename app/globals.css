@@ -4555,28 +4555,158 @@ footer .wordmark-3d {
     0 1px 4px rgba(0, 0, 0, 0.42);
 }
 
-/* Light mode: ensure call button icons are always visible */
-.light .parts-call-btn,
-.light .brand-chrome-call-btn {
+/* ════════════════════════════════════════════════════════════
+   GLOBAL BUTTON UNIFICATION - ALL BUTTONS USE SAME PILL DESIGN
+   ════════════════════════════════════════════════════════════ */
+
+/* Apply base .auapw-btn styling to ALL button types */
+.get-quote-btn,
+.browse-btn,
+.parts-call-btn,
+.brand-chrome-call-btn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.625rem !important;
+  padding: 0.875rem 1.75rem !important;
+  font-size: 0.875rem !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.04em !important;
+  text-transform: uppercase !important;
+  border-radius: 9999px !important; /* Full pill shape */
   color: #ffffff !important;
+  text-decoration: none !important;
+  white-space: nowrap !important;
+  cursor: pointer !important;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  border: none !important;
+  width: auto !important;
+  height: auto !important;
+  
+  /* Glossy black center with subtle gradient */
+  background: 
+    linear-gradient(
+      180deg,
+      rgba(60, 60, 70, 0.9) 0%,
+      rgba(20, 20, 28, 0.98) 15%,
+      rgba(8, 8, 14, 1) 50%,
+      rgba(15, 15, 22, 0.98) 85%,
+      rgba(40, 40, 50, 0.8) 100%
+    ) !important;
+  
+  /* Chrome/silver 3D beveled border frame */
+  border: 3px solid transparent !important;
+  background-clip: padding-box !important;
+  
+  /* Outer chrome frame effect */
+  box-shadow:
+    /* Outer silver rim highlight */
+    0 0 0 1px rgba(180, 180, 190, 0.6),
+    /* Top chrome bevel light */
+    inset 0 2px 4px rgba(255, 255, 255, 0.15),
+    /* Bottom chrome bevel shadow */
+    inset 0 -2px 4px rgba(0, 0, 0, 0.4),
+    /* Glossy center highlight */
+    inset 0 1px 1px rgba(255, 255, 255, 0.1),
+    /* Outer shadow for depth */
+    0 4px 12px rgba(0, 0, 0, 0.5),
+    0 2px 4px rgba(0, 0, 0, 0.3) !important;
 }
 
-.light .parts-call-btn svg,
-.light .brand-chrome-call-btn svg {
+/* Chrome border using pseudo-element */
+.get-quote-btn::before,
+.browse-btn::before,
+.parts-call-btn::before,
+.brand-chrome-call-btn::before {
+  content: '';
+  position: absolute;
+  inset: -3px;
+  border-radius: 9999px;
+  padding: 3px;
+  background: linear-gradient(
+    180deg,
+    rgba(220, 220, 230, 0.9) 0%,
+    rgba(160, 160, 175, 0.8) 20%,
+    rgba(100, 100, 115, 0.7) 50%,
+    rgba(140, 140, 155, 0.8) 80%,
+    rgba(200, 200, 215, 0.85) 100%
+  );
+  -webkit-mask: 
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  mask: 
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* Hover state - unified */
+.get-quote-btn:hover,
+.browse-btn:hover,
+.parts-call-btn:hover,
+.brand-chrome-call-btn:hover {
+  transform: translateY(-2px) scale(1.02) !important;
+  box-shadow:
+    0 0 0 1px rgba(200, 200, 210, 0.8),
+    inset 0 2px 4px rgba(255, 255, 255, 0.2),
+    inset 0 -2px 4px rgba(0, 0, 0, 0.3),
+    inset 0 1px 1px rgba(255, 255, 255, 0.15),
+    0 8px 20px rgba(0, 0, 0, 0.5),
+    0 4px 8px rgba(0, 0, 0, 0.3),
+    0 0 20px rgba(255, 255, 255, 0.08) !important;
+}
+
+.get-quote-btn:hover::before,
+.browse-btn:hover::before,
+.parts-call-btn:hover::before,
+.brand-chrome-call-btn:hover::before {
+  background: linear-gradient(
+    180deg,
+    rgba(240, 240, 250, 0.95) 0%,
+    rgba(180, 180, 195, 0.85) 20%,
+    rgba(120, 120, 135, 0.75) 50%,
+    rgba(160, 160, 175, 0.85) 80%,
+    rgba(220, 220, 235, 0.9) 100%
+  );
+}
+
+/* Active state - unified */
+.get-quote-btn:active,
+.browse-btn:active,
+.parts-call-btn:active,
+.brand-chrome-call-btn:active {
+  transform: translateY(0) scale(0.98) !important;
+}
+
+/* Button text styling */
+.get-quote-btn,
+.get-quote-btn span,
+.browse-btn,
+.browse-btn span,
+.parts-call-btn,
+.parts-call-btn span,
+.brand-chrome-call-btn,
+.brand-chrome-call-btn span {
   color: #ffffff !important;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5) !important;
+}
+
+/* Button SVG/Icon styling - unified */
+.get-quote-btn svg,
+.browse-btn svg,
+.parts-call-btn svg,
+.brand-chrome-call-btn svg {
+  width: 1rem !important;
+  height: 1rem !important;
+  color: #ffffff !important;
+  stroke: #ffffff !important;
   fill: #ffffff !important;
-}
-
-/* Dark mode: ensure call button icons are always visible */
-.dark .parts-call-btn,
-.dark .brand-chrome-call-btn {
-  color: #ffffff !important;
-}
-
-.dark .parts-call-btn svg,
-.dark .brand-chrome-call-btn svg {
-  color: #ffffff !important;
-  fill: #ffffff !important;
+  flex-shrink: 0 !important;
+  filter: drop-shadow(0 1px 2px rgba(0,0,0,0.4)) !important;
 }
 
 /* ─────────────────────────────────────────────────────────
