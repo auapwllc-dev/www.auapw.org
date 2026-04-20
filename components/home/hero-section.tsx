@@ -43,9 +43,9 @@ export function HeroSection() {
             </div>
 
             {/* Headline */}
-            <h1 className="font-sans leading-tight text-balance max-w-3xl">
-              <span className="block text-[0.7rem] sm:text-[0.9rem] font-black tracking-[0.2em] uppercase text-muted-foreground mb-2">Your Trusted Partner</span>
-              <span className="block mercury-heading text-[1.6rem] sm:text-[clamp(1.6rem,4vw,3rem)] font-black">Premium Quality Used Auto Parts</span>
+            <h1 className="font-sans leading-tight text-balance max-w-3xl" style={{ fontFamily: "system-ui" }}>
+              <span className="block text-[0.7rem] sm:text-[0.9rem] font-black tracking-[0.2em] uppercase text-muted-foreground mb-2" style={{ fontFamily: "system-ui" }}>Your Trusted Partner</span>
+              <span className="block mercury-heading text-[1.6rem] sm:text-[clamp(1.6rem,4vw,3rem)] font-black" style={{ fontFamily: "system-ui" }}>Premium Quality Used Auto Parts</span>
             </h1>
 
             {/* Key stats */}
@@ -80,7 +80,7 @@ export function HeroSection() {
                   style={{ background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.07)" }}
                 >
                   <span className="text-sm font-bold tracking-tight text-primary">{title}</span>
-                  <span className="text-sm font-semibold tracking-tight text-foreground leading-relaxed">{desc}</span>
+                  <span className="text-sm font-semibold tracking-tight text-foreground leading-relaxed" style={{ fontFamily: "system-ui" }}>{desc}</span>
                 </div>
               ))}
             </div>
