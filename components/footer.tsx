@@ -94,7 +94,7 @@ export function Footer() {
               <Logo size="sm" variant="ring" />
               <BrandWordmark size="footer" />
             </div>
-            <p className="text-xs sm:text-sm leading-6 sm:leading-7 text-muted-foreground mb-6 sm:mb-8 font-semibold">
+            <p className="text-xs sm:text-sm leading-6 sm:leading-7 text-muted-foreground mb-6 sm:mb-8 font-semibold tracking-tight">
               Premium quality used auto parts from 2,000+ verified yards nationwide. 30-180 day warranty on every part.
             </p>
             <div className="space-y-2.5 sm:space-y-3">
@@ -125,7 +125,7 @@ export function Footer() {
             <ul className="space-y-2 sm:space-y-3" style={{ textTransform: 'uppercase' }}>
               {popularPartLinks.slice(0, 5).map(({ label, href }) => (
                 <li key={label}>
-                  <Link href={href} className="text-xs sm:text-sm text-muted-foreground hover:text-primary transition-all duration-200 flex items-center gap-2 font-black text-3d-subtle">
+                  <Link href={href} className="text-xs sm:text-sm text-muted-foreground hover:text-primary transition-all duration-200 flex items-center gap-2 font-bold tracking-tight text-3d-subtle">
                     <span className="w-1.5 h-1.5 rounded-full bg-primary/70 hover:bg-primary transition-colors flex-shrink-0" />
                     <span className="truncate">{label}</span>
                   </Link>
@@ -144,7 +144,7 @@ export function Footer() {
                 <li key={make}>
                   <Link 
                     href={`/makes/${encodeURIComponent(make.toLowerCase().replace(/\s+/g, "-"))}`} 
-                    className="text-xs sm:text-sm text-muted-foreground hover:text-primary transition-all duration-200 flex items-center gap-2 font-black text-3d-subtle"
+                    className="text-xs sm:text-sm text-muted-foreground hover:text-primary transition-all duration-200 flex items-center gap-2 font-bold tracking-tight text-3d-subtle"
                   >
                     <span className="w-1.5 h-1.5 rounded-full bg-primary/70 hover:bg-primary transition-colors flex-shrink-0" />
                     <span className="truncate">{make}</span>
@@ -171,7 +171,7 @@ export function Footer() {
                 { label: "About Us", href: "/about" },
               ].map(({ label, href }) => (
                 <li key={label}>
-                  <Link href={href} className="text-xs sm:text-sm text-muted-foreground hover:text-primary transition-all duration-200 font-black text-3d-subtle">
+                  <Link href={href} className="text-xs sm:text-sm text-muted-foreground hover:text-primary transition-all duration-200 font-bold tracking-tight text-3d-subtle">
                     {label}
                   </Link>
                 </li>
@@ -196,7 +196,7 @@ export function Footer() {
                 { label: "Contact", href: "/contact" },
               ].map(({ label, href }) => (
                 <li key={label}>
-                  <Link href={href} className="text-xs sm:text-sm text-muted-foreground hover:text-primary transition-all duration-200 font-black text-3d-subtle">
+                  <Link href={href} className="text-xs sm:text-sm text-muted-foreground hover:text-primary transition-all duration-200 font-bold tracking-tight text-3d-subtle">
                     {label}
                   </Link>
                 </li>
@@ -209,7 +209,7 @@ export function Footer() {
       {/* Bottom bar */}
       <div className="border-t border-border/30 bg-background/60 backdrop-blur-sm">
         <div className="mx-auto w-full max-w-7xl px-3 sm:px-4 md:px-6 lg:px-8 py-5 sm:py-7 flex flex-col sm:flex-row items-center justify-between gap-3 sm:gap-6">
-          <span className="text-xs sm:text-sm text-muted-foreground font-black text-center sm:text-left text-3d-subtle">
+          <span className="text-xs sm:text-sm text-muted-foreground font-semibold tracking-tight text-center sm:text-left text-3d-subtle">
             &copy; {new Date().getFullYear()} <strong className="font-black text-foreground text-3d-bold">AUAPW.ORG</strong>
           </span>
           <div className="flex flex-wrap justify-center gap-4 sm:gap-6">
@@ -219,7 +219,7 @@ export function Footer() {
               { label: "Shipping", href: "/shipping-policy" },
               { label: "Returns", href: "/return-policy" },
             ].map(({ label, href }) => (
-              <Link key={label} href={href} className="text-xs sm:text-sm text-muted-foreground hover:text-primary transition-all duration-200 font-black text-3d-subtle">
+              <Link key={label} href={href} className="text-xs sm:text-sm text-muted-foreground hover:text-primary transition-all duration-200 font-semibold tracking-tight text-3d-subtle">
                 {label}
               </Link>
             ))}
