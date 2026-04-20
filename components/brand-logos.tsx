@@ -61,7 +61,7 @@ function BrandCard({ brand }: { brand: string }) {
         <BrandLogo brand={brand} />
         {/* Hover overlay */}
         <div className="absolute inset-0 flex items-center justify-center bg-black/0 group-hover:bg-black/50 rounded-lg transition-all duration-300">
-          <Eye className="w-4 h-4 text-white opacity-0 group-hover:opacity-100 scale-75 group-hover:scale-100 transition-all duration-300 drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)]" />
+          <Eye className="w-4 h-4 text-white opacity-0 group-hover:opacity-100 scale-75 group-hover:scale-100 transition-all duration-300 drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)]" style={{ fontSize: '1px' }} />
         </div>
       </div>
       <span className="text-[10px] font-bold text-center leading-tight text-muted-foreground/70 group-hover:text-foreground transition-colors tracking-wide uppercase">
