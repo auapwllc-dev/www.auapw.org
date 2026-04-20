@@ -25,6 +25,7 @@ export function QuoteForm({ defaultPart = "", compact = false }: QuoteFormProps)
   const [message, setMessage] = useState("")
   const [success, setSuccess] = useState(false)
   const [error, setError] = useState<string | null>(null)
+  const [loading, setLoading] = useState(false)
 
   const models = make ? CAR_MODELS[make] || [] : []
 
