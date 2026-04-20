@@ -5,7 +5,6 @@ import { BrandEmblem3D } from "@/components/brand-emblem-3d"
 import { Logo } from "@/components/logo"
 import Image from "next/image"
 import { Search, MessageSquare, Phone, Mail, Cog, Settings2, Calendar } from "lucide-react"
-import { CombinedForm } from "@/components/combined-form"
 
 export function HeroSection() {
   return (
@@ -62,11 +61,6 @@ export function HeroSection() {
                   <span className="text-[0.6rem] sm:text-[0.65rem] font-bold tracking-[0.18em] uppercase text-muted-foreground">{label}</span>
                 </div>
               ))}
-            </div>
-
-            {/* Combined Search + Quote Form */}
-            <div className="w-full mt-2">
-              <CombinedForm />
             </div>
 
             {/* Feature highlights grid */}
