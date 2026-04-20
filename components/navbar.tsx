@@ -210,10 +210,17 @@ export function Navbar() {
 
             {/* Mobile menu toggle - larger touch target for accessibility */}
             <button
-              className="lg:hidden flex items-center justify-center w-10 h-10 rounded-lg border border-white/20 bg-white/5 hover:bg-white/10 active:scale-95 transition-all"
+              className="lg:hidden flex items-center justify-center w-10 h-10 rounded-lg border border-white/20 bg-white/5 hover:bg-white/10 active:scale-95 transition-all duration-200 cursor-pointer"
               onClick={() => setMobileOpen(!mobileOpen)}
+              onKeyDown={(e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                  e.preventDefault()
+                  setMobileOpen(!mobileOpen)
+                }
+              }}
               aria-label={mobileOpen ? "Close menu" : "Open menu"}
               aria-expanded={mobileOpen}
+              type="button"
             >
               {mobileOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
             </button>
@@ -229,8 +236,13 @@ export function Navbar() {
         <>
           {/* Backdrop overlay */}
           <div 
-            className="fixed inset-0 bg-black/60 backdrop-blur-sm z-40 lg:hidden"
+            className="fixed inset-0 bg-black/60 backdrop-blur-sm z-40 lg:hidden cursor-pointer"
             onClick={() => setMobileOpen(false)}
+            onKeyDown={(e) => {
+              if (e.key === 'Escape') setMobileOpen(false)
+            }}
+            role="button"
+            tabIndex={0}
             aria-hidden="true"
           />
           <div className="header-boss-mobile-drawer z-50">
@@ -297,9 +309,14 @@ export function Navbar() {
                   <ShoppingCart className="w-4 h-4" />
                   {cartItems > 0 ? cartItems : "Cart"}
                 </Link>
-                <div className="flex items-center justify-center px-3 py-2.5 rounded-lg bg-white/5">
+                <button 
+                  onClick={() => {}}
+                  className="flex items-center justify-center px-3 py-2.5 rounded-lg bg-white/5 hover:bg-white/10 transition-colors"
+                  type="button"
+                  title="Toggle theme"
+                >
                   <ThemeToggle />
-                </div>
+                </button>
               </div>
 
               {/* Contact + CTA */}
