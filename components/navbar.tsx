@@ -249,7 +249,8 @@ export function Navbar() {
               maxHeight: 'calc(100vh - 92px)',
               overflowY: 'auto'
             }}
-            <div className="px-4 py-4 flex flex-col gap-2 max-h-[80vh] overflow-y-auto">
+          >
+            <div className="px-4 py-4 flex flex-col gap-2">
               {/* Main Navigation */}
               <div className="grid grid-cols-2 gap-2">
                 {navItems.map((item) => (
