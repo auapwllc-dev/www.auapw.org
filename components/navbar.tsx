@@ -236,16 +236,19 @@ export function Navbar() {
         <>
           {/* Backdrop overlay */}
           <div 
-            className="fixed inset-0 bg-black/60 backdrop-blur-sm z-40 lg:hidden cursor-pointer"
+            className="fixed inset-0 bg-black/70 backdrop-blur-sm lg:hidden"
             onClick={() => setMobileOpen(false)}
-            onKeyDown={(e) => {
-              if (e.key === 'Escape') setMobileOpen(false)
-            }}
-            role="button"
-            tabIndex={0}
+            style={{ zIndex: 9998 }}
             aria-hidden="true"
           />
-          <div className="header-boss-mobile-drawer z-50">
+          <div 
+            className="fixed left-0 right-0 bg-[rgba(10,12,18,0.98)] backdrop-blur-xl border-t border-b border-white/10 lg:hidden"
+            style={{ 
+              top: '92px', 
+              zIndex: 9999,
+              maxHeight: 'calc(100vh - 92px)',
+              overflowY: 'auto'
+            }}
             <div className="px-4 py-4 flex flex-col gap-2 max-h-[80vh] overflow-y-auto">
               {/* Main Navigation */}
               <div className="grid grid-cols-2 gap-2">
@@ -304,19 +307,15 @@ export function Navbar() {
               <div className="h-px bg-white/10 my-2" />
 
               {/* Quick actions + Theme */}
-              <div className="grid grid-cols-3 gap-2">
+              <div className="grid grid-cols-2 gap-2">
                 <Link href="/cart" onClick={() => setMobileOpen(false)} className="flex items-center justify-center gap-1.5 px-3 py-2.5 rounded-lg bg-blue-500/10 text-blue-400 text-xs font-medium">
                   <ShoppingCart className="w-4 h-4" />
                   {cartItems > 0 ? cartItems : "Cart"}
                 </Link>
-                <button 
-                  onClick={() => {}}
-                  className="flex items-center justify-center px-3 py-2.5 rounded-lg bg-white/5 hover:bg-white/10 transition-colors"
-                  type="button"
-                  title="Toggle theme"
-                >
-                  <ThemeToggle />
-                </button>
+                <Link href="/wishlist" onClick={() => setMobileOpen(false)} className="flex items-center justify-center gap-1.5 px-3 py-2.5 rounded-lg bg-pink-500/10 text-pink-400 text-xs font-medium">
+                  <Heart className="w-4 h-4" />
+                  {wishlistCount > 0 ? wishlistCount : "Wishlist"}
+                </Link>
               </div>
 
               {/* Contact + CTA */}

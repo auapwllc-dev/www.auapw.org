@@ -1463,7 +1463,7 @@ footer .wordmark-3d {
   -webkit-text-fill-color: unset;
 }
 
-/* ────────────────────────────────────�����───────────────
+/* ────────────────────────────────────�������───────────────
    3D EXTRUSION EFFECTS — NAVBAR ELEMENTS
    ──────────────────────────────────────────────────── */
 
@@ -2862,18 +2862,25 @@ footer .wordmark-3d {
 /* Mobile drawer */
 .header-boss-mobile-drawer {
   position: fixed;
-  top: 140px;
+  top: 92px;
   left: 0;
   right: 0;
-  z-index: 45;
+  z-index: 9999;
   background: rgba(10, 12, 18, 0.98);
   backdrop-filter: blur(24px);
   -webkit-backdrop-filter: blur(24px);
   border-top: 1px solid rgba(255, 255, 255, 0.08);
   border-bottom: 1px solid rgba(255, 255, 255, 0.06);
-  max-height: calc(100vh - 140px);
+  max-height: calc(100vh - 92px);
   overflow-y: auto;
   animation: slideDown 0.3s ease-out;
+}
+
+@media (min-width: 640px) {
+  .header-boss-mobile-drawer {
+    top: 108px;
+    max-height: calc(100vh - 108px);
+  }
 }
 
 /* Slide down animation for mobile drawer */
