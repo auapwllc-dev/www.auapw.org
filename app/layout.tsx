@@ -20,6 +20,10 @@ export const metadata: Metadata = {
   generator: 'v0.dev',
   applicationName: 'AUAPW.ORG',
   referrer: 'origin-when-cross-origin',
+  icons: {
+    icon: '/favicon.ico',
+    apple: '/apple-touch-icon.png',
+  },
   formatDetection: {
     email: true,
     address: true,
@@ -46,6 +50,15 @@ export const metadata: Metadata = {
     title: 'AUAPW.ORG - Quality Used Auto Parts | Engines, Transmissions & More',
     description: 'Your trusted source for quality used auto parts. Shop engines, transmissions, body parts and more from 2,000+ verified salvage yards nationwide.',
     locale: 'en_US',
+    images: [
+      {
+        url: '/og-image.png',
+        width: 1200,
+        height: 630,
+        alt: 'AUAPW.ORG - Quality Used Auto Parts',
+        type: 'image/png',
+      },
+    ],
   },
   twitter: {
     card: 'summary_large_image',
