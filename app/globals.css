@@ -266,24 +266,57 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* Light mode — deep navy emboss on white/light background, crisp & readable */
+/* Covers ALL headings everywhere, not just main/header */
 .light .nav-font-effect,
 .light .text-3d-subtle,
 .light .text-3d-accent,
 .light .text-3d-bold,
 .light .text-3d-section,
-.light main h1, .light main h2, .light main h3,
-.light main h4, .light main h5, .light main h6,
-.light header h1, .light header h2, .light header h3,
-.light header h4, .light header h5, .light header h6 {
-  background: none;
-  -webkit-background-clip: unset;
-  -webkit-text-fill-color: #0f1117;
-  color: #0f1117;
+.light h1, .light h2, .light h3,
+.light h4, .light h5, .light h6 {
+  background: none !important;
+  -webkit-background-clip: unset !important;
+  -webkit-text-fill-color: #0f1117 !important;
+  background-clip: unset !important;
+  color: #0f1117 !important;
   text-shadow:
      1px  1px 0 rgba(255,255,255,0.9),
     -1px -1px 0 rgba(0,0,0,0.15),
      0    2px 4px rgba(0,0,0,0.12),
      0   -1px 2px rgba(255,255,255,0.8);
+}
+
+/* Light mode: fix dark-only transparent backgrounds on filter panels/cards */
+.light [class*="border-white\/"] {
+  border-color: rgba(15,17,23,0.12) !important;
+}
+.light [class*="bg-white\/"] {
+  background-color: rgba(15,17,23,0.04) !important;
+}
+
+/* Light mode: fix select dropdowns */
+.light select {
+  background-color: #ffffff !important;
+  color: #0f1117 !important;
+  border-color: rgba(15,17,23,0.2) !important;
+}
+.light select option {
+  background-color: #ffffff;
+  color: #0f1117;
+}
+
+/* Light mode: fix part/product price text */
+.light .text-blue-400 {
+  color: #1d4ed8 !important;
+}
+.light .text-yellow-400 {
+  color: #b45309 !important;
+}
+
+/* Light mode: fix gradient background sections */
+.light .bg-gradient-to-r.from-blue-500\/10 {
+  background: linear-gradient(to right, rgba(59,130,246,0.08), rgba(6,182,212,0.08)) !important;
+  border-color: rgba(59,130,246,0.2) !important;
 }
 
 /* ═══════════════════════════════════════════════════════
@@ -3507,7 +3540,7 @@ footer .wordmark-3d {
   border-left: 2px solid rgba(255, 255, 255, 0.3);
   padding-left: 12px;
 }
-/* ────────────────────────────────────────────────────
+/* ───────────────────────────────────────���────────────
    METAL ICONS — Brushed Steel Gradient Icons
    ──────────────────────────────────────────────────── */
 

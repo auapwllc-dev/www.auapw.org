@@ -128,8 +128,8 @@ export default function PartsPage() {
                 </div>
 
                 {/* Price range */}
-                <div className="space-y-3 p-4 border border-white/10 rounded-lg bg-white/5">
-                  <label htmlFor="price-slider" className="text-sm font-medium block">Price Range</label>
+                <div className="space-y-3 p-4 border border-border/50 rounded-lg bg-card">
+                  <label htmlFor="price-slider" className="text-sm font-medium block text-foreground">Price Range</label>
                   <Slider
                     id="price-slider"
                     value={priceRange}
@@ -147,8 +147,8 @@ export default function PartsPage() {
                 </div>
 
                 {/* Condition */}
-                <div className="space-y-3 p-4 border border-white/10 rounded-lg bg-white/5">
-                  <label className="text-sm font-medium block">Condition</label>
+                <div className="space-y-3 p-4 border border-border/50 rounded-lg bg-card">
+                  <label className="text-sm font-medium block text-foreground">Condition</label>
                   {conditions.map((condition) => (
                     <div key={condition} className="flex items-center space-x-2">
                       <Checkbox
@@ -170,8 +170,8 @@ export default function PartsPage() {
                 </div>
 
                 {/* Warranty */}
-                <div className="space-y-3 p-4 border border-white/10 rounded-lg bg-white/5">
-                  <label className="text-sm font-medium block">Warranty</label>
+                <div className="space-y-3 p-4 border border-border/50 rounded-lg bg-card">
+                  <label className="text-sm font-medium block text-foreground">Warranty</label>
                   {warranties.map((warranty) => (
                     <div key={warranty} className="flex items-center space-x-2">
                       <Checkbox
@@ -193,13 +193,13 @@ export default function PartsPage() {
                 </div>
 
                 {/* Location */}
-                <div className="space-y-3 p-4 border border-white/10 rounded-lg bg-white/5">
-                  <label htmlFor="location" className="text-sm font-medium block">Location</label>
+                <div className="space-y-3 p-4 border border-border/50 rounded-lg bg-card">
+                  <label htmlFor="location" className="text-sm font-medium block text-foreground">Location</label>
                   <select 
                     id="location"
                     value={selectedLocation} 
                     onChange={(e) => setSelectedLocation(e.target.value)}
-                    className="w-full px-3 py-2 rounded-lg bg-white/10 border border-white/20 text-foreground hover:bg-white/20 transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm"
+                    className="w-full px-3 py-2 rounded-lg bg-input border border-border text-foreground hover:bg-muted transition-colors focus:outline-none focus:ring-2 focus:ring-ring text-sm"
                   >
                     <option value="">All locations</option>
                     {locations.map((loc) => (
@@ -222,12 +222,12 @@ export default function PartsPage() {
             <div className="lg:col-span-3 space-y-4 sm:space-y-6 order-1 lg:order-2">
               {/* Sort */}
               <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3">
-                <p className="text-xs sm:text-sm text-foreground/60">{filteredParts.length} parts found</p>
+                <p className="text-xs sm:text-sm text-muted-foreground">{filteredParts.length} parts found</p>
                 <div className="w-full sm:w-auto">
                   <select 
                     value={sortBy} 
                     onChange={(e) => setSortBy(e.target.value as any)}
-                    className="auapw-btn auapw-btn-silver auapw-btn-sm w-full sm:w-auto"
+                    className="w-full sm:w-auto px-4 py-2 rounded-lg bg-card border border-border text-foreground text-sm focus:outline-none focus:ring-2 focus:ring-ring"
                   >
                     <option value="newest">Newest</option>
                     <option value="price-asc">Price: Low to High</option>
@@ -240,9 +240,9 @@ export default function PartsPage() {
               {/* Products */}
               {filteredParts.length === 0 ? (
                 <div className="text-center py-12">
-                  <p className="text-foreground/60">No parts found matching your filters</p>
+                  <p className="text-muted-foreground">No parts found matching your filters</p>
                   <div className="mt-6 space-y-3">
-                    <p className="text-sm text-foreground/70">Don&apos;t see the right part? Our team can source from additional yards not listed here.</p>
+                    <p className="text-sm text-muted-foreground">Don&apos;t see the right part? Our team can source from additional yards not listed here.</p>
                     <div className="flex flex-col sm:flex-row gap-3 justify-center">
                       <a href="tel:8888185001" className="auapw-btn auapw-btn-green">
                         <Phone className="w-4 h-4" />
@@ -259,25 +259,25 @@ export default function PartsPage() {
               ) : (
                 <div className="grid grid-cols-1 gap-3 sm:gap-4" role="region" aria-label="Parts inventory">
                   {filteredParts.map((part) => (
-                    <article key={part.id} className="p-3 sm:p-4 border border-white/10 rounded-lg bg-white/5 hover:bg-white/10 transition-colors">
+                    <article key={part.id} className="p-3 sm:p-4 border border-border/50 rounded-lg bg-card hover:bg-muted transition-colors">
                       <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
                         {part.image && (
-                          <div className="w-full sm:w-24 h-32 sm:h-24 rounded-md bg-white/10 flex-shrink-0 overflow-hidden">
+                          <div className="w-full sm:w-24 h-32 sm:h-24 rounded-md bg-muted flex-shrink-0 overflow-hidden">
                             <img src={part.image} alt={part.name} className="w-full h-full object-cover" />
                           </div>
                         )}
                         <div className="flex-1 min-w-0">
-                          <h3 className="font-semibold text-base sm:text-lg truncate">{part.name}</h3>
-                          <p className="text-xs sm:text-sm text-foreground/60">{part.make}</p>
+                          <h3 className="font-semibold text-base sm:text-lg truncate text-foreground">{part.name}</h3>
+                          <p className="text-xs sm:text-sm text-muted-foreground">{part.make}</p>
                           <div className="flex flex-wrap items-center gap-1.5 sm:gap-2 mt-2">
-                            <span className="text-[10px] sm:text-xs bg-yellow-500/20 text-yellow-400 px-1.5 sm:px-2 py-0.5 sm:py-1 rounded">
+                            <span className="text-[10px] sm:text-xs bg-yellow-500/20 text-yellow-600 dark:text-yellow-400 border border-yellow-500/20 px-1.5 sm:px-2 py-0.5 sm:py-1 rounded font-semibold">
                               {part.rating} ★
                             </span>
-                            <span className="text-[10px] sm:text-xs bg-blue-500/20 text-blue-400 px-1.5 sm:px-2 py-0.5 sm:py-1 rounded">
+                            <span className="text-[10px] sm:text-xs bg-blue-500/15 text-blue-700 dark:text-blue-400 border border-blue-500/20 px-1.5 sm:px-2 py-0.5 sm:py-1 rounded font-semibold">
                               {part.condition}
                             </span>
                           </div>
-                          <p className="text-base sm:text-lg font-bold text-blue-400 mt-2">${part.price.toFixed(2)}</p>
+                          <p className="text-base sm:text-lg font-bold text-blue-700 dark:text-blue-400 mt-2">${part.price.toFixed(2)}</p>
                         </div>
                         <div className="flex flex-col sm:flex-row gap-2 justify-start mt-2 sm:mt-0 w-full sm:w-auto">
                           <button
@@ -323,10 +323,10 @@ export default function PartsPage() {
 
               {/* Upsell section */}
               {filteredParts.length > 0 && (
-                <div className="mt-8 sm:mt-12 p-4 sm:p-6 rounded-lg bg-gradient-to-r from-blue-500/10 to-cyan-500/10 border border-blue-500/20">
+                <div className="mt-8 sm:mt-12 p-4 sm:p-6 rounded-lg bg-card border border-border/60">
                   <div className="text-center space-y-4">
-                    <h3 className="text-lg sm:text-xl font-bold">Don&apos;t see the right part?</h3>
-                    <p className="text-sm text-foreground/70 max-w-2xl mx-auto">
+                    <h3 className="text-lg sm:text-xl font-bold text-foreground">Don&apos;t see the right part?</h3>
+                    <p className="text-sm text-muted-foreground max-w-2xl mx-auto">
                       Our team can source from additional yards not listed here. Call or request a quote for immediate assistance.
                     </p>
                     <div className="flex flex-col sm:flex-row gap-3 justify-center">
