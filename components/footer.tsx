@@ -61,26 +61,26 @@ export function Footer() {
             <span className="text-[8px] sm:text-[9px] font-black tracking-[0.15em] uppercase text-3d-subtle whitespace-nowrap">Popular Brands</span>
             <div className="flex-1 h-px bg-border/30" />
           </div>
-          <div className="flex flex-wrap gap-1 sm:gap-1.5 md:gap-2">
+          <div className="flex flex-wrap gap-0.5 sm:gap-1 md:gap-2">
             {CAR_MAKES.slice(0, 8).map((brand) => (
               <Link
                 key={brand}
                 href={`/makes/${encodeURIComponent(brand.toLowerCase().replace(/\s+/g, "-"))}`}
-                className="flex items-center gap-1 sm:gap-1.5 px-1.5 sm:px-2.5 md:px-3 py-1 sm:py-1.5 md:py-2 rounded-md bg-background/50 hover:bg-background border border-border/30 hover:border-border/50 transition-all group whitespace-nowrap text-[11px] sm:text-xs md:text-sm"
+                className="inline-block px-1.5 py-0.5 sm:px-2 sm:py-1 md:px-2.5 md:py-1.5 rounded-md bg-background/50 hover:bg-background border border-border/30 hover:border-border/50 transition-all group whitespace-nowrap text-[7px] sm:text-[8px] md:text-xs"
                 title={`${brand} Parts`}
               >
                 <BrandLogo brand={brand} />
-                <span className="font-black tracking-wide text-3d-subtle hidden md:inline">
+                <span className="font-bold tracking-tight text-3d-subtle hidden md:inline ml-1">
                   {brand}
                 </span>
               </Link>
             ))}
             <Link
               href="/makes"
-              className="flex items-center gap-1 sm:gap-1.5 px-2 sm:px-2.5 md:px-3 py-1 sm:py-1.5 md:py-2 rounded-md bg-primary/10 hover:bg-primary/20 border border-primary/30 transition-all text-primary text-[10px] sm:text-xs font-bold whitespace-nowrap"
+              className="inline-flex items-center gap-0.5 sm:gap-1 px-1.5 sm:px-2 md:px-2.5 py-0.5 sm:py-1 md:py-1.5 rounded-md bg-primary/10 hover:bg-primary/20 border border-primary/30 transition-all text-primary text-[7px] sm:text-[8px] md:text-xs font-bold whitespace-nowrap"
             >
               More
-              <ExternalLink className="w-2 h-2 sm:w-2.5 sm:h-2.5 md:w-3 md:h-3" />
+              <ExternalLink className="w-1.5 h-1.5 sm:w-2 sm:h-2 md:w-2.5 md:h-2.5" />
             </Link>
           </div>
         </div>
