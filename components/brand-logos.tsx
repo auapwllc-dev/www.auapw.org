@@ -19,7 +19,7 @@ function BrandLogo({ brand }: { brand: string }) {
 
   return (
     <div
-      className="luxury-logo-tile w-full h-[56px] flex items-center justify-center overflow-hidden rounded-lg"
+      className="luxury-logo-tile w-full h-[32px] sm:h-[40px] md:h-[48px] lg:h-[56px] flex items-center justify-center overflow-hidden rounded-lg"
       aria-label={`${brand} logo`}
     >
       {logoUrl && !imgFailed ? (
@@ -122,7 +122,7 @@ export function BrandLogosSection() {
 
         {/* Brand Grid */}
         <ul
-          className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 lg:grid-cols-8 gap-2.5 list-none p-0 m-0"
+          className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8 gap-1.5 sm:gap-2 list-none p-0 m-0"
           role="tabpanel"
           aria-label={`Brands starting with ${activeTab}`}
         >

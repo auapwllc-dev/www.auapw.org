@@ -61,12 +61,12 @@ export function Footer() {
             <span className="text-[9px] sm:text-[10px] font-black tracking-[0.2em] uppercase text-3d-subtle whitespace-nowrap">Popular Brands</span>
             <div className="flex-1 h-px bg-border/30" />
           </div>
-          <div className="flex flex-wrap gap-1.5 sm:gap-2">
+          <div className="flex flex-wrap gap-1 sm:gap-1.5 md:gap-2">
             {CAR_MAKES.slice(0, 12).map((brand) => (
               <Link
                 key={brand}
                 href={`/makes/${encodeURIComponent(brand.toLowerCase().replace(/\s+/g, "-"))}`}
-                className="flex items-center gap-1.5 sm:gap-2 px-2 sm:px-3 py-1.5 sm:py-2 rounded-lg bg-background/50 hover:bg-background border border-border/30 hover:border-border/50 transition-all group whitespace-nowrap text-xs sm:text-sm"
+                className="flex items-center gap-0.5 sm:gap-1.5 md:gap-2 px-1.5 sm:px-2 md:px-3 py-1 sm:py-1.5 md:py-2 rounded-lg bg-background/50 hover:bg-background border border-border/30 hover:border-border/50 transition-all group whitespace-nowrap text-[9px] sm:text-xs md:text-sm"
                 title={`${brand} Parts`}
               >
                 <BrandLogo brand={brand} />
