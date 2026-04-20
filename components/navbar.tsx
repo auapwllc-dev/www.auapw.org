@@ -2,7 +2,7 @@
 
 import Link from "next/link"
 import { Menu, X, Zap, ShoppingCart, Heart, Home, ChevronDown, Globe, MessageSquare, Phone } from "lucide-react"
-import { useState } from "react"
+import { useState, useEffect, useRef } from "react"
 import { BrandWordmark } from "@/components/brand-wordmark"
 import { Logo } from "@/components/logo"
 import { ThemeToggle } from "@/components/theme-toggle"
@@ -19,8 +19,34 @@ import {
 
 export function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false)
+  const [hidden, setHidden] = useState(false)
+  const lastScrollY = useRef(0)
   const cartItems = useCartStore((state) => state.getTotalItems())
   const wishlistCount = useWishlistStore((state) => state.getCount())
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentY = window.scrollY
+      const diff = currentY - lastScrollY.current
+
+      // Only hide after scrolling down at least 80px from top
+      if (currentY < 80) {
+        setHidden(false)
+      } else if (diff > 4) {
+        // Scrolling down — hide
+        setHidden(true)
+        if (mobileOpen) setMobileOpen(false)
+      } else if (diff < -4) {
+        // Scrolling up — show
+        setHidden(false)
+      }
+
+      lastScrollY.current = currentY
+    }
+
+    window.addEventListener("scroll", handleScroll, { passive: true })
+    return () => window.removeEventListener("scroll", handleScroll)
+  }, [mobileOpen])
 
   const navItems = [
     { label: "Home", href: "/", icon: Home },
@@ -58,7 +84,10 @@ export function Navbar() {
   ]
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50">
+    <nav
+      className="fixed top-0 left-0 right-0 z-50 transition-transform duration-300 ease-in-out"
+      style={{ transform: hidden ? "translateY(-110%)" : "translateY(0)" }}
+    >
       {/* ── Animated premium banner with scrolling text ────────────────────────── */}
       <div className="header-boss-banner">
         <div className="header-boss-banner-scroll">
