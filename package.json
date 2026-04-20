@@ -5,7 +5,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "test": "vitest run"
+    "test": "vitest run",
+    "test:coverage": "vitest run --coverage"
   },
   "dependencies": {
     "@sparticuz/chromium": "133.0.0",
@@ -26,6 +27,7 @@
     "@types/node": "^22.13.9",
     "@types/react": "^19.0.10",
     "@types/react-dom": "^19.0.4",
+    "@vitest/coverage-v8": "4.1.4",
     "eslint": "^9.21.0",
     "eslint-config-next": "15.2.6",
     "postcss": "^8.5.3",
