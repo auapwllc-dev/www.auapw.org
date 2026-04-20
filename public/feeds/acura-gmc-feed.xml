@@ -1,0 +1,441 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:g="http://base.google.com/ns/1.0">
+  <channel>
+    <title>AUAPW.ORG - Acura Used Auto Parts</title>
+    <link>https://www.auapw.org</link>
+    <description>Quality used Acura auto parts with warranty. Save 40-70% vs new. Free shipping nationwide.</description>
+    <item>
+      <g:id>acura-engine-001</g:id>
+      <g:title>Used Acura Engine - OEM Quality | AUAPW.ORG</g:title>
+      <g:description>Quality used Acura engines from verified salvage yards. Compression tested, low mileage, with 6-month warranty.</g:description>
+      <g:link>https://www.auapw.org/makes/acura/parts/engine</g:link>
+      <g:image_link>https://www.auapw.org/images/parts/engine-used.jpg</g:image_link>
+      <g:price>2500.00 USD</g:price>
+      <g:availability>in stock</g:availability>
+      <g:condition>used</g:condition>
+      <g:brand>Acura</g:brand>
+      <g:google_product_category>5613</g:google_product_category>
+      <g:product_type>Auto Parts &gt; Drivetrain &gt; Engine</g:product_type>
+      <g:shipping>
+        <g:country>US</g:country>
+        <g:service>Standard</g:service>
+        <g:price>0 USD</g:price>
+      </g:shipping>
+    </item>
+    <item>
+      <g:id>acura-transmission-001</g:id>
+      <g:title>Used Acura Transmission - OEM Quality | AUAPW.ORG</g:title>
+      <g:description>Used Acura automatic and manual transmissions. Low mileage, tested, with warranty. All models available.</g:description>
+      <g:link>https://www.auapw.org/makes/acura/parts/transmission</g:link>
+      <g:image_link>https://www.auapw.org/images/parts/transmission-used.jpg</g:image_link>
+      <g:price>1500.00 USD</g:price>
+      <g:availability>in stock</g:availability>
+      <g:condition>used</g:condition>
+      <g:brand>Acura</g:brand>
+      <g:google_product_category>5613</g:google_product_category>
+      <g:product_type>Auto Parts &gt; Drivetrain &gt; Transmission</g:product_type>
+      <g:shipping>
+        <g:country>US</g:country>
+        <g:service>Standard</g:service>
+        <g:price>0 USD</g:price>
+      </g:shipping>
+    </item>
+    <item>
+      <g:id>acura-alternator-001</g:id>
+      <g:title>Used Acura Alternator - OEM Quality | AUAPW.ORG</g:title>
+      <g:description>Quality used Acura alternators from verified salvage yards. Tested for proper voltage output, 6-month warranty.</g:description>
+      <g:link>https://www.auapw.org/makes/acura/parts/alternator</g:link>
+      <g:image_link>https://www.auapw.org/images/parts/starter-used.jpg</g:image_link>
+      <g:price>250.00 USD</g:price>
+      <g:availability>in stock</g:availability>
+      <g:condition>used</g:condition>
+      <g:brand>Acura</g:brand>
+      <g:google_product_category>5613</g:google_product_category>
+      <g:product_type>Auto Parts &gt; Electrical &gt; Alternator</g:product_type>
+      <g:mpn>31100-R40-A01</g:mpn>
+      <g:shipping>
+        <g:country>US</g:country>
+        <g:service>Standard</g:service>
+        <g:price>0 USD</g:price>
+      </g:shipping>
+    </item>
+    <item>
+      <g:id>acura-starter-001</g:id>
+      <g:title>Used Acura Starter Motor - OEM Quality | AUAPW.ORG</g:title>
+      <g:description>Used Acura starter motors. Bench tested, strong cranking power, warranty included.</g:description>
+      <g:link>https://www.auapw.org/makes/acura/parts/starter-motor</g:link>
+      <g:image_link>https://www.auapw.org/images/parts/starter-used.jpg</g:image_link>
+      <g:price>120.00 USD</g:price>
+      <g:availability>in stock</g:availability>
+      <g:condition>used</g:condition>
+      <g:brand>Acura</g:brand>
+      <g:google_product_category>5613</g:google_product_category>
+      <g:product_type>Auto Parts &gt; Electrical &gt; Starter Motor</g:product_type>
+      <g:shipping>
+        <g:country>US</g:country>
+        <g:service>Standard</g:service>
+        <g:price>0 USD</g:price>
+      </g:shipping>
+    </item>
+    <item>
+      <g:id>acura-ecu-001</g:id>
+      <g:title>Used Acura ECU / Engine Computer - OEM Quality | AUAPW.ORG</g:title>
+      <g:description>Used Acura ECU modules. Programmed and tested, VIN-matched when needed. All models available.</g:description>
+      <g:link>https://www.auapw.org/makes/acura/parts/ecu-computer</g:link>
+      <g:image_link>https://www.auapw.org/images/parts/ac-control-used.jpg</g:image_link>
+      <g:price>300.00 USD</g:price>
+      <g:availability>in stock</g:availability>
+      <g:condition>used</g:condition>
+      <g:brand>Acura</g:brand>
+      <g:google_product_category>5613</g:google_product_category>
+      <g:product_type>Auto Parts &gt; Electrical &gt; ECU / Engine Computer</g:product_type>
+      <g:shipping>
+        <g:country>US</g:country>
+        <g:service>Standard</g:service>
+        <g:price>0 USD</g:price>
+      </g:shipping>
+    </item>
+    <item>
+      <g:id>acura-headlight-001</g:id>
+      <g:title>Used Acura Headlight Assembly - OEM Quality | AUAPW.ORG</g:title>
+      <g:description>Used Acura headlight assemblies. OEM quality, tested bulbs, clear lenses. Left and right available.</g:description>
+      <g:link>https://www.auapw.org/makes/acura/parts/headlight-assembly</g:link>
+      <g:image_link>https://www.auapw.org/images/parts/headlight-used.jpg</g:image_link>
+      <g:price>200.00 USD</g:price>
+      <g:availability>in stock</g:availability>
+      <g:condition>used</g:condition>
+      <g:brand>Acura</g:brand>
+      <g:google_product_category>5613</g:google_product_category>
+      <g:product_type>Auto Parts &gt; Lighting &gt; Headlight Assembly</g:product_type>
+      <g:shipping>
+        <g:country>US</g:country>
+        <g:service>Standard</g:service>
+        <g:price>0 USD</g:price>
+      </g:shipping>
+    </item>
+    <item>
+      <g:id>acura-taillight-001</g:id>
+      <g:title>Used Acura Taillight Assembly - OEM Quality | AUAPW.ORG</g:title>
+      <g:description>Used Acura taillight assemblies. OEM quality, complete with bulbs, no cracks.</g:description>
+      <g:link>https://www.auapw.org/makes/acura/parts/taillight-assembly</g:link>
+      <g:image_link>https://www.auapw.org/images/parts/headlight-used.jpg</g:image_link>
+      <g:price>149.99 USD</g:price>
+      <g:availability>in stock</g:availability>
+      <g:condition>used</g:condition>
+      <g:brand>Acura</g:brand>
+      <g:google_product_category>5613</g:google_product_category>
+      <g:product_type>Auto Parts &gt; Lighting &gt; Taillight Assembly</g:product_type>
+      <g:shipping>
+        <g:country>US</g:country>
+        <g:service>Standard</g:service>
+        <g:price>0 USD</g:price>
+      </g:shipping>
+    </item>
+    <item>
+      <g:id>acura-radiator-001</g:id>
+      <g:title>Used Acura Radiator - OEM Quality | AUAPW.ORG</g:title>
+      <g:description>Used Acura radiators. Pressure tested, no leaks, with cooling fan. All models in stock.</g:description>
+      <g:link>https://www.auapw.org/makes/acura/parts/radiator</g:link>
+      <g:image_link>https://www.auapw.org/images/parts/radiator-used.jpg</g:image_link>
+      <g:price>149.99 USD</g:price>
+      <g:availability>in stock</g:availability>
+      <g:condition>used</g:condition>
+      <g:brand>Acura</g:brand>
+      <g:google_product_category>5613</g:google_product_category>
+      <g:product_type>Auto Parts &gt; Cooling System &gt; Radiator</g:product_type>
+      <g:shipping>
+        <g:country>US</g:country>
+        <g:service>Standard</g:service>
+        <g:price>0 USD</g:price>
+      </g:shipping>
+    </item>
+    <item>
+      <g:id>acura-ac-compressor-001</g:id>
+      <g:title>Used Acura A/C Compressor - OEM Quality | AUAPW.ORG</g:title>
+      <g:description>Used Acura A/C compressors. Tested for proper operation, includes clutch assembly.</g:description>
+      <g:link>https://www.auapw.org/makes/acura/parts/ac-compressor</g:link>
+      <g:image_link>https://www.auapw.org/images/parts/ac-control-used.jpg</g:image_link>
+      <g:price>250.00 USD</g:price>
+      <g:availability>in stock</g:availability>
+      <g:condition>used</g:condition>
+      <g:brand>Acura</g:brand>
+      <g:google_product_category>5613</g:google_product_category>
+      <g:product_type>Auto Parts &gt; Climate Control &gt; A/C Compressor</g:product_type>
+      <g:shipping>
+        <g:country>US</g:country>
+        <g:service>Standard</g:service>
+        <g:price>0 USD</g:price>
+      </g:shipping>
+    </item>
+    <item>
+      <g:id>acura-control-arm-001</g:id>
+      <g:title>Used Acura Control Arm - OEM Quality | AUAPW.ORG</g:title>
+      <g:description>Used Acura control arms. Inspected bushings, ball joints tested. Upper and lower available.</g:description>
+      <g:link>https://www.auapw.org/makes/acura/parts/control-arm</g:link>
+      <g:image_link>https://www.auapw.org/images/parts/abs-module-used.jpg</g:image_link>
+      <g:price>100.00 USD</g:price>
+      <g:availability>in stock</g:availability>
+      <g:condition>used</g:condition>
+      <g:brand>Acura</g:brand>
+      <g:google_product_category>5613</g:google_product_category>
+      <g:product_type>Auto Parts &gt; Suspension &gt; Control Arm</g:product_type>
+      <g:shipping>
+        <g:country>US</g:country>
+        <g:service>Standard</g:service>
+        <g:price>0 USD</g:price>
+      </g:shipping>
+    </item>
+    <item>
+      <g:id>acura-strut-001</g:id>
+      <g:title>Used Acura Strut Assembly - OEM Quality | AUAPW.ORG</g:title>
+      <g:description>Used Acura strut assemblies. Complete with spring, mount, and bearing.</g:description>
+      <g:link>https://www.auapw.org/makes/acura/parts/strut-assembly</g:link>
+      <g:image_link>https://www.auapw.org/images/parts/abs-module-used.jpg</g:image_link>
+      <g:price>200.00 USD</g:price>
+      <g:availability>in stock</g:availability>
+      <g:condition>used</g:condition>
+      <g:brand>Acura</g:brand>
+      <g:google_product_category>5613</g:google_product_category>
+      <g:product_type>Auto Parts &gt; Suspension &gt; Strut Assembly</g:product_type>
+      <g:shipping>
+        <g:country>US</g:country>
+        <g:service>Standard</g:service>
+        <g:price>0 USD</g:price>
+      </g:shipping>
+    </item>
+    <item>
+      <g:id>acura-door-001</g:id>
+      <g:title>Used Acura Door Assembly - OEM Quality | AUAPW.ORG</g:title>
+      <g:description>Complete used Acura door assemblies. Includes glass, regulator, handle, and lock.</g:description>
+      <g:link>https://www.auapw.org/makes/acura/parts/door-assembly</g:link>
+      <g:image_link>https://www.auapw.org/images/parts/seat-front-used.jpg</g:image_link>
+      <g:price>400.00 USD</g:price>
+      <g:availability>in stock</g:availability>
+      <g:condition>used</g:condition>
+      <g:brand>Acura</g:brand>
+      <g:google_product_category>5613</g:google_product_category>
+      <g:product_type>Auto Parts &gt; Body Parts &gt; Door Assembly</g:product_type>
+      <g:shipping>
+        <g:country>US</g:country>
+        <g:service>Standard</g:service>
+        <g:price>0 USD</g:price>
+      </g:shipping>
+    </item>
+    <item>
+      <g:id>acura-fender-001</g:id>
+      <g:title>Used Acura Fender - OEM Quality | AUAPW.ORG</g:title>
+      <g:description>Used Acura fenders. OEM quality, minimal damage, multiple colors available.</g:description>
+      <g:link>https://www.auapw.org/makes/acura/parts/fender</g:link>
+      <g:image_link>https://www.auapw.org/images/parts/seat-front-used.jpg</g:image_link>
+      <g:price>200.00 USD</g:price>
+      <g:availability>in stock</g:availability>
+      <g:condition>used</g:condition>
+      <g:brand>Acura</g:brand>
+      <g:google_product_category>5613</g:google_product_category>
+      <g:product_type>Auto Parts &gt; Body Parts &gt; Fender</g:product_type>
+      <g:shipping>
+        <g:country>US</g:country>
+        <g:service>Standard</g:service>
+        <g:price>0 USD</g:price>
+      </g:shipping>
+    </item>
+    <item>
+      <g:id>acura-hood-001</g:id>
+      <g:title>Used Acura Hood - OEM Quality | AUAPW.ORG</g:title>
+      <g:description>Used Acura hoods. OEM quality, straight, no major dents or rust.</g:description>
+      <g:link>https://www.auapw.org/makes/acura/parts/hood</g:link>
+      <g:image_link>https://www.auapw.org/images/parts/seat-front-used.jpg</g:image_link>
+      <g:price>300.00 USD</g:price>
+      <g:availability>in stock</g:availability>
+      <g:condition>used</g:condition>
+      <g:brand>Acura</g:brand>
+      <g:google_product_category>5613</g:google_product_category>
+      <g:product_type>Auto Parts &gt; Body Parts &gt; Hood</g:product_type>
+      <g:shipping>
+        <g:country>US</g:country>
+        <g:service>Standard</g:service>
+        <g:price>0 USD</g:price>
+      </g:shipping>
+    </item>
+    <item>
+      <g:id>acura-brake-caliper-001</g:id>
+      <g:title>Used Acura Brake Caliper - OEM Quality | AUAPW.ORG</g:title>
+      <g:description>Used Acura brake calipers. Inspected, no leaks, with bracket.</g:description>
+      <g:link>https://www.auapw.org/makes/acura/parts/brake-caliper</g:link>
+      <g:image_link>https://www.auapw.org/images/parts/abs-module-used.jpg</g:image_link>
+      <g:price>100.00 USD</g:price>
+      <g:availability>in stock</g:availability>
+      <g:condition>used</g:condition>
+      <g:brand>Acura</g:brand>
+      <g:google_product_category>5613</g:google_product_category>
+      <g:product_type>Auto Parts &gt; Brakes &gt; Brake Caliper</g:product_type>
+      <g:shipping>
+        <g:country>US</g:country>
+        <g:service>Standard</g:service>
+        <g:price>0 USD</g:price>
+      </g:shipping>
+    </item>
+    <item>
+      <g:id>acura-abs-module-001</g:id>
+      <g:title>Used Acura ABS Module - OEM Quality | AUAPW.ORG</g:title>
+      <g:description>Used Acura ABS control modules. Tested, no fault codes, plug-and-play.</g:description>
+      <g:link>https://www.auapw.org/makes/acura/parts/abs-module</g:link>
+      <g:image_link>https://www.auapw.org/images/parts/abs-module-used.jpg</g:image_link>
+      <g:price>250.00 USD</g:price>
+      <g:availability>in stock</g:availability>
+      <g:condition>used</g:condition>
+      <g:brand>Acura</g:brand>
+      <g:google_product_category>5613</g:google_product_category>
+      <g:product_type>Auto Parts &gt; Brakes &gt; ABS Module</g:product_type>
+      <g:shipping>
+        <g:country>US</g:country>
+        <g:service>Standard</g:service>
+        <g:price>0 USD</g:price>
+      </g:shipping>
+    </item>
+    <item>
+      <g:id>acura-seat-001</g:id>
+      <g:title>Used Acura Seat - OEM Quality | AUAPW.ORG</g:title>
+      <g:description>Used Acura seats. Front and rear, leather and cloth, with tracks and motors.</g:description>
+      <g:link>https://www.auapw.org/makes/acura/parts/seat</g:link>
+      <g:image_link>https://www.auapw.org/images/parts/seat-front-used.jpg</g:image_link>
+      <g:price>250.00 USD</g:price>
+      <g:availability>in stock</g:availability>
+      <g:condition>used</g:condition>
+      <g:brand>Acura</g:brand>
+      <g:google_product_category>5613</g:google_product_category>
+      <g:product_type>Auto Parts &gt; Interior &gt; Seat</g:product_type>
+      <g:shipping>
+        <g:country>US</g:country>
+        <g:service>Standard</g:service>
+        <g:price>0 USD</g:price>
+      </g:shipping>
+    </item>
+    <item>
+      <g:id>acura-dashboard-001</g:id>
+      <g:title>Used Acura Dashboard - OEM Quality | AUAPW.ORG</g:title>
+      <g:description>Used Acura dashboards. No cracks, complete with vents and trim.</g:description>
+      <g:link>https://www.auapw.org/makes/acura/parts/dashboard</g:link>
+      <g:image_link>https://www.auapw.org/images/parts/speedometer-used.jpg</g:image_link>
+      <g:price>300.00 USD</g:price>
+      <g:availability>in stock</g:availability>
+      <g:condition>used</g:condition>
+      <g:brand>Acura</g:brand>
+      <g:google_product_category>5613</g:google_product_category>
+      <g:product_type>Auto Parts &gt; Interior &gt; Dashboard</g:product_type>
+      <g:shipping>
+        <g:country>US</g:country>
+        <g:service>Standard</g:service>
+        <g:price>0 USD</g:price>
+      </g:shipping>
+    </item>
+    <item>
+      <g:id>acura-steering-wheel-001</g:id>
+      <g:title>Used Acura Steering Wheel - OEM Quality | AUAPW.ORG</g:title>
+      <g:description>Used Acura steering wheels. Leather wrapped, with controls, airbag available.</g:description>
+      <g:link>https://www.auapw.org/makes/acura/parts/steering-wheel</g:link>
+      <g:image_link>https://www.auapw.org/images/parts/speedometer-used.jpg</g:image_link>
+      <g:price>149.99 USD</g:price>
+      <g:availability>in stock</g:availability>
+      <g:condition>used</g:condition>
+      <g:brand>Acura</g:brand>
+      <g:google_product_category>5613</g:google_product_category>
+      <g:product_type>Auto Parts &gt; Interior &gt; Steering Wheel</g:product_type>
+      <g:shipping>
+        <g:country>US</g:country>
+        <g:service>Standard</g:service>
+        <g:price>0 USD</g:price>
+      </g:shipping>
+    </item>
+    <item>
+      <g:id>acura-catalytic-converter-001</g:id>
+      <g:title>Used Acura Catalytic Converter - OEM Quality | AUAPW.ORG</g:title>
+      <g:description>Used Acura catalytic converters. Tested, meets emissions, with heat shields.</g:description>
+      <g:link>https://www.auapw.org/makes/acura/parts/catalytic-converter</g:link>
+      <g:image_link>https://www.auapw.org/images/parts/engine-used.jpg</g:image_link>
+      <g:price>350.00 USD</g:price>
+      <g:availability>in stock</g:availability>
+      <g:condition>used</g:condition>
+      <g:brand>Acura</g:brand>
+      <g:google_product_category>5613</g:google_product_category>
+      <g:product_type>Auto Parts &gt; Exhaust &gt; Catalytic Converter</g:product_type>
+      <g:shipping>
+        <g:country>US</g:country>
+        <g:service>Standard</g:service>
+        <g:price>0 USD</g:price>
+      </g:shipping>
+    </item>
+    <item>
+      <g:id>acura-exhaust-manifold-001</g:id>
+      <g:title>Used Acura Exhaust Manifold - OEM Quality | AUAPW.ORG</g:title>
+      <g:description>Used Acura exhaust manifolds. No cracks, includes gaskets and hardware.</g:description>
+      <g:link>https://www.auapw.org/makes/acura/parts/exhaust-manifold</g:link>
+      <g:image_link>https://www.auapw.org/images/parts/engine-used.jpg</g:image_link>
+      <g:price>200.00 USD</g:price>
+      <g:availability>in stock</g:availability>
+      <g:condition>used</g:condition>
+      <g:brand>Acura</g:brand>
+      <g:google_product_category>5613</g:google_product_category>
+      <g:product_type>Auto Parts &gt; Exhaust &gt; Exhaust Manifold</g:product_type>
+      <g:shipping>
+        <g:country>US</g:country>
+        <g:service>Standard</g:service>
+        <g:price>0 USD</g:price>
+      </g:shipping>
+    </item>
+    <item>
+      <g:id>acura-power-steering-pump-001</g:id>
+      <g:title>Used Acura Power Steering Pump - OEM Quality | AUAPW.ORG</g:title>
+      <g:description>Used Acura power steering pumps. Tested, no leaks, with reservoir.</g:description>
+      <g:link>https://www.auapw.org/makes/acura/parts/power-steering-pump</g:link>
+      <g:image_link>https://www.auapw.org/images/parts/starter-used.jpg</g:image_link>
+      <g:price>149.99 USD</g:price>
+      <g:availability>in stock</g:availability>
+      <g:condition>used</g:condition>
+      <g:brand>Acura</g:brand>
+      <g:google_product_category>5613</g:google_product_category>
+      <g:product_type>Auto Parts &gt; Steering &gt; Power Steering Pump</g:product_type>
+      <g:shipping>
+        <g:country>US</g:country>
+        <g:service>Standard</g:service>
+        <g:price>0 USD</g:price>
+      </g:shipping>
+    </item>
+    <item>
+      <g:id>acura-steering-rack-001</g:id>
+      <g:title>Used Acura Steering Rack - OEM Quality | AUAPW.ORG</g:title>
+      <g:description>Used Acura steering racks. Tested, no leaks, includes inner tie rods.</g:description>
+      <g:link>https://www.auapw.org/makes/acura/parts/steering-rack</g:link>
+      <g:image_link>https://www.auapw.org/images/parts/abs-module-used.jpg</g:image_link>
+      <g:price>300.00 USD</g:price>
+      <g:availability>in stock</g:availability>
+      <g:condition>used</g:condition>
+      <g:brand>Acura</g:brand>
+      <g:google_product_category>5613</g:google_product_category>
+      <g:product_type>Auto Parts &gt; Steering &gt; Steering Rack</g:product_type>
+      <g:shipping>
+        <g:country>US</g:country>
+        <g:service>Standard</g:service>
+        <g:price>0 USD</g:price>
+      </g:shipping>
+    </item>
+    <item>
+      <g:id>acura-wheel-rim-001</g:id>
+      <g:title>Used Acura Wheel / Rim - OEM Quality | AUAPW.ORG</g:title>
+      <g:description>Used Acura wheels and rims. OEM alloy and steel, multiple sizes available.</g:description>
+      <g:link>https://www.auapw.org/makes/acura/parts/wheel-rim</g:link>
+      <g:image_link>https://www.auapw.org/images/parts/wheel-rim-used.jpg</g:image_link>
+      <g:price>250.00 USD</g:price>
+      <g:availability>in stock</g:availability>
+      <g:condition>used</g:condition>
+      <g:brand>Acura</g:brand>
+      <g:google_product_category>5613</g:google_product_category>
+      <g:product_type>Auto Parts &gt; Wheels &gt; Wheel / Rim</g:product_type>
+      <g:shipping>
+        <g:country>US</g:country>
+        <g:service>Standard</g:service>
+        <g:price>0 USD</g:price>
+      </g:shipping>
+    </item>
+  </channel>
+</rss>
