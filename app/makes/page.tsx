@@ -20,8 +20,8 @@ function MakeLogo({ brand, size = "sm" }: { brand: string; size?: "sm" | "lg" })
   const logoUrl = getBrandLogoUrl(brand)
   const color = BRAND_COLORS[brand] || "#333"
   const initials = getInitials(brand)
-  const w = size === "lg" ? "w-[88px] h-[56px]" : "w-[56px] h-[36px] sm:w-[72px] sm:h-[48px]"
-  const textSize = size === "lg" ? "text-lg" : "text-[10px] sm:text-[13px]"
+  const w = size === "lg" ? "w-[80px] h-[48px]" : "w-[48px] h-[28px] sm:w-[64px] sm:h-[36px]"
+  const textSize = size === "lg" ? "text-lg" : "text-[8px] sm:text-[11px]"
 
   return (
     <div className={`${w} luxury-logo-tile flex items-center justify-center rounded-lg shrink-0 overflow-hidden`}>
@@ -94,7 +94,7 @@ export default function MakesPage() {
           </div>
 
           {/* Brands Grid */}
-          <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 xl:grid-cols-8 gap-1.5 sm:gap-2.5 mb-8 sm:mb-12" role="tabpanel">
+          <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 xl:grid-cols-8 gap-1 sm:gap-1.5 mb-8 sm:mb-12" role="tabpanel">
             {filteredMakes.map((make) => {
               const isActive = selectedMake === make
               return (
@@ -118,7 +118,7 @@ export default function MakesPage() {
                   <div className="relative w-full">
                     <MakeLogo brand={make} />
                     <div className="absolute inset-0 flex items-center justify-center bg-black/0 group-hover:bg-black/40 rounded-md transition-all duration-200">
-                      <Eye className="w-3 h-3 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-200" />
+                      <Eye className="w-2.5 h-2.5 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-200" />
                     </div>
                   </div>
                   <span className={`text-[9px] sm:text-[10px] font-semibold text-center leading-tight truncate w-full text-center ${isActive ? "text-foreground" : "text-muted-foreground"}`}>

@@ -19,7 +19,7 @@ function BrandLogo({ brand }: { brand: string }) {
 
   return (
     <div
-      className="luxury-logo-tile w-full h-[40px] sm:h-[56px] flex items-center justify-center overflow-hidden rounded-lg"
+      className="luxury-logo-tile w-full h-[28px] sm:h-[36px] flex items-center justify-center overflow-hidden rounded-lg"
       aria-label={`${brand} logo`}
     >
       {logoUrl && !imgFailed ? (
@@ -35,7 +35,7 @@ function BrandLogo({ brand }: { brand: string }) {
           className="w-full h-full flex items-center justify-center rounded-lg"
           style={{ background: `linear-gradient(135deg, ${color}, ${color}dd, ${color}88)` }}
         >
-          <span className="text-[14px] font-black text-white/90 uppercase tracking-wider leading-none select-none" style={{ textShadow: "0 2px 6px rgba(0,0,0,0.6), 0 0 12px rgba(255,255,255,0.1)" }}>
+          <span className="text-[10px] font-black text-white/90 uppercase tracking-wider leading-none select-none" style={{ textShadow: "0 2px 6px rgba(0,0,0,0.6), 0 0 12px rgba(255,255,255,0.1)" }}>
             {initials}
           </span>
         </div>
@@ -122,7 +122,7 @@ export function BrandLogosSection() {
 
         {/* Brand Grid */}
         <ul
-          className="grid grid-cols-4 sm:grid-cols-5 md:grid-cols-6 lg:grid-cols-8 gap-1.5 sm:gap-2.5 list-none p-0 m-0"
+          className="grid grid-cols-4 sm:grid-cols-5 md:grid-cols-6 lg:grid-cols-8 gap-1 sm:gap-1.5 list-none p-0 m-0"
           role="tabpanel"
           aria-label={`Brands starting with ${activeTab}`}
         >
