@@ -20,8 +20,8 @@ function MakeLogo({ brand, size = "sm" }: { brand: string; size?: "sm" | "lg" })
   const logoUrl = getBrandLogoUrl(brand)
   const color = BRAND_COLORS[brand] || "#333"
   const initials = getInitials(brand)
-  const w = size === "lg" ? "w-[80px] h-[48px]" : "w-[48px] h-[28px] sm:w-[64px] sm:h-[36px]"
-  const textSize = size === "lg" ? "text-lg" : "text-[8px] sm:text-[11px]"
+  const w = size === "lg" ? "w-[72px] h-[40px]" : "w-[36px] h-[20px] sm:w-[48px] sm:h-[28px]"
+  const textSize = size === "lg" ? "text-lg" : "text-[6px] sm:text-[9px]"
 
   return (
     <div className={`${w} luxury-logo-tile flex items-center justify-center rounded-lg shrink-0 overflow-hidden`}>
@@ -121,7 +121,7 @@ export default function MakesPage() {
                       <Eye className="w-2.5 h-2.5 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-200" />
                     </div>
                   </div>
-                  <span className={`text-[9px] sm:text-[10px] font-semibold text-center leading-tight truncate w-full text-center ${isActive ? "text-foreground" : "text-muted-foreground"}`}>
+                  <span className={`text-[6px] sm:text-[8px] font-semibold text-center leading-tight truncate w-full text-center ${isActive ? "text-foreground" : "text-muted-foreground"}`}>
                     {make}
                   </span>
                 </Link>

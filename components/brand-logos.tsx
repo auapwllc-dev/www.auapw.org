@@ -19,7 +19,7 @@ function BrandLogo({ brand }: { brand: string }) {
 
   return (
     <div
-      className="luxury-logo-tile w-full h-[28px] sm:h-[36px] flex items-center justify-center overflow-hidden rounded-lg"
+      className="luxury-logo-tile w-full h-[16px] sm:h-[24px] flex items-center justify-center overflow-hidden rounded-lg"
       aria-label={`${brand} logo`}
     >
       {logoUrl && !imgFailed ? (
@@ -35,7 +35,7 @@ function BrandLogo({ brand }: { brand: string }) {
           className="w-full h-full flex items-center justify-center rounded-lg"
           style={{ background: `linear-gradient(135deg, ${color}, ${color}dd, ${color}88)` }}
         >
-          <span className="text-[10px] font-black text-white/90 uppercase tracking-wider leading-none select-none" style={{ textShadow: "0 2px 6px rgba(0,0,0,0.6), 0 0 12px rgba(255,255,255,0.1)" }}>
+          <span className="text-[6px] font-black text-white/90 uppercase tracking-wider leading-none select-none" style={{ textShadow: "0 2px 6px rgba(0,0,0,0.6), 0 0 12px rgba(255,255,255,0.1)" }}>
             {initials}
           </span>
         </div>
@@ -64,7 +64,7 @@ function BrandCard({ brand }: { brand: string }) {
           <Eye className="w-4 h-4 text-white opacity-0 group-hover:opacity-100 scale-75 group-hover:scale-100 transition-all duration-300 drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)]" style={{ fontSize: '1px' }} />
         </div>
       </div>
-      <span className="text-[8px] sm:text-[10px] font-bold text-center leading-tight text-muted-foreground/70 group-hover:text-foreground transition-colors tracking-wide uppercase truncate w-full text-center">
+      <span className="text-[6px] sm:text-[8px] font-bold text-center leading-tight text-muted-foreground/70 group-hover:text-foreground transition-colors tracking-wide uppercase truncate w-full text-center">
         {brand}
       </span>
     </Link>
