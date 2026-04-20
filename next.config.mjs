@@ -60,7 +60,7 @@ const nextConfig = {
               "frame-src 'self' https:",
               "frame-ancestors *",
               "base-uri 'self'",
-              "form-action 'self' https:",
+              "form-action 'self' https: mailto:",
               "media-src 'self' https:",
             ].join('; '),
           },

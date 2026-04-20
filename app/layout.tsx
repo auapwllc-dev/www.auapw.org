@@ -124,6 +124,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
+        <meta httpEquiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https:; style-src 'self' 'unsafe-inline' https:; img-src 'self' data: blob: https: http: *; font-src 'self' data: https:; connect-src 'self' https: wss: http:; frame-src 'self' https:; frame-ancestors *; base-uri 'self'; form-action 'self' https: mailto:; media-src 'self' https:;" />
         <script dangerouslySetInnerHTML={{ __html: themeScript }} />
       </head>
       <body className={`${roboto.variable} font-sans antialiased bg-background text-foreground`}>
