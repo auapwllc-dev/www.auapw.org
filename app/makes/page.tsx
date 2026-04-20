@@ -20,8 +20,8 @@ function MakeLogo({ brand, size = "sm" }: { brand: string; size?: "sm" | "lg" })
   const logoUrl = getBrandLogoUrl(brand)
   const color = BRAND_COLORS[brand] || "#333"
   const initials = getInitials(brand)
-  const w = size === "lg" ? "w-[88px] h-[56px]" : "w-[72px] h-[48px]"
-  const textSize = size === "lg" ? "text-lg" : "text-[13px]"
+  const w = size === "lg" ? "w-[88px] h-[56px]" : "w-[56px] h-[36px] sm:w-[72px] sm:h-[48px]"
+  const textSize = size === "lg" ? "text-lg" : "text-[10px] sm:text-[13px]"
 
   return (
     <div className={`${w} luxury-logo-tile flex items-center justify-center rounded-lg shrink-0 overflow-hidden`}>
@@ -61,14 +61,14 @@ export default function MakesPage() {
         {/* Header */}
         <div className="bg-gradient-to-br from-background via-card to-background border-b border-border/30">
           <div className="metal-line" />
-          <div className="mx-auto max-w-[1280px] px-4 sm:px-6 py-10 sm:py-14">
-            <div className="flex items-center gap-4 mb-5">
-              <div className="w-8 h-px bg-gradient-to-r from-transparent to-primary/50" />
-              <span className="text-[0.65rem] font-bold tracking-[0.3em] uppercase text-primary">All Makes & Models</span>
+          <div className="mx-auto max-w-[1280px] px-4 sm:px-6 py-5 sm:py-10">
+            <div className="flex items-center gap-3 mb-2 sm:mb-4">
+              <div className="w-6 h-px bg-gradient-to-r from-transparent to-primary/50" />
+              <span className="text-[0.6rem] font-bold tracking-[0.25em] uppercase text-primary">All Makes & Models</span>
             </div>
-            <h1 className="font-serif text-[clamp(1.75rem,4vw,3.5rem)] font-bold text-foreground">Car Brands</h1>
-            <p className="mt-3 text-sm text-muted-foreground max-w-[520px]">
-              Select a brand to see available models and search for specific parts. We carry parts for all major makes.
+            <h1 className="font-serif text-[clamp(1.25rem,4vw,3rem)] font-bold text-foreground">Car Brands</h1>
+            <p className="mt-1.5 text-xs sm:text-sm text-muted-foreground max-w-[520px]">
+              Select a brand to see available models and search for specific parts.
             </p>
           </div>
         </div>
@@ -82,7 +82,7 @@ export default function MakesPage() {
                 role="tab"
                 aria-selected={activeTab === tab}
                 onClick={() => { setActiveTab(tab); setSelectedMake(null) }}
-                className={`min-w-[36px] h-8 px-2.5 rounded text-[11px] font-bold tracking-wide transition-all ${
+                className={`min-w-[26px] sm:min-w-[36px] h-6 sm:h-8 px-1.5 sm:px-2.5 rounded text-[9px] sm:text-[11px] font-bold tracking-wide transition-all ${
                   activeTab === tab
                     ? "bg-primary text-primary-foreground shadow-[0_2px_10px_rgba(0,0,0,0.25)]"
                     : "bg-secondary text-muted-foreground hover:text-foreground hover:bg-secondary/80"
@@ -94,7 +94,7 @@ export default function MakesPage() {
           </div>
 
           {/* Brands Grid */}
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-2 sm:gap-3 mb-8 sm:mb-12" role="tabpanel">
+          <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 xl:grid-cols-8 gap-1.5 sm:gap-2.5 mb-8 sm:mb-12" role="tabpanel">
             {filteredMakes.map((make) => {
               const isActive = selectedMake === make
               return (
@@ -109,19 +109,19 @@ export default function MakesPage() {
                       setSelectedMake(make)
                     }
                   }}
-                  className={`group relative flex flex-col items-center gap-2 py-4 px-3 rounded-lg border transition-all cursor-pointer ${
+                  className={`group relative flex flex-col items-center gap-1.5 py-2 px-1.5 sm:py-3 sm:px-2 rounded-lg border transition-all cursor-pointer ${
                     isActive
                       ? "bg-primary/15 border-primary/60 -translate-y-1 shadow-[0_8px_32px_rgba(0,0,0,0.2)]"
                       : "bg-card border-border/40 hover:-translate-y-0.5 hover:border-primary/30"
                   }`}
                 >
-                  <div className="relative">
+                  <div className="relative w-full">
                     <MakeLogo brand={make} />
                     <div className="absolute inset-0 flex items-center justify-center bg-black/0 group-hover:bg-black/40 rounded-md transition-all duration-200">
-                      <Eye className="w-4 h-4 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-200" />
+                      <Eye className="w-3 h-3 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-200" />
                     </div>
                   </div>
-                  <span className={`text-[11px] font-semibold text-center leading-tight ${isActive ? "text-foreground" : "text-muted-foreground"}`}>
+                  <span className={`text-[9px] sm:text-[10px] font-semibold text-center leading-tight truncate w-full text-center ${isActive ? "text-foreground" : "text-muted-foreground"}`}>
                     {make}
                   </span>
                 </Link>
