@@ -79,15 +79,15 @@ export function HeroSection() {
                   className="flex flex-col gap-1 p-3 rounded-lg"
                   style={{ background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.07)" }}
                 >
-                  <span className="text-sm font-bold tracking-wide text-primary">{title}</span>
-                  <span className="text-sm font-bold tracking-wide text-foreground leading-relaxed">{desc}</span>
+                  <span className="text-sm font-bold tracking-tight text-primary">{title}</span>
+                  <span className="text-sm font-semibold tracking-tight text-foreground leading-relaxed">{desc}</span>
                 </div>
               ))}
             </div>
 
             {/* Why Buy Parts Online */}
             <div className="w-full mt-4 pt-6 border-t border-white/10">
-              <h2 className="text-primary font-bold tracking-wide text-center text-lg sm:text-xl mb-4 uppercase">Your Trusted US-Based Auto Parts Platform</h2>
+              <h2 className="text-primary font-bold tracking-tight text-center text-lg sm:text-xl mb-4 uppercase">Your Trusted US-Based Auto Parts Platform</h2>
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 text-left">
                 {[
                   {
@@ -107,8 +107,8 @@ export function HeroSection() {
                     className="p-4 rounded-lg flex flex-col gap-2"
                     style={{ background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.09)" }}
                   >
-                    <span className="text-sm font-bold tracking-wide text-primary">{title}</span>
-                    <p className="text-sm font-bold tracking-wide text-foreground leading-relaxed">{body}</p>
+                    <span className="text-sm font-bold tracking-tight text-primary">{title}</span>
+                    <p className="text-sm font-semibold tracking-tight text-foreground leading-relaxed">{body}</p>
                   </div>
                 ))}
               </div>
@@ -116,7 +116,7 @@ export function HeroSection() {
 
             {/* What Are the Benefits */}
             <div className="w-full pt-6 border-t border-white/10">
-              <h2 className="text-primary font-bold tracking-wide text-center text-lg sm:text-xl mb-4 uppercase">Benefits of Choosing AUAPW.ORG</h2>
+              <h2 className="text-primary font-bold tracking-tight text-center text-lg sm:text-xl mb-4 uppercase">Benefits of Choosing AUAPW.ORG</h2>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-left">
                 {[
                   {
@@ -148,8 +148,8 @@ export function HeroSection() {
                     className="p-4 rounded-lg flex flex-col gap-2"
                     style={{ background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.09)" }}
                   >
-                    <span className="text-sm font-bold tracking-wide text-primary">{title}</span>
-                    <p className="text-sm font-bold tracking-wide text-foreground leading-relaxed">{body}</p>
+                    <span className="text-sm font-bold tracking-tight text-primary">{title}</span>
+                    <p className="text-sm font-semibold tracking-tight text-foreground leading-relaxed">{body}</p>
                   </div>
                 ))}
               </div>
@@ -157,14 +157,14 @@ export function HeroSection() {
 
             {/* How It Works */}
             <div className="w-full pt-6 border-t border-white/10">
-              <h2 className="text-primary font-bold tracking-wide text-center text-lg sm:text-xl mb-4 uppercase">How It Works</h2>
+              <h2 className="text-primary font-bold tracking-tight text-center text-lg sm:text-xl mb-4 uppercase">How It Works</h2>
               <div className="grid grid-cols-1 sm:grid-cols-4 gap-4 text-center">
 
                 {/* Step 01 */}
                 <div className="p-4 rounded-lg flex flex-col items-center gap-3" style={{ background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.09)" }}>
-                  <span className="text-2xl font-bold tracking-wide text-primary/40">01</span>
-                  <span className="text-sm font-bold tracking-wide text-primary uppercase">Search Your Part</span>
-                  <p className="text-sm font-bold tracking-wide text-foreground leading-relaxed">Enter your vehicle year, make, model, and the part you need to get matched results instantly.</p>
+                  <span className="text-2xl font-bold tracking-tight text-primary/40">01</span>
+                  <span className="text-sm font-bold tracking-tight text-primary uppercase">Search Your Part</span>
+                  <p className="text-sm font-semibold tracking-tight text-foreground leading-relaxed">Enter your vehicle year, make, model, and the part you need to get matched results instantly.</p>
                   <Link href="/parts" className="mt-auto w-full auapw-btn auapw-btn-silver auapw-btn-sm">
                     <Search className="w-4 h-4" />
                     <span>Find Your Part</span>
@@ -173,9 +173,9 @@ export function HeroSection() {
 
                 {/* Step 02 */}
                 <div className="p-4 rounded-lg flex flex-col items-center gap-3" style={{ background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.09)" }}>
-                  <span className="text-2xl font-bold tracking-wide text-primary/40">02</span>
-                  <span className="text-sm font-bold tracking-wide text-primary uppercase">Get a Free Quote</span>
-                  <p className="text-sm font-bold tracking-wide text-foreground leading-relaxed">Receive a transparent, no-obligation quote from our verified network with clear pricing upfront.</p>
+                  <span className="text-2xl font-bold tracking-tight text-primary/40">02</span>
+                  <span className="text-sm font-bold tracking-tight text-primary uppercase">Get a Free Quote</span>
+                  <p className="text-sm font-semibold tracking-tight text-foreground leading-relaxed">Receive a transparent, no-obligation quote from our verified network with clear pricing upfront.</p>
                   <Link href="/quote" className="mt-auto w-full auapw-btn auapw-btn-blue auapw-btn-sm">
                     <MessageSquare className="w-4 h-4" />
                     <span>Free Quote</span>

@@ -41,8 +41,8 @@ export function BrandValuesSection() {
               <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-4">
                 <value.Icon className="w-5 h-5 sm:w-6 sm:h-6 text-primary" />
               </div>
-              <h3 className="text-base sm:text-lg font-bold text-foreground text-3d-subtle mb-2 sm:mb-3">{value.title}</h3>
-              <p className="text-muted-foreground text-[0.85rem] sm:text-[0.95rem] leading-relaxed">
+              <h3 className="text-base sm:text-lg font-bold tracking-tight text-foreground text-3d-subtle mb-2 sm:mb-3">{value.title}</h3>
+              <p className="text-muted-foreground text-[0.85rem] sm:text-[0.95rem] leading-relaxed tracking-tight">
                 {value.description}
               </p>
             </div>
@@ -51,26 +51,26 @@ export function BrandValuesSection() {
 
         {/* Main Value Proposition */}
         <div className="glass-card rounded-xl sm:rounded-2xl p-6 sm:p-8 lg:p-10 backdrop-blur-sm border border-primary/10 mb-10 sm:mb-16">
-          <h3 className="text-lg sm:text-xl font-bold text-foreground text-3d-subtle mb-4 sm:mb-6">The AUAPW Advantage</h3>
+          <h3 className="text-lg sm:text-xl font-bold tracking-tight text-foreground text-3d-subtle mb-4 sm:mb-6">The AUAPW Advantage</h3>
           
           <div className="space-y-3 sm:space-y-4">
             <div className="flex gap-3 sm:gap-4">
               <CheckCircle2 className="w-4 h-4 sm:w-5 sm:h-5 text-primary flex-shrink-0 mt-0.5 sm:mt-1" />
-              <p className="text-muted-foreground text-[0.85rem] sm:text-[0.95rem] leading-relaxed">
+              <p className="text-muted-foreground text-[0.85rem] sm:text-[0.95rem] leading-relaxed tracking-tight">
                 <strong className="text-foreground">2,000+ Verified US Suppliers:</strong> We collaborate with the top junkyards and salvage yards across all 50 states, giving you access to America&apos;s largest network of quality used auto parts.
               </p>
             </div>
             
             <div className="flex gap-3 sm:gap-4">
               <CheckCircle2 className="w-4 h-4 sm:w-5 sm:h-5 text-primary flex-shrink-0 mt-0.5 sm:mt-1" />
-              <p className="text-muted-foreground text-[0.85rem] sm:text-[0.95rem] leading-relaxed">
+              <p className="text-muted-foreground text-[0.85rem] sm:text-[0.95rem] leading-relaxed tracking-tight">
                 <strong className="text-foreground">User-Friendly Search Tool:</strong> Our intuitive platform makes finding used auto parts effortless. Simply enter your vehicle details and instantly connect with qualified suppliers who have the exact part you need.
               </p>
             </div>
             
             <div className="flex gap-3 sm:gap-4">
               <CheckCircle2 className="w-4 h-4 sm:w-5 sm:h-5 text-primary flex-shrink-0 mt-0.5 sm:mt-1" />
-              <p className="text-muted-foreground text-[0.85rem] sm:text-[0.95rem] leading-relaxed">
+              <p className="text-muted-foreground text-[0.85rem] sm:text-[0.95rem] leading-relaxed tracking-tight">
                 <strong className="text-foreground">Seamless Experience:</strong> No more roaming around junkyards or making endless phone calls. We handle the sourcing so you can focus on what matters – getting your vehicle back on the road.
               </p>
             </div>
@@ -80,7 +80,7 @@ export function BrandValuesSection() {
         {/* Trust Statement */}
         <div className="text-center px-2">
           <div className="inline-block glass-card rounded-xl sm:rounded-2xl p-6 sm:p-8 backdrop-blur-sm border border-primary/10 max-w-2xl">
-            <p className="text-foreground text-base sm:text-lg leading-relaxed">
+            <p className="text-foreground text-base sm:text-lg leading-relaxed tracking-tight">
               AUAPW.ORG is your reliable connector to America&apos;s finest salvage yards. We bring <span className="text-primary font-bold">top-quality service, verified suppliers, and a seamless experience</span> right to your fingertips – no hassle, no guesswork, just quality parts delivered.
             </p>
           </div>
