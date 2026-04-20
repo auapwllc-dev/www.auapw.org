@@ -7,7 +7,6 @@ import { Footer } from '@/components/footer'
 import { BrandLogosSection } from '@/components/brand-logos'
 import { Slider } from '@/components/ui/slider'
 import { Checkbox } from '@/components/ui/checkbox'
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
 import Link from 'next/link'
 import Image from 'next/image'
 import { Heart, BarChart3, ShoppingCart, Search } from 'lucide-react'
@@ -119,10 +118,10 @@ export default function PartsPage() {
             <div className="lg:col-span-1 order-2 lg:order-1">
               <div className="lg:sticky lg:top-32 space-y-4 sm:space-y-6">
                 <div className="flex justify-between items-center">
-                  <h3 className="font-semibold">Filters</h3>
+                  <h3 className="font-semibold text-sm uppercase tracking-wide">Filters</h3>
                   <button
                     onClick={resetFilters}
-                    className="text-xs text-blue-400 hover:text-blue-300"
+                    className="auapw-btn auapw-btn-silver auapw-btn-xs text-xs"
                   >
                     Reset
                   </button>
@@ -130,16 +129,18 @@ export default function PartsPage() {
 
                 {/* Price range */}
                 <div className="space-y-3 p-4 border border-white/10 rounded-lg bg-white/5">
-                  <label className="text-sm font-medium">Price Range</label>
+                  <label htmlFor="price-slider" className="text-sm font-medium block">Price Range</label>
                   <Slider
+                    id="price-slider"
                     value={priceRange}
                     onValueChange={(value: number[]) => setPriceRange([value[0], value[1]])}
                     min={0}
                     max={10000}
                     step={100}
                     className="w-full"
+                    aria-label="Filter parts by price range"
                   />
-                  <div className="flex justify-between text-xs text-foreground/60">
+                  <div className="flex justify-between text-xs text-foreground/60" aria-live="polite">
                     <span>${priceRange[0]}</span>
                     <span>${priceRange[1]}</span>
                   </div>
@@ -193,20 +194,20 @@ export default function PartsPage() {
 
                 {/* Location */}
                 <div className="space-y-3 p-4 border border-white/10 rounded-lg bg-white/5">
-                  <label className="text-sm font-medium block">Location</label>
-                  <Select value={selectedLocation} onValueChange={setSelectedLocation}>
-                    <SelectTrigger className="bg-white/5 border-white/10">
-                      <SelectValue placeholder="All locations" />
-                    </SelectTrigger>
-                    <SelectContent>
-                      <SelectItem value="">All locations</SelectItem>
-                      {locations.map((loc) => (
-                        <SelectItem key={loc} value={loc}>
-                          {loc}
-                        </SelectItem>
-                      ))}
-                    </SelectContent>
-                  </Select>
+                  <label htmlFor="location" className="text-sm font-medium block">Location</label>
+                  <select 
+                    id="location"
+                    value={selectedLocation} 
+                    onChange={(e) => setSelectedLocation(e.target.value)}
+                    className="w-full px-3 py-2 rounded-lg bg-white/10 border border-white/20 text-foreground hover:bg-white/20 transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm"
+                  >
+                    <option value="">All locations</option>
+                    {locations.map((loc) => (
+                      <option key={loc} value={loc}>
+                        {loc}
+                      </option>
+                    ))}
+                  </select>
                 </div>
 
                 {/* Comparison link */}
@@ -222,17 +223,18 @@ export default function PartsPage() {
               {/* Sort */}
               <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3">
                 <p className="text-xs sm:text-sm text-foreground/60">{filteredParts.length} parts found</p>
-                <Select value={sortBy} onValueChange={(value: any) => setSortBy(value)}>
-                  <SelectTrigger className="w-full sm:w-40 bg-white/5 border-white/10">
-                    <SelectValue placeholder="Sort by" />
-                  </SelectTrigger>
-                  <SelectContent>
-                    <SelectItem value="newest">Newest</SelectItem>
-                    <SelectItem value="price-asc">Price: Low to High</SelectItem>
-                    <SelectItem value="price-desc">Price: High to Low</SelectItem>
-                    <SelectItem value="rating">Best Rating</SelectItem>
-                  </SelectContent>
-                </Select>
+                <div className="w-full sm:w-auto">
+                  <select 
+                    value={sortBy} 
+                    onChange={(e) => setSortBy(e.target.value as any)}
+                    className="auapw-btn auapw-btn-silver auapw-btn-sm w-full sm:w-auto"
+                  >
+                    <option value="newest">Newest</option>
+                    <option value="price-asc">Price: Low to High</option>
+                    <option value="price-desc">Price: High to Low</option>
+                    <option value="rating">Best Rating</option>
+                  </select>
+                </div>
               </div>
 
               {/* Products */}
@@ -241,9 +243,9 @@ export default function PartsPage() {
                   <p className="text-foreground/60">No parts found matching your filters</p>
                 </div>
               ) : (
-                <div className="grid grid-cols-1 gap-3 sm:gap-4">
+                <div className="grid grid-cols-1 gap-3 sm:gap-4" role="region" aria-label="Parts inventory">
                   {filteredParts.map((part) => (
-                    <div key={part.id} className="p-3 sm:p-4 border border-white/10 rounded-lg bg-white/5 hover:bg-white/10 transition-colors">
+                    <article key={part.id} className="p-3 sm:p-4 border border-white/10 rounded-lg bg-white/5 hover:bg-white/10 transition-colors">
                       <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
                         {part.image && (
                           <div className="w-full sm:w-24 h-32 sm:h-24 rounded-md bg-white/10 flex-shrink-0 overflow-hidden">
@@ -291,7 +293,7 @@ export default function PartsPage() {
                           </button>
                         </div>
                       </div>
-                    </div>
+                    </article>
                   ))}
                 </div>
               )}
