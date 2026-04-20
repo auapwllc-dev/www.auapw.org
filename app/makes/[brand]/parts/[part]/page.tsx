@@ -14,7 +14,11 @@ import { ALL_PARTS, type PartInfo } from "@/lib/parts-content"
 import {
   ChevronRight, ChevronDown, Shield, Truck, Clock,
   CheckCircle, Package, Phone, ArrowLeft, Star,
+  ShoppingCart, Zap, GitCompareArrows, Check,
 } from "lucide-react"
+import { useCartStore } from "@/lib/stores/cart-store"
+import { useComparisonStore } from "@/lib/stores/comparison-store"
+import { useRouter } from "next/navigation"
 
 const PHONE_CLEAN = PHONE_SALES.replace(/\D/g, "")
 
@@ -115,6 +119,7 @@ function getEstimatedPrice(part: PartInfo): { low: number; high: number } {
 
 export default function PartDetailPage() {
   const params = useParams()
+  const router = useRouter()
   const brand = resolveBrand(params.brand as string)
   const partSlug = params.part as string
   const part = resolvePart(partSlug)
@@ -122,6 +127,62 @@ export default function PartDetailPage() {
   const models = CAR_MODELS[brand] || []
   const price = part ? getEstimatedPrice(part) : { low: 150, high: 900 }
   const catLabel = PART_CATEGORIES.find(c => c.id === part?.category)?.label || "Auto Parts"
+
+  // Cart and comparison
+  const { addItem: addToCart } = useCartStore()
+  const { addItem: addToCompare, items: compareItems, canAddMore } = useComparisonStore()
+  const [addedToCart, setAddedToCart] = useState(false)
+  const [addedToCompare, setAddedToCompare] = useState(false)
+  
+  const isInCompare = compareItems.some(item => item.id === `${brand}-${partSlug}`)
+  const partId = `${brand}-${partSlug}`
+  const displayPrice = Math.round((price.low + price.high) / 2)
+
+  const handleAddToCart = () => {
+    if (!part) return
+    addToCart({
+      id: partId,
+      name: `${brand} ${part.name}`,
+      price: displayPrice,
+      quantity: 1,
+      image: getPartImage(partSlug),
+      make: brand,
+      partType: part.name,
+    })
+    setAddedToCart(true)
+    setTimeout(() => setAddedToCart(false), 2000)
+  }
+
+  const handleBuyNow = () => {
+    if (!part) return
+    addToCart({
+      id: partId,
+      name: `${brand} ${part.name}`,
+      price: displayPrice,
+      quantity: 1,
+      image: getPartImage(partSlug),
+      make: brand,
+      partType: part.name,
+    })
+    router.push("/checkout")
+  }
+
+  const handleAddToCompare = () => {
+    if (!part || isInCompare || !canAddMore()) return
+    addToCompare({
+      id: partId,
+      name: `${brand} ${part.name}`,
+      price: displayPrice,
+      image: getPartImage(partSlug),
+      make: brand,
+      partType: part.name,
+      condition: "Used OEM",
+      warranty: "6-Month Warranty",
+      rating: 4.8,
+    })
+    setAddedToCompare(true)
+    setTimeout(() => setAddedToCompare(false), 2000)
+  }
 
   // Related parts from the same category
   const relatedParts = useMemo(() => {
@@ -324,31 +385,77 @@ export default function PartDetailPage() {
                   </div>
 
                   <div className="p-5 space-y-3">
-                    <Link
-                      href={`/quote?make=${encodeURIComponent(brand)}&part=${encodeURIComponent(part.name)}`}
-                      className="category-quote-btn w-full justify-center text-sm py-3"
+                    {/* Add to Cart */}
+                    <button
+                      onClick={handleAddToCart}
+                      disabled={addedToCart}
+                      className="auapw-btn auapw-btn-amber w-full justify-center text-sm py-3 disabled:opacity-70"
                     >
-                      <svg viewBox="0 0 24 24" fill="none" className="w-4 h-4 flex-shrink-0">
-                        <rect x="2" y="4" width="20" height="16" rx="2" stroke="currentColor" strokeWidth="2" fill="none"/>
-                        <path d="M2 8l10 7 10-7" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
-                      </svg>
-                      GET FREE QUOTE
-                    </Link>
-                    <a
-                      href={`tel:${PHONE_CLEAN}`}
-                      className="category-call-btn w-full justify-center text-sm py-3"
+                      {addedToCart ? (
+                        <>
+                          <Check className="w-4 h-4" />
+                          ADDED TO CART
+                        </>
+                      ) : (
+                        <>
+                          <ShoppingCart className="w-4 h-4" />
+                          ADD TO CART — ${displayPrice.toLocaleString()}
+                        </>
+                      )}
+                    </button>
+
+                    {/* Buy Now */}
+                    <button
+                      onClick={handleBuyNow}
+                      className="auapw-btn auapw-btn-green w-full justify-center text-sm py-3"
                     >
-                      <svg viewBox="0 0 24 24" fill="none" className="w-4 h-4">
-                        <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z" fill="currentColor"/>
-                      </svg>
-                      CALL {PHONE_DISPLAY}
-                    </a>
-                    <Link
-                      href={`/search?make=${encodeURIComponent(brand)}&part=${encodeURIComponent(part.name)}`}
-                      className="w-full flex items-center justify-center gap-2 py-2.5 rounded-full text-xs font-bold uppercase tracking-widest text-muted-foreground border border-border/50 hover:text-foreground hover:border-border transition-all"
+                      <Zap className="w-4 h-4" />
+                      BUY NOW
+                    </button>
+
+                    {/* Compare */}
+                    <button
+                      onClick={handleAddToCompare}
+                      disabled={isInCompare || !canAddMore()}
+                      className={`w-full flex items-center justify-center gap-2 py-2.5 rounded-full text-xs font-bold uppercase tracking-widest border transition-all ${
+                        isInCompare 
+                          ? "bg-blue-500/10 text-blue-400 border-blue-500/30 cursor-default"
+                          : canAddMore()
+                            ? "text-muted-foreground border-border/50 hover:text-foreground hover:border-border"
+                            : "text-muted-foreground/50 border-border/30 cursor-not-allowed"
+                      }`}
                     >
-                      Search Live Inventory
-                    </Link>
+                      <GitCompareArrows className="w-4 h-4" />
+                      {isInCompare ? "IN COMPARISON" : addedToCompare ? "ADDED!" : "ADD TO COMPARE"}
+                    </button>
+
+                    <div className="border-t border-border/30 pt-3 mt-3 space-y-3">
+                      <Link
+                        href={`/quote?make=${encodeURIComponent(brand)}&part=${encodeURIComponent(part.name)}`}
+                        className="category-quote-btn w-full justify-center text-sm py-3"
+                      >
+                        <svg viewBox="0 0 24 24" fill="none" className="w-4 h-4 flex-shrink-0">
+                          <rect x="2" y="4" width="20" height="16" rx="2" stroke="currentColor" strokeWidth="2" fill="none"/>
+                          <path d="M2 8l10 7 10-7" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+                        </svg>
+                        GET FREE QUOTE
+                      </Link>
+                      <a
+                        href={`tel:${PHONE_CLEAN}`}
+                        className="category-call-btn w-full justify-center text-sm py-3"
+                      >
+                        <svg viewBox="0 0 24 24" fill="none" className="w-4 h-4">
+                          <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z" fill="currentColor"/>
+                        </svg>
+                        CALL {PHONE_DISPLAY}
+                      </a>
+                      <Link
+                        href={`/search?make=${encodeURIComponent(brand)}&part=${encodeURIComponent(part.name)}`}
+                        className="w-full flex items-center justify-center gap-2 py-2.5 rounded-full text-xs font-bold uppercase tracking-widest text-muted-foreground border border-border/50 hover:text-foreground hover:border-border transition-all"
+                      >
+                        Search Live Inventory
+                      </Link>
+                    </div>
                   </div>
                 </div>
 

@@ -11,7 +11,9 @@ import {
   getBrandLogoUrl, PHONE_SALES, PHONE_DISPLAY,
 } from "@/lib/data"
 import { ALL_PARTS } from "@/lib/parts-content"
-import { Search, Phone, ArrowLeft, Shield, Truck, Clock, Package, ChevronRight } from "lucide-react"
+import { Search, Phone, ArrowLeft, Shield, Truck, Clock, Package, ChevronRight, ShoppingCart, GitCompareArrows } from "lucide-react"
+import { useCartStore } from "@/lib/stores/cart-store"
+import { useComparisonStore } from "@/lib/stores/comparison-store"
 
 const PHONE_CLEAN = PHONE_SALES.replace(/\D/g, "")
 
@@ -51,6 +53,10 @@ export default function BrandPartsPage() {
 
   const [search, setSearch] = useState("")
   const [activeCategory, setActiveCategory] = useState<string>("all")
+  
+  // Cart and comparison stores
+  const { addItem: addToCart } = useCartStore()
+  const { addItem: addToCompare, items: compareItems, canAddMore } = useComparisonStore()
 
   // Flatten all parts from ALL_PARTS + PART_CATEGORIES sub-parts into one list
   const allPartsList = useMemo(() => {
@@ -282,33 +288,96 @@ export default function BrandPartsPage() {
                 <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-3">
                   {filteredParts.map(part => {
                     const catLabel = PART_CATEGORIES.find(c => c.id === part.category)?.label || part.category
+                    const partId = `${brand}-${part.slug}`
+                    const estimatedPrice = part.category === "engines" ? 1500 : part.category === "transmissions" ? 1200 : 350
+                    const isInCompare = compareItems.some(item => item.id === partId)
+                    
+                    const handleQuickAddToCart = (e: React.MouseEvent) => {
+                      e.preventDefault()
+                      e.stopPropagation()
+                      addToCart({
+                        id: partId,
+                        name: `${brand} ${part.name}`,
+                        price: estimatedPrice,
+                        quantity: 1,
+                        make: brand,
+                        partType: part.name,
+                      })
+                    }
+                    
+                    const handleQuickAddToCompare = (e: React.MouseEvent) => {
+                      e.preventDefault()
+                      e.stopPropagation()
+                      if (isInCompare || !canAddMore()) return
+                      addToCompare({
+                        id: partId,
+                        name: `${brand} ${part.name}`,
+                        price: estimatedPrice,
+                        make: brand,
+                        partType: part.name,
+                        condition: "Used OEM",
+                        warranty: "6-Month Warranty",
+                        rating: 4.8,
+                      })
+                    }
+                    
                     return (
-                      <Link
+                      <div
                         key={part.slug}
-                        href={`/makes/${slugify(brand)}/parts/${part.slug}`}
-                        className="group flex flex-col gap-3 p-4 rounded-xl border border-border/50 bg-card hover:bg-card/80 hover:border-primary/40 hover:-translate-y-0.5 transition-all shadow-sm hover:shadow-md"
+                        className="group flex flex-col gap-3 p-4 rounded-xl border border-border/50 bg-card hover:bg-card/80 hover:border-primary/40 transition-all shadow-sm hover:shadow-md"
                       >
-                        {/* Category tag */}
-                        <span className="text-[10px] font-bold uppercase tracking-widest text-primary/70 px-2 py-0.5 rounded bg-primary/8 self-start border border-primary/15">
-                          {catLabel}
-                        </span>
+                        {/* Category tag + Quick actions */}
+                        <div className="flex items-center justify-between">
+                          <span className="text-[10px] font-bold uppercase tracking-widest text-primary/70 px-2 py-0.5 rounded bg-primary/8 border border-primary/15">
+                            {catLabel}
+                          </span>
+                          <div className="flex items-center gap-1">
+                            <button
+                              onClick={handleQuickAddToCart}
+                              className="w-7 h-7 rounded-lg flex items-center justify-center bg-amber-500/10 border border-amber-500/20 text-amber-500 hover:bg-amber-500/20 transition-colors"
+                              title="Add to Cart"
+                            >
+                              <ShoppingCart className="w-3.5 h-3.5" />
+                            </button>
+                            <button
+                              onClick={handleQuickAddToCompare}
+                              disabled={isInCompare || !canAddMore()}
+                              className={`w-7 h-7 rounded-lg flex items-center justify-center border transition-colors ${
+                                isInCompare 
+                                  ? "bg-blue-500/20 border-blue-500/30 text-blue-400"
+                                  : "bg-blue-500/10 border-blue-500/20 text-blue-500 hover:bg-blue-500/20"
+                              } ${!canAddMore() && !isInCompare ? "opacity-50 cursor-not-allowed" : ""}`}
+                              title={isInCompare ? "In Comparison" : "Add to Compare"}
+                            >
+                              <GitCompareArrows className="w-3.5 h-3.5" />
+                            </button>
+                          </div>
+                        </div>
 
                         {/* Part name */}
-                        <div className="flex items-start gap-2">
+                        <Link href={`/makes/${slugify(brand)}/parts/${part.slug}`} className="flex items-start gap-2">
                           <Package className="w-4 h-4 text-primary mt-0.5 flex-shrink-0" />
                           <h3 className="text-sm font-semibold text-foreground group-hover:text-primary transition-colors leading-snug">
                             Used {brand} {part.name}
                           </h3>
-                        </div>
+                        </Link>
+
+                        {/* Price estimate */}
+                        <p className="text-xs text-muted-foreground">
+                          Est. <span className="font-semibold text-foreground">${estimatedPrice.toLocaleString()}</span>
+                        </p>
 
                         {/* Footer row */}
-                        <div className="flex items-center justify-between mt-auto pt-1 border-t border-border/30">
+                        <div className="flex items-center justify-between mt-auto pt-2 border-t border-border/30">
                           <span className="text-xs text-muted-foreground">OEM Quality</span>
-                          <span className="flex items-center gap-1 text-xs font-semibold text-primary group-hover:gap-1.5 transition-all">
+                          <Link 
+                            href={`/makes/${slugify(brand)}/parts/${part.slug}`}
+                            className="flex items-center gap-1 text-xs font-semibold text-primary hover:gap-1.5 transition-all"
+                          >
                             View Details <ChevronRight className="w-3 h-3" />
-                          </span>
+                          </Link>
                         </div>
-                      </Link>
+                      </div>
                     )
                   })}
                 </div>
