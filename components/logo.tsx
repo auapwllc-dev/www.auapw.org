@@ -69,6 +69,7 @@ export function Logo({
           height={height}
           className="object-contain"
           priority={priority}
+          style={{ lineHeight: "11.9", letterSpacing: "0.005em" }}
         />
       </div>
       {showGlow && (
