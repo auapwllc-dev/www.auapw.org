@@ -71,13 +71,18 @@ export function Logo({
           className="object-contain"
           priority={priority}
           style={variant === "ring" ? { 
-            lineHeight: "9.6em", 
+            lineHeight: "0em", 
             letterSpacing: "0.742em",
-            marginTop: "-14px",
-            marginLeft: "-7px",
-            marginBottom: "0px",
+            marginTop: "-3px",
+            marginLeft: "-2px",
+            marginBottom: "-3px",
             paddingBottom: "-16px",
-            textAlign: "left"
+            textAlign: "left",
+            borderStyle: "none",
+            borderWidth: "393px",
+            borderRadius: "545px",
+            boxShadow: "0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1)",
+            opacity: "1"
           } : { 
             lineHeight: "11.9", 
             letterSpacing: "0.005em" 
