@@ -51,14 +51,14 @@ export function Footer() {
       </div>
 
       <div className="mx-auto w-full max-w-7xl px-3 sm:px-4 md:px-6 lg:px-8">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8 sm:gap-10 lg:gap-14 py-10 sm:py-14 lg:py-20">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8 sm:gap-10 lg:gap-14" style={{ paddingTop: "7px", paddingBottom: "6px" }}>
           {/* Brand Column */}
           <div className="lg:col-span-1">
-            <div className="flex items-center gap-3 sm:gap-4 mb-5 sm:mb-8">
+            <div className="flex items-center gap-3 sm:gap-4 mb-5 sm:mb-8" style={{ marginRight: "0px", lineHeight: "25.2em", letterSpacing: "0.145em", marginTop: "-16px" }}>
               <Logo size="xl" variant="ring" />
               <BrandWordmark size="footer" />
             </div>
-            <p className="text-xs sm:text-sm leading-6 sm:leading-7 text-muted-foreground mb-6 sm:mb-8 font-semibold tracking-tight">
+            <p className="text-xs sm:text-sm leading-6 sm:leading-7 text-muted-foreground font-semibold tracking-tight" style={{ marginBottom: "0px", fontFamily: "system-ui", fontWeight: "800", lineHeight: "1.5em", letterSpacing: "0.123em", textAlign: "left" }}>
               Premium quality used auto parts from 2,000+ verified yards nationwide. 30-180 day warranty on every part.
             </p>
             <div className="space-y-2.5 sm:space-y-3">

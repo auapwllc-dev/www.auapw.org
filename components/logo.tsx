@@ -69,7 +69,18 @@ export function Logo({
           height={height}
           className="object-contain"
           priority={priority}
-          style={{ lineHeight: "11.9", letterSpacing: "0.005em" }}
+          style={variant === "ring" ? { 
+            lineHeight: "11.9", 
+            letterSpacing: "0.798em",
+            marginTop: "-14px",
+            marginLeft: "-7px",
+            marginBottom: "0px",
+            paddingBottom: "-16px",
+            textAlign: "left"
+          } : { 
+            lineHeight: "11.9", 
+            letterSpacing: "0.005em" 
+          }}
         />
       </div>
       {showGlow && (
