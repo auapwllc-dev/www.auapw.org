@@ -123,7 +123,7 @@ export function Navbar() {
           <Link href="/" className="flex items-center gap-1 sm:gap-4 shrink-0 group header-boss-logo-group min-w-0">
             {/* Single responsive logo */}
             <div className="header-boss-logo-ring w-7 h-7 sm:w-12 sm:h-12 flex items-center justify-center flex-shrink-0">
-              <Logo size="sm" priority showGlow />
+              <Logo size="sm" priority showGlow variant="default" />
             </div>
             {/* Mobile: tiny bold brand name */}
             <div className="flex flex-col justify-center sm:hidden min-w-0">
@@ -351,7 +351,7 @@ export function Navbar() {
                 </div>
               </div>
 
-              {/* ── Divider ── */}
+              {/* ── Divider ��─ */}
               <div className="h-px bg-white/8" />
 
               {/* ── All pages ── */}
