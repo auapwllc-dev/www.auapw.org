@@ -84,10 +84,7 @@ export function Logo({
             boxShadow: "0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1)",
             opacity: "1"
           } : size === "sm" ? {
-            lineHeight: "0em",
-            fontWeight: "800",
-            fontFamily: "system-ui",
-            fontSize: "180px"
+            filter: "drop-shadow(0 1px 2px rgba(0, 0, 0, 0.3))"
           } : { 
             lineHeight: "11.9", 
             letterSpacing: "0.005em" 
