@@ -55,7 +55,7 @@ export function Footer() {
           {/* Brand Column */}
           <div className="lg:col-span-1">
             <div className="flex items-center gap-3 sm:gap-4 mb-5 sm:mb-8">
-              <Logo size="sm" variant="ring" />
+              <Logo size="md" variant="ring" />
               <BrandWordmark size="footer" />
             </div>
             <p className="text-xs sm:text-sm leading-6 sm:leading-7 text-muted-foreground mb-6 sm:mb-8 font-semibold tracking-tight">
