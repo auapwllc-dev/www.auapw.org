@@ -22,7 +22,7 @@ export function Footer() {
   return (
     <footer className="bg-card/95 backdrop-blur-xl border-t border-border/30 relative overflow-hidden w-full automotive-pattern">
       {/* Top brand strip with logos */}
-      <div className="border-b border-border/20 py-2 sm:py-3 md:py-4 overflow-x-auto">
+      <div className="border-b border-border/20 overflow-x-auto" style={{ paddingTop: "0px", paddingBottom: "0px" }}>
         <div className="mx-auto w-full max-w-7xl px-3 sm:px-4 md:px-6 lg:px-8">
           <div className="flex items-center gap-2 mb-1.5 sm:mb-2">
             <span className="text-[8px] sm:text-[9px] font-black tracking-[0.15em] uppercase text-3d-subtle whitespace-nowrap">Popular Brands</span>
@@ -54,7 +54,7 @@ export function Footer() {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8 sm:gap-10 lg:gap-14" style={{ paddingTop: "7px", paddingBottom: "6px" }}>
           {/* Brand Column */}
           <div className="lg:col-span-1">
-            <div className="flex items-center gap-3 sm:gap-4 mb-5 sm:mb-8" style={{ marginRight: "0px", lineHeight: "25.2em", letterSpacing: "0.145em", marginTop: "-16px" }}>
+            <div className="flex items-center gap-3 sm:gap-4" style={{ marginRight: "0px", lineHeight: "25.2em", letterSpacing: "0.145em", marginTop: "-16px", marginBottom: "0px" }}>
               <Logo size="xl" variant="ring" />
               <BrandWordmark size="footer" />
             </div>

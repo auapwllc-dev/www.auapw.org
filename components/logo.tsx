@@ -71,8 +71,8 @@ export function Logo({
           className="object-contain"
           priority={priority}
           style={variant === "ring" ? { 
-            lineHeight: "11.9", 
-            letterSpacing: "0.798em",
+            lineHeight: "9.6em", 
+            letterSpacing: "0.742em",
             marginTop: "-14px",
             marginLeft: "-7px",
             marginBottom: "0px",

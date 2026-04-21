@@ -40,7 +40,7 @@ export function BrandWordmark({
   const taglineText = subtitle ?? '"Trusted Partner for Automotive Services and Solutions"'
 
   return (
-    <div className={`flex flex-col gap-0 ${cfg.align} ${className}`}>
+    <div className={`flex flex-col gap-0 ${cfg.align} ${className}`} style={size === "footer" ? { borderTopLeftRadius: "0px", borderTopRightRadius: "29px", marginTop: "-5px", marginLeft: "-83px" } : {}}>
 
       {/* AUAPW.ORG — 3D Block Extrusion + Diamond LED + Ghost Scan */}
       <div className="wordmark-3d-wrap pt-[0.08em]">
