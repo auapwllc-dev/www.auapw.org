@@ -37,7 +37,8 @@ export function Logo({
 
   const ringStyles = cn(
     baseContainerStyles,
-    "rounded-full border border-[rgba(255,255,255,0.15)] bg-[#0a0c12]"
+    "rounded-full border-2 border-[rgba(100,120,140,0.4)] bg-gradient-to-br from-[#0a0c12] via-[#0f1118] to-[#05070b]",
+    "shadow-[inset_0_2px_8px_rgba(0,0,0,0.8),inset_0_-2px_8px_rgba(255,255,255,0.05),0_12px_32px_rgba(0,0,0,0.6)]"
   )
 
   const medallionStyles = cn(
