@@ -4,6 +4,7 @@ import { Analytics } from '@vercel/analytics/next'
 import { ThemeProvider } from '@/components/theme-provider'
 import { AuthProvider } from '@/lib/auth-context'
 import { MobileThemeFab } from '@/components/mobile-theme-fab'
+import { FloatingScrollArrows } from '@/components/floating-scroll-arrows'
 import './globals.css'
 
 // Enable ISR with 60 second revalidation for all pages
@@ -132,6 +133,7 @@ export default function RootLayout({
           <ThemeProvider>
             {children}
             <MobileThemeFab />
+            <FloatingScrollArrows />
           </ThemeProvider>
         </AuthProvider>
         <Analytics />
