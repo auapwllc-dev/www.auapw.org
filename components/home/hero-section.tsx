@@ -49,7 +49,7 @@ export function HeroSection() {
             </h1>
 
             {/* Key stats */}
-            <div className="flex flex-wrap justify-center gap-6 sm:gap-10 text-center">
+            <div className="flex flex-wrap justify-center gap-6 sm:gap-10 text-center" style={{ fontFamily: "system-ui", fontSize: "14px", fontWeight: "800" }}>
               {[
                 { value: "2,000+", label: "Verified Yards" },
                 { value: "30–180", label: "Day Warranty" },
