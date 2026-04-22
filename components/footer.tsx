@@ -51,14 +51,129 @@ export function Footer() {
       </div>
 
       <div className="mx-auto w-full max-w-6xl px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-col gap-8 sm:gap-12 py-10 sm:py-14">
+        <div className="flex flex-col gap-10 sm:gap-14 py-12 sm:py-16 lg:py-20">
           {/* Brand Section - Centered */}
           <div className="flex flex-col items-center text-center gap-6 sm:gap-8">
             <div className="flex flex-col items-center gap-4 sm:gap-6">
-              <div className="flex flex-col sm:flex-row items-center gap-3 sm:gap-4 justify-center">
-                <Logo size="xl" variant="default" />
+              <div className="flex flex-col items-center gap-4">
+                <Logo size="4xl" variant="default" />
                 <BrandWordmark size="footer" />
               </div>
+              <p className="text-sm sm:text-base leading-relaxed text-muted-foreground font-semibold tracking-tight max-w-2xl px-4">
+                Premium quality used auto parts from 2,000+ verified yards nationwide. 30-180 day warranty on every part.
+              </p>
+            </div>
+            
+            {/* Contact Buttons */}
+            <div className="flex flex-col gap-3 w-full max-w-sm">
+              <a href="tel:8888185001" className="auapw-btn auapw-btn-green w-full">
+                <Phone className="w-5 h-5 flex-shrink-0" />
+                <span className="text-sm sm:text-base">(888) 818-5001</span>
+              </a>
+              <a href="mailto:support@auapw.org" className="auapw-btn auapw-btn-teal w-full">
+                <Mail className="w-5 h-5 flex-shrink-0" />
+                <span className="text-sm sm:text-base">support@auapw.org</span>
+              </a>
+              <a href="https://maps.google.com/?q=107+Myrtle+Ave+Woodbine+NJ+08270" target="_blank" rel="noopener noreferrer" className="auapw-btn auapw-btn-silver w-full">
+                <MapPin className="w-5 h-5 flex-shrink-0" />
+                <span className="text-sm sm:text-base">Woodbine, NJ</span>
+              </a>
+            </div>
+          </div>
+
+          {/* Divider */}
+          <div className="h-px bg-gradient-to-r from-transparent via-border/40 to-transparent"></div>
+
+          {/* Link Sections - Single Column Stacked */}
+          <div className="flex flex-col gap-10 sm:gap-12 w-full">
+            {/* Popular Parts Section */}
+            <div>
+              <h3 className="text-sm font-black tracking-[0.2em] uppercase text-foreground mb-6 pb-3 border-b border-primary/30 inline-block">
+                Popular Parts
+              </h3>
+              <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
+                {popularPartLinks.slice(0, 6).map(({ label, href }) => (
+                  <Link 
+                    key={label} 
+                    href={href} 
+                    className="text-sm text-muted-foreground hover:text-primary transition-colors"
+                  >
+                    {label}
+                  </Link>
+                ))}
+              </div>
+            </div>
+
+            {/* Popular Makes Section */}
+            <div>
+              <h3 className="text-sm font-black tracking-[0.2em] uppercase text-foreground mb-6 pb-3 border-b border-primary/30 inline-block">
+                Popular Makes
+              </h3>
+              <div className="grid grid-cols-3 sm:grid-cols-4 lg:grid-cols-5 gap-4">
+                {popularMakes.map((make) => (
+                  <Link 
+                    key={make} 
+                    href={`/makes/${encodeURIComponent(make.toLowerCase().replace(/\s+/g, "-"))}`} 
+                    className="text-sm text-muted-foreground hover:text-primary transition-colors"
+                  >
+                    {make}
+                  </Link>
+                ))}
+              </div>
+            </div>
+
+            {/* Quick Links Section */}
+            <div>
+              <h3 className="text-sm font-black tracking-[0.2em] uppercase text-foreground mb-6 pb-3 border-b border-primary/30 inline-block">
+                Quick Links
+              </h3>
+              <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
+                {[
+                  { label: "Used Engines", href: "/used-engines" },
+                  { label: "Used Transmissions", href: "/used-transmissions" },
+                  { label: "Inventory", href: "/inventory" },
+                  { label: "All Parts", href: "/parts" },
+                  { label: "Blog", href: "/blog" },
+                  { label: "About Us", href: "/about" },
+                ].map(({ label, href }) => (
+                  <Link 
+                    key={label} 
+                    href={href} 
+                    className="text-sm text-muted-foreground hover:text-primary transition-colors"
+                  >
+                    {label}
+                  </Link>
+                ))}
+              </div>
+            </div>
+
+            {/* Policies Section */}
+            <div>
+              <h3 className="text-sm font-black tracking-[0.2em] uppercase text-foreground mb-6 pb-3 border-b border-primary/30 inline-block">
+                Policies
+              </h3>
+              <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
+                {[
+                  { label: "Privacy Policy", href: "/privacy-policy" },
+                  { label: "Terms", href: "/terms" },
+                  { label: "Shipping", href: "/shipping-policy" },
+                  { label: "Returns", href: "/return-policy" },
+                  { label: "Contact", href: "/contact" },
+                ].map(({ label, href }) => (
+                  <Link 
+                    key={label} 
+                    href={href} 
+                    className="text-sm text-muted-foreground hover:text-primary transition-colors"
+                  >
+                    {label}
+                  </Link>
+                ))}
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
               <p className="text-xs sm:text-sm leading-relaxed text-muted-foreground font-semibold tracking-tight max-w-md px-4">
                 Premium quality used auto parts from 2,000+ verified yards nationwide. 30-180 day warranty on every part.
               </p>
