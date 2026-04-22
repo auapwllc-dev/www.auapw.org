@@ -29,40 +29,15 @@ export function Logo({
 }: LogoProps) {
   const { width, height, containerClass } = SIZE_MAP[size]
 
-  const baseContainerStyles = cn(
+  const containerStyles = cn(
     "flex items-center justify-center overflow-hidden shrink-0",
     containerClass,
     className
   )
 
-  const ringStyles = cn(
-    baseContainerStyles,
-    "rounded-full border-2 border-[rgba(100,120,140,0.4)] bg-gradient-to-br from-[#0a0c12] via-[#0f1118] to-[#05070b]",
-    "shadow-[inset_0_2px_8px_rgba(0,0,0,0.8),inset_0_-2px_8px_rgba(255,255,255,0.05),0_12px_32px_rgba(0,0,0,0.6)]"
-  )
-
-  const medallionStyles = cn(
-    baseContainerStyles,
-    "rounded-full border-2 border-[rgba(255,255,255,0.18)] bg-[rgba(13,15,22,0.70)]"
-  )
-
-  const containerStyles =
-    variant === "ring"
-      ? ringStyles
-      : variant === "medallion"
-        ? medallionStyles
-        : baseContainerStyles
-
-  const boxShadow =
-    variant === "medallion"
-      ? "0 0 0 1px rgba(255,255,255,0.06), 0 8px 40px rgba(0,0,0,0.7), inset 0 1px 0 rgba(255,255,255,0.10)"
-      : variant === "ring"
-        ? "0 3px 10px rgba(0,0,0,.5)"
-        : undefined
-
   return (
     <div className="relative">
-      <div className={containerStyles} style={boxShadow ? { boxShadow } : undefined}>
+      <div className={containerStyles}>
         <Image
           src="/logo-auapw.png"
           alt="AUAPW.ORG - Quality Used Auto Parts"
@@ -70,23 +45,6 @@ export function Logo({
           height={height}
           className="object-contain"
           priority={priority}
-          style={variant === "ring" ? { 
-            lineHeight: "0em", 
-            letterSpacing: "0.742em",
-            marginTop: "-3px",
-            marginLeft: "-2px",
-            marginBottom: "-3px",
-            paddingBottom: "-16px",
-            textAlign: "left",
-            borderStyle: "none",
-            borderWidth: "393px",
-            borderRadius: "545px",
-            boxShadow: "0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1)",
-            opacity: "1"
-          } : { 
-            lineHeight: "11.9", 
-            letterSpacing: "0.005em" 
-          }}
         />
       </div>
       {showGlow && (
