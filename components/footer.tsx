@@ -89,7 +89,7 @@ export function Footer() {
             <ul className="space-y-2">
               {popularPartLinks.slice(0, 6).map(({ label, href }) => (
                 <li key={label}>
-                  <Link href={href} className="text-xs text-muted-foreground hover:text-primary transition-colors">
+                  <Link href={href} className="text-xs font-bold tracking-tight text-muted-foreground hover:text-primary transition-colors">
                     {label}
                   </Link>
                 </li>
@@ -107,7 +107,7 @@ export function Footer() {
                 <li key={make}>
                   <Link 
                     href={`/makes/${encodeURIComponent(make.toLowerCase().replace(/\s+/g, "-"))}`} 
-                    className="text-xs text-muted-foreground hover:text-primary transition-colors"
+                    className="text-xs font-bold tracking-tight text-muted-foreground hover:text-primary transition-colors"
                   >
                     {make}
                   </Link>
@@ -131,7 +131,7 @@ export function Footer() {
                 { label: "About Us", href: "/about" },
               ].map(({ label, href }) => (
                 <li key={label}>
-                  <Link href={href} className="text-xs text-muted-foreground hover:text-primary transition-colors">
+                  <Link href={href} className="text-xs font-bold tracking-tight text-muted-foreground hover:text-primary transition-colors">
                     {label}
                   </Link>
                 </li>
@@ -153,7 +153,7 @@ export function Footer() {
                 { label: "Contact", href: "/contact" },
               ].map(({ label, href }) => (
                 <li key={label}>
-                  <Link href={href} className="text-xs text-muted-foreground hover:text-primary transition-colors">
+                  <Link href={href} className="text-xs font-bold tracking-tight text-muted-foreground hover:text-primary transition-colors">
                     {label}
                   </Link>
                 </li>
@@ -166,7 +166,7 @@ export function Footer() {
       {/* Bottom bar */}
       <div className="border-t border-border/30 bg-background/60 backdrop-blur-sm">
         <div className="mx-auto w-full max-w-7xl px-3 sm:px-4 md:px-6 lg:px-8 py-5 sm:py-7 flex flex-col sm:flex-row items-center justify-between gap-3 sm:gap-6">
-          <span className="text-xs sm:text-sm text-muted-foreground font-semibold tracking-tight text-center sm:text-left text-3d-subtle">
+          <span className="text-xs sm:text-sm text-muted-foreground font-black tracking-tight text-center sm:text-left text-3d-subtle">
             &copy; {new Date().getFullYear()} <strong className="font-black text-foreground text-3d-bold">AUAPW.ORG</strong>
           </span>
           <div className="flex flex-wrap justify-center gap-4 sm:gap-6">
@@ -176,7 +176,7 @@ export function Footer() {
               { label: "Shipping", href: "/shipping-policy" },
               { label: "Returns", href: "/return-policy" },
             ].map(({ label, href }) => (
-              <Link key={label} href={href} className="text-xs sm:text-sm text-muted-foreground hover:text-primary transition-all duration-200 font-semibold tracking-tight text-3d-subtle">
+              <Link key={label} href={href} className="text-xs sm:text-sm text-muted-foreground hover:text-primary transition-all duration-200 font-black tracking-tight text-3d-subtle">
                 {label}
               </Link>
             ))}

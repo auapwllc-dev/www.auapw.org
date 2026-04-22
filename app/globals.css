@@ -167,23 +167,28 @@ body {
 .text-3d-bold,
 .text-3d-section,
 h1, h2, h3, h4, h5, h6 {
-  font-weight: 800;
+  font-weight: 900;
   letter-spacing: 0.12em;
   text-transform: uppercase;
   background: linear-gradient(
     180deg,
-    rgba(255,255,255,0.95) 0%,
-    rgba(220,225,240,0.85) 50%,
-    rgba(180,190,220,0.8) 100%
+    rgba(255,255,255,0.98) 0%,
+    rgba(220,225,240,0.88) 40%,
+    rgba(180,190,220,0.85) 60%,
+    rgba(140,160,200,0.8) 100%
   );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
   text-shadow:
-    -1px -1px 0 rgba(0,0,0,0.3),
-     1px  1px 0 rgba(255,255,255,0.2),
-    -2px -2px 4px rgba(0,0,0,0.4),
-     2px  2px 4px rgba(255,255,255,0.1);
+    -2px -2px 0 rgba(0,0,0,0.5),
+     2px  2px 0 rgba(255,255,255,0.3),
+    -3px -3px 6px rgba(0,0,0,0.6),
+     3px  3px 6px rgba(255,255,255,0.2),
+    -1px -1px 2px rgba(100,120,150,0.4),
+     1px  1px 2px rgba(220,240,255,0.3),
+    inset -1px -1px 2px rgba(0,0,0,0.3),
+    inset 1px 1px 2px rgba(255,255,255,0.15);
 }
 
 /* Override font-serif to system-ui for "ALL USED AUTO PARTS WAREHOUSE" heading */
@@ -3500,6 +3505,36 @@ footer .wordmark-3d {
     0 8px 32px rgba(0,0,0,0.3);
 }
 
+/* Steel embossed fonts for footer */
+.embossed-col h3,
+.embossed-col h4,
+.embossed-col h5 {
+  font-weight: 900;
+  letter-spacing: 0.15em;
+  background: linear-gradient(180deg, rgba(255,255,255,0.99) 0%, rgba(200,210,240,0.9) 40%, rgba(150,170,210,0.85) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-shadow:
+    -2px -2px 1px rgba(0,0,0,0.6),
+     2px  2px 1px rgba(100,120,150,0.4),
+    -3px -3px 4px rgba(0,0,0,0.7),
+     3px  3px 4px rgba(180,200,230,0.25),
+    inset -1px -1px 3px rgba(0,0,0,0.4),
+    inset 1px 1px 3px rgba(255,255,255,0.2);
+}
+
+.embossed-col a,
+.embossed-col span,
+.embossed-col li {
+  font-weight: 700;
+  text-shadow:
+    -1px -1px 1px rgba(0,0,0,0.5),
+     1px  1px 1px rgba(100,120,150,0.3),
+    inset -0.5px -0.5px 1px rgba(0,0,0,0.3),
+    inset 0.5px 0.5px 1px rgba(200,220,255,0.15);
+}
+
 .light .embossed-col {
   background: linear-gradient(180deg, rgba(255,255,255,0.98) 0%, rgba(240,242,248,0.95) 100%);
   border: 1px solid rgba(15,17,23,0.1);
@@ -4680,7 +4715,7 @@ footer .wordmark-3d {
 /* ─────────────────────────────────────────────────────────
    SHARED FAB BUTTON SYSTEM
    Premium metallic floating action buttons
-   ──────────────────────────────────────────────────────── */
+   ──────────────────���───────────────────────────────────── */
 
 /* Base FAB button */
 .fab-btn {
