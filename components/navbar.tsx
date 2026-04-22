@@ -122,8 +122,8 @@ export function Navbar() {
           {/* Logo + Wordmark */}
           <Link href="/" className="flex items-center gap-1 sm:gap-4 shrink-0 group header-boss-logo-group min-w-0">
             {/* Single responsive logo - clean transparent AUAPW */}
-            <div className="w-16 h-16 sm:w-20 sm:h-20 lg:w-24 lg:h-24 flex items-center justify-center flex-shrink-0">
-              <Logo size="xl" priority variant="default" />
+            <div className="w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center flex-shrink-0">
+              <Logo size="sm" priority variant="default" />
             </div>
             {/* Mobile: tiny bold brand name */}
             <div className="flex flex-col justify-center sm:hidden min-w-0">
@@ -235,8 +235,7 @@ export function Navbar() {
 
             {/* Mobile menu toggle */}
             <button
-              className="lg:hidden flex flex-col items-center justify-center rounded-md border border-white/25 bg-white/8 hover:bg-white/15 active:scale-90 transition-all duration-150 cursor-pointer gap-[4px] px-1.5"
-              style={{ width: '1.75rem', height: '1.75rem' }}
+              className="lg:hidden flex flex-col items-center justify-center rounded-md border border-white/25 bg-white/8 hover:bg-white/15 active:scale-90 transition-all duration-150 cursor-pointer gap-[4px] px-2 py-2 w-10 h-10 sm:w-11 sm:h-11"
               onClick={() => setMobileOpen(!mobileOpen)}
               onKeyDown={(e) => {
                 if (e.key === 'Enter' || e.key === ' ') {

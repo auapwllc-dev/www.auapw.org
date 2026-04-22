@@ -12,14 +12,14 @@ interface LogoProps {
 }
 
 const SIZE_MAP: Record<LogoSize, { width: number; height: number; containerClass: string }> = {
-  xs: { width: 40, height: 40, containerClass: "w-10 h-10" },
-  sm: { width: 80, height: 80, containerClass: "w-20 h-20" },
-  md: { width: 120, height: 120, containerClass: "w-[120px] h-[120px]" },
-  lg: { width: 160, height: 160, containerClass: "w-[140px] h-[140px] sm:w-[160px] sm:h-[160px]" },
-  xl: { width: 200, height: 200, containerClass: "w-[160px] h-[160px] sm:w-[200px] sm:h-[200px] lg:w-[240px] lg:h-[240px]" },
-  "2xl": { width: 280, height: 280, containerClass: "w-[200px] h-[200px] sm:w-[280px] sm:h-[280px] lg:w-[320px] lg:h-[320px]" },
-  "3xl": { width: 360, height: 360, containerClass: "w-[280px] h-[280px] sm:w-[360px] sm:h-[360px] lg:w-[400px] lg:h-[400px]" },
-  "4xl": { width: 480, height: 480, containerClass: "w-[360px] h-[360px] sm:w-[420px] sm:h-[420px] lg:w-[480px] lg:h-[480px]" },
+  xs: { width: 32, height: 32, containerClass: "w-8 h-8" },
+  sm: { width: 48, height: 48, containerClass: "w-10 h-10 sm:w-12 sm:h-12" },
+  md: { width: 64, height: 64, containerClass: "w-14 h-14 sm:w-16 sm:h-16" },
+  lg: { width: 96, height: 96, containerClass: "w-20 h-20 sm:w-24 sm:h-24" },
+  xl: { width: 120, height: 120, containerClass: "w-24 h-24 sm:w-28 sm:h-28 lg:w-32 lg:h-32" },
+  "2xl": { width: 160, height: 160, containerClass: "w-32 h-32 sm:w-36 sm:h-36 lg:w-40 lg:h-40" },
+  "3xl": { width: 200, height: 200, containerClass: "w-40 h-40 sm:w-44 sm:h-44 lg:w-48 lg:h-48" },
+  "4xl": { width: 240, height: 240, containerClass: "w-48 h-48 sm:w-56 sm:h-56 lg:w-64 lg:h-64" },
 }
 
 export function Logo({

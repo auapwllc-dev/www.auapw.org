@@ -3,16 +3,16 @@ import { Search, Truck, Shield, RotateCcw, Clock, ThumbsUp, DollarSign, Grid3X3 
 
 export function ContentSection() {
   return (
-    <section className="py-20 bg-background ghost-scan-section" style={{ paddingTop: '9px' }}>
-      <div className="mx-auto max-w-[1000px] px-6" style={{ fontFamily: 'system-ui' }}>
+    <section className="py-10 sm:py-16 lg:py-20 bg-background ghost-scan-section">
+      <div className="mx-auto max-w-[1000px] px-4 sm:px-6">
         {/* Main intro */}
-        <div className="mb-16">
-          <h2 className="small-caps font-sans text-[clamp(1.75rem,4vw,2.75rem)] font-black mercury-heading text-3d-section mb-6" style={{ fontFamily: 'system-ui', fontSize: '29px', textTransform: 'uppercase', marginBottom: '0px' }}>
-            𝐀𝐔𝐀𝐏𝐖.𝑶𝑹𝑮<br />
-            All Used Auto Parts Warehouse<br />
-            Trusted Partner for Automotive Services and Solutions<br />
+        <div className="mb-10 sm:mb-14 lg:mb-16">
+          <h2 className="font-sans text-lg sm:text-xl lg:text-2xl font-black mercury-heading text-3d-section mb-4 sm:mb-6 uppercase leading-tight">
+            AUAPW.ORG<br />
+            <span className="text-sm sm:text-base lg:text-lg">All Used Auto Parts Warehouse</span><br />
+            <span className="text-xs sm:text-sm text-muted-foreground font-semibold">Trusted Partner for Automotive Services</span>
           </h2>
-          <div className="text-muted-foreground text-[0.95rem] leading-[1.8] flex flex-col gap-4" style={{ textTransform: 'uppercase', fontWeight: '700' }}>
+          <div className="text-muted-foreground text-sm sm:text-[0.95rem] leading-relaxed flex flex-col gap-3 sm:gap-4">
             <p className="font-medium text-foreground/90">
               AUAPW.ORG is a US-based online platform for finding all kinds of used auto parts. We cooperate with the best junkyards and salvage yards around the country, to provide our customers with only top-notch services.
             </p>
@@ -38,7 +38,7 @@ export function ContentSection() {
         </div>
 
         {/* Trust & Quality Section */}
-        <div className="glass-card rounded-sm p-8 mb-16">
+        <div className="glass-card rounded-sm p-4 sm:p-6 lg:p-8 mb-10 sm:mb-14 lg:mb-16">
           <h3 className="font-serif text-xl font-bold text-foreground text-3d-subtle mb-4">Why Customers Trust AUAPW.ORG</h3>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div>
@@ -69,7 +69,7 @@ export function ContentSection() {
         </div>
 
         {/* How it works */}
-        <div className="glass-card rounded-sm p-8 mb-16">
+        <div className="glass-card rounded-sm p-4 sm:p-6 lg:p-8 mb-10 sm:mb-14 lg:mb-16">
           <h3 className="font-serif text-xl font-bold text-foreground text-3d-subtle mb-4">How Does AUAPW.ORG Work?</h3>
           <p className="text-muted-foreground text-sm leading-relaxed">
             Simple. Browsing through our website is just a breeze - within a few minutes you can find everything you have been looking for. Just fill the required fields, such as the brand, car model, year, etc. and find the most affordable and top-quality parts.
@@ -77,25 +77,25 @@ export function ContentSection() {
         </div>
 
         {/* Feature Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 mb-16">
+        <div className="grid grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 lg:gap-5 mb-10 sm:mb-14 lg:mb-16">
           {[
-            { icon: Search, title: "Used Auto Parts Near You", desc: "Search by state, city and zip code to locate used car parts from junkyards near you." },
-            { icon: Truck, title: "Free Shipping Nationwide", desc: "No matter which corner of USA you are ordering from, get auto parts delivered to your door." },
-            { icon: Shield, title: "Warranty From Dealers", desc: "Get 30-180 days warranty directly from junkyard and salvage yard dealers." },
-            { icon: RotateCcw, title: "Easy Returns", desc: "Not satisfied? You can easily return the part. Simple process, no hassle." },
-            { icon: Clock, title: "Quick 24-Hour Turnaround", desc: "After you place your request, get a response from dealers within 24 hours." },
-            { icon: DollarSign, title: "Best Prices In Industry", desc: "Used car parts cost 2-3x less than new ones with the same durability." },
+            { icon: Search, title: "Parts Near You", desc: "Search by state, city and zip code." },
+            { icon: Truck, title: "Free Shipping", desc: "Delivered to your door nationwide." },
+            { icon: Shield, title: "Warranty", desc: "30-180 days warranty included." },
+            { icon: RotateCcw, title: "Easy Returns", desc: "Simple return process." },
+            { icon: Clock, title: "24-Hour Response", desc: "Fast dealer response time." },
+            { icon: DollarSign, title: "Best Prices", desc: "Save 40-70% vs new parts." },
           ].map(({ icon: Icon, title, desc }) => (
-            <div key={title} className="glass-card rounded-sm p-6">
-              <Icon className="w-6 h-6 text-primary mb-3" />
-              <h4 className="text-sm font-bold text-foreground text-3d-subtle mb-2">{title}</h4>
-              <p className="text-[13px] text-muted-foreground leading-relaxed font-medium">{desc}</p>
+            <div key={title} className="glass-card rounded-sm p-3 sm:p-5 lg:p-6">
+              <Icon className="w-5 h-5 sm:w-6 sm:h-6 text-primary mb-2 sm:mb-3" />
+              <h4 className="text-xs sm:text-sm font-bold text-foreground text-3d-subtle mb-1 sm:mb-2">{title}</h4>
+              <p className="text-[11px] sm:text-[13px] text-muted-foreground leading-relaxed font-medium">{desc}</p>
             </div>
           ))}
         </div>
 
         {/* Our Services / Why Best */}
-        <div className="mb-16">
+        <div className="mb-10 sm:mb-14 lg:mb-16">
           <h3 className="font-serif text-xl font-bold text-foreground text-3d-subtle mb-4">Our Services</h3>
           <p className="text-muted-foreground text-sm leading-relaxed mb-6 font-medium">
             AUAPW.ORG offers top-of-the-line used car auto parts for all types of vehicles -- Honda, Acura, Dodge, Ford, BMW, you name it. On our online platform, you get the chance to browse through all the best junkyards in the country within minutes.
@@ -116,7 +116,7 @@ export function ContentSection() {
         </div>
 
         {/* Bottom CTA */}
-        <div className="text-center glass-card rounded-sm p-10">
+        <div className="text-center glass-card rounded-sm p-5 sm:p-8 lg:p-10">
           <h3 className="font-serif text-xl font-bold text-foreground text-3d-bold mb-3">
             Need Highly Durable Yet Affordable Used Car Parts?
           </h3>

@@ -87,17 +87,17 @@ export function BrandLogosSection() {
   return (
     <section
       aria-label="Shop by vehicle brand"
-      className="border-t border-b border-border/20 py-14 relative overflow-hidden"
-      style={{ background: "linear-gradient(180deg, rgba(10,12,20,0.95) 0%, rgba(12,14,22,1) 100%)", paddingBottom: "0px" }}
+      className="border-t border-b border-border/20 py-8 sm:py-12 lg:py-14 relative overflow-hidden"
+      style={{ background: "linear-gradient(180deg, rgba(10,12,20,0.95) 0%, rgba(12,14,22,1) 100%)" }}
     >
-      <div className="mx-auto max-w-[1100px] px-6">
+      <div className="mx-auto max-w-[1100px] px-3 sm:px-6">
 
         {/* Header */}
-        <div className="text-center mb-8">
-          <p className="text-[0.65rem] font-bold tracking-[0.3em] uppercase text-primary mb-3">All Vehicle Makes</p>
-          <h2 className="font-serif text-[clamp(1.4rem,2.5vw,2rem)] font-bold text-foreground mb-2">Shop by Brand</h2>
-          <p className="text-muted-foreground text-sm max-w-[460px] mx-auto">
-            Quality used parts for every make &mdash; {allBrands.length} brands, 2,000+ verified yards
+        <div className="text-center mb-5 sm:mb-8">
+          <p className="text-[0.6rem] sm:text-[0.65rem] font-bold tracking-[0.25em] uppercase text-primary mb-2 sm:mb-3">All Vehicle Makes</p>
+          <h2 className="font-serif text-lg sm:text-xl lg:text-2xl font-bold text-foreground mb-1 sm:mb-2">Shop by Brand</h2>
+          <p className="text-muted-foreground text-xs sm:text-sm max-w-[460px] mx-auto px-4">
+            Quality used parts for every make &mdash; {allBrands.length} brands
           </p>
         </div>
 

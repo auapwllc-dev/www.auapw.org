@@ -50,16 +50,16 @@ export function Footer() {
         </div>
       </div>
 
-      <div className="mx-auto w-full max-w-4xl px-3 sm:px-4 md:px-6 lg:px-8">
-        <div className="flex flex-col gap-12 sm:gap-16 lg:gap-20 py-14 sm:py-20 lg:py-28">
+      <div className="mx-auto w-full max-w-6xl px-4 sm:px-6 lg:px-8">
+        <div className="flex flex-col gap-8 sm:gap-12 py-10 sm:py-14">
           {/* Brand Section - Centered */}
-          <div className="flex flex-col items-center text-center gap-8">
-            <div className="flex flex-col items-center gap-6">
-              <div className="flex items-center gap-3 sm:gap-4 justify-center" style={{ marginRight: "0px", lineHeight: "25.2em", letterSpacing: "0.145em", marginTop: "-16px", marginBottom: "0px" }}>
-                <Logo size="4xl" variant="default" />
+          <div className="flex flex-col items-center text-center gap-6 sm:gap-8">
+            <div className="flex flex-col items-center gap-4 sm:gap-6">
+              <div className="flex flex-col sm:flex-row items-center gap-3 sm:gap-4 justify-center">
+                <Logo size="xl" variant="default" />
                 <BrandWordmark size="footer" />
               </div>
-              <p className="text-xs sm:text-sm leading-6 sm:leading-7 text-muted-foreground font-semibold tracking-tight max-w-lg" style={{ marginBottom: "0px", fontFamily: "system-ui", fontWeight: "800", lineHeight: "1.5em", letterSpacing: "0.123em" }}>
+              <p className="text-xs sm:text-sm leading-relaxed text-muted-foreground font-semibold tracking-tight max-w-md px-4">
                 Premium quality used auto parts from 2,000+ verified yards nationwide. 30-180 day warranty on every part.
               </p>
             </div>
@@ -84,17 +84,17 @@ export function Footer() {
           {/* Divider */}
           <div className="h-px bg-gradient-to-r from-transparent via-border/40 to-transparent"></div>
 
-          {/* Link Sections - Single Column, Centered */}
-          <div className="flex flex-col gap-12 sm:gap-14 items-center w-full">
+          {/* Link Sections - Grid Layout */}
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 sm:gap-8 w-full">
             {/* Popular Parts */}
-            <div className="embossed-col p-3 sm:p-5 text-center">
-              <h3 className="text-xs sm:text-sm font-black tracking-[0.2em] uppercase text-foreground text-3d-section mb-4 sm:mb-6 pb-2 sm:pb-3 border-b-2 border-primary/50 inline-block">
+            <div className="text-center sm:text-left">
+              <h3 className="text-xs font-black tracking-[0.15em] uppercase text-foreground mb-4 pb-2 border-b border-primary/30">
                 Popular Parts
               </h3>
-              <ul className="space-y-2 sm:space-y-3 mt-6">
+              <ul className="space-y-2">
                 {popularPartLinks.slice(0, 5).map(({ label, href }) => (
                   <li key={label}>
-                    <Link href={href} className="text-xs sm:text-sm text-muted-foreground hover:text-primary transition-all duration-200 font-bold tracking-tight text-3d-subtle">
+                    <Link href={href} className="text-xs text-muted-foreground hover:text-primary transition-colors">
                       {label}
                     </Link>
                   </li>
@@ -103,16 +103,16 @@ export function Footer() {
             </div>
 
             {/* Popular Makes */}
-            <div className="embossed-col p-3 sm:p-5 text-center">
-              <h3 className="text-xs sm:text-sm font-black tracking-[0.2em] uppercase text-foreground text-3d-section mb-4 sm:mb-6 pb-2 sm:pb-3 border-b-2 border-primary/50 inline-block">
+            <div className="text-center sm:text-left">
+              <h3 className="text-xs font-black tracking-[0.15em] uppercase text-foreground mb-4 pb-2 border-b border-primary/30">
                 Popular Makes
               </h3>
-              <ul className="space-y-2 sm:space-y-3 mt-6">
+              <ul className="space-y-2">
                 {popularMakes.map((make) => (
                   <li key={make}>
                     <Link 
                       href={`/makes/${encodeURIComponent(make.toLowerCase().replace(/\s+/g, "-"))}`} 
-                      className="text-xs sm:text-sm text-muted-foreground hover:text-primary transition-all duration-200 font-bold tracking-tight text-3d-subtle"
+                      className="text-xs text-muted-foreground hover:text-primary transition-colors"
                     >
                       {make}
                     </Link>
@@ -122,11 +122,11 @@ export function Footer() {
             </div>
 
             {/* Quick Links */}
-            <div className="embossed-col p-3 sm:p-5 text-center">
-              <h3 className="text-xs sm:text-sm font-black tracking-[0.2em] uppercase text-foreground text-3d-section mb-4 sm:mb-6 pb-2 sm:pb-3 border-b-2 border-primary/50 inline-block">
+            <div className="text-center sm:text-left">
+              <h3 className="text-xs font-black tracking-[0.15em] uppercase text-foreground mb-4 pb-2 border-b border-primary/30">
                 Quick Links
               </h3>
-              <ul className="space-y-2 sm:space-y-3 mt-6">
+              <ul className="space-y-2">
                 {[
                   { label: "Used Engines", href: "/used-engines" },
                   { label: "Used Transmissions", href: "/used-transmissions" },
@@ -136,7 +136,7 @@ export function Footer() {
                   { label: "About Us", href: "/about" },
                 ].map(({ label, href }) => (
                   <li key={label}>
-                    <Link href={href} className="text-xs sm:text-sm text-muted-foreground hover:text-primary transition-all duration-200 font-bold tracking-tight text-3d-subtle">
+                    <Link href={href} className="text-xs text-muted-foreground hover:text-primary transition-colors">
                       {label}
                     </Link>
                   </li>
@@ -145,20 +145,20 @@ export function Footer() {
             </div>
 
             {/* Policies */}
-            <div className="embossed-col p-3 sm:p-5 text-center">
-              <h3 className="text-xs sm:text-sm font-black tracking-[0.2em] uppercase text-foreground text-3d-section mb-4 sm:mb-6 pb-2 sm:pb-3 border-b-2 border-primary/50 inline-block">
-                Policies &amp; Legal
+            <div className="text-center sm:text-left">
+              <h3 className="text-xs font-black tracking-[0.15em] uppercase text-foreground mb-4 pb-2 border-b border-primary/30">
+                Policies
               </h3>
-              <ul className="space-y-2 sm:space-y-3 mt-6">
+              <ul className="space-y-2">
                 {[
                   { label: "Privacy Policy", href: "/privacy-policy" },
-                  { label: "Terms & Conditions", href: "/terms" },
-                  { label: "Shipping Policy", href: "/shipping-policy" },
-                  { label: "Return Policy", href: "/return-policy" },
+                  { label: "Terms", href: "/terms" },
+                  { label: "Shipping", href: "/shipping-policy" },
+                  { label: "Returns", href: "/return-policy" },
                   { label: "Contact", href: "/contact" },
                 ].map(({ label, href }) => (
                   <li key={label}>
-                    <Link href={href} className="text-xs sm:text-sm text-muted-foreground hover:text-primary transition-all duration-200 font-bold tracking-tight text-3d-subtle">
+                    <Link href={href} className="text-xs text-muted-foreground hover:text-primary transition-colors">
                       {label}
                     </Link>
                   </li>
@@ -167,27 +167,6 @@ export function Footer() {
             </div>
           </div>
 
-          {/* Divider */}
-          <div className="h-px bg-gradient-to-r from-transparent via-border/40 to-transparent"></div>
-
-          {/* Social Links - Centered */}
-          <div className="flex flex-col items-center gap-6 text-center">
-            <h3 className="text-xs sm:text-sm font-black tracking-[0.2em] uppercase text-foreground text-3d-section">
-              Follow Us
-            </h3>
-            <div className="flex gap-4 sm:gap-6 flex-wrap justify-center">
-              {[
-                { label: "Facebook", href: "#" },
-                { label: "Instagram", href: "#" },
-                { label: "Twitter", href: "#" },
-                { label: "LinkedIn", href: "#" },
-              ].map(({ label, href }) => (
-                <a key={label} href={href} className="text-xs sm:text-sm text-muted-foreground hover:text-primary transition-colors font-semibold">
-                  {label}
-                </a>
-              ))}
-            </div>
-          </div>
         </div>
       </div>
 

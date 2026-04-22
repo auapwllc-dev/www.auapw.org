@@ -14,8 +14,8 @@ const CATEGORY_ICONS: Record<string, React.ElementType> = {
 
 export function CategoriesSection() {
   return (
-    <section className="py-20 bg-background">
-      <div className="mx-auto max-w-[1280px] px-6">
+    <section className="py-10 sm:py-16 lg:py-20 bg-background">
+      <div className="mx-auto max-w-[1280px] px-4 sm:px-6">
         <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 sm:gap-6 mb-10 sm:mb-14">
           <div>
             <div className="flex items-center gap-4 mb-5">
@@ -27,29 +27,29 @@ export function CategoriesSection() {
 
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-5">
+        <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
           {PART_CATEGORIES.map((cat) => {
             const Icon = CATEGORY_ICONS[cat.id]
             return (
               <Link
                 key={cat.id}
                 href={`/parts/${cat.id}`}
-                className="group glass-card rounded-sm p-7 transition-all hover:-translate-y-0.5 hover:border-primary/30 hover:shadow-[0_8px_40px_rgba(0,0,0,0.5)]"
+                className="group glass-card rounded-sm p-4 sm:p-6 transition-all hover:-translate-y-0.5 hover:border-primary/30 hover:shadow-[0_8px_40px_rgba(0,0,0,0.5)]"
               >
                 {cat.id === 'engines' ? (
-                  <div className="w-8 h-8 mb-4 object-cover">
+                  <div className="w-6 h-6 sm:w-8 sm:h-8 mb-3 object-cover">
                     <img src="/images/icon-gear.png" alt={cat.label} className="w-full h-full" />
                   </div>
                 ) : Icon ? (
-                  <Icon className="w-7 h-7 text-muted-foreground mb-4 group-hover:text-primary transition-colors" />
+                  <Icon className="w-5 h-5 sm:w-7 sm:h-7 text-muted-foreground mb-3 group-hover:text-primary transition-colors" />
                 ) : null}
-                <h3 className="text-[15px] font-bold tracking-wide text-foreground mb-2">{cat.label}</h3>
-                <p className="text-[11px] text-muted-foreground mb-4">{cat.parts.length} parts available</p>
-                <div className="border-t border-border/30 pt-3 flex flex-wrap gap-1.5">
-                  {cat.parts.slice(0, 3).map((p) => (
-                    <span key={p} className="px-2.5 py-1 bg-secondary/50 border border-border/40 text-[10px] text-muted-foreground rounded-sm">{p}</span>
+                <h3 className="text-xs sm:text-sm font-bold tracking-wide text-foreground mb-1 sm:mb-2">{cat.label}</h3>
+                <p className="text-[10px] sm:text-[11px] text-muted-foreground mb-3">{cat.parts.length} parts</p>
+                <div className="border-t border-border/30 pt-2 sm:pt-3 flex flex-wrap gap-1">
+                  {cat.parts.slice(0, 2).map((p) => (
+                    <span key={p} className="px-1.5 sm:px-2.5 py-0.5 sm:py-1 bg-secondary/50 border border-border/40 text-[8px] sm:text-[10px] text-muted-foreground rounded-sm truncate max-w-[80px] sm:max-w-none">{p}</span>
                   ))}
-                  <span className="px-2.5 py-1 bg-secondary/50 border border-border/40 text-[10px] text-muted-foreground rounded-sm">+{cat.parts.length - 3}</span>
+                  <span className="px-1.5 sm:px-2.5 py-0.5 sm:py-1 bg-secondary/50 border border-border/40 text-[8px] sm:text-[10px] text-muted-foreground rounded-sm">+{cat.parts.length - 2}</span>
                 </div>
               </Link>
             )

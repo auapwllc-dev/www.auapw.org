@@ -43,28 +43,28 @@ export function HeroSection() {
             </div>
 
             {/* Headline */}
-            <h1 className="font-sans leading-tight text-balance max-w-3xl" style={{ fontFamily: "system-ui" }}>
-              <span className="block text-[0.7rem] sm:text-[0.9rem] font-black tracking-[0.2em] uppercase text-muted-foreground mb-2" style={{ fontFamily: "system-ui" }}>Your Trusted Partner</span>
-              <span className="block mercury-heading text-[1.6rem] sm:text-[clamp(1.6rem,4vw,3rem)] font-black" style={{ fontFamily: "system-ui", fontSize: "60px", lineHeight: "1.2", fontWeight: "800" }}>Premium Quality Used Auto Parts</span>
+            <h1 className="font-sans leading-tight text-balance max-w-3xl">
+              <span className="block text-[0.65rem] sm:text-[0.85rem] font-black tracking-[0.2em] uppercase text-muted-foreground mb-2">Your Trusted Partner</span>
+              <span className="block mercury-heading text-[1.5rem] sm:text-[2rem] lg:text-[2.75rem] font-black leading-tight">Premium Quality Used Auto Parts</span>
             </h1>
 
             {/* Key stats */}
-            <div className="flex flex-wrap justify-center gap-6 sm:gap-10 text-center" style={{ fontFamily: "system-ui", fontSize: "14px", fontWeight: "800" }}>
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-6 text-center w-full max-w-lg sm:max-w-none mx-auto">
               {[
                 { value: "2,000+", label: "Verified Yards" },
                 { value: "30–180", label: "Day Warranty" },
                 { value: "24hr", label: "Response Time" },
                 { value: "50", label: "States Covered" },
               ].map(({ value, label }) => (
-                <div key={label} className="flex flex-col items-center gap-0.5">
-                  <span className="text-[1.4rem] sm:text-[1.8rem] font-black mercury-heading text-foreground">{value}</span>
-                  <span className="text-[0.6rem] sm:text-[0.65rem] font-bold tracking-[0.18em] uppercase text-muted-foreground">{label}</span>
+                <div key={label} className="flex flex-col items-center gap-0.5 p-3 rounded-lg bg-white/5">
+                  <span className="text-lg sm:text-xl lg:text-2xl font-black mercury-heading text-foreground">{value}</span>
+                  <span className="text-[0.55rem] sm:text-[0.6rem] font-bold tracking-[0.15em] uppercase text-muted-foreground">{label}</span>
                 </div>
               ))}
             </div>
 
             {/* Feature highlights grid */}
-            <div className="w-full grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 text-left mt-2">
+            <div className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 text-left mt-2">
               {[
                 { title: "Fast 24-Hour Response", desc: "After choosing your desired used engines and used transmissions and contacting a dealer, you will receive a response in less than 24 hours. All you need is internet access – no need to roam around different junkyards to find a car part – we do it all for you." },
                 { title: "Nationwide US Coverage", desc: "We partner with 2,000+ top-rated junkyards and salvage yards across all 50 states, giving you access to the largest network of quality used auto parts in the United States." },
@@ -157,50 +157,50 @@ export function HeroSection() {
 
             {/* How It Works */}
             <div className="w-full pt-6 border-t border-white/10">
-              <h2 className="text-primary font-bold tracking-tight text-center text-lg sm:text-xl mb-4 uppercase">How It Works</h2>
-              <div className="grid grid-cols-1 sm:grid-cols-4 gap-4 text-center">
+              <h2 className="text-primary font-bold tracking-tight text-center text-base sm:text-lg mb-4 uppercase">How It Works</h2>
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4 text-center">
 
                 {/* Step 01 */}
-                <div className="p-4 rounded-lg flex flex-col items-center gap-3" style={{ background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.09)" }}>
-                  <span className="text-2xl font-bold tracking-tight text-primary/40">01</span>
-                  <span className="text-sm font-bold tracking-tight text-primary uppercase">Search Your Part</span>
-                  <p className="text-sm font-semibold tracking-tight text-foreground leading-relaxed">Enter your vehicle year, make, model, and the part you need to get matched results instantly.</p>
-                  <Link href="/parts" className="mt-auto w-full auapw-btn auapw-btn-silver auapw-btn-sm">
-                    <Search className="w-4 h-4" />
-                    <span>Find Your Part</span>
+                <div className="p-3 sm:p-4 rounded-lg flex flex-col items-center gap-2 sm:gap-3" style={{ background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.09)" }}>
+                  <span className="text-lg sm:text-2xl font-bold tracking-tight text-primary/40">01</span>
+                  <span className="text-xs sm:text-sm font-bold tracking-tight text-primary uppercase">Search</span>
+                  <p className="text-xs sm:text-sm font-semibold text-foreground leading-relaxed hidden sm:block">Enter your vehicle details to get matched results.</p>
+                  <Link href="/parts" className="mt-auto w-full auapw-btn auapw-btn-silver auapw-btn-xs sm:auapw-btn-sm">
+                    <Search className="w-3 h-3 sm:w-4 sm:h-4" />
+                    <span className="hidden sm:inline">Find Part</span>
                   </Link>
                 </div>
 
                 {/* Step 02 */}
-                <div className="p-4 rounded-lg flex flex-col items-center gap-3" style={{ background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.09)" }}>
-                  <span className="text-2xl font-bold tracking-tight text-primary/40">02</span>
-                  <span className="text-sm font-bold tracking-tight text-primary uppercase">Get a Free Quote</span>
-                  <p className="text-sm font-semibold tracking-tight text-foreground leading-relaxed">Receive a transparent, no-obligation quote from our verified network with clear pricing upfront.</p>
-                  <Link href="/quote" className="mt-auto w-full auapw-btn auapw-btn-blue auapw-btn-sm">
-                    <MessageSquare className="w-4 h-4" />
-                    <span>Free Quote</span>
+                <div className="p-3 sm:p-4 rounded-lg flex flex-col items-center gap-2 sm:gap-3" style={{ background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.09)" }}>
+                  <span className="text-lg sm:text-2xl font-bold tracking-tight text-primary/40">02</span>
+                  <span className="text-xs sm:text-sm font-bold tracking-tight text-primary uppercase">Quote</span>
+                  <p className="text-xs sm:text-sm font-semibold text-foreground leading-relaxed hidden sm:block">Receive a no-obligation quote with clear pricing.</p>
+                  <Link href="/quote" className="mt-auto w-full auapw-btn auapw-btn-blue auapw-btn-xs sm:auapw-btn-sm">
+                    <MessageSquare className="w-3 h-3 sm:w-4 sm:h-4" />
+                    <span className="hidden sm:inline">Free Quote</span>
                   </Link>
                 </div>
 
                 {/* Step 03 */}
-                <div className="p-4 rounded-lg flex flex-col items-center gap-3" style={{ background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.09)" }}>
-                  <span className="text-2xl font-bold tracking-wide text-primary/40">03</span>
-                  <span className="text-sm font-bold tracking-wide text-primary uppercase">Confirm &amp; Order</span>
-                  <p className="text-sm font-bold tracking-wide text-foreground leading-relaxed">Review availability, warranty details, and shipping options, then confirm your order with ease.</p>
-                  <a href="tel:8888185001" className="mt-auto w-full auapw-btn auapw-btn-green auapw-btn-sm">
-                    <Phone className="w-4 h-4" />
-                    <span>Call &amp; Order</span>
+                <div className="p-3 sm:p-4 rounded-lg flex flex-col items-center gap-2 sm:gap-3" style={{ background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.09)" }}>
+                  <span className="text-lg sm:text-2xl font-bold tracking-wide text-primary/40">03</span>
+                  <span className="text-xs sm:text-sm font-bold tracking-wide text-primary uppercase">Order</span>
+                  <p className="text-xs sm:text-sm font-semibold text-foreground leading-relaxed hidden sm:block">Review and confirm your order with ease.</p>
+                  <a href="tel:8888185001" className="mt-auto w-full auapw-btn auapw-btn-green auapw-btn-xs sm:auapw-btn-sm">
+                    <Phone className="w-3 h-3 sm:w-4 sm:h-4" />
+                    <span className="hidden sm:inline">Call</span>
                   </a>
                 </div>
 
                 {/* Step 04 */}
-                <div className="p-4 rounded-lg flex flex-col items-center gap-3" style={{ background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.09)" }}>
-                  <span className="text-2xl font-bold tracking-wide text-primary/40">04</span>
-                  <span className="text-sm font-bold tracking-wide text-primary uppercase">Fast Delivery</span>
-                  <p className="text-sm font-bold tracking-wide text-foreground leading-relaxed">Your part ships same day when available, delivered directly to your door or local shop.</p>
-                  <a href="mailto:support@auapw.org" className="mt-auto w-full auapw-btn auapw-btn-teal auapw-btn-sm">
-                    <Mail className="w-4 h-4" />
-                    <span>Email Us</span>
+                <div className="p-3 sm:p-4 rounded-lg flex flex-col items-center gap-2 sm:gap-3" style={{ background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.09)" }}>
+                  <span className="text-lg sm:text-2xl font-bold tracking-wide text-primary/40">04</span>
+                  <span className="text-xs sm:text-sm font-bold tracking-wide text-primary uppercase">Deliver</span>
+                  <p className="text-xs sm:text-sm font-semibold text-foreground leading-relaxed hidden sm:block">Your part ships same day to your door.</p>
+                  <a href="mailto:support@auapw.org" className="mt-auto w-full auapw-btn auapw-btn-teal auapw-btn-xs sm:auapw-btn-sm">
+                    <Mail className="w-3 h-3 sm:w-4 sm:h-4" />
+                    <span className="hidden sm:inline">Email</span>
                   </a>
                 </div>
 
@@ -217,8 +217,8 @@ export function HeroSection() {
 
             {/* Used Engines / Used Transmissions / Book Appointment — 3-column */}
             <div className="w-full pt-6 border-t border-white/10">
-              <h2 className="text-primary font-bold tracking-wide text-center text-lg sm:text-xl mb-6 uppercase">Used Engines · Used Transmissions · Truck Parts</h2>
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 text-left">
+              <h2 className="text-primary font-bold tracking-wide text-center text-base sm:text-lg mb-4 sm:mb-6 uppercase">Used Engines · Transmissions · Truck Parts</h2>
+              <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 sm:gap-6 text-left">
 
                 {/* Used Engines */}
                 <div className="flex flex-col gap-4 p-5 rounded-lg" style={{ background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.09)" }}>
