@@ -83,13 +83,13 @@ export function Footer() {
 
           {/* Popular Parts */}
           <div className="embossed-col p-3">
-            <h3 className="text-xs sm:text-sm mb-4 sm:mb-6 pb-2 sm:pb-3 border-b-2 border-primary/30 inline-block">
+            <h3 className="text-xs sm:text-sm font-black mb-4 sm:mb-6 pb-2 sm:pb-3 border-b-2 border-primary/30 inline-block">
               Popular Parts
             </h3>
             <ul className="space-y-2">
               {popularPartLinks.slice(0, 6).map(({ label, href }) => (
                 <li key={label}>
-                  <Link href={href} className="text-xs block">
+                  <Link href={href} className="text-xs font-black block">
                     {label}
                   </Link>
                 </li>
@@ -99,7 +99,7 @@ export function Footer() {
 
           {/* Popular Makes */}
           <div className="embossed-col p-3">
-            <h3 className="text-xs sm:text-sm mb-4 sm:mb-6 pb-2 sm:pb-3 border-b-2 border-primary/30 inline-block">
+            <h3 className="text-xs sm:text-sm font-black mb-4 sm:mb-6 pb-2 sm:pb-3 border-b-2 border-primary/30 inline-block">
               Popular Makes
             </h3>
             <ul className="space-y-2">
@@ -107,7 +107,7 @@ export function Footer() {
                 <li key={make}>
                   <Link 
                     href={`/makes/${encodeURIComponent(make.toLowerCase().replace(/\s+/g, "-"))}`} 
-                    className="text-xs block"
+                    className="text-xs font-black block"
                   >
                     {make}
                   </Link>
@@ -118,7 +118,7 @@ export function Footer() {
 
           {/* Quick Links */}
           <div className="embossed-col p-3">
-            <h3 className="text-xs sm:text-sm mb-4 sm:mb-6 pb-2 sm:pb-3 border-b-2 border-primary/30 inline-block">
+            <h3 className="text-xs sm:text-sm font-black mb-4 sm:mb-6 pb-2 sm:pb-3 border-b-2 border-primary/30 inline-block">
               Quick Links
             </h3>
             <ul className="space-y-2">
@@ -131,7 +131,7 @@ export function Footer() {
                 { label: "About Us", href: "/about" },
               ].map(({ label, href }) => (
                 <li key={label}>
-                  <Link href={href} className="text-xs block">
+                  <Link href={href} className="text-xs font-black block">
                     {label}
                   </Link>
                 </li>
@@ -141,7 +141,7 @@ export function Footer() {
 
           {/* Policies */}
           <div className="embossed-col p-3">
-            <h3 className="text-xs sm:text-sm mb-4 sm:mb-6 pb-2 sm:pb-3 border-b-2 border-primary/30 inline-block">
+            <h3 className="text-xs sm:text-sm font-black mb-4 sm:mb-6 pb-2 sm:pb-3 border-b-2 border-primary/30 inline-block">
               Policies
             </h3>
             <ul className="space-y-2">
@@ -153,7 +153,7 @@ export function Footer() {
                 { label: "Contact", href: "/contact" },
               ].map(({ label, href }) => (
                 <li key={label}>
-                  <Link href={href} className="text-xs block">
+                  <Link href={href} className="text-xs font-black block">
                     {label}
                   </Link>
                 </li>
