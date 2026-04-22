@@ -50,11 +50,11 @@ export function Footer() {
         </div>
       </div>
 
-      <div className="mx-auto w-full max-w-7xl px-3 sm:px-4 md:px-6 lg:px-8" style={{ paddingLeft: "0px", marginLeft: "10px", paddingRight: "0px", marginRight: "391px" }}>
+      <div className="mx-auto w-full max-w-7xl px-3 sm:px-4 md:px-6 lg:px-8">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8 sm:gap-10 lg:gap-14" style={{ paddingTop: "7px", paddingBottom: "6px" }}>
           {/* Brand Column */}
           <div className="lg:col-span-1">
-            <div className="flex items-center gap-3 sm:gap-4" style={{ marginRight: "0px", lineHeight: "22.2em", letterSpacing: "0.145em", marginTop: "-16px", marginBottom: "0px", fontFamily: "system-ui", fontSize: "50px", fontWeight: "800" }}>
+            <div className="flex items-center gap-3 sm:gap-4" style={{ marginRight: "0px", lineHeight: "25.2em", letterSpacing: "0.145em", marginTop: "-16px", marginBottom: "0px" }}>
               <Logo size="xl" variant="ring" />
               <BrandWordmark size="footer" />
             </div>
