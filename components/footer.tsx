@@ -1,6 +1,7 @@
 import Link from "next/link"
+import Image from "next/image"
 import { CAR_MAKES, PART_CATEGORIES, PHONE_DISPLAY, CONTACT_EMAIL } from "@/lib/data"
-import { Phone, Mail, MapPin } from "lucide-react"
+import { Phone, Mail, MapPin, Shield, Truck, Clock, Award } from "lucide-react"
 import { BrandWordmark } from "@/components/brand-wordmark"
 import { Logo } from "@/components/logo"
 
@@ -21,6 +22,77 @@ export function Footer() {
 
   return (
     <footer className="bg-card/95 backdrop-blur-xl border-t border-border/30 relative overflow-hidden w-full automotive-pattern">
+      {/* Hero Banner Section */}
+      <div className="relative w-full py-12 sm:py-16 lg:py-20 overflow-hidden">
+        {/* Background gradient */}
+        <div className="absolute inset-0 bg-gradient-to-b from-background via-background/95 to-card/90" />
+        
+        {/* Banner content */}
+        <div className="relative mx-auto w-full max-w-6xl px-4 sm:px-6 lg:px-8">
+          <div className="flex flex-col items-center text-center gap-6 sm:gap-8">
+            {/* Engine Banner Image */}
+            <div className="relative w-full max-w-3xl">
+              <Image
+                src="/images/footer-banner.png"
+                alt="AUAPW Engine Parts Banner"
+                width={800}
+                height={300}
+                className="w-full h-auto object-contain"
+                priority
+              />
+            </div>
+            
+            {/* Tagline */}
+            <div className="max-w-2xl">
+              <h2 className="text-xl sm:text-2xl lg:text-3xl font-black tracking-tight mb-3">
+                America&apos;s Trusted Auto Parts Warehouse
+              </h2>
+              <p className="text-sm sm:text-base text-muted-foreground font-semibold">
+                Quality used OEM parts from 2,000+ verified salvage yards. Every part backed by our industry-leading warranty.
+              </p>
+            </div>
+            
+            {/* Trust Badges / Stats */}
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-6 w-full max-w-3xl mt-4">
+              <div className="flex flex-col items-center gap-2 p-4 rounded-xl bg-background/50 border border-border/30">
+                <Shield className="w-8 h-8 text-primary" />
+                <span className="text-lg sm:text-xl font-black">180-Day</span>
+                <span className="text-xs text-muted-foreground font-semibold">Warranty</span>
+              </div>
+              <div className="flex flex-col items-center gap-2 p-4 rounded-xl bg-background/50 border border-border/30">
+                <Truck className="w-8 h-8 text-primary" />
+                <span className="text-lg sm:text-xl font-black">Free</span>
+                <span className="text-xs text-muted-foreground font-semibold">Shipping</span>
+              </div>
+              <div className="flex flex-col items-center gap-2 p-4 rounded-xl bg-background/50 border border-border/30">
+                <Clock className="w-8 h-8 text-primary" />
+                <span className="text-lg sm:text-xl font-black">24/7</span>
+                <span className="text-xs text-muted-foreground font-semibold">Support</span>
+              </div>
+              <div className="flex flex-col items-center gap-2 p-4 rounded-xl bg-background/50 border border-border/30">
+                <Award className="w-8 h-8 text-primary" />
+                <span className="text-lg sm:text-xl font-black">2,000+</span>
+                <span className="text-xs text-muted-foreground font-semibold">Verified Yards</span>
+              </div>
+            </div>
+            
+            {/* CTA Buttons */}
+            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 mt-4">
+              <Link href="/parts" className="auapw-btn auapw-btn-green px-8 py-3">
+                <span className="font-black">Browse Parts</span>
+              </Link>
+              <a href="tel:8888185001" className="auapw-btn auapw-btn-silver px-8 py-3">
+                <Phone className="w-5 h-5" />
+                <span className="font-black">Call Now</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      {/* Divider */}
+      <div className="h-px bg-gradient-to-r from-transparent via-border/50 to-transparent" />
+
       {/* Top brand strip with logos */}
       <div className="border-b border-border/20 overflow-x-auto" style={{ paddingTop: "0px", paddingBottom: "0px" }}>
         <div className="mx-auto w-full max-w-7xl px-3 sm:px-4 md:px-6 lg:px-8">
