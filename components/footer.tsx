@@ -59,7 +59,7 @@ export function Footer() {
                 <Logo size="4xl" variant="default" />
                 <BrandWordmark size="footer" />
               </div>
-              <p className="text-xs sm:text-sm leading-6 sm:leading-7 text-muted-foreground mb-6 sm:mb-8 font-semibold tracking-tight">
+              <p className="text-xs sm:text-sm leading-6 sm:leading-7 mb-6 sm:mb-8 footer-steel-text">
                 Premium quality used auto parts from 2,000+ verified yards nationwide. 30-180 day warranty on every part.
               </p>
               
@@ -83,13 +83,13 @@ export function Footer() {
 
           {/* Popular Parts */}
           <div className="embossed-col p-3">
-            <h3 className="text-xs sm:text-sm font-black tracking-[0.2em] uppercase text-foreground text-3d-section mb-4 sm:mb-6 pb-2 sm:pb-3 border-b-2 border-primary/50 inline-block">
+            <h3 className="text-xs sm:text-sm mb-4 sm:mb-6 pb-2 sm:pb-3 border-b-2 border-primary/30 inline-block">
               Popular Parts
             </h3>
             <ul className="space-y-2">
               {popularPartLinks.slice(0, 6).map(({ label, href }) => (
                 <li key={label}>
-                  <Link href={href} className="text-xs font-bold tracking-tight text-muted-foreground hover:text-primary transition-colors">
+                  <Link href={href} className="text-xs block">
                     {label}
                   </Link>
                 </li>
@@ -99,7 +99,7 @@ export function Footer() {
 
           {/* Popular Makes */}
           <div className="embossed-col p-3">
-            <h3 className="text-xs sm:text-sm font-black tracking-[0.2em] uppercase text-foreground text-3d-section mb-4 sm:mb-6 pb-2 sm:pb-3 border-b-2 border-primary/50 inline-block">
+            <h3 className="text-xs sm:text-sm mb-4 sm:mb-6 pb-2 sm:pb-3 border-b-2 border-primary/30 inline-block">
               Popular Makes
             </h3>
             <ul className="space-y-2">
@@ -107,7 +107,7 @@ export function Footer() {
                 <li key={make}>
                   <Link 
                     href={`/makes/${encodeURIComponent(make.toLowerCase().replace(/\s+/g, "-"))}`} 
-                    className="text-xs font-bold tracking-tight text-muted-foreground hover:text-primary transition-colors"
+                    className="text-xs block"
                   >
                     {make}
                   </Link>
@@ -118,7 +118,7 @@ export function Footer() {
 
           {/* Quick Links */}
           <div className="embossed-col p-3">
-            <h3 className="text-xs sm:text-sm font-black tracking-[0.2em] uppercase text-foreground text-3d-section mb-4 sm:mb-6 pb-2 sm:pb-3 border-b-2 border-primary/50 inline-block">
+            <h3 className="text-xs sm:text-sm mb-4 sm:mb-6 pb-2 sm:pb-3 border-b-2 border-primary/30 inline-block">
               Quick Links
             </h3>
             <ul className="space-y-2">
@@ -131,7 +131,7 @@ export function Footer() {
                 { label: "About Us", href: "/about" },
               ].map(({ label, href }) => (
                 <li key={label}>
-                  <Link href={href} className="text-xs font-bold tracking-tight text-muted-foreground hover:text-primary transition-colors">
+                  <Link href={href} className="text-xs block">
                     {label}
                   </Link>
                 </li>
@@ -141,7 +141,7 @@ export function Footer() {
 
           {/* Policies */}
           <div className="embossed-col p-3">
-            <h3 className="text-xs sm:text-sm font-black tracking-[0.2em] uppercase text-foreground text-3d-section mb-4 sm:mb-6 pb-2 sm:pb-3 border-b-2 border-primary/50 inline-block">
+            <h3 className="text-xs sm:text-sm mb-4 sm:mb-6 pb-2 sm:pb-3 border-b-2 border-primary/30 inline-block">
               Policies
             </h3>
             <ul className="space-y-2">
@@ -153,7 +153,7 @@ export function Footer() {
                 { label: "Contact", href: "/contact" },
               ].map(({ label, href }) => (
                 <li key={label}>
-                  <Link href={href} className="text-xs font-bold tracking-tight text-muted-foreground hover:text-primary transition-colors">
+                  <Link href={href} className="text-xs block">
                     {label}
                   </Link>
                 </li>
@@ -166,8 +166,8 @@ export function Footer() {
       {/* Bottom bar */}
       <div className="border-t border-border/30 bg-background/60 backdrop-blur-sm">
         <div className="mx-auto w-full max-w-7xl px-3 sm:px-4 md:px-6 lg:px-8 py-5 sm:py-7 flex flex-col sm:flex-row items-center justify-between gap-3 sm:gap-6">
-          <span className="text-xs sm:text-sm text-muted-foreground font-black tracking-tight text-center sm:text-left text-3d-subtle">
-            &copy; {new Date().getFullYear()} <strong className="font-black text-foreground text-3d-bold">AUAPW.ORG</strong>
+          <span className="text-xs sm:text-sm footer-copyright text-center sm:text-left">
+            &copy; {new Date().getFullYear()} AUAPW.ORG — All Rights Reserved
           </span>
           <div className="flex flex-wrap justify-center gap-4 sm:gap-6">
             {[
@@ -176,7 +176,7 @@ export function Footer() {
               { label: "Shipping", href: "/shipping-policy" },
               { label: "Returns", href: "/return-policy" },
             ].map(({ label, href }) => (
-              <Link key={label} href={href} className="text-xs sm:text-sm text-muted-foreground hover:text-primary transition-all duration-200 font-black tracking-tight text-3d-subtle">
+              <Link key={label} href={href} className="text-xs sm:text-sm footer-copyright transition-all duration-200">
                 {label}
               </Link>
             ))}
