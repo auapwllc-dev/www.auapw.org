@@ -43,8 +43,8 @@ export function BrandWordmark({
     <div className={`flex flex-col gap-0 ${cfg.align} ${className}`} style={size === "footer" ? { borderTopLeftRadius: "0px", borderTopRightRadius: "29px", marginTop: "-5px", marginLeft: "-83px", lineHeight: "39.9em", letterSpacing: "0.308em", borderStyle: "none", borderWidth: "476px", opacity: "1", borderRadius: "368px", fontSize: "17px", fontWeight: "800" } : {}}>
 
       {/* AUAPW.ORG — 3D Block Extrusion + Diamond LED + Ghost Scan */}
-      <div className="wordmark-3d-wrap pt-[0.08em]">
-        <span className={`wordmark-3d ${cfg.wordmarkSize}`} style={size === "footer" ? { lineHeight: "3.3em", letterSpacing: "0.299em", textAlign: "left", marginTop: "-3px", marginBottom: "-34px", marginLeft: "-1px" } : {}}>
+      <div className="wordmark-3d-wrap pt-[0.08em]" style={size === "footer" ? { marginTop: "0px", marginLeft: "0px", paddingTop: "-79px", paddingLeft: "-42px", paddingBottom: "-70px", paddingRight: "-27px", borderRadius: "0px", boxShadow: "0 25px 50px -12px rgb(0 0 0 / 0.25)", borderTopRightRadius: "154px", borderBottomLeftRadius: "52px", borderBottomRightRadius: "68px", fontSize: "1px", lineHeight: "0em", letterSpacing: "0.261em", paddingBottom: "0px" } : {}}>
+        <span className={`wordmark-3d ${cfg.wordmarkSize}`} style={size === "footer" ? { fontSize: "1px", lineHeight: "11.3em", letterSpacing: "0.003em", marginTop: "-34px", marginLeft: "65px", marginBottom: "0px", marginRight: "115px" } : {}}>
           𝐀𝐔𝐀𝐏𝐖.𝑶𝑹𝑮
         </span>
         <span className="ghost-scan-bar" aria-hidden="true" />
