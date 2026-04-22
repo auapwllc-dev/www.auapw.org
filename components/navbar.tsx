@@ -122,8 +122,8 @@ export function Navbar() {
           {/* Logo + Wordmark */}
           <Link href="/" className="flex items-center gap-1 sm:gap-4 shrink-0 group header-boss-logo-group min-w-0">
             {/* Single responsive logo - clean transparent AUAPW */}
-            <div className="w-7 h-7 sm:w-10 sm:h-10 flex items-center justify-center flex-shrink-0">
-              <Logo size="sm" priority variant="default" />
+            <div className="w-8 h-8 sm:w-12 sm:h-12 flex items-center justify-center flex-shrink-0">
+              <Logo size="md" priority variant="default" />
             </div>
             {/* Mobile: tiny bold brand name */}
             <div className="flex flex-col justify-center sm:hidden min-w-0">
@@ -351,7 +351,7 @@ export function Navbar() {
                 </div>
               </div>
 
-              {/* ── Divider ��─ */}
+              {/* ��─ Divider ��─ */}
               <div className="h-px bg-white/8" />
 
               {/* ── All pages ── */}
