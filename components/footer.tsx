@@ -50,18 +50,22 @@ export function Footer() {
         </div>
       </div>
 
-      <div className="mx-auto w-full max-w-7xl px-3 sm:px-4 md:px-6 lg:px-8">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8 sm:gap-10 lg:gap-14" style={{ paddingTop: "7px", paddingBottom: "6px" }}>
-          {/* Brand Column */}
-          <div className="lg:col-span-1">
-            <div className="flex items-center gap-3 sm:gap-4" style={{ marginRight: "0px", lineHeight: "25.2em", letterSpacing: "0.145em", marginTop: "-16px", marginBottom: "0px" }}>
-              <Logo size="4xl" variant="default" />
-              <BrandWordmark size="footer" />
+      <div className="mx-auto w-full max-w-4xl px-3 sm:px-4 md:px-6 lg:px-8">
+        <div className="flex flex-col gap-12 sm:gap-16 lg:gap-20 py-14 sm:py-20 lg:py-28">
+          {/* Brand Section - Centered */}
+          <div className="flex flex-col items-center text-center gap-8">
+            <div className="flex flex-col items-center gap-6">
+              <div className="flex items-center gap-3 sm:gap-4 justify-center" style={{ marginRight: "0px", lineHeight: "25.2em", letterSpacing: "0.145em", marginTop: "-16px", marginBottom: "0px" }}>
+                <Logo size="4xl" variant="default" />
+                <BrandWordmark size="footer" />
+              </div>
+              <p className="text-xs sm:text-sm leading-6 sm:leading-7 text-muted-foreground font-semibold tracking-tight max-w-lg" style={{ marginBottom: "0px", fontFamily: "system-ui", fontWeight: "800", lineHeight: "1.5em", letterSpacing: "0.123em" }}>
+                Premium quality used auto parts from 2,000+ verified yards nationwide. 30-180 day warranty on every part.
+              </p>
             </div>
-            <p className="text-xs sm:text-sm leading-6 sm:leading-7 text-muted-foreground font-semibold tracking-tight" style={{ marginBottom: "0px", fontFamily: "system-ui", fontWeight: "800", lineHeight: "1.5em", letterSpacing: "0.123em", textAlign: "left" }}>
-              Premium quality used auto parts from 2,000+ verified yards nationwide. 30-180 day warranty on every part.
-            </p>
-            <div className="space-y-2.5 sm:space-y-3">
+            
+            {/* Contact Buttons */}
+            <div className="flex flex-col gap-2 sm:gap-3 w-full max-w-xs">
               <a href="tel:8888185001" className="auapw-btn auapw-btn-green auapw-btn-sm w-full">
                 <Phone className="w-4 h-4 flex-shrink-0" />
                 <span className="text-xs sm:text-sm">(888) 818-5001</span>
@@ -70,10 +74,6 @@ export function Footer() {
                 <Mail className="w-4 h-4 flex-shrink-0" />
                 <span className="text-xs sm:text-sm">support@auapw.org</span>
               </a>
-              <a href="mailto:info@auapw.org" className="auapw-btn auapw-btn-blue auapw-btn-sm w-full">
-                <Mail className="w-4 h-4 flex-shrink-0" />
-                <span className="text-xs sm:text-sm">info@auapw.org</span>
-              </a>
               <a href="https://maps.google.com/?q=107+Myrtle+Ave+Woodbine+NJ+08270" target="_blank" rel="noopener noreferrer" className="auapw-btn auapw-btn-silver auapw-btn-sm w-full">
                 <MapPin className="w-4 h-4 flex-shrink-0" />
                 <span className="text-xs sm:text-sm">Woodbine, NJ</span>
@@ -81,91 +81,112 @@ export function Footer() {
             </div>
           </div>
 
-          {/* Popular Parts */}
-          <div className="embossed-col p-3 sm:p-5">
-            <h3 className="text-xs sm:text-sm font-black tracking-[0.2em] uppercase text-foreground text-3d-section mb-4 sm:mb-6 pb-2 sm:pb-3 border-b-2 border-primary/50 inline-block">
-              Popular Parts
-            </h3>
-            <ul className="space-y-2 sm:space-y-3" style={{ textTransform: 'uppercase' }}>
-              {popularPartLinks.slice(0, 5).map(({ label, href }) => (
-                <li key={label}>
-                  <Link href={href} className="text-xs sm:text-sm text-muted-foreground hover:text-primary transition-all duration-200 flex items-center gap-2 font-bold tracking-tight text-3d-subtle">
-                    <span className="w-1.5 h-1.5 rounded-full bg-primary/70 hover:bg-primary transition-colors flex-shrink-0" />
-                    <span className="truncate">{label}</span>
-                  </Link>
-                </li>
-              ))}
-            </ul>
+          {/* Divider */}
+          <div className="h-px bg-gradient-to-r from-transparent via-border/40 to-transparent"></div>
+
+          {/* Link Sections - Single Column, Centered */}
+          <div className="flex flex-col gap-12 sm:gap-14 items-center w-full">
+            {/* Popular Parts */}
+            <div className="embossed-col p-3 sm:p-5 text-center">
+              <h3 className="text-xs sm:text-sm font-black tracking-[0.2em] uppercase text-foreground text-3d-section mb-4 sm:mb-6 pb-2 sm:pb-3 border-b-2 border-primary/50 inline-block">
+                Popular Parts
+              </h3>
+              <ul className="space-y-2 sm:space-y-3 mt-6">
+                {popularPartLinks.slice(0, 5).map(({ label, href }) => (
+                  <li key={label}>
+                    <Link href={href} className="text-xs sm:text-sm text-muted-foreground hover:text-primary transition-all duration-200 font-bold tracking-tight text-3d-subtle">
+                      {label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Popular Makes */}
+            <div className="embossed-col p-3 sm:p-5 text-center">
+              <h3 className="text-xs sm:text-sm font-black tracking-[0.2em] uppercase text-foreground text-3d-section mb-4 sm:mb-6 pb-2 sm:pb-3 border-b-2 border-primary/50 inline-block">
+                Popular Makes
+              </h3>
+              <ul className="space-y-2 sm:space-y-3 mt-6">
+                {popularMakes.map((make) => (
+                  <li key={make}>
+                    <Link 
+                      href={`/makes/${encodeURIComponent(make.toLowerCase().replace(/\s+/g, "-"))}`} 
+                      className="text-xs sm:text-sm text-muted-foreground hover:text-primary transition-all duration-200 font-bold tracking-tight text-3d-subtle"
+                    >
+                      {make}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Quick Links */}
+            <div className="embossed-col p-3 sm:p-5 text-center">
+              <h3 className="text-xs sm:text-sm font-black tracking-[0.2em] uppercase text-foreground text-3d-section mb-4 sm:mb-6 pb-2 sm:pb-3 border-b-2 border-primary/50 inline-block">
+                Quick Links
+              </h3>
+              <ul className="space-y-2 sm:space-y-3 mt-6">
+                {[
+                  { label: "Used Engines", href: "/used-engines" },
+                  { label: "Used Transmissions", href: "/used-transmissions" },
+                  { label: "Inventory", href: "/inventory" },
+                  { label: "All Parts", href: "/parts" },
+                  { label: "Blog", href: "/blog" },
+                  { label: "About Us", href: "/about" },
+                ].map(({ label, href }) => (
+                  <li key={label}>
+                    <Link href={href} className="text-xs sm:text-sm text-muted-foreground hover:text-primary transition-all duration-200 font-bold tracking-tight text-3d-subtle">
+                      {label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Policies */}
+            <div className="embossed-col p-3 sm:p-5 text-center">
+              <h3 className="text-xs sm:text-sm font-black tracking-[0.2em] uppercase text-foreground text-3d-section mb-4 sm:mb-6 pb-2 sm:pb-3 border-b-2 border-primary/50 inline-block">
+                Policies &amp; Legal
+              </h3>
+              <ul className="space-y-2 sm:space-y-3 mt-6">
+                {[
+                  { label: "Privacy Policy", href: "/privacy-policy" },
+                  { label: "Terms & Conditions", href: "/terms" },
+                  { label: "Shipping Policy", href: "/shipping-policy" },
+                  { label: "Return Policy", href: "/return-policy" },
+                  { label: "Contact", href: "/contact" },
+                ].map(({ label, href }) => (
+                  <li key={label}>
+                    <Link href={href} className="text-xs sm:text-sm text-muted-foreground hover:text-primary transition-all duration-200 font-bold tracking-tight text-3d-subtle">
+                      {label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
 
-          {/* Popular Makes */}
-          <div className="embossed-col p-3 sm:p-5">
-            <h3 className="text-xs sm:text-sm font-black tracking-[0.2em] uppercase text-foreground text-3d-section mb-4 sm:mb-6 pb-2 sm:pb-3 border-b-2 border-primary/50 inline-block">
-              Popular Makes
-            </h3>
-            <ul className="space-y-2 sm:space-y-3">
-              {popularMakes.map((make) => (
-                <li key={make}>
-                  <Link 
-                    href={`/makes/${encodeURIComponent(make.toLowerCase().replace(/\s+/g, "-"))}`} 
-                    className="text-xs sm:text-sm text-muted-foreground hover:text-primary transition-all duration-200 flex items-center gap-2 font-bold tracking-tight text-3d-subtle"
-                  >
-                    <span className="w-1.5 h-1.5 rounded-full bg-primary/70 hover:bg-primary transition-colors flex-shrink-0" />
-                    <span className="truncate">{make}</span>
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
+          {/* Divider */}
+          <div className="h-px bg-gradient-to-r from-transparent via-border/40 to-transparent"></div>
 
-          {/* Quick Links */}
-          <div className="embossed-col p-3 sm:p-5">
-            <h3 className="text-xs sm:text-sm font-black tracking-[0.2em] uppercase text-foreground text-3d-section mb-4 sm:mb-6 pb-2 sm:pb-3 border-b-2 border-primary/50 inline-block">
-              Quick Links
+          {/* Social Links - Centered */}
+          <div className="flex flex-col items-center gap-6 text-center">
+            <h3 className="text-xs sm:text-sm font-black tracking-[0.2em] uppercase text-foreground text-3d-section">
+              Follow Us
             </h3>
-            <ul className="space-y-2 sm:space-y-3">
+            <div className="flex gap-4 sm:gap-6 flex-wrap justify-center">
               {[
-                { label: "Used Engines", href: "/used-engines" },
-                { label: "Used Transmissions", href: "/used-transmissions" },
-                { label: "Inventory", href: "/inventory" },
-                { label: "All Parts", href: "/parts" },
-                { label: "Car Brands", href: "/makes" },
-                { label: "Blog", href: "/blog" },
-                { label: "Get A Quote", href: "/quote" },
-                { label: "About Us", href: "/about" },
+                { label: "Facebook", href: "#" },
+                { label: "Instagram", href: "#" },
+                { label: "Twitter", href: "#" },
+                { label: "LinkedIn", href: "#" },
               ].map(({ label, href }) => (
-                <li key={label}>
-                  <Link href={href} className="text-xs sm:text-sm text-muted-foreground hover:text-primary transition-all duration-200 font-bold tracking-tight text-3d-subtle">
-                    {label}
-                  </Link>
-                </li>
+                <a key={label} href={href} className="text-xs sm:text-sm text-muted-foreground hover:text-primary transition-colors font-semibold">
+                  {label}
+                </a>
               ))}
-            </ul>
-          </div>
-
-          {/* Policies */}
-          <div className="embossed-col p-3 sm:p-5">
-            <h3 className="text-xs sm:text-sm font-black tracking-[0.2em] uppercase text-foreground text-3d-section mb-4 sm:mb-6 pb-2 sm:pb-3 border-b-2 border-primary/50 inline-block">
-              Policies &amp; Legal
-            </h3>
-            <ul className="space-y-2 sm:space-y-3">
-              {[
-                { label: "Privacy Policy", href: "/privacy-policy" },
-                { label: "Terms & Conditions", href: "/terms" },
-                { label: "Shipping Policy", href: "/shipping-policy" },
-                { label: "Return Policy", href: "/return-policy" },
-                { label: "Cookie Policy", href: "/cookie-policy" },
-                { label: "Disclaimer", href: "/disclaimer" },
-                { label: "Acceptable Use", href: "/acceptable-use" },
-                { label: "Contact", href: "/contact" },
-              ].map(({ label, href }) => (
-                <li key={label}>
-                  <Link href={href} className="text-xs sm:text-sm text-muted-foreground hover:text-primary transition-all duration-200 font-bold tracking-tight text-3d-subtle">
-                    {label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
+            </div>
           </div>
         </div>
       </div>
