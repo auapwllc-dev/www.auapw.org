@@ -1,5 +1,6 @@
 import Link from "next/link"
-import { CAR_MAKES } from "@/lib/data"
+import Image from "next/image"
+import { CAR_MAKES, PART_CATEGORIES, PHONE_DISPLAY, CONTACT_EMAIL } from "@/lib/data"
 import { Phone, Mail, MapPin } from "lucide-react"
 import { BrandWordmark } from "@/components/brand-wordmark"
 import { Logo } from "@/components/logo"
@@ -49,14 +50,17 @@ export function Footer() {
           {/* Brand Section */}
           <div className="lg:col-span-1">
             <div className="flex flex-col items-start gap-4 sm:gap-6">
-              <div className="flex items-center gap-2 sm:gap-3">
+              <div className="flex items-center gap-3 sm:gap-4">
                 <div className="w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center flex-shrink-0">
                   <Logo size="sm" priority variant="default" />
                 </div>
-                <div>
-                  <h3 className="text-sm sm:text-base font-black tracking-wide text-foreground text-3d-section">AUAPW.ORG</h3>
-                  <p className="text-xs font-black tracking-wider text-muted-foreground uppercase">All Used Auto Parts Warehouse</p>
-                </div>
+                <Image
+                  src="/images/auapw-name-logo.png"
+                  alt="AUAPW.ORG"
+                  width={200}
+                  height={60}
+                  className="h-10 sm:h-12 w-auto object-contain"
+                />
               </div>
               
               <p className="text-xs sm:text-sm leading-6 sm:leading-7 footer-steel-text">
