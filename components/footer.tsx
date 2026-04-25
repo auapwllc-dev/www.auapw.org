@@ -17,16 +17,49 @@ export function Footer() {
 
   return (
     <footer className="bg-card/95 backdrop-blur-xl border-t border-border/30 relative overflow-hidden w-full automotive-pattern">
+      {/* Popular Brands Section */}
+      <div className="w-full border-b border-border/20 px-4 sm:px-6 lg:px-8 py-8 sm:py-10">
+        <div className="mx-auto w-full max-w-7xl">
+          <h3 className="text-xs sm:text-sm font-black tracking-[0.2em] uppercase text-foreground mb-6 text-3d-section">
+            Popular Brands
+          </h3>
+          <div className="flex flex-wrap gap-2 sm:gap-3">
+            {CAR_MAKES.slice(0, 12).map((make) => (
+              <Link
+                key={make}
+                href={`/makes/${encodeURIComponent(make.toLowerCase().replace(/\s+/g, "-"))}`}
+                className="px-3 sm:px-4 py-1.5 sm:py-2 rounded-md border border-border/40 hover:border-primary/60 bg-background/40 hover:bg-background/60 text-xs font-black tracking-tight text-foreground/80 hover:text-foreground transition-all duration-200"
+              >
+                {make}
+              </Link>
+            ))}
+            <Link
+              href="/makes"
+              className="px-3 sm:px-4 py-1.5 sm:py-2 rounded-md border border-border/40 hover:border-primary/60 bg-background/40 hover:bg-background/60 text-xs font-black tracking-tight text-foreground/80 hover:text-foreground transition-all duration-200"
+            >
+              +MORE
+            </Link>
+          </div>
+        </div>
+      </div>
+
+      {/* Main Footer Content */}
       <div className="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8 sm:gap-10 lg:gap-14 py-10 sm:py-14 lg:py-20">
           {/* Brand Section */}
           <div className="lg:col-span-1">
             <div className="flex flex-col items-start gap-4 sm:gap-6">
-              <div className="flex items-center gap-3 sm:gap-4">
-                <Logo size="4xl" variant="default" />
-                <BrandWordmark size="footer" />
+              <div className="flex items-center gap-2 sm:gap-3">
+                <div className="w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center flex-shrink-0">
+                  <Logo size="sm" priority variant="default" />
+                </div>
+                <div>
+                  <h3 className="text-sm sm:text-base font-black tracking-wide text-foreground text-3d-section">AUAPW.ORG</h3>
+                  <p className="text-xs font-black tracking-wider text-muted-foreground uppercase">All Used Auto Parts Warehouse</p>
+                </div>
               </div>
-              <p className="text-xs sm:text-sm leading-6 sm:leading-7 mb-6 sm:mb-8 footer-steel-text">
+              
+              <p className="text-xs sm:text-sm leading-6 sm:leading-7 footer-steel-text">
                 Premium quality used auto parts from 2,000+ verified yards nationwide. 30-180 day warranty on every part.
               </p>
               
@@ -40,7 +73,11 @@ export function Footer() {
                   <Mail className="w-4 h-4 flex-shrink-0" />
                   <span className="text-xs sm:text-sm">support@auapw.org</span>
                 </a>
-                <a href="https://maps.google.com/?q=107+Myrtle+Ave+Woodbine+NJ+08270" target="_blank" rel="noopener noreferrer" className="auapw-btn auapw-btn-silver auapw-btn-sm w-full">
+                <a href="mailto:info@auapw.org" className="auapw-btn auapw-btn-silver auapw-btn-sm w-full">
+                  <Mail className="w-4 h-4 flex-shrink-0" />
+                  <span className="text-xs sm:text-sm">info@auapw.org</span>
+                </a>
+                <a href="https://maps.google.com/?q=107+Myrtle+Ave+Woodbine+NJ+08270" target="_blank" rel="noopener noreferrer" className="auapw-btn auapw-btn-outline auapw-btn-sm w-full">
                   <MapPin className="w-4 h-4 flex-shrink-0" />
                   <span className="text-xs sm:text-sm">Woodbine, NJ</span>
                 </a>
@@ -106,17 +143,20 @@ export function Footer() {
             </ul>
           </div>
 
-          {/* Policies */}
+          {/* Policies & Legal */}
           <div className="embossed-col p-3">
             <h3 className="text-xs sm:text-sm font-black mb-4 sm:mb-6 pb-2 sm:pb-3 border-b-2 border-primary/30 inline-block">
-              Policies
+              Policies & Legal
             </h3>
             <ul className="space-y-2">
               {[
                 { label: "Privacy Policy", href: "/privacy-policy" },
-                { label: "Terms", href: "/terms" },
-                { label: "Shipping", href: "/shipping-policy" },
-                { label: "Returns", href: "/return-policy" },
+                { label: "Terms & Conditions", href: "/terms" },
+                { label: "Shipping Policy", href: "/shipping-policy" },
+                { label: "Return Policy", href: "/return-policy" },
+                { label: "Cookie Policy", href: "/cookie-policy" },
+                { label: "Disclaimer", href: "/disclaimer" },
+                { label: "Acceptable Use", href: "/acceptable-use" },
                 { label: "Contact", href: "/contact" },
               ].map(({ label, href }) => (
                 <li key={label}>
