@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from 'next'
 import { Roboto } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
+import { SpeedInsights } from '@vercel/speed-insights/next'
 import { ThemeProvider } from '@/components/theme-provider'
 import { AuthProvider } from '@/lib/auth-context'
 import { MobileThemeFab } from '@/components/mobile-theme-fab'
@@ -105,6 +106,7 @@ export default function RootLayout({
           </ThemeProvider>
         </AuthProvider>
         <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   )
