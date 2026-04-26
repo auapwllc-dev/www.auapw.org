@@ -5,7 +5,7 @@ import { useRouter } from "next/navigation"
 import { CAR_MAKES, CAR_MODELS, PART_CATEGORIES, YEARS } from "@/lib/data"
 import { Search, MessageSquare, Phone, Mail, CheckCircle2, AlertCircle, ChevronDown } from "lucide-react"
 
-const CONTACT_EMAIL = "aupworld@gmail.com"
+const CONTACT_EMAIL = "auapworld@gmail.com"
 const PHONE_DISPLAY = "(888) 818-5001"
 
 const PART_OPTIONS = [
