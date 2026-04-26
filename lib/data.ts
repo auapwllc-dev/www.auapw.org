@@ -493,7 +493,10 @@ export const NAV_LINKS = [
 
 export const PHONE_SALES = "1-888-818-5001"
 export const PHONE_DISPLAY = "(888) 818-5001"
-export const CONTACT_EMAIL = "auapworld@gmail.com"
+export const SUPPORT_EMAIL = "support@auapw.org"
+export const INFO_EMAIL = "info@auapw.org"
+export const QUOTE_EMAIL = "auapworld@gmail.com"
+export const CONTACT_EMAIL = "info@auapw.org"
 export const COMPANY_TAGLINE = "Trusted Partner for Automotive Services and Solutions"
 
 // Brand colors for background tints

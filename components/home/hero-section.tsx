@@ -198,9 +198,9 @@ export function HeroSection() {
                   <span className="text-lg sm:text-2xl font-bold tracking-wide text-primary/40">04</span>
                   <span className="text-xs sm:text-sm font-bold tracking-wide text-primary uppercase">Deliver</span>
                   <p className="text-xs sm:text-sm font-semibold text-foreground leading-relaxed hidden sm:block">Your part ships same day to your door.</p>
-                  <a href="mailto:auapworld@gmail.com" className="mt-auto w-full auapw-btn auapw-btn-teal auapw-btn-xs sm:auapw-btn-sm">
+                  <a href="mailto:support@auapw.org" className="mt-auto w-full auapw-btn auapw-btn-teal auapw-btn-xs sm:auapw-btn-sm">
                     <Mail className="w-3 h-3 sm:w-4 sm:h-4" />
-                    <span className="hidden sm:inline">auapworld@gmail.com</span>
+                    <span className="hidden sm:inline">support@auapw.org</span>
                   </a>
                 </div>
 
@@ -276,9 +276,9 @@ export function HeroSection() {
                       <Calendar className="w-4 h-4" />
                       <span>Schedule Callback</span>
                     </Link>
-                    <a href="mailto:auapworld@gmail.com" className="w-full auapw-btn auapw-btn-teal auapw-btn-sm">
+                    <a href="mailto:support@auapw.org" className="w-full auapw-btn auapw-btn-teal auapw-btn-sm">
                       <Mail className="w-4 h-4" />
-                      <span>auapworld@gmail.com</span>
+                      <span>support@auapw.org</span>
                     </a>
                   </div>
                 </div>

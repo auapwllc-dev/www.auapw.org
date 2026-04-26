@@ -97,7 +97,7 @@ const sections = [
     content: [
       "If you have any questions or concerns about this privacy policy, please contact us:",
       "Phone: (888) 818-5001",
-      "Email: auapworld@gmail.com",
+      "Email: info@auapw.org",
       "Address: Woodbine, NJ 08270, United States",
     ],
   },
