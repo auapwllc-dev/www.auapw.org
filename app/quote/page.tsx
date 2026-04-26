@@ -4,12 +4,12 @@ import { Navbar } from "@/components/navbar"
 import { Footer } from "@/components/footer"
 import { BrandLogosSection } from "@/components/brand-logos"
 
-import { Zap, Shield, Truck, Phone, DollarSign, Mail, CheckCircle2, AlertCircle } from "lucide-react"
+import { Zap, Shield, Truck, Phone, DollarSign, CheckCircle2, AlertCircle } from "lucide-react"
 import { CAR_MAKES, CAR_MODELS, PART_CATEGORIES, YEARS, US_STATES, PHONE_DISPLAY, PHONE_SALES } from "@/lib/data"
 import { getPartOptions } from "@/lib/parts-content"
 import { useState } from "react"
 
-const CONTACT_EMAIL = "auapworld@gmail.com"
+
 
 export default function QuotePage() {
   const [make, setMake] = useState("")
@@ -30,41 +30,7 @@ export default function QuotePage() {
   const partOptions = part ? getPartOptions(part) : []
   const selectClass = "w-full text-sm px-3 py-2.5 bg-[rgba(13,15,22,0.75)] border border-border/50 rounded-lg text-foreground appearance-none focus:border-primary/55 focus:ring-1 focus:ring-primary/20 outline-none transition-all"
 
-  function buildMailtoUrl() {
-    const subject = `Quote Request: ${[year, make, model].filter(Boolean).join(" ")} — ${part || "Auto Part"}`
 
-    const body = [
-      `New Quote Request — AUAPW.ORG`,
-      ``,
-      `═══════════════════════════`,
-      `  VEHICLE & PART DETAILS`,
-      `═══════════════════════════`,
-      `Part Needed : ${part || "Not specified"}`,
-      `Make        : ${make}`,
-      `Model       : ${model || "Not specified"}`,
-      `Year        : ${year || "Not specified"}`,
-      `Option      : ${option || "Not specified"}`,
-      ``,
-      `═══════════════════════════`,
-      `  CUSTOMER DETAILS`,
-      `═══════════════════════════`,
-      `Name        : ${name}`,
-      `Phone       : ${phone}`,
-      `Email       : ${email || "Not provided"}`,
-      `State       : ${state || "Not provided"}`,
-      `ZIP Code    : ${zip || "Not provided"}`,
-      ``,
-      `═══════════════════════════`,
-      `  ADDITIONAL NOTES`,
-      `═══════════════════════════`,
-      message || "(none)",
-      ``,
-      `---`,
-      `Submitted via AUAPW.ORG — ${new Date().toLocaleString("en-US", { timeZone: "America/Los_Angeles" })} PST`,
-    ].join("\n")
-
-    return `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`
-  }
 
   function handleSubmit(e: React.FormEvent) {
     e.preventDefault()
@@ -74,18 +40,16 @@ export default function QuotePage() {
     if (!name.trim()) { setError("Please enter your name."); return }
     if (!phone.trim()) { setError("Please enter your phone number."); return }
 
-    // Immediately open the customer's email client — no server round-trip needed
-    const mailtoUrl = buildMailtoUrl()
-    window.location.href = mailtoUrl
-
-    setSuccess(true)
-
-    // Also fire the API in the background for logging (non-blocking, no await)
+    // Submit to API
     fetch("/api/quote", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ part, make, model, year, option, name, phone, email, state, zip, message }),
-    }).catch(() => {/* silent — mailto already fired */})
+    }).then(() => {
+      setSuccess(true)
+    }).catch(() => {
+      setError("Failed to submit quote. Please try again.")
+    })
   }
 
   return (
@@ -148,12 +112,6 @@ export default function QuotePage() {
                     If the email didn&apos;t open, please call us at <a href="tel:8888185001" className="text-primary font-bold hover:underline">(888) 818-5001</a> or try again.
                   </p>
                   <div className="flex flex-wrap gap-3 justify-center">
-                    <a 
-                      href={`mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(`Quote Request: ${year} ${make} ${model} - ${part}`)}&body=${encodeURIComponent(`Hi, I would like a quote for:\n\nPart: ${part}\nMake: ${make}\nModel: ${model}\nYear: ${year}\nOption: ${option}\n\nName: ${name}\nPhone: ${phone}\nEmail: ${email}\n\n${message}`)}`}
-                      className="btn-led inline-flex items-center justify-center gap-2 px-6 py-3 text-[0.72rem] font-bold tracking-[0.18em] uppercase rounded-sm"
-                    >
-                      <Mail className="w-4 h-4" /> Open Email Again
-                    </a>
                     <button onClick={() => { setSuccess(false); setMake(""); setModel(""); setPart(""); }} className="px-6 py-3 text-sm text-muted-foreground border border-border/50 rounded-sm hover:text-foreground hover:border-foreground/50 transition-all">
                       Submit Another Request
                     </button>
@@ -254,8 +212,7 @@ export default function QuotePage() {
                     </div>
 
                     <button type="submit" className="btn-led w-full inline-flex items-center justify-center gap-2 px-6 py-4 text-[0.75rem] font-bold tracking-[0.18em] uppercase rounded-lg transition-all shadow-lg hover:shadow-xl hover:shadow-primary/20 mt-8">
-                      <Mail className="w-4 h-4" />
-                      Get A Free Quote — Send Now
+                      Get A Free Quote
                     </button>
                     <p className="text-[11px] text-muted-foreground text-center">
                       Clicking &quot;Get A Quote&quot; will send your request to our team. No spam, no obligation.

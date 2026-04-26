@@ -5,7 +5,6 @@ import { useRouter } from "next/navigation"
 import { CAR_MAKES, CAR_MODELS, PART_CATEGORIES, YEARS } from "@/lib/data"
 import { Search, MessageSquare, Phone, Mail, CheckCircle2, AlertCircle, ChevronDown } from "lucide-react"
 
-const CONTACT_EMAIL = "auapworld@gmail.com"
 const PHONE_DISPLAY = "(888) 818-5001"
 
 const PART_OPTIONS = [
@@ -202,6 +201,7 @@ function QuotePanel() {
   const [zip,     setZip]     = useState("")
   const [success, setSuccess] = useState(false)
   const [error,   setError]   = useState<string | null>(null)
+  const [error,   setError]   = useState<string | null>(null)
 
   const models = make ? CAR_MODELS[make] || [] : []
 
@@ -218,34 +218,15 @@ function QuotePanel() {
     if (!phone.trim()){ setError("Please enter your phone number."); return }
     setError(null)
 
-    const subject = `Quote Request: ${[year, make, model].filter(Boolean).join(" ")} — ${part || "Auto Part"}`
-    const body = [
-      "New Quote Request — AUAPW.ORG",
-      "",
-      "═══════════════════════════",
-      "  VEHICLE & PART DETAILS",
-      "═══════════════════════════",
-      `Part Needed : ${part    || "Not specified"}`,
-      `Make        : ${make}`,
-      `Model       : ${model   || "Not specified"}`,
-      `Year        : ${year    || "Not specified"}`,
-      `Option      : ${option  || "Not specified"}`,
-      "",
-      "═══════════════════════════",
-      "  CUSTOMER DETAILS",
-      "═══════════════════════════",
-      `Name        : ${name}`,
-      `Phone       : ${phone}`,
-      `Email       : ${email   || "Not provided"}`,
-      `ZIP Code    : ${zip     || "Not provided"}`,
-      "",
-      `---`,
-      `Submitted via AUAPW.ORG — ${new Date().toLocaleString("en-US", { timeZone: "America/Los_Angeles" })} PST`,
-    ].join("\n")
-
-    const mailtoUrl = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`
-    window.location.href = mailtoUrl
-    setSuccess(true)
+    fetch("/api/quote", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ part, make, model, year, option, name, phone, email, zip }),
+    }).then(() => {
+      setSuccess(true)
+    }).catch(() => {
+      setError("Failed to submit quote. Please try again.")
+    })
   }
 
   if (success) {
