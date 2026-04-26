@@ -45,26 +45,25 @@ export function QuoteForm({ defaultPart = "", compact = false }: QuoteFormProps)
     if (!make)        { setError("Please select a vehicle make.");   return }
     if (!name.trim()) { setError("Please enter your name.");         return }
     if (!phone.trim()){ setError("Please enter your phone number."); return }
-    if (!email.trim()){ setError("Please enter your email address."); return }
 
     setLoading(true)
 
     try {
-      // Submit lead to API
-      const response = await fetch('/api/leads', {
+      // Submit to existing quote API
+      const response = await fetch('/api/quote', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          name,
-          email,
-          phone,
-          year,
+          part: part || 'Auto Part',
           make,
           model,
-          part_name: part || 'Auto Part',
-          part_category: option || undefined,
-          message: message || undefined,
-          source: 'quote_form',
+          year,
+          option,
+          name,
+          phone,
+          email,
+          zip,
+          message,
         }),
       })
 
@@ -74,10 +73,10 @@ export function QuoteForm({ defaultPart = "", compact = false }: QuoteFormProps)
         throw new Error(data.error || 'Failed to submit quote request')
       }
 
-      // Redirect to success page with lead info
+      // Redirect to success page
       const params = new URLSearchParams({
         name: name,
-        email: email,
+        email: email || '',
         part: part || 'Auto Part',
         make: make,
         model: model || '',
