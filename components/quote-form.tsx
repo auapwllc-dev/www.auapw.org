@@ -99,17 +99,13 @@ export function QuoteForm({ defaultPart = "", compact = false }: QuoteFormProps)
         <CheckCircle2 className="w-14 h-14 text-green-400" />
         <h3 className="text-xl font-bold text-foreground">Email Client Opened!</h3>
         <p className="text-sm text-muted-foreground leading-relaxed">
-          Your email client should now be open with all quote details pre-filled. Just hit <strong>Send</strong> to reach us at <strong>{CONTACT_EMAIL}</strong>.
+          Your quote request has been submitted! Our team will contact you within 24 hours.
         </p>
         <div className="w-full bg-card/50 border border-border/30 rounded-lg p-4 flex flex-col sm:flex-row gap-3 justify-center">
-          <p className="text-xs text-muted-foreground w-full text-center mb-1 sm:hidden">Email did not open? Contact us directly:</p>
+          <p className="text-xs text-muted-foreground w-full text-center mb-1 sm:hidden">Need immediate assistance?</p>
           <a href="tel:8888185001" className="auapw-btn auapw-btn-green auapw-btn-sm">
             <Phone className="w-4 h-4" />
             {PHONE_DISPLAY}
-          </a>
-          <a href={`mailto:${CONTACT_EMAIL}`} className="auapw-btn auapw-btn-teal auapw-btn-sm">
-            <Mail className="w-4 h-4" />
-            {CONTACT_EMAIL}
           </a>
         </div>
         <button onClick={reset} className="auapw-btn auapw-btn-silver auapw-btn-sm">

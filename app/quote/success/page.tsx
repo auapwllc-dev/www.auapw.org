@@ -123,10 +123,6 @@ export default async function QuoteSuccessPage({ searchParams }: SuccessPageProp
               <Phone className="w-5 h-5" />
               Call (888) 818-5001
             </a>
-            <a href="mailto:auapworld@gmail.com" className="auapw-btn auapw-btn-teal">
-              <Mail className="w-5 h-5" />
-              Email Us
-            </a>
           </div>
 
           {/* Navigation */}
@@ -141,18 +137,7 @@ export default async function QuoteSuccessPage({ searchParams }: SuccessPageProp
           </div>
         </div>
 
-        {/* Open Email Client Option */}
-        <div className="mt-8 text-center">
-          <p className="text-sm text-muted-foreground mb-3">
-            Want to check your email confirmation?
-          </p>
-          <a 
-            href={`mailto:${email || ''}?subject=Checking%20on%20my%20quote%20request`}
-            className="text-primary hover:underline text-sm font-semibold"
-          >
-            Open your email client
-          </a>
-        </div>
+
       </div>
     </main>
   )

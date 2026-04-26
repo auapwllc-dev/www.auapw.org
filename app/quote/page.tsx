@@ -116,7 +116,7 @@ export default function QuotePage() {
                 { icon: Shield, title: "6-Month Warranty", desc: "Every part includes full return & replacement coverage" },
                 { icon: DollarSign, title: "Best Price Match", desc: "We compare 2,000+ yards to find the lowest price" },
                 { icon: Truck, title: "Nationwide Delivery", desc: "Ships to all 50 states in 7-10 business days" },
-                { icon: Mail, title: "Direct Email", desc: `Your quote goes directly to ${CONTACT_EMAIL}` },
+                { icon: Mail, title: "Direct Response", desc: "Our team will respond within 24 hours" },
               ].map(({ icon: Icon, title, desc }) => (
                 <div key={title} className="glass-card rounded-lg p-6 flex items-start gap-4 border border-primary/5 shadow-md hover:shadow-lg hover:border-primary/10 transition-all">
                   <span className="text-lg shrink-0 mt-0.5"><Icon className="w-5 h-5 text-primary" /></span>
@@ -131,10 +131,7 @@ export default function QuotePage() {
                 <p className="text-[11px] tracking-[0.2em] uppercase text-muted-foreground/70 mb-2 font-semibold">Prefer to Call?</p>
                 <a href={`tel:${PHONE_SALES.replace(/-/g, "")}`} className="text-2xl font-bold text-foreground block mb-1">{PHONE_DISPLAY}</a>
                 <p className="text-[11px] text-muted-foreground">Mon-Sat 8am-6pm PST</p>
-                <div className="mt-5 pt-5 border-t border-border/20">
-                  <p className="text-[11px] tracking-[0.2em] uppercase text-muted-foreground/70 mb-2 font-semibold">Or Email Directly</p>
-                  <a href={`mailto:${CONTACT_EMAIL}`} className="text-sm font-bold text-primary hover:underline">{CONTACT_EMAIL}</a>
-                </div>
+
               </div>
             </div>
 
@@ -148,8 +145,7 @@ export default function QuotePage() {
                     Your email client should open with the quote details pre-filled. Please click &quot;Send&quot; in your email client to submit.
                   </p>
                   <p className="text-muted-foreground text-sm leading-relaxed mb-6">
-                    If the email didn&apos;t open, you can send your request directly to{" "}
-                    <a href={`mailto:${CONTACT_EMAIL}`} className="text-primary font-bold hover:underline">{CONTACT_EMAIL}</a>
+                    If the email didn&apos;t open, please call us at <a href="tel:8888185001" className="text-primary font-bold hover:underline">(888) 818-5001</a> or try again.
                   </p>
                   <div className="flex flex-wrap gap-3 justify-center">
                     <a 
@@ -262,7 +258,7 @@ export default function QuotePage() {
                       Get A Free Quote — Send Now
                     </button>
                     <p className="text-[11px] text-muted-foreground text-center">
-                      Clicking &quot;Get A Quote&quot; will open your email client to send the request to {CONTACT_EMAIL}. No spam, no obligation.
+                      Clicking &quot;Get A Quote&quot; will send your request to our team. No spam, no obligation.
                     </p>
                     <p className="text-[10px] text-muted-foreground text-center leading-relaxed">
                       By Submitting, you authorize AUAPW.ORG to text and call the number you provided with offers &amp; other information, possibly using automated means. Messages/Data rates apply. Consent is not a condition of purchase.

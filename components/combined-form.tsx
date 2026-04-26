@@ -258,7 +258,7 @@ function QuotePanel() {
         <div>
           <h3 className="text-lg font-black text-foreground mb-1">Quote Request Sent!</h3>
           <p className="text-sm text-muted-foreground leading-relaxed">
-            Your email client opened with all details. Just press <strong>Send</strong> to reach us at <strong>{CONTACT_EMAIL}</strong>.
+            Your quote request has been submitted! Our team will contact you within 24 hours.
           </p>
         </div>
         <div className="flex flex-col sm:flex-row gap-3 w-full">
@@ -266,11 +266,6 @@ function QuotePanel() {
             className="flex-1 flex items-center justify-center gap-2 px-4 py-3 rounded-lg text-xs font-black tracking-wider uppercase text-green-400"
             style={{ border: "1px solid rgba(34,197,94,0.3)", background: "rgba(34,197,94,0.08)" }}>
             <Phone className="w-3.5 h-3.5" />{PHONE_DISPLAY}
-          </a>
-          <a href={`mailto:${CONTACT_EMAIL}`}
-            className="flex-1 flex items-center justify-center gap-2 px-4 py-3 rounded-lg text-xs font-black tracking-wider uppercase text-blue-400"
-            style={{ border: "1px solid rgba(59,130,246,0.3)", background: "rgba(59,130,246,0.08)" }}>
-            <Mail className="w-3.5 h-3.5" />Email Us
           </a>
         </div>
         <button onClick={reset} className="text-xs text-muted-foreground underline hover:text-foreground transition-colors">
