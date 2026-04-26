@@ -88,7 +88,7 @@ Our team will contact you within 24 hours with pricing and availability.
 
 If you have any questions, please contact us:
 - Phone: (888) 818-5001
-- Email: support@auapw.org
+- Email: auapworld@gmail.com
 
 Thank you for choosing AUAPW.ORG!
 

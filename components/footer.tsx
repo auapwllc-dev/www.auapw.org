@@ -73,13 +73,9 @@ export function Footer() {
                   <Phone className="w-4 h-4 flex-shrink-0" />
                   <span className="text-xs sm:text-sm">(888) 818-5001</span>
                 </a>
-                <a href="mailto:support@auapw.org" className="auapw-btn auapw-btn-teal auapw-btn-sm w-full">
+                <a href="mailto:auapworld@gmail.com" className="auapw-btn auapw-btn-teal auapw-btn-sm w-full">
                   <Mail className="w-4 h-4 flex-shrink-0" />
-                  <span className="text-xs sm:text-sm">support@auapw.org</span>
-                </a>
-                <a href="mailto:info@auapw.org" className="auapw-btn auapw-btn-silver auapw-btn-sm w-full">
-                  <Mail className="w-4 h-4 flex-shrink-0" />
-                  <span className="text-xs sm:text-sm">info@auapw.org</span>
+                  <span className="text-xs sm:text-sm">auapworld@gmail.com</span>
                 </a>
                 <a href="https://maps.google.com/?q=107+Myrtle+Ave+Woodbine+NJ+08270" target="_blank" rel="noopener noreferrer" className="auapw-btn auapw-btn-outline auapw-btn-sm w-full">
                   <MapPin className="w-4 h-4 flex-shrink-0" />
