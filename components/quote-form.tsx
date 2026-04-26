@@ -1,10 +1,11 @@
 "use client"
 
 import { useState } from "react"
+import { useRouter } from "next/navigation"
 import { CAR_MAKES, CAR_MODELS, YEARS } from "@/lib/data"
 import { Phone, AlertCircle, CheckCircle2, Mail, Loader2 } from "lucide-react"
 
-const CONTACT_EMAIL = "aupworld@gmail.com"
+const CONTACT_EMAIL = "auapworld@gmail.com"
 const PHONE_DISPLAY = "(888) 818-5001"
 
 interface QuoteFormProps {
@@ -13,6 +14,7 @@ interface QuoteFormProps {
 }
 
 export function QuoteForm({ defaultPart = "", compact = false }: QuoteFormProps) {
+  const router = useRouter()
   const [part, setPart]       = useState(defaultPart)
   const [make, setMake]       = useState("")
   const [model, setModel]     = useState("")
@@ -43,46 +45,50 @@ export function QuoteForm({ defaultPart = "", compact = false }: QuoteFormProps)
     if (!make)        { setError("Please select a vehicle make.");   return }
     if (!name.trim()) { setError("Please enter your name.");         return }
     if (!phone.trim()){ setError("Please enter your phone number."); return }
+    if (!email.trim()){ setError("Please enter your email address."); return }
 
     setLoading(true)
 
-    // Build subject + body
-    const subject = `Quote Request: ${year || ""} ${make} ${model || ""} — ${part || "Auto Part"}`.trim()
-    const body = [
-      "New Quote Request — AUAPW.ORG",
-      "",
-      "--- Vehicle Details ---",
-      `Part:    ${part    || "Not specified"}`,
-      `Make:    ${make}`,
-      `Model:   ${model   || "Not specified"}`,
-      `Year:    ${year    || "Not specified"}`,
-      `Option:  ${option  || "Not specified"}`,
-      "",
-      "--- Customer Details ---",
-      `Name:    ${name}`,
-      `Phone:   ${phone}`,
-      `Email:   ${email   || "Not provided"}`,
-      `ZIP:     ${zip     || "Not provided"}`,
-      "",
-      "--- Message ---",
-      message || "(no additional details)",
-    ].join("\n")
+    try {
+      // Submit lead to API
+      const response = await fetch('/api/leads', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name,
+          email,
+          phone,
+          year,
+          make,
+          model,
+          part_name: part || 'Auto Part',
+          part_category: option || undefined,
+          message: message || undefined,
+          source: 'quote_form',
+        }),
+      })
 
-    const mailtoUrl =
-      `mailto:${CONTACT_EMAIL}` +
-      `?subject=${encodeURIComponent(subject)}` +
-      `&body=${encodeURIComponent(body)}`
+      const data = await response.json()
 
-    const link = document.createElement("a")
-    link.href = mailtoUrl
-    link.target = "_blank"
-    link.rel = "noopener noreferrer"
-    document.body.appendChild(link)
-    link.click()
-    document.body.removeChild(link)
+      if (!response.ok) {
+        throw new Error(data.error || 'Failed to submit quote request')
+      }
 
-    setLoading(false)
-    setSuccess(true)
+      // Redirect to success page with lead info
+      const params = new URLSearchParams({
+        name: name,
+        email: email,
+        part: part || 'Auto Part',
+        make: make,
+        model: model || '',
+        year: year || '',
+      })
+      
+      router.push(`/quote/success?${params.toString()}`)
+    } catch (err) {
+      setError(err instanceof Error ? err.message : 'Failed to submit. Please try again.')
+      setLoading(false)
+    }
   }
 
   const field =
