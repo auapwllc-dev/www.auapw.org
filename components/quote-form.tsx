@@ -50,8 +50,8 @@ export function QuoteForm({ defaultPart = "", compact = false }: QuoteFormProps)
     setLoading(true)
 
     try {
-      // Submit lead to API
-      const response = await fetch('/api/leads', {
+      // Submit quote to API
+      const response = await fetch('/api/quote', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -61,10 +61,10 @@ export function QuoteForm({ defaultPart = "", compact = false }: QuoteFormProps)
           year,
           make,
           model,
-          part_name: part || 'Auto Part',
-          part_category: option || undefined,
+          part: part || 'Auto Part',
+          option: option || undefined,
+          zip: zip || undefined,
           message: message || undefined,
-          source: 'quote_form',
         }),
       })
 
@@ -74,7 +74,7 @@ export function QuoteForm({ defaultPart = "", compact = false }: QuoteFormProps)
         throw new Error(data.error || 'Failed to submit quote request')
       }
 
-      // Redirect to success page with lead info
+      // Redirect to success page with quote info
       const params = new URLSearchParams({
         name: name,
         email: email,
