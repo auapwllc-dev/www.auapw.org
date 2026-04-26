@@ -1,10 +1,11 @@
 import { NextRequest, NextResponse } from 'next/server'
-import { createLead, getLeads, getLeadStats } from '@/lib/db'
+import { createLead, getLeads, getLeadStats, initializeTables } from '@/lib/db'
 import { sendLeadNotification, sendCustomerConfirmation } from '@/lib/email'
 
 // GET /api/leads - Get all leads with optional filters
 export async function GET(request: NextRequest) {
   try {
+    await initializeTables()
     const searchParams = request.nextUrl.searchParams
     const status = searchParams.get('status') || undefined
     const limit = parseInt(searchParams.get('limit') || '50')
@@ -30,6 +31,7 @@ export async function GET(request: NextRequest) {
 // POST /api/leads - Create a new lead and send notifications
 export async function POST(request: NextRequest) {
   try {
+    await initializeTables()
     const data = await request.json()
 
     // Validate required fields

@@ -1,9 +1,10 @@
 import { NextRequest, NextResponse } from 'next/server'
-import { getEmailTemplates, createTemplate } from '@/lib/db'
+import { getEmailTemplates, createTemplate, initializeTables } from '@/lib/db'
 
 // GET /api/templates - Get all email templates
 export async function GET(request: NextRequest) {
   try {
+    await initializeTables()
     const searchParams = request.nextUrl.searchParams
     const type = searchParams.get('type') || undefined
 
@@ -21,6 +22,7 @@ export async function GET(request: NextRequest) {
 // POST /api/templates - Create a new email template
 export async function POST(request: NextRequest) {
   try {
+    await initializeTables()
     const data = await request.json()
 
     // Validate required fields
