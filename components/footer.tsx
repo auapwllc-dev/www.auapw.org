@@ -16,7 +16,7 @@ export function Footer() {
   const popularMakes = CAR_MAKES.slice(0, 8)
 
   return (
-    <footer className="bg-card/95 backdrop-blur-xl border-t border-border/30 relative overflow-hidden w-full automotive-pattern">
+    <footer className="bg-card/95 backdrop-blur-xl border-t border-border/30 relative overflow-hidden w-full automotive-pattern dark">
       {/* Popular Brands Section */}
       <div className="w-full border-b border-border/20 px-3 sm:px-6 lg:px-8 py-6 sm:py-8">
         <div className="mx-auto w-full max-w-7xl">
