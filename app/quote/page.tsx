@@ -1,17 +1,17 @@
 "use client"
 
-import { useRouter } from "next/navigation"
 import { Navbar } from "@/components/navbar"
 import { Footer } from "@/components/footer"
 import { BrandLogosSection } from "@/components/brand-logos"
 
-import { Zap, Shield, Truck, Phone, DollarSign, CheckCircle2, AlertCircle, Mail, Loader2 } from "lucide-react"
+import { Zap, Shield, Truck, Phone, DollarSign, CheckCircle2, AlertCircle } from "lucide-react"
 import { CAR_MAKES, CAR_MODELS, PART_CATEGORIES, YEARS, US_STATES, PHONE_DISPLAY, PHONE_SALES } from "@/lib/data"
 import { getPartOptions } from "@/lib/parts-content"
 import { useState } from "react"
 
+
+
 export default function QuotePage() {
-  const router = useRouter()
   const [make, setMake] = useState("")
   const [model, setModel] = useState("")
   const [year, setYear] = useState("")
@@ -25,13 +25,14 @@ export default function QuotePage() {
   const [message, setMessage] = useState("")
   const [success, setSuccess] = useState(false)
   const [error, setError] = useState<string | null>(null)
-  const [loading, setLoading] = useState(false)
 
   const models = make ? CAR_MODELS[make] || [] : []
   const partOptions = part ? getPartOptions(part) : []
   const selectClass = "w-full text-sm px-3 py-2.5 bg-[rgba(13,15,22,0.75)] border border-border/50 rounded-lg text-foreground appearance-none focus:border-primary/55 focus:ring-1 focus:ring-primary/20 outline-none transition-all"
 
-  async function handleSubmit(e: React.FormEvent) {
+
+
+  function handleSubmit(e: React.FormEvent) {
     e.preventDefault()
     setError(null)
 
@@ -39,37 +40,16 @@ export default function QuotePage() {
     if (!name.trim()) { setError("Please enter your name."); return }
     if (!phone.trim()) { setError("Please enter your phone number."); return }
 
-    setLoading(true)
-
-    try {
-      const response = await fetch("/api/quote", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ part, make, model, year, option, name, phone, email, state, zip, message }),
-      })
-
-      const data = await response.json()
-
-      if (!response.ok) {
-        throw new Error(data.error || 'Failed to submit quote request')
-      }
-
-      // Redirect to success page with details
-      const params = new URLSearchParams({
-        name: name,
-        email: email || '',
-        part: part || 'Auto Part',
-        make: make,
-        model: model || '',
-        year: year || '',
-        phone: phone,
-      })
-      
-      router.push(`/quote/success?${params.toString()}`)
-    } catch (err) {
-      setError(err instanceof Error ? err.message : 'Failed to submit. Please try again.')
-      setLoading(false)
-    }
+    // Submit to API
+    fetch("/api/quote", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ part, make, model, year, option, name, phone, email, state, zip, message }),
+    }).then(() => {
+      setSuccess(true)
+    }).catch(() => {
+      setError("Failed to submit quote. Please try again.")
+    })
   }
 
   return (
@@ -86,7 +66,7 @@ export default function QuotePage() {
             </div>
             <h1 className="font-serif text-[clamp(1.75rem,4vw,3.5rem)] font-bold text-foreground">Request a Free Quote</h1>
             <p className="mt-3 text-sm text-muted-foreground max-w-[520px]">
-              Fill out the form and our team will find the best available parts from our 2,000+ yard network. We&apos;ll contact you within 24 hours with pricing and options.
+              Fill out the form and our team will find the best available parts from our 2,000+ yard network. Your email client will open to send the request directly to our team.
             </p>
           </div>
         </div>
@@ -115,41 +95,24 @@ export default function QuotePage() {
                 <p className="text-[11px] tracking-[0.2em] uppercase text-muted-foreground/70 mb-2 font-semibold">Prefer to Call?</p>
                 <a href={`tel:${PHONE_SALES.replace(/-/g, "")}`} className="text-2xl font-bold text-foreground block mb-1">{PHONE_DISPLAY}</a>
                 <p className="text-[11px] text-muted-foreground">Mon-Sat 8am-6pm PST</p>
+
               </div>
             </div>
 
             {/* Form - shown first on mobile */}
             <div className="lg:col-span-2 order-1 lg:order-2">
               {success ? (
-                <div className="glass-card rounded-lg p-8 text-center border border-green-500/30 bg-green-500/5">
+                <div className="glass-card rounded-sm p-8 text-center">
                   <CheckCircle2 className="w-16 h-16 text-green-400 mx-auto mb-4" />
-                  <h3 className="text-2xl font-bold text-foreground mb-3">Quote Request Submitted!</h3>
+                  <h3 className="text-2xl font-bold text-foreground mb-3">Quote Request Prepared!</h3>
                   <p className="text-muted-foreground text-sm leading-relaxed mb-2">
-                    We&apos;ve received your quote request for a {year || ""} {make} {model || ""} {part || "auto part"}.
+                    Your email client should open with the quote details pre-filled. Please click &quot;Send&quot; in your email client to submit.
                   </p>
-                  <p className="text-muted-foreground text-sm leading-relaxed mb-4">
-                    You should receive a confirmation email at {email || "the email address you provided"}. Our team will contact you within 24 hours with pricing and availability.
+                  <p className="text-muted-foreground text-sm leading-relaxed mb-6">
+                    If the email didn&apos;t open, please call us at <a href="tel:8888185001" className="text-primary font-bold hover:underline">(888) 818-5001</a> or try again.
                   </p>
-                  <p className="text-sm font-semibold text-primary mb-6">Email also sent to: auapworld@gmail.com</p>
                   <div className="flex flex-wrap gap-3 justify-center">
-                    <a href="tel:8888185001" className="px-6 py-3 text-sm text-white bg-green-600 hover:bg-green-700 rounded-lg transition-all font-semibold">
-                      Call Now (888) 818-5001
-                    </a>
-                    <button 
-                      onClick={() => { 
-                        setSuccess(false)
-                        setMake("")
-                        setModel("")
-                        setPart("")
-                        setName("")
-                        setPhone("")
-                        setEmail("")
-                        setState("")
-                        setZip("")
-                        setMessage("")
-                      }} 
-                      className="px-6 py-3 text-sm text-muted-foreground border border-border/50 rounded-lg hover:text-foreground hover:border-foreground/50 transition-all"
-                    >
+                    <button onClick={() => { setSuccess(false); setMake(""); setModel(""); setPart(""); }} className="px-6 py-3 text-sm text-muted-foreground border border-border/50 rounded-sm hover:text-foreground hover:border-foreground/50 transition-all">
                       Submit Another Request
                     </button>
                   </div>
@@ -168,11 +131,11 @@ export default function QuotePage() {
                   <form onSubmit={handleSubmit} noValidate className="space-y-4">
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                       <div>
-                        <label className="block text-[0.62rem] font-bold tracking-[0.2em] uppercase text-muted-foreground mb-2">Full Name <span className="text-red-400">*</span></label>
+                        <label className="block text-[0.62rem] font-bold tracking-[0.2em] uppercase text-muted-foreground mb-2">Full Name *</label>
                         <input type="text" required placeholder="John Smith" className={selectClass} value={name} onChange={e => setName(e.target.value)} />
                       </div>
                       <div>
-                        <label className="block text-[0.62rem] font-bold tracking-[0.2em] uppercase text-muted-foreground mb-2">Phone Number <span className="text-red-400">*</span></label>
+                        <label className="block text-[0.62rem] font-bold tracking-[0.2em] uppercase text-muted-foreground mb-2">Phone Number *</label>
                         <input type="tel" required placeholder="(555) 123-4567" className={selectClass} value={phone} onChange={e => setPhone(e.target.value)} />
                       </div>
                     </div>
@@ -186,7 +149,7 @@ export default function QuotePage() {
 
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                       <div>
-                        <label className="block text-[0.62rem] font-bold tracking-[0.2em] uppercase text-muted-foreground mb-2">Make <span className="text-red-400">*</span></label>
+                        <label className="block text-[0.62rem] font-bold tracking-[0.2em] uppercase text-muted-foreground mb-2">Make *</label>
                         <select required className={selectClass} value={make} onChange={(e) => { setMake(e.target.value); setModel("") }}>
                           <option value="">Select Make</option>
                           {CAR_MAKES.map((m) => <option key={m} value={m}>{m}</option>)}
@@ -248,19 +211,8 @@ export default function QuotePage() {
                       <textarea rows={3} placeholder="Any extra details that help us find the right part faster..." className={`${selectClass} resize-none`} value={message} onChange={e => setMessage(e.target.value)} />
                     </div>
 
-                    <button 
-                      type="submit" 
-                      disabled={loading}
-                      className="btn-led w-full inline-flex items-center justify-center gap-2 px-6 py-4 text-[0.75rem] font-bold tracking-[0.18em] uppercase rounded-lg transition-all shadow-lg hover:shadow-xl hover:shadow-primary/20 mt-8 disabled:opacity-50 disabled:cursor-not-allowed"
-                    >
-                      {loading ? (
-                        <>
-                          <Loader2 className="w-4 h-4 animate-spin" />
-                          Submitting...
-                        </>
-                      ) : (
-                        "Get A Free Quote"
-                      )}
+                    <button type="submit" className="btn-led w-full inline-flex items-center justify-center gap-2 px-6 py-4 text-[0.75rem] font-bold tracking-[0.18em] uppercase rounded-lg transition-all shadow-lg hover:shadow-xl hover:shadow-primary/20 mt-8">
+                      Get A Free Quote
                     </button>
                     <p className="text-[11px] text-muted-foreground text-center">
                       Clicking &quot;Get A Quote&quot; will send your request to our team. No spam, no obligation.
