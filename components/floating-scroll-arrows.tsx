@@ -4,10 +4,13 @@ import { useState, useEffect } from 'react'
 import { ChevronUp, ChevronDown } from 'lucide-react'
 
 export function FloatingScrollArrows() {
+  const [mounted, setMounted] = useState(false)
   const [isVisible, setIsVisible] = useState(false)
   const [canScrollDown, setCanScrollDown] = useState(true)
 
   useEffect(() => {
+    setMounted(true)
+    
     const toggleVisibility = () => {
       if (window.scrollY > 300) {
         setIsVisible(true)
@@ -25,6 +28,9 @@ export function FloatingScrollArrows() {
     toggleVisibility()
     return () => window.removeEventListener('scroll', toggleVisibility)
   }, [])
+  
+  // Don't render anything until mounted to avoid hydration mismatch
+  if (!mounted) return null
 
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' })
