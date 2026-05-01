@@ -3,9 +3,18 @@ import { Roboto } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
 import { ThemeProvider } from '@/components/theme-provider'
 import { AuthProvider } from '@/lib/auth-context'
-import { MobileThemeFab } from '@/components/mobile-theme-fab'
-import { FloatingScrollArrows } from '@/components/floating-scroll-arrows'
+import dynamic from 'next/dynamic'
 import './globals.css'
+
+// Dynamic imports with ssr: false to prevent hydration mismatch
+const MobileThemeFab = dynamic(
+  () => import('@/components/mobile-theme-fab').then((mod) => mod.MobileThemeFab),
+  { ssr: false }
+)
+const FloatingScrollArrows = dynamic(
+  () => import('@/components/floating-scroll-arrows').then((mod) => mod.FloatingScrollArrows),
+  { ssr: false }
+)
 
 // Enable ISR with 60 second revalidation for all pages
 export const revalidate = 60
