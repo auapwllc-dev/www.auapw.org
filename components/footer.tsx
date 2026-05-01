@@ -16,7 +16,28 @@ export function Footer() {
   const popularMakes = CAR_MAKES.slice(0, 8)
 
   return (
-    <footer className="bg-card/95 backdrop-blur-xl border-t border-border/30 relative overflow-hidden w-full automotive-pattern dark">
+    <footer
+      className="backdrop-blur-xl border-t relative overflow-hidden w-full automotive-pattern footer-dark-permanent"
+      style={{
+        /* Force dark mode CSS variables regardless of light/dark theme */
+        '--background':        '#080808',
+        '--foreground':        '#e8eaf0',
+        '--card':              '#111216',
+        '--card-foreground':   '#e8eaf0',
+        '--primary':           '#d0d4e0',
+        '--primary-foreground':'#0a0a0c',
+        '--secondary':         '#1c1e26',
+        '--secondary-foreground':'#c8ccd8',
+        '--muted':             '#181a22',
+        '--muted-foreground':  '#7a7f90',
+        '--border':            '#22252f',
+        '--accent':            '#4a5568',
+        '--accent-foreground': '#ffffff',
+        backgroundColor:       '#0d0f14',
+        borderColor:           '#22252f',
+        color:                 '#e8eaf0',
+      } as React.CSSProperties}
+    >
       {/* Popular Brands Section */}
       <div className="w-full border-b border-border/20 px-3 sm:px-6 lg:px-8 py-6 sm:py-8">
         <div className="mx-auto w-full max-w-7xl">
