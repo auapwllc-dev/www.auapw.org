@@ -84,8 +84,28 @@ export function BrandLogosSection() {
     setMounted(true)
   }, [])
 
-  // Return null during SSR to prevent hydration mismatch - content is interactive-only
-  if (!mounted) return null
+  if (!mounted) {
+    return (
+      <section
+        aria-label="Shop by vehicle brand"
+        className="border-t border-b border-border/20 py-4 sm:py-12 lg:py-14 relative overflow-hidden"
+        style={{ background: "linear-gradient(180deg, rgba(10,12,20,0.95) 0%, rgba(12,14,22,1) 100%)" }}
+      >
+        <div className="mx-auto max-w-[1100px] px-2 sm:px-6">
+          <div className="text-center mb-3 sm:mb-8">
+            <p className="text-[0.5rem] sm:text-[0.65rem] font-bold tracking-[0.2em] sm:tracking-[0.25em] uppercase text-primary mb-1 sm:mb-3">All Vehicle Makes</p>
+            <h2 className="font-serif text-sm sm:text-xl lg:text-2xl font-bold text-foreground mb-0.5 sm:mb-2">Shop by Brand</h2>
+            <p className="text-muted-foreground text-[10px] sm:text-sm max-w-[460px] mx-auto px-4">
+              Quality used parts for every make &mdash; {allBrands.length} brands
+            </p>
+          </div>
+          <div className="h-48 flex items-center justify-center">
+            <div className="w-6 h-6 border-2 border-primary border-t-transparent rounded-full animate-spin" />
+          </div>
+        </div>
+      </section>
+    )
+  }
 
   const filtered =
     activeTab === "All"
