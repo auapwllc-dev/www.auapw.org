@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from 'next'
-import { Roboto } from 'next/font/google'
+import { Space_Grotesk } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
 import { ThemeProvider } from '@/components/theme-provider'
 import { AuthProvider } from '@/lib/auth-context'
@@ -10,9 +10,9 @@ import './globals.css'
 // Enable ISR with 60 second revalidation for all pages
 export const revalidate = 60
 
-const roboto = Roboto({
+const spaceGrotesk = Space_Grotesk({
   subsets: ["latin"],
-  weight: ["300", "400", "500", "700", "900"],
+  weight: ["300", "400", "500", "600", "700"],
   variable: "--font-sans",
   display: "swap",
   preload: true,
@@ -128,7 +128,7 @@ export default function RootLayout({
         <meta httpEquiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https:; style-src 'self' 'unsafe-inline' https:; img-src 'self' data: blob: https: http: *; font-src 'self' data: https:; connect-src 'self' https: wss: http: ws:; frame-src 'self' https:; frame-ancestors *; base-uri 'self'; form-action 'self' https:; media-src 'self' https:;" />
         <script dangerouslySetInnerHTML={{ __html: themeScript }} />
       </head>
-      <body className={`${roboto.variable} font-sans antialiased bg-background text-foreground`}>
+      <body className={`${spaceGrotesk.variable} font-sans antialiased bg-background text-foreground`}>
         <AuthProvider>
           <ThemeProvider>
             {children}

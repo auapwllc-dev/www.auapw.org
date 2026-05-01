@@ -80,8 +80,8 @@ body {
 }
 
 @theme inline {
-  --font-sans: 'Roboto', 'Roboto Fallback', sans-serif;
-  --font-serif: 'Georgia', 'Times New Roman', serif;
+  --font-sans: 'Space Grotesk', 'Roboto', 'Roboto Fallback', sans-serif;
+  --font-serif: 'Space Grotesk', 'Georgia', 'Times New Roman', serif;
   --font-mono: 'Geist Mono', 'Geist Mono Fallback', monospace;
   --color-background: var(--background);
   --color-foreground: var(--foreground);
@@ -129,60 +129,95 @@ body {
   }
   * {
     @apply border-border outline-ring/50;
+    font-family: 'Space Grotesk', system-ui, sans-serif;
   }
   body {
     @apply bg-background text-foreground;
     width: 100%;
     min-height: 100vh;
-    font-weight: 500; /* Make all body text slightly bolder */
+    font-family: 'Space Grotesk', system-ui, sans-serif;
+    font-weight: 400;
+    line-height: 1.6;
     background-image:
       radial-gradient(ellipse 80% 50% at 20% 0%, rgba(74,85,104,0.04) 0%, transparent 60%),
       radial-gradient(ellipse 60% 40% at 80% 100%, rgba(40,60,120,0.06) 0%, transparent 60%);
   }
   
-  /* Global bold fonts */
+  /* Global font weights */
   h1, h2, h3, h4, h5, h6 {
-    font-weight: 800;
+    font-weight: 700;
+    letter-spacing: -0.01em;
   }
   
-  p, span, a, li, label, button {
+  p, span, a, li, label {
+    font-weight: 400;
+    line-height: 1.6;
+  }
+  
+  button {
     font-weight: 500;
   }
   
   strong, b {
-    font-weight: 700;
+    font-weight: 600;
   }
 }
 
 /* ═══════════════════════════════════════════════════
-   GLOBAL FONT EFFECTS — HARD STONE / METAL EMBOSS
-   Matches: Home | Used Parts | Engines | Transmissions
-   NO shining, NO animation, NO sparkle — emboss only
+   GLOBAL FONT EFFECTS — CHROME TEXT FOR DARK MODE
+   Space Grotesk font with metallic chrome gradient
    ═══════════════════════════════════════════════════ */
 
-/* ── STEEL CHROME EMBOSSED — Carved iron/steel effect ── */
+/* ── Chrome Text Effect for DARK MODE ── */
+.chrome-text,
 .nav-font-effect,
 .text-3d-subtle,
 .text-3d-accent,
 .text-3d-bold,
 .text-3d-section,
-h1, h2, h3, h4, h5, h6 {
-  font-weight: 900;
-  letter-spacing: 0.12em;
+:root h1, :root h2, :root h3, :root h4, :root h5, :root h6,
+.dark h1, .dark h2, .dark h3, .dark h4, .dark h5, .dark h6 {
+  font-family: 'Space Grotesk', system-ui, sans-serif;
+  font-weight: 700;
+  letter-spacing: -0.01em;
   text-transform: uppercase;
-  color: #c0c8d8;
-  text-shadow:
-    /* Outer dark shadows for depth */
-    -3px -3px 0px rgba(0,0,0,0.95),
-    3px 3px 0px rgba(0,0,0,0.8),
-    -2px -2px 6px rgba(0,0,0,1),
-    2px 2px 6px rgba(0,0,0,0.7),
-    /* Inner highlights for chrome effect */
-    -1px -1px 2px rgba(200,220,255,0.5),
-    1px 1px 2px rgba(100,120,160,0.3),
-    /* Inset shadows for carved appearance */
-    inset -2px -2px 4px rgba(0,0,0,0.8),
-    inset 2px 2px 4px rgba(255,255,255,0.08);
+  background: linear-gradient(
+    to bottom,
+    #ffffff 0%,
+    #e0e0e0 8%,
+    #b0b0b0 20%,
+    #808080 35%,
+    #606060 50%,
+    #404040 65%,
+    #808080 80%,
+    #e0e0e0 92%,
+    #ffffff 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  filter: drop-shadow(0 1px 0 rgba(255,255,255,0.4)) drop-shadow(0 4px 6px rgba(0,0,0,0.6));
+}
+
+/* Metal emboss effect for dark mode machined panels */
+.metal-emboss {
+  color: #444444;
+  text-shadow: 
+    -1px -1px 0px #222222, 
+    1px 1px 0px #000000;
+  background: linear-gradient(180deg, #555555 0%, #222222 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.metal-deboss {
+  color: #111111;
+  text-shadow: 
+    1px 1px 1px rgba(68, 68, 68, 0.3),
+    -1px -1px 1px rgba(0, 0, 0, 0.8);
+  background: linear-gradient(180deg, #000000 0%, #333333 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 /* Override font-serif to system-ui for "ALL USED AUTO PARTS WAREHOUSE" heading */
@@ -264,25 +299,47 @@ h1, h2, h3, h4, h5, h6 {
   color: rgba(15,17,23,0.55) !important;
 }
 
-/* Light mode — deep navy emboss on white/light background, crisp & readable */
-/* Covers ALL headings everywhere, not just main/header */
+/* ═══════════════════════════════════════════════════
+   LIGHT MODE — DARK TEXT FOR VISIBILITY
+   Clean dark text on light background
+   ═══════════════════════════════════════════════════ */
+.light .chrome-text,
 .light .nav-font-effect,
 .light .text-3d-subtle,
 .light .text-3d-accent,
 .light .text-3d-bold,
 .light .text-3d-section,
+.light .metal-emboss,
+.light .metal-deboss,
 .light h1, .light h2, .light h3,
 .light h4, .light h5, .light h6 {
+  font-family: 'Space Grotesk', system-ui, sans-serif;
+  font-weight: 700;
+  letter-spacing: -0.01em;
   background: none !important;
   -webkit-background-clip: unset !important;
   -webkit-text-fill-color: #0f1117 !important;
   background-clip: unset !important;
   color: #0f1117 !important;
+  filter: none !important;
   text-shadow:
      1px  1px 0 rgba(255,255,255,0.9),
-    -1px -1px 0 rgba(0,0,0,0.15),
-     0    2px 4px rgba(0,0,0,0.12),
-     0   -1px 2px rgba(255,255,255,0.8);
+    -1px -1px 0 rgba(0,0,0,0.08),
+     0    1px 2px rgba(0,0,0,0.08);
+}
+
+/* Light mode body text - dark and readable */
+.light p,
+.light span,
+.light li,
+.light label,
+.light a {
+  color: #1a1f2e;
+}
+
+/* Light mode muted text - still readable */
+.light .text-muted-foreground {
+  color: #3a4055 !important;
 }
 
 /* Light mode: fix dark-only transparent backgrounds on filter panels/cards */
@@ -1436,7 +1493,7 @@ footer .wordmark-3d {
 
 /* ────────────────────────────────────────────────────
    NAVBAR ANIMATIONS & POLISH
-   ���─────────────────────────────────────────────────── */
+   �����─────────────────────────────────────────────────── */
 
 @keyframes nav-link-underline {
   from {
