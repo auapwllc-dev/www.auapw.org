@@ -39,9 +39,9 @@ export function Footer() {
       } as React.CSSProperties}
     >
       {/* Popular Brands Section */}
-      <div className="w-full border-b border-border/20 px-3 sm:px-6 lg:px-8 py-6 sm:py-8">
+      <div className="w-full border-b border-white/10 px-3 sm:px-6 lg:px-8 py-6 sm:py-8 footer-grid-bg footer-chrome-edge">
         <div className="mx-auto w-full max-w-7xl">
-          <h3 className="text-xs sm:text-sm font-black tracking-[0.2em] uppercase text-foreground mb-4 sm:mb-6 text-3d-section">
+          <h3 className="footer-chrome-heading text-xs sm:text-sm mb-4 sm:mb-6">
             Popular Brands
           </h3>
           <div className="flex flex-wrap gap-2 sm:gap-3">
@@ -49,14 +49,14 @@ export function Footer() {
               <Link
                 key={make}
                 href={`/makes/${encodeURIComponent(make.toLowerCase().replace(/\s+/g, "-"))}`}
-                className="px-3 sm:px-4 py-1.5 sm:py-2 rounded-md border border-border/40 hover:border-primary/60 bg-background/40 hover:bg-background/60 text-xs font-black tracking-tight text-foreground/80 hover:text-foreground transition-all duration-200"
+                className="footer-chrome-link px-3 py-1.5 rounded border border-white/10 hover:border-white/25 bg-white/5 hover:bg-white/10 transition-all duration-200"
               >
                 {make}
               </Link>
             ))}
             <Link
               href="/makes"
-              className="px-3 sm:px-4 py-1.5 sm:py-2 rounded-md border border-border/40 hover:border-primary/60 bg-background/40 hover:bg-background/60 text-xs font-black tracking-tight text-foreground/80 hover:text-foreground transition-all duration-200"
+              className="footer-chrome-link px-3 py-1.5 rounded border border-white/10 hover:border-white/25 bg-white/5 hover:bg-white/10 transition-all duration-200"
             >
               +MORE
             </Link>
@@ -67,61 +67,46 @@ export function Footer() {
       {/* Main Footer Content */}
       <div className="mx-auto w-full max-w-7xl px-3 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-5 sm:gap-8 lg:gap-10 py-6 sm:py-10 lg:py-14">
+
           {/* Brand Section */}
           <div className="lg:col-span-1 pb-3 sm:pb-0">
             <div className="flex flex-col items-start gap-3 sm:gap-4">
-              {/* Logo icon only */}
-              <div 
+              {/* Logo icon */}
+              <div
                 className="flex items-center justify-center flex-shrink-0"
-                style={{ 
-                  width: 'clamp(2.5rem, 8vw, 4rem)', 
-                  height: 'clamp(2.5rem, 8vw, 4rem)' 
-                }}
+                style={{ width: 'clamp(2.5rem, 8vw, 4rem)', height: 'clamp(2.5rem, 8vw, 4rem)' }}
               >
                 <Logo size="sm" priority variant="default" />
               </div>
-              
-              {/* Tagline - fluid text size */}
-              <p 
-                className="leading-relaxed footer-steel-text"
-                style={{ fontSize: 'clamp(0.65rem, 1.5vw, 0.875rem)' }}
+
+              {/* Machined site name */}
+              <span
+                className="footer-machined text-sm sm:text-base"
+                data-text="AUAPW.ORG"
               >
+                AUAPW.ORG
+              </span>
+
+              {/* Tagline */}
+              <p className="footer-steel-text" style={{ fontSize: 'clamp(0.6rem, 1.4vw, 0.8rem)' }}>
                 Premium quality used auto parts from 2,000+ verified yards nationwide. 30-180 day warranty on every part.
               </p>
-              
-              {/* Contact Buttons - compact and responsive */}
+
+              {/* Contact Buttons */}
               <div className="flex flex-col gap-1.5 w-full" style={{ maxWidth: 'clamp(12rem, 50vw, 16rem)' }}>
-                <a 
-                  href="tel:8888185001" 
-                  className="auapw-btn auapw-btn-green auapw-btn-sm flex items-center gap-1.5"
-                  style={{ padding: 'clamp(0.35rem, 1vw, 0.5rem) clamp(0.5rem, 1.5vw, 0.75rem)', fontSize: 'clamp(0.6rem, 1.2vw, 0.75rem)' }}
-                >
+                <a href="tel:8888185001" className="auapw-btn auapw-btn-green auapw-btn-sm flex items-center gap-1.5" style={{ padding: 'clamp(0.35rem, 1vw, 0.5rem) clamp(0.5rem, 1.5vw, 0.75rem)', fontSize: 'clamp(0.6rem, 1.2vw, 0.75rem)' }}>
                   <Phone className="flex-shrink-0" style={{ width: 'clamp(0.65rem, 1.5vw, 0.875rem)', height: 'clamp(0.65rem, 1.5vw, 0.875rem)' }} />
                   <span className="truncate font-bold">(888) 818-5001</span>
                 </a>
-                <a 
-                  href="mailto:support@auapw.org" 
-                  className="auapw-btn auapw-btn-teal auapw-btn-sm flex items-center gap-1.5"
-                  style={{ padding: 'clamp(0.35rem, 1vw, 0.5rem) clamp(0.5rem, 1.5vw, 0.75rem)', fontSize: 'clamp(0.6rem, 1.2vw, 0.75rem)' }}
-                >
+                <a href="mailto:support@auapw.org" className="auapw-btn auapw-btn-teal auapw-btn-sm flex items-center gap-1.5" style={{ padding: 'clamp(0.35rem, 1vw, 0.5rem) clamp(0.5rem, 1.5vw, 0.75rem)', fontSize: 'clamp(0.6rem, 1.2vw, 0.75rem)' }}>
                   <Mail className="flex-shrink-0" style={{ width: 'clamp(0.65rem, 1.5vw, 0.875rem)', height: 'clamp(0.65rem, 1.5vw, 0.875rem)' }} />
                   <span className="truncate font-bold">support@auapw.org</span>
                 </a>
-                <a 
-                  href="mailto:info@auapw.org" 
-                  className="auapw-btn auapw-btn-silver auapw-btn-sm flex items-center gap-1.5"
-                  style={{ padding: 'clamp(0.35rem, 1vw, 0.5rem) clamp(0.5rem, 1.5vw, 0.75rem)', fontSize: 'clamp(0.6rem, 1.2vw, 0.75rem)' }}
-                >
+                <a href="mailto:info@auapw.org" className="auapw-btn auapw-btn-silver auapw-btn-sm flex items-center gap-1.5" style={{ padding: 'clamp(0.35rem, 1vw, 0.5rem) clamp(0.5rem, 1.5vw, 0.75rem)', fontSize: 'clamp(0.6rem, 1.2vw, 0.75rem)' }}>
                   <Mail className="flex-shrink-0" style={{ width: 'clamp(0.65rem, 1.5vw, 0.875rem)', height: 'clamp(0.65rem, 1.5vw, 0.875rem)' }} />
                   <span className="truncate font-bold">info@auapw.org</span>
                 </a>
-                <a 
-                  href="https://maps.google.com/?q=107+Myrtle+Ave+Woodbine+NJ+08270" 
-                  target="_blank" 
-                  rel="noopener noreferrer" 
-                  className="auapw-btn auapw-btn-outline auapw-btn-sm flex items-center gap-1.5"
-                  style={{ padding: 'clamp(0.35rem, 1vw, 0.5rem) clamp(0.5rem, 1.5vw, 0.75rem)', fontSize: 'clamp(0.6rem, 1.2vw, 0.75rem)' }}
-                >
+                <a href="https://maps.google.com/?q=107+Myrtle+Ave+Woodbine+NJ+08270" target="_blank" rel="noopener noreferrer" className="auapw-btn auapw-btn-outline auapw-btn-sm flex items-center gap-1.5" style={{ padding: 'clamp(0.35rem, 1vw, 0.5rem) clamp(0.5rem, 1.5vw, 0.75rem)', fontSize: 'clamp(0.6rem, 1.2vw, 0.75rem)' }}>
                   <MapPin className="flex-shrink-0" style={{ width: 'clamp(0.65rem, 1.5vw, 0.875rem)', height: 'clamp(0.65rem, 1.5vw, 0.875rem)' }} />
                   <span className="truncate font-bold">Woodbine, NJ</span>
                 </a>
@@ -130,14 +115,14 @@ export function Footer() {
           </div>
 
           {/* Popular Parts */}
-          <div className="embossed-col p-3">
-            <h3 className="text-xs sm:text-sm font-black mb-4 sm:mb-6 pb-2 sm:pb-3 border-b-2 border-primary/30 inline-block">
+          <div className="embossed-col p-4 footer-chrome-edge">
+            <h3 className="footer-chrome-heading text-xs mb-4 pb-2 border-b border-white/10">
               Popular Parts
             </h3>
-            <ul className="space-y-2">
+            <ul className="space-y-2.5">
               {popularPartLinks.map(({ label, href }) => (
                 <li key={label}>
-                  <Link href={href} className="text-xs font-black block">
+                  <Link href={href} className="footer-chrome-link block">
                     {label}
                   </Link>
                 </li>
@@ -146,17 +131,14 @@ export function Footer() {
           </div>
 
           {/* Popular Makes */}
-          <div className="embossed-col p-3">
-            <h3 className="text-xs sm:text-sm font-black mb-4 sm:mb-6 pb-2 sm:pb-3 border-b-2 border-primary/30 inline-block">
+          <div className="embossed-col p-4 footer-chrome-edge">
+            <h3 className="footer-chrome-heading text-xs mb-4 pb-2 border-b border-white/10">
               Popular Makes
             </h3>
-            <ul className="space-y-2">
+            <ul className="space-y-2.5">
               {popularMakes.map((make) => (
                 <li key={make}>
-                  <Link 
-                    href={`/makes/${encodeURIComponent(make.toLowerCase().replace(/\s+/g, "-"))}`} 
-                    className="text-xs font-black block"
-                  >
+                  <Link href={`/makes/${encodeURIComponent(make.toLowerCase().replace(/\s+/g, "-"))}`} className="footer-chrome-link block">
                     {make}
                   </Link>
                 </li>
@@ -165,11 +147,11 @@ export function Footer() {
           </div>
 
           {/* Quick Links */}
-          <div className="embossed-col p-3">
-            <h3 className="text-xs sm:text-sm font-black mb-4 sm:mb-6 pb-2 sm:pb-3 border-b-2 border-primary/30 inline-block">
+          <div className="embossed-col p-4 footer-chrome-edge">
+            <h3 className="footer-chrome-heading text-xs mb-4 pb-2 border-b border-white/10">
               Quick Links
             </h3>
-            <ul className="space-y-2">
+            <ul className="space-y-2.5">
               {[
                 { label: "Used Engines", href: "/used-engines" },
                 { label: "Used Transmissions", href: "/used-transmissions" },
@@ -179,7 +161,7 @@ export function Footer() {
                 { label: "About Us", href: "/about" },
               ].map(({ label, href }) => (
                 <li key={label}>
-                  <Link href={href} className="text-xs font-black block">
+                  <Link href={href} className="footer-chrome-link block">
                     {label}
                   </Link>
                 </li>
@@ -188,11 +170,11 @@ export function Footer() {
           </div>
 
           {/* Policies & Legal */}
-          <div className="embossed-col p-3">
-            <h3 className="text-xs sm:text-sm font-black mb-4 sm:mb-6 pb-2 sm:pb-3 border-b-2 border-primary/30 inline-block">
-              Policies & Legal
+          <div className="embossed-col p-4 footer-chrome-edge">
+            <h3 className="footer-chrome-heading text-xs mb-4 pb-2 border-b border-white/10">
+              Policies &amp; Legal
             </h3>
-            <ul className="space-y-2">
+            <ul className="space-y-2.5">
               {[
                 { label: "Privacy Policy", href: "/privacy-policy" },
                 { label: "Terms & Conditions", href: "/terms" },
@@ -204,7 +186,7 @@ export function Footer() {
                 { label: "Contact", href: "/contact" },
               ].map(({ label, href }) => (
                 <li key={label}>
-                  <Link href={href} className="text-xs font-black block">
+                  <Link href={href} className="footer-chrome-link block">
                     {label}
                   </Link>
                 </li>
@@ -215,9 +197,9 @@ export function Footer() {
       </div>
 
       {/* Secure Payments Bar */}
-      <div className="border-t border-border/20 bg-background/40">
+      <div className="border-t border-white/10 bg-black/40 footer-chrome-edge">
         <div className="mx-auto w-full max-w-7xl px-3 sm:px-6 lg:px-8 py-3 sm:py-4 flex flex-col sm:flex-row items-center justify-between gap-2 sm:gap-6">
-          <span className="text-xs font-black tracking-widest uppercase footer-copyright">Secure Payments</span>
+          <span className="footer-copyright">Secure Payments</span>
           <div className="flex items-center gap-2 sm:gap-3 flex-wrap justify-center">
             {/* Visa */}
             <div className="h-8 px-2 rounded bg-white flex items-center justify-center" title="Visa">
@@ -270,10 +252,10 @@ export function Footer() {
       </div>
 
       {/* Bottom bar */}
-      <div className="border-t border-border/30 bg-background/60 backdrop-blur-sm">
+      <div className="border-t border-white/10 bg-black/60 backdrop-blur-sm">
         <div className="mx-auto w-full max-w-7xl px-3 sm:px-4 md:px-6 lg:px-8 py-4 sm:py-5 flex flex-col sm:flex-row items-center justify-between gap-2 sm:gap-6">
-          <span className="text-xs sm:text-sm footer-copyright text-center sm:text-left">
-            &copy; {new Date().getFullYear()} AUAPW.ORG — All Rights Reserved
+          <span className="footer-copyright text-center sm:text-left">
+            &copy; {new Date().getFullYear()} AUAPW.ORG &mdash; All Rights Reserved
           </span>
           <div className="flex flex-wrap justify-center gap-4 sm:gap-6">
             {[
@@ -282,7 +264,7 @@ export function Footer() {
               { label: "Shipping", href: "/shipping-policy" },
               { label: "Returns", href: "/return-policy" },
             ].map(({ label, href }) => (
-              <Link key={label} href={href} className="text-xs sm:text-sm footer-copyright transition-all duration-200">
+              <Link key={label} href={href} className="footer-chrome-link transition-all duration-200">
                 {label}
               </Link>
             ))}

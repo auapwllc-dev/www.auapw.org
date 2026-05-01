@@ -2340,7 +2340,7 @@ footer .wordmark-3d {
 
 /* ═══════════════════════════════════════════════════════
    PROCESS SECTION — Diamond LED Flash Typography
-   ══════════════════���════════════════════════════════════ */
+   ════════════════��═���════════════════════════════════════ */
 
 /* Card base */
 .process-card {
@@ -5285,6 +5285,202 @@ footer .wordmark-3d {
 .browse-btn span {
   color: #ffffff !important;
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+}
+
+/* ═══════════════════════════════════════════════════════════
+   FOOTER — HYPER POP MACHINED EMBOSS TYPOGRAPHY
+   Space Grotesk · Chrome gradient · Hard-edged extrusion
+   Permanent dark mode — overrides both light & dark themes
+   ═══════════════════════════════════════════════════════════ */
+
+/* --- Lock footer to dark background always --- */
+.footer-dark-permanent {
+  background-color: #0d0f14 !important;
+  color: #e5e2e1 !important;
+  font-family: 'Space Grotesk', system-ui, sans-serif !important;
+}
+
+/* --- Machined chrome text: chrome gradient + hard extrusion --- */
+.footer-machined {
+  position: relative;
+  display: inline-block;
+  font-family: 'Space Grotesk', system-ui, sans-serif;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #050505;
+  line-height: 1.15;
+  text-shadow:
+    1px 1px 0px #000000,
+    2px 2px 0px #111111,
+    3px 3px 0px #222222,
+    4px 4px 10px rgba(0, 0, 0, 0.8);
+}
+.footer-machined::before {
+  content: attr(data-text);
+  position: absolute;
+  top: -2px;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    to bottom,
+    #ffffff 0%,
+    #e0e0e0 8%,
+    #b0b0b0 20%,
+    #808080 35%,
+    #606060 50%,
+    #404040 65%,
+    #808080 80%,
+    #e0e0e0 92%,
+    #ffffff 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  z-index: 1;
+  pointer-events: none;
+  mask-image: linear-gradient(to bottom, black 2px, transparent 4px);
+  -webkit-mask-image: linear-gradient(to bottom, black 2px, transparent 4px);
+}
+.footer-machined::after {
+  content: attr(data-text);
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to top, #ffffff 0%, #e0e0e0 15%, transparent 40%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  z-index: 2;
+  pointer-events: none;
+  opacity: 0.5;
+}
+
+/* --- Section headings: chrome gradient, no extrusion --- */
+.footer-chrome-heading {
+  font-family: 'Space Grotesk', system-ui, sans-serif;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  background: linear-gradient(
+    to bottom,
+    #f0f0f0 0%,
+    #d0d0d0 15%,
+    #a0a0a0 35%,
+    #606060 55%,
+    #a0a0a0 75%,
+    #e0e0e0 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 1px 0 rgba(0, 0, 0, 0.9)) drop-shadow(0 2px 4px rgba(0, 0, 0, 0.7));
+}
+
+/* --- Body / link text in footer --- */
+.footer-chrome-link {
+  font-family: 'Space Grotesk', system-ui, sans-serif;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  font-size: 0.7rem;
+  color: #9ca8b8;
+  transition: color 0.15s ease;
+  -webkit-text-fill-color: #9ca8b8;
+}
+.footer-chrome-link:hover {
+  color: #d8dce8 !important;
+  -webkit-text-fill-color: #d8dce8 !important;
+}
+
+/* --- Steel body text (tagline / description) --- */
+.footer-steel-text {
+  font-family: 'Space Grotesk', system-ui, sans-serif;
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  line-height: 1.6;
+  background: linear-gradient(
+    to bottom,
+    #c8ccd8 0%,
+    #9ca8b8 40%,
+    #7a8898 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.7));
+}
+
+/* --- Copyright bar text --- */
+.footer-copyright {
+  font-family: 'Space Grotesk', system-ui, sans-serif;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  font-size: 0.6rem;
+  background: linear-gradient(
+    to bottom,
+    #e0e0e0 0%,
+    #a0a0a0 30%,
+    #606060 55%,
+    #a0a0a0 80%,
+    #e0e0e0 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 1px 0 rgba(0,0,0,0.9)) drop-shadow(0 2px 5px rgba(0,0,0,0.8));
+}
+
+/* --- Embossed column panels inside footer --- */
+.footer-dark-permanent .embossed-col {
+  background: linear-gradient(180deg, rgba(20, 22, 30, 0.9) 0%, rgba(12, 14, 20, 0.95) 100%) !important;
+  border: 1px solid rgba(255, 255, 255, 0.06) !important;
+  box-shadow:
+    inset 0 1px 3px rgba(255, 255, 255, 0.04),
+    0 4px 16px rgba(0, 0, 0, 0.5) !important;
+}
+
+/* --- Brand pill links inside footer --- */
+.footer-dark-permanent .px-3.py-1\.5,
+.footer-dark-permanent .px-4.py-2 {
+  background-color: rgba(255, 255, 255, 0.04) !important;
+  border-color: rgba(255, 255, 255, 0.1) !important;
+  color: #9ca8b8 !important;
+  -webkit-text-fill-color: #9ca8b8 !important;
+}
+.footer-dark-permanent .px-3.py-1\.5:hover,
+.footer-dark-permanent .px-4.py-2:hover {
+  color: #e0e4f0 !important;
+  -webkit-text-fill-color: #e0e4f0 !important;
+  border-color: rgba(200, 210, 255, 0.3) !important;
+}
+
+/* --- Bottom bar bg --- */
+.footer-dark-permanent .bg-background\/40 {
+  background-color: rgba(6, 7, 10, 0.6) !important;
+}
+.footer-dark-permanent .bg-background\/60 {
+  background-color: rgba(4, 5, 8, 0.7) !important;
+}
+
+/* --- Grid line background for footer panels --- */
+.footer-grid-bg {
+  background-image:
+    linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+  background-size: 32px 32px;
+}
+
+/* --- Chrome edge inset border --- */
+.footer-chrome-edge {
+  box-shadow:
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.12),
+    0 1px 0 0 rgba(0, 0, 0, 1),
+    0 4px 20px rgba(0, 0, 0, 0.5);
 }
 
 /* v0 rebuild cache busting */
