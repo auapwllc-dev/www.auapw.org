@@ -57,8 +57,8 @@ export function MobileThemeFab() {
     <div
       className={`
         fixed bottom-6 z-[9990] sm:hidden
-        flex flex-col items-center gap-2.5
-        ${side === 'right' ? 'right-3' : 'left-3'}
+        flex flex-col items-center gap-1.5
+        ${side === 'right' ? 'right-1.5' : 'left-1.5'}
       `}
       style={{
         transition: 'left 0.35s cubic-bezier(0.4,0,0.2,1), right 0.35s cubic-bezier(0.4,0,0.2,1)',
@@ -78,7 +78,7 @@ export function MobileThemeFab() {
         }}
       >
         <span className="fab-icon-ring" style={{ background: 'rgba(0,0,0,0.35)', boxShadow: 'inset 0 1px 3px rgba(0,0,0,0.5), 0 1px 2px rgba(255,210,80,0.2)' }}>
-          <svg viewBox="0 0 24 24" fill="none" className="w-4 h-4" style={{ color: '#ffe580' }}>
+          <svg viewBox="0 0 24 24" fill="none" className="w-3 h-3" style={{ color: '#ffe580' }}>
             <rect x="2" y="4" width="20" height="16" rx="2.5" stroke="currentColor" strokeWidth="1.8" fill="none"/>
             <path d="M2 8l10 7 10-7" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round"/>
           </svg>
@@ -101,7 +101,7 @@ export function MobileThemeFab() {
         }}
       >
         <span className="fab-icon-ring" style={{ background: 'rgba(0,0,0,0.35)', boxShadow: 'inset 0 1px 3px rgba(0,0,0,0.5), 0 1px 2px rgba(100,240,130,0.18)' }}>
-          <svg viewBox="0 0 24 24" fill="none" className="w-4 h-4" style={{ color: '#a0f0b8' }}>
+          <svg viewBox="0 0 24 24" fill="none" className="w-3 h-3" style={{ color: '#a0f0b8' }}>
             <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z" fill="currentColor"/>
           </svg>
         </span>
@@ -125,7 +125,7 @@ export function MobileThemeFab() {
         }}
       >
         <span className="fab-icon-ring" style={{ background: 'rgba(0,0,0,0.35)', boxShadow: 'inset 0 1px 3px rgba(0,0,0,0.5), 0 1px 2px rgba(120,180,255,0.2)' }}>
-          <svg viewBox="0 0 24 24" fill="none" className="w-4 h-4" style={{ color: '#a0c8ff' }}>
+          <svg viewBox="0 0 24 24" fill="none" className="w-3 h-3" style={{ color: '#a0c8ff' }}>
             <circle cx="12" cy="12" r="9" stroke="currentColor" strokeWidth="1.8"/>
             <path d="M12 3c0 0-3.5 3.5-3.5 9s3.5 9 3.5 9" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
             <path d="M12 3c0 0 3.5 3.5 3.5 9s-3.5 9-3.5 9" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
@@ -167,13 +167,13 @@ export function MobileThemeFab() {
             : 'inset 0 1px 3px rgba(0,0,0,0.4), 0 1px 2px rgba(255,200,60,0.25)',
         }}>
           {isDark ? (
-            <svg viewBox="0 0 24 24" fill="none" className="w-4 h-4" style={{ color: '#c8d4ff' }}>
+            <svg viewBox="0 0 24 24" fill="none" className="w-3 h-3" style={{ color: '#c8d4ff' }}>
               <path d="M21 12.79A9 9 0 1 1 11.21 3a7 7 0 0 0 9.79 9.79z" fill="currentColor" opacity="0.9"/>
               <circle cx="16" cy="6" r="1" fill="rgba(255,255,255,0.6)"/>
               <circle cx="18.5" cy="9.5" r="0.6" fill="rgba(255,255,255,0.4)"/>
             </svg>
           ) : (
-            <svg viewBox="0 0 24 24" fill="none" className="w-4 h-4" style={{ color: '#ffe040' }}>
+            <svg viewBox="0 0 24 24" fill="none" className="w-3 h-3" style={{ color: '#ffe040' }}>
               <circle cx="12" cy="12" r="4.5" fill="currentColor"/>
               {[0,45,90,135,180,225,270,315].map((deg, i) => (
                 <line key={i}
