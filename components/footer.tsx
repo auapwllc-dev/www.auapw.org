@@ -1,5 +1,4 @@
 import Link from "next/link"
-import Image from "next/image"
 import { CAR_MAKES, PART_CATEGORIES, PHONE_DISPLAY, CONTACT_EMAIL } from "@/lib/data"
 import { Phone, Mail, MapPin } from "lucide-react"
 import { BrandWordmark } from "@/components/brand-wordmark"
@@ -50,32 +49,15 @@ export function Footer() {
           {/* Brand Section */}
           <div className="lg:col-span-1 pb-3 sm:pb-0">
             <div className="flex flex-col items-start gap-3 sm:gap-4">
-              {/* Logo and Name - Fully responsive with flexible units */}
-              <div className="flex items-center gap-[0.5rem] sm:gap-[0.75rem]">
-                {/* Logo icon - uses clamp() for fluid scaling */}
-                <div 
-                  className="flex items-center justify-center flex-shrink-0"
-                  style={{ 
-                    width: 'clamp(1.75rem, 5vw, 3rem)', 
-                    height: 'clamp(1.75rem, 5vw, 3rem)' 
-                  }}
-                >
-                  <Logo size="sm" priority variant="default" />
-                </div>
-                {/* Name logo - fluid width/height preserving aspect ratio */}
-                <Image
-                  src="/images/auapw-name-logo.png"
-                  alt="AUAPW.ORG"
-                  width={180}
-                  height={48}
-                  className="object-contain"
-                  style={{ 
-                    height: 'clamp(1.75rem, 5vw, 3rem)',
-                    width: 'auto',
-                    maxWidth: 'clamp(7rem, 25vw, 11rem)'
-                  }}
-                  priority
-                />
+              {/* Logo icon only */}
+              <div 
+                className="flex items-center justify-center flex-shrink-0"
+                style={{ 
+                  width: 'clamp(2.5rem, 8vw, 4rem)', 
+                  height: 'clamp(2.5rem, 8vw, 4rem)' 
+                }}
+              >
+                <Logo size="sm" priority variant="default" />
               </div>
               
               {/* Tagline - fluid text size */}
