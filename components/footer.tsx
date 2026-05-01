@@ -50,7 +50,7 @@ export function Footer() {
           {/* Brand Section */}
           <div className="lg:col-span-1 pb-4 sm:pb-0 pr-16 sm:pr-0">
             <div className="flex flex-col items-start gap-4 sm:gap-6">
-              <div className="flex items-center gap-3 sm:gap-4">
+              <div className="flex items-center gap-3 sm:gap-4 text-[10px] sm:text-sm">
                 <div className="w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center flex-shrink-0">
                   <Logo size="sm" priority variant="default" />
                 </div>
@@ -59,7 +59,7 @@ export function Footer() {
                   alt="AUAPW.ORG"
                   width={200}
                   height={60}
-                  className="h-10 sm:h-12 w-auto object-contain"
+                  className="h-6 sm:h-12 w-auto object-contain"
                 />
               </div>
               
