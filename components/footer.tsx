@@ -48,18 +48,22 @@ export function Footer() {
       <div className="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6 sm:gap-8 lg:gap-10 py-8 sm:py-12 lg:py-16 pr-0 sm:pr-0">
           {/* Brand Section */}
-          <div className="lg:col-span-1 pb-4 sm:pb-0 pr-16 sm:pr-0">
-            <div className="flex flex-col items-start gap-4 sm:gap-6">
-              <div className="flex items-center gap-2 sm:gap-3 text-[10px] sm:text-sm" style={{ fontSize: '63px', fontFamily: 'system-ui', fontWeight: '800' }}>
-                <div className="w-10 h-10 sm:w-14 sm:h-14 flex items-center justify-center flex-shrink-0">
+          <div className="lg:col-span-1 pb-4 sm:pb-0">
+            <div className="flex flex-col items-start gap-3 sm:gap-5">
+              {/* Logo and Name - Responsive sizing for mobile */}
+              <div className="flex items-center gap-2 sm:gap-3">
+                {/* Logo icon - scales proportionally */}
+                <div className="w-8 h-8 sm:w-12 sm:h-12 flex items-center justify-center flex-shrink-0">
                   <Logo size="sm" priority variant="default" />
                 </div>
+                {/* Name logo - responsive height with proper aspect ratio */}
                 <Image
                   src="/images/auapw-name-logo.png"
                   alt="AUAPW.ORG"
-                  width={200}
-                  height={60}
-                  className="h-10 sm:h-14 w-auto object-contain"
+                  width={180}
+                  height={48}
+                  className="h-8 sm:h-12 w-auto max-w-[140px] sm:max-w-[180px] object-contain"
+                  priority
                 />
               </div>
               
