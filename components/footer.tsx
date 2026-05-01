@@ -41,7 +41,7 @@ export function Footer() {
       {/* Popular Brands Section */}
       <div className="w-full border-b border-border/20 px-3 sm:px-6 lg:px-8 py-6 sm:py-8">
         <div className="mx-auto w-full max-w-7xl">
-          <h3 className="machined-text text-sm sm:text-base mb-4 sm:mb-6" data-text="Popular Brands">
+          <h3 className="text-xs sm:text-sm font-black tracking-[0.2em] uppercase text-foreground mb-4 sm:mb-6 text-3d-section">
             Popular Brands
           </h3>
           <div className="flex flex-wrap gap-2 sm:gap-3">
@@ -131,7 +131,7 @@ export function Footer() {
 
           {/* Popular Parts */}
           <div className="embossed-col p-3">
-            <h3 className="machined-text text-xs sm:text-sm mb-4 sm:mb-6 pb-2 sm:pb-3 border-b-2 border-primary/30 inline-block" data-text="Popular Parts">
+            <h3 className="text-xs sm:text-sm font-black mb-4 sm:mb-6 pb-2 sm:pb-3 border-b-2 border-primary/30 inline-block">
               Popular Parts
             </h3>
             <ul className="space-y-2">
@@ -147,7 +147,7 @@ export function Footer() {
 
           {/* Popular Makes */}
           <div className="embossed-col p-3">
-            <h3 className="machined-text text-xs sm:text-sm mb-4 sm:mb-6 pb-2 sm:pb-3 border-b-2 border-primary/30 inline-block" data-text="Popular Makes">
+            <h3 className="text-xs sm:text-sm font-black mb-4 sm:mb-6 pb-2 sm:pb-3 border-b-2 border-primary/30 inline-block">
               Popular Makes
             </h3>
             <ul className="space-y-2">
@@ -166,7 +166,7 @@ export function Footer() {
 
           {/* Quick Links */}
           <div className="embossed-col p-3">
-            <h3 className="machined-text text-xs sm:text-sm mb-4 sm:mb-6 pb-2 sm:pb-3 border-b-2 border-primary/30 inline-block" data-text="Quick Links">
+            <h3 className="text-xs sm:text-sm font-black mb-4 sm:mb-6 pb-2 sm:pb-3 border-b-2 border-primary/30 inline-block">
               Quick Links
             </h3>
             <ul className="space-y-2">
@@ -189,7 +189,7 @@ export function Footer() {
 
           {/* Policies & Legal */}
           <div className="embossed-col p-3">
-            <h3 className="machined-text text-xs sm:text-sm mb-4 sm:mb-6 pb-2 sm:pb-3 border-b-2 border-primary/30 inline-block" data-text="Policies & Legal">
+            <h3 className="text-xs sm:text-sm font-black mb-4 sm:mb-6 pb-2 sm:pb-3 border-b-2 border-primary/30 inline-block">
               Policies & Legal
             </h3>
             <ul className="space-y-2">
@@ -217,7 +217,7 @@ export function Footer() {
       {/* Secure Payments Bar */}
       <div className="border-t border-border/20 bg-background/40">
         <div className="mx-auto w-full max-w-7xl px-3 sm:px-6 lg:px-8 py-3 sm:py-4 flex flex-col sm:flex-row items-center justify-between gap-2 sm:gap-6">
-          <span className="machined-text text-xs" data-text="Secure Payments">Secure Payments</span>
+          <span className="text-xs font-black tracking-widest uppercase footer-copyright">Secure Payments</span>
           <div className="flex items-center gap-2 sm:gap-3 flex-wrap justify-center">
             {/* Visa */}
             <div className="h-8 px-2 rounded bg-white flex items-center justify-center" title="Visa">
