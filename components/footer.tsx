@@ -50,16 +50,16 @@ export function Footer() {
           {/* Brand Section */}
           <div className="lg:col-span-1 pb-4 sm:pb-0 pr-16 sm:pr-0">
             <div className="flex flex-col items-start gap-4 sm:gap-6">
-              <div className="flex items-center gap-2.5 sm:gap-3">
-                <div className="w-9 h-9 sm:w-11 sm:h-11 flex items-center justify-center flex-shrink-0">
+              <div className="flex items-center gap-2 sm:gap-3 text-[10px] sm:text-sm" style={{ fontSize: '63px', fontFamily: 'system-ui', fontWeight: '800' }}>
+                <div className="w-10 h-10 sm:w-14 sm:h-14 flex items-center justify-center flex-shrink-0">
                   <Logo size="sm" priority variant="default" />
                 </div>
                 <Image
                   src="/images/auapw-name-logo.png"
                   alt="AUAPW.ORG"
-                  width={180}
-                  height={54}
-                  className="h-9 sm:h-11 w-auto object-contain object-left max-w-[160px] sm:max-w-[200px]"
+                  width={200}
+                  height={60}
+                  className="h-10 sm:h-14 w-auto object-contain"
                 />
               </div>
               
