@@ -19,9 +19,9 @@ export function Footer() {
   return (
     <footer className="bg-card/95 backdrop-blur-xl border-t border-border/30 relative overflow-hidden w-full automotive-pattern">
       {/* Popular Brands Section */}
-      <div className="w-full border-b border-border/20 px-4 sm:px-6 lg:px-8 py-8 sm:py-10">
+      <div className="w-full border-b border-border/20 px-3 sm:px-6 lg:px-8 py-6 sm:py-8">
         <div className="mx-auto w-full max-w-7xl">
-          <h3 className="text-xs sm:text-sm font-black tracking-[0.2em] uppercase text-foreground mb-6 text-3d-section">
+          <h3 className="text-xs sm:text-sm font-black tracking-[0.2em] uppercase text-foreground mb-4 sm:mb-6 text-3d-section">
             Popular Brands
           </h3>
           <div className="flex flex-wrap gap-2 sm:gap-3">
@@ -46,9 +46,9 @@ export function Footer() {
 
       {/* Main Footer Content */}
       <div className="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8 sm:gap-10 lg:gap-14 py-10 sm:py-14 lg:py-20">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6 sm:gap-8 lg:gap-10 py-8 sm:py-12 lg:py-16 pr-0 sm:pr-0">
           {/* Brand Section */}
-          <div className="lg:col-span-1 pb-6 sm:pb-0">
+          <div className="lg:col-span-1 pb-4 sm:pb-0 pr-16 sm:pr-0">
             <div className="flex flex-col items-start gap-4 sm:gap-6">
               <div className="flex items-center gap-3 sm:gap-4">
                 <div className="w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center flex-shrink-0">
@@ -68,22 +68,22 @@ export function Footer() {
               </p>
               
               {/* Contact Buttons */}
-              <div className="flex flex-col gap-1.5 w-full pr-20 sm:pr-0">
-                <a href="tel:8888185001" className="auapw-btn auapw-btn-green auapw-btn-sm w-full text-xs sm:text-sm">
-                  <Phone className="w-3.5 h-3.5 sm:w-4 sm:h-4 flex-shrink-0" />
-                  <span className="truncate">(888) 818-5001</span>
+              <div className="flex flex-col gap-1 w-full max-w-xs">
+                <a href="tel:8888185001" className="auapw-btn auapw-btn-green auapw-btn-sm text-xs sm:text-sm py-1.5 px-2">
+                  <Phone className="w-3 h-3 sm:w-3.5 sm:h-3.5 flex-shrink-0" />
+                  <span className="truncate text-[11px] sm:text-xs font-bold">(888) 818-5001</span>
                 </a>
-                <a href="mailto:support@auapw.org" className="auapw-btn auapw-btn-teal auapw-btn-sm w-full text-xs sm:text-sm">
-                  <Mail className="w-3.5 h-3.5 sm:w-4 sm:h-4 flex-shrink-0" />
-                  <span className="truncate">support@auapw.org</span>
+                <a href="mailto:support@auapw.org" className="auapw-btn auapw-btn-teal auapw-btn-sm text-xs sm:text-sm py-1.5 px-2">
+                  <Mail className="w-3 h-3 sm:w-3.5 sm:h-3.5 flex-shrink-0" />
+                  <span className="truncate text-[11px] sm:text-xs font-bold">support@auapw.org</span>
                 </a>
-                <a href="mailto:info@auapw.org" className="auapw-btn auapw-btn-silver auapw-btn-sm w-full text-xs sm:text-sm">
-                  <Mail className="w-3.5 h-3.5 sm:w-4 sm:h-4 flex-shrink-0" />
-                  <span className="truncate">info@auapw.org</span>
+                <a href="mailto:info@auapw.org" className="auapw-btn auapw-btn-silver auapw-btn-sm text-xs sm:text-sm py-1.5 px-2">
+                  <Mail className="w-3 h-3 sm:w-3.5 sm:h-3.5 flex-shrink-0" />
+                  <span className="truncate text-[11px] sm:text-xs font-bold">info@auapw.org</span>
                 </a>
-                <a href="https://maps.google.com/?q=107+Myrtle+Ave+Woodbine+NJ+08270" target="_blank" rel="noopener noreferrer" className="auapw-btn auapw-btn-outline auapw-btn-sm w-full text-xs sm:text-sm">
-                  <MapPin className="w-3.5 h-3.5 sm:w-4 sm:h-4 flex-shrink-0" />
-                  <span className="truncate">Woodbine, NJ</span>
+                <a href="https://maps.google.com/?q=107+Myrtle+Ave+Woodbine+NJ+08270" target="_blank" rel="noopener noreferrer" className="auapw-btn auapw-btn-outline auapw-btn-sm text-xs sm:text-sm py-1.5 px-2">
+                  <MapPin className="w-3 h-3 sm:w-3.5 sm:h-3.5 flex-shrink-0" />
+                  <span className="truncate text-[11px] sm:text-xs font-bold">Woodbine, NJ</span>
                 </a>
               </div>
             </div>
@@ -176,7 +176,7 @@ export function Footer() {
 
       {/* Secure Payments Bar */}
       <div className="border-t border-border/20 bg-background/40">
-        <div className="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8 py-4 sm:py-5 flex flex-col sm:flex-row items-center justify-between gap-3 sm:gap-6">
+        <div className="mx-auto w-full max-w-7xl px-3 sm:px-6 lg:px-8 py-3 sm:py-4 flex flex-col sm:flex-row items-center justify-between gap-2 sm:gap-6">
           <span className="text-xs font-black tracking-widest uppercase footer-copyright">Secure Payments</span>
           <div className="flex items-center gap-2 sm:gap-3 flex-wrap justify-center">
             {/* Visa */}
@@ -231,7 +231,7 @@ export function Footer() {
 
       {/* Bottom bar */}
       <div className="border-t border-border/30 bg-background/60 backdrop-blur-sm">
-        <div className="mx-auto w-full max-w-7xl px-3 sm:px-4 md:px-6 lg:px-8 py-5 sm:py-7 flex flex-col sm:flex-row items-center justify-between gap-3 sm:gap-6">
+        <div className="mx-auto w-full max-w-7xl px-3 sm:px-4 md:px-6 lg:px-8 py-4 sm:py-5 flex flex-col sm:flex-row items-center justify-between gap-2 sm:gap-6">
           <span className="text-xs sm:text-sm footer-copyright text-center sm:text-left">
             &copy; {new Date().getFullYear()} AUAPW.ORG — All Rights Reserved
           </span>
