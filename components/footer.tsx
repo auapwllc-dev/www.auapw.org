@@ -45,49 +45,82 @@ export function Footer() {
       </div>
 
       {/* Main Footer Content */}
-      <div className="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6 sm:gap-8 lg:gap-10 py-8 sm:py-12 lg:py-16 pr-0 sm:pr-0">
+      <div className="mx-auto w-full max-w-7xl px-3 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-5 sm:gap-8 lg:gap-10 py-6 sm:py-10 lg:py-14">
           {/* Brand Section */}
-          <div className="lg:col-span-1 pb-4 sm:pb-0">
-            <div className="flex flex-col items-start gap-3 sm:gap-5">
-              {/* Logo and Name - Responsive sizing for mobile */}
-              <div className="flex items-center gap-2 sm:gap-3">
-                {/* Logo icon - scales proportionally */}
-                <div className="w-8 h-8 sm:w-12 sm:h-12 flex items-center justify-center flex-shrink-0">
+          <div className="lg:col-span-1 pb-3 sm:pb-0">
+            <div className="flex flex-col items-start gap-3 sm:gap-4">
+              {/* Logo and Name - Fully responsive with flexible units */}
+              <div className="flex items-center gap-[0.5rem] sm:gap-[0.75rem]">
+                {/* Logo icon - uses clamp() for fluid scaling */}
+                <div 
+                  className="flex items-center justify-center flex-shrink-0"
+                  style={{ 
+                    width: 'clamp(1.75rem, 5vw, 3rem)', 
+                    height: 'clamp(1.75rem, 5vw, 3rem)' 
+                  }}
+                >
                   <Logo size="sm" priority variant="default" />
                 </div>
-                {/* Name logo - responsive height with proper aspect ratio */}
+                {/* Name logo - fluid width/height preserving aspect ratio */}
                 <Image
                   src="/images/auapw-name-logo.png"
                   alt="AUAPW.ORG"
                   width={180}
                   height={48}
-                  className="h-8 sm:h-12 w-auto max-w-[140px] sm:max-w-[180px] object-contain"
+                  className="object-contain"
+                  style={{ 
+                    height: 'clamp(1.75rem, 5vw, 3rem)',
+                    width: 'auto',
+                    maxWidth: 'clamp(7rem, 25vw, 11rem)'
+                  }}
                   priority
                 />
               </div>
               
-              <p className="text-xs sm:text-sm leading-6 sm:leading-7 footer-steel-text">
+              {/* Tagline - fluid text size */}
+              <p 
+                className="leading-relaxed footer-steel-text"
+                style={{ fontSize: 'clamp(0.65rem, 1.5vw, 0.875rem)' }}
+              >
                 Premium quality used auto parts from 2,000+ verified yards nationwide. 30-180 day warranty on every part.
               </p>
               
-              {/* Contact Buttons */}
-              <div className="flex flex-col gap-1 w-full max-w-xs">
-                <a href="tel:8888185001" className="auapw-btn auapw-btn-green auapw-btn-sm text-xs sm:text-sm py-1.5 px-2">
-                  <Phone className="w-3 h-3 sm:w-3.5 sm:h-3.5 flex-shrink-0" />
-                  <span className="truncate text-[11px] sm:text-xs font-bold">(888) 818-5001</span>
+              {/* Contact Buttons - compact and responsive */}
+              <div className="flex flex-col gap-1.5 w-full" style={{ maxWidth: 'clamp(12rem, 50vw, 16rem)' }}>
+                <a 
+                  href="tel:8888185001" 
+                  className="auapw-btn auapw-btn-green auapw-btn-sm flex items-center gap-1.5"
+                  style={{ padding: 'clamp(0.35rem, 1vw, 0.5rem) clamp(0.5rem, 1.5vw, 0.75rem)', fontSize: 'clamp(0.6rem, 1.2vw, 0.75rem)' }}
+                >
+                  <Phone className="flex-shrink-0" style={{ width: 'clamp(0.65rem, 1.5vw, 0.875rem)', height: 'clamp(0.65rem, 1.5vw, 0.875rem)' }} />
+                  <span className="truncate font-bold">(888) 818-5001</span>
                 </a>
-                <a href="mailto:support@auapw.org" className="auapw-btn auapw-btn-teal auapw-btn-sm text-xs sm:text-sm py-1.5 px-2">
-                  <Mail className="w-3 h-3 sm:w-3.5 sm:h-3.5 flex-shrink-0" />
-                  <span className="truncate text-[11px] sm:text-xs font-bold">support@auapw.org</span>
+                <a 
+                  href="mailto:support@auapw.org" 
+                  className="auapw-btn auapw-btn-teal auapw-btn-sm flex items-center gap-1.5"
+                  style={{ padding: 'clamp(0.35rem, 1vw, 0.5rem) clamp(0.5rem, 1.5vw, 0.75rem)', fontSize: 'clamp(0.6rem, 1.2vw, 0.75rem)' }}
+                >
+                  <Mail className="flex-shrink-0" style={{ width: 'clamp(0.65rem, 1.5vw, 0.875rem)', height: 'clamp(0.65rem, 1.5vw, 0.875rem)' }} />
+                  <span className="truncate font-bold">support@auapw.org</span>
                 </a>
-                <a href="mailto:info@auapw.org" className="auapw-btn auapw-btn-silver auapw-btn-sm text-xs sm:text-sm py-1.5 px-2">
-                  <Mail className="w-3 h-3 sm:w-3.5 sm:h-3.5 flex-shrink-0" />
-                  <span className="truncate text-[11px] sm:text-xs font-bold">info@auapw.org</span>
+                <a 
+                  href="mailto:info@auapw.org" 
+                  className="auapw-btn auapw-btn-silver auapw-btn-sm flex items-center gap-1.5"
+                  style={{ padding: 'clamp(0.35rem, 1vw, 0.5rem) clamp(0.5rem, 1.5vw, 0.75rem)', fontSize: 'clamp(0.6rem, 1.2vw, 0.75rem)' }}
+                >
+                  <Mail className="flex-shrink-0" style={{ width: 'clamp(0.65rem, 1.5vw, 0.875rem)', height: 'clamp(0.65rem, 1.5vw, 0.875rem)' }} />
+                  <span className="truncate font-bold">info@auapw.org</span>
                 </a>
-                <a href="https://maps.google.com/?q=107+Myrtle+Ave+Woodbine+NJ+08270" target="_blank" rel="noopener noreferrer" className="auapw-btn auapw-btn-outline auapw-btn-sm text-xs sm:text-sm py-1.5 px-2">
-                  <MapPin className="w-3 h-3 sm:w-3.5 sm:h-3.5 flex-shrink-0" />
-                  <span className="truncate text-[11px] sm:text-xs font-bold">Woodbine, NJ</span>
+                <a 
+                  href="https://maps.google.com/?q=107+Myrtle+Ave+Woodbine+NJ+08270" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="auapw-btn auapw-btn-outline auapw-btn-sm flex items-center gap-1.5"
+                  style={{ padding: 'clamp(0.35rem, 1vw, 0.5rem) clamp(0.5rem, 1.5vw, 0.75rem)', fontSize: 'clamp(0.6rem, 1.2vw, 0.75rem)' }}
+                >
+                  <MapPin className="flex-shrink-0" style={{ width: 'clamp(0.65rem, 1.5vw, 0.875rem)', height: 'clamp(0.65rem, 1.5vw, 0.875rem)' }} />
+                  <span className="truncate font-bold">Woodbine, NJ</span>
                 </a>
               </div>
             </div>
