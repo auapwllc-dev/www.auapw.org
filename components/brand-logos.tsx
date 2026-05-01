@@ -19,7 +19,7 @@ function BrandLogo({ brand }: { brand: string }) {
 
   return (
     <div
-      className="luxury-logo-tile w-full h-[32px] sm:h-[52px] flex items-center justify-center overflow-hidden rounded-md sm:rounded-lg"
+      className="luxury-logo-tile w-full h-[40px] sm:h-[52px] flex items-center justify-center overflow-hidden rounded-lg"
       aria-label={`${brand} logo`}
     >
       {logoUrl && !imgFailed ? (
@@ -49,7 +49,7 @@ function BrandCard({ brand }: { brand: string }) {
     <Link
       href={`/makes/${encodeURIComponent(brand.toLowerCase().replace(/\s+/g, "-"))}`}
       aria-label={`View ${brand} parts`}
-      className="group relative flex flex-col items-center gap-1 p-1.5 sm:p-2.5 rounded-lg sm:rounded-xl cursor-pointer transition-all duration-300
+      className="group relative flex flex-col items-center gap-1.5 p-2 sm:p-2.5 rounded-xl cursor-pointer transition-all duration-300
         border border-border/20
         hover:border-primary/40 hover:shadow-[0_12pt_40px_rgba(0,0,0,0.5),0_0_0_1px_rgba(232,232,232,0.2)] hover:-translate-y-1.5
         focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/60"
@@ -64,7 +64,7 @@ function BrandCard({ brand }: { brand: string }) {
           <Eye className="w-4 h-4 text-white opacity-0 group-hover:opacity-100 scale-75 group-hover:scale-100 transition-all duration-300 drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)]" style={{ fontSize: '1px' }} />
         </div>
       </div>
-      <span className="text-[7px] sm:text-[10px] font-bold text-center leading-tight text-muted-foreground/70 group-hover:text-foreground transition-colors tracking-wide uppercase truncate w-full text-center">
+      <span className="text-[9px] sm:text-[10px] font-bold text-center leading-tight text-muted-foreground/70 group-hover:text-foreground transition-colors tracking-wide uppercase truncate w-full text-center">
         {brand}
       </span>
     </Link>
@@ -87,29 +87,29 @@ export function BrandLogosSection() {
   return (
     <section
       aria-label="Shop by vehicle brand"
-      className="border-t border-b border-border/20 py-5 sm:py-12 lg:py-14 relative overflow-hidden"
+      className="border-t border-b border-border/20 py-8 sm:py-12 lg:py-14 relative overflow-hidden"
       style={{ background: "linear-gradient(180deg, rgba(10,12,20,0.95) 0%, rgba(12,14,22,1) 100%)" }}
     >
-      <div className="mx-auto max-w-[1100px] px-2 sm:px-6">
+      <div className="mx-auto max-w-[1100px] px-3 sm:px-6">
 
         {/* Header */}
-        <div className="text-center mb-3 sm:mb-8">
-          <p className="text-[0.5rem] sm:text-[0.65rem] font-bold tracking-[0.2em] sm:tracking-[0.25em] uppercase text-primary mb-1 sm:mb-3">All Vehicle Makes</p>
-          <h2 className="font-serif text-base sm:text-xl lg:text-2xl font-bold text-foreground mb-0.5 sm:mb-2">Shop by Brand</h2>
-          <p className="text-muted-foreground text-[10px] sm:text-sm max-w-[460px] mx-auto px-2 sm:px-4">
+        <div className="text-center mb-5 sm:mb-8">
+          <p className="text-[0.6rem] sm:text-[0.65rem] font-bold tracking-[0.25em] uppercase text-primary mb-2 sm:mb-3">All Vehicle Makes</p>
+          <h2 className="font-serif text-lg sm:text-xl lg:text-2xl font-bold text-foreground mb-1 sm:mb-2">Shop by Brand</h2>
+          <p className="text-muted-foreground text-xs sm:text-sm max-w-[460px] mx-auto px-4">
             Quality used parts for every make &mdash; {allBrands.length} brands
           </p>
         </div>
 
         {/* A–Z Tab Bar */}
-        <div className="flex flex-wrap justify-center gap-0.5 sm:gap-1 mb-4 sm:mb-8" role="tablist" aria-label="Filter brands by letter">
+        <div className="flex flex-wrap justify-center gap-1 mb-8" role="tablist" aria-label="Filter brands by letter">
           {tabs.map((tab) => (
             <button
               key={tab}
               role="tab"
               aria-selected={activeTab === tab}
               onClick={() => setActiveTab(tab)}
-              className={`min-w-[20px] sm:min-w-[36px] h-5 sm:h-8 px-0.5 sm:px-2.5 rounded text-[8px] sm:text-[11px] font-bold tracking-wide transition-all ${
+              className={`min-w-[24px] sm:min-w-[36px] h-6 sm:h-8 px-1 sm:px-2.5 rounded text-[9px] sm:text-[11px] font-bold tracking-wide transition-all ${
                 activeTab === tab
                   ? "bg-primary text-primary-foreground shadow-[0_2px_10px_rgba(0,0,0,0.25)]"
                   : "bg-secondary text-muted-foreground hover:text-foreground hover:bg-secondary/80"
@@ -122,7 +122,7 @@ export function BrandLogosSection() {
 
         {/* Brand Grid */}
         <ul
-          className="grid grid-cols-5 sm:grid-cols-5 md:grid-cols-6 lg:grid-cols-8 gap-1 sm:gap-2.5 list-none p-0 m-0"
+          className="grid grid-cols-4 sm:grid-cols-5 md:grid-cols-6 lg:grid-cols-8 gap-2 sm:gap-2.5 list-none p-0 m-0"
           role="tabpanel"
           aria-label={`Brands starting with ${activeTab}`}
         >
