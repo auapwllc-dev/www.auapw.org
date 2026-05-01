@@ -3,7 +3,8 @@ import { Roboto } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
 import { ThemeProvider } from '@/components/theme-provider'
 import { AuthProvider } from '@/lib/auth-context'
-import { FloatingUIWrapper } from '@/components/floating-ui-wrapper'
+import { MobileThemeFab } from '@/components/mobile-theme-fab'
+import { FloatingScrollArrows } from '@/components/floating-scroll-arrows'
 import './globals.css'
 
 // Enable ISR with 60 second revalidation for all pages
@@ -131,7 +132,8 @@ export default function RootLayout({
         <AuthProvider>
           <ThemeProvider>
             {children}
-            <FloatingUIWrapper />
+            <MobileThemeFab />
+            <FloatingScrollArrows />
           </ThemeProvider>
         </AuthProvider>
         <Analytics />

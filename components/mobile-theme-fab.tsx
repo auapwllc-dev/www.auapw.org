@@ -8,15 +8,19 @@ export function MobileThemeFab() {
   const { resolvedTheme, setTheme } = useTheme()
   const [side, setSide] = useState<'left' | 'right'>('right')
   const [dragging, setDragging] = useState(false)
+  const [mounted, setMounted] = useState(false)
   const startX = useRef(0)
   const hasDragged = useRef(false)
 
   useEffect(() => {
+    setMounted(true)
     try {
       const saved = localStorage.getItem('auapw-fab-side')
       if (saved === 'left' || saved === 'right') setSide(saved as 'left' | 'right')
     } catch { /* noop */ }
   }, [])
+
+  if (!mounted) return null
 
   const isDark = resolvedTheme === 'dark'
 
