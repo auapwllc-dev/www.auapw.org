@@ -255,7 +255,7 @@ export function Footer() {
       <div className="border-t border-white/10 bg-black/60 backdrop-blur-sm">
         <div className="mx-auto w-full max-w-7xl px-3 sm:px-4 md:px-6 lg:px-8 py-4 sm:py-5 flex flex-col sm:flex-row items-center justify-between gap-2 sm:gap-6">
           <span className="footer-copyright text-center sm:text-left">
-            &copy; {new Date().getFullYear()} AUAPW.ORG &mdash; All Rights Reserved
+            &copy; 2026 AUAPW.ORG &mdash; All Rights Reserved
           </span>
           <div className="flex flex-wrap justify-center gap-4 sm:gap-6">
             {[
