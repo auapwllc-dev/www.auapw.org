@@ -40,12 +40,12 @@ export function FloatingScrollArrows() {
 
   return (
     // On mobile: left-3 to stay away from the FAB on the right. On sm+: right-6 as before.
-    <div className="fixed left-3 sm:left-auto sm:right-6 bottom-24 sm:bottom-24 z-40 flex flex-col gap-2.5">
+    <div className="fixed left-3 sm:left-auto sm:right-6 bottom-24 sm:bottom-24 z-40 flex flex-col gap-2">
 
       {/* Scroll to top button */}
       <button
         onClick={scrollToTop}
-        className={`group relative flex items-center justify-end gap-1.5 pr-2 pl-3 h-9 sm:w-11 sm:h-11 sm:justify-center sm:p-0 rounded-full transition-all duration-300 ${
+        className={`group relative flex items-center justify-start gap-2 px-3 py-2.5 h-11 sm:w-12 sm:h-12 sm:justify-center sm:px-0 sm:py-0 rounded-full transition-all duration-300 ${
           isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4 pointer-events-none'
         }`}
         aria-label="Scroll to top"
@@ -55,13 +55,12 @@ export function FloatingScrollArrows() {
           boxShadow: '0 8px 32px rgba(100, 200, 255, 0.4), 0 0 20px rgba(100, 200, 255, 0.2)',
           backdropFilter: 'blur(12px)',
           border: '1.5px solid rgba(200, 230, 255, 0.3)',
-          minWidth: '44px',
         }}
       >
-        {/* Label visible only on mobile */}
-        <span className="text-white text-[10px] font-bold tracking-wide sm:hidden">TOP</span>
-        {/* Arrow always on the right of label on mobile, centered on desktop */}
-        <ChevronUp className="w-4 h-4 sm:w-6 sm:h-6 text-white drop-shadow-lg flex-shrink-0" strokeWidth={2.5} />
+        {/* Label visible only on mobile, positioned on the left */}
+        <span className="text-white text-xs font-bold tracking-wider sm:hidden whitespace-nowrap">TOP</span>
+        {/* Arrow positioned on the right on mobile, centered on desktop */}
+        <ChevronUp className="w-5 h-5 sm:w-6 sm:h-6 text-white drop-shadow-lg flex-shrink-0 ml-auto sm:ml-0" strokeWidth={2.5} />
         <div
           className="absolute inset-0 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"
           style={{ background: 'radial-gradient(circle, rgba(255,255,255,0.15) 0%, transparent 70%)' }}
@@ -71,7 +70,7 @@ export function FloatingScrollArrows() {
       {/* Scroll to bottom button */}
       <button
         onClick={scrollToBottom}
-        className={`group relative flex items-center justify-end gap-1.5 pr-2 pl-3 h-9 sm:w-11 sm:h-11 sm:justify-center sm:p-0 rounded-full transition-all duration-300 ${
+        className={`group relative flex items-center justify-start gap-2 px-3 py-2.5 h-11 sm:w-12 sm:h-12 sm:justify-center sm:px-0 sm:py-0 rounded-full transition-all duration-300 ${
           canScrollDown ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4 pointer-events-none'
         }`}
         aria-label="Scroll to bottom"
@@ -81,11 +80,12 @@ export function FloatingScrollArrows() {
           boxShadow: '0 8px 32px rgba(100, 200, 255, 0.4), 0 0 20px rgba(100, 200, 255, 0.2)',
           backdropFilter: 'blur(12px)',
           border: '1.5px solid rgba(200, 230, 255, 0.3)',
-          minWidth: '44px',
         }}
       >
-        <span className="text-white text-[10px] font-bold tracking-wide sm:hidden">BTM</span>
-        <ChevronDown className="w-4 h-4 sm:w-6 sm:h-6 text-white drop-shadow-lg flex-shrink-0" strokeWidth={2.5} />
+        {/* Label visible only on mobile, positioned on the left */}
+        <span className="text-white text-xs font-bold tracking-wider sm:hidden whitespace-nowrap">BTM</span>
+        {/* Arrow positioned on the right on mobile, centered on desktop */}
+        <ChevronDown className="w-5 h-5 sm:w-6 sm:h-6 text-white drop-shadow-lg flex-shrink-0 ml-auto sm:ml-0" strokeWidth={2.5} />
         <div
           className="absolute inset-0 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"
           style={{ background: 'radial-gradient(circle, rgba(255,255,255,0.15) 0%, transparent 70%)' }}
