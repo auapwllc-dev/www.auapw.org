@@ -111,6 +111,34 @@ export function MobileThemeFab() {
         <span className="fab-shimmer" />
       </a>
 
+      {/* ── VISIT WEBSITE button ── */}
+      <a
+        href="https://www.auapw.org"
+        target="_blank"
+        rel="noopener noreferrer"
+        title="Visit Our Website"
+        aria-label="Visit Our Website - auapw.org"
+        className="fab-btn"
+        style={{
+          background: 'linear-gradient(160deg, #2a5fa8 0%, #3a78d4 18%, #1a3a6a 38%, #0d2040 55%, #162e5a 72%, #2756a0 88%, #3470c8 100%)',
+          boxShadow: '0 0 0 1.5px rgba(80,140,240,0.55), inset 0 2px 5px rgba(120,180,255,0.2), inset 0 -2px 5px rgba(0,0,0,0.5), 0 6px 20px rgba(0,0,0,0.55), 0 2px 6px rgba(60,120,220,0.35)',
+        }}
+      >
+        <span className="fab-icon-ring" style={{ background: 'rgba(0,0,0,0.35)', boxShadow: 'inset 0 1px 3px rgba(0,0,0,0.5), 0 1px 2px rgba(120,180,255,0.2)' }}>
+          <svg viewBox="0 0 24 24" fill="none" className="w-3 h-3" style={{ color: '#a0c8ff' }}>
+            <circle cx="12" cy="12" r="9" stroke="currentColor" strokeWidth="1.8"/>
+            <path d="M12 3c0 0-3.5 3.5-3.5 9s3.5 9 3.5 9" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
+            <path d="M12 3c0 0 3.5 3.5 3.5 9s-3.5 9-3.5 9" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
+            <path d="M3 12h18" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
+            <path d="M4.5 7.5h15M4.5 16.5h15" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round"/>
+          </svg>
+        </span>
+        <span className="fab-label" style={{ color: '#b8d8ff', textShadow: '0 1px 3px rgba(0,0,0,0.7)', fontSize: '8px', letterSpacing: '0.08em' }}>
+          WEBSITE
+        </span>
+        <span className="fab-shimmer" />
+      </a>
+
       {/* ── DARK / LIGHT toggle ── */}
       <button
         onPointerDown={onPointerDown}
