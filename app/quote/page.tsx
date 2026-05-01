@@ -4,7 +4,7 @@ import { Navbar } from "@/components/navbar"
 import { Footer } from "@/components/footer"
 import { BrandLogosSection } from "@/components/brand-logos"
 
-import { Zap, Shield, Truck, Phone, DollarSign, CheckCircle2, AlertCircle, Mail, Loader2 } from "lucide-react"
+import { Zap, Shield, Truck, Phone, DollarSign, CheckCircle2, AlertCircle } from "lucide-react"
 import { CAR_MAKES, CAR_MODELS, PART_CATEGORIES, YEARS, US_STATES, PHONE_DISPLAY, PHONE_SALES } from "@/lib/data"
 import { getPartOptions } from "@/lib/parts-content"
 import { useState } from "react"
@@ -25,13 +25,14 @@ export default function QuotePage() {
   const [message, setMessage] = useState("")
   const [success, setSuccess] = useState(false)
   const [error, setError] = useState<string | null>(null)
-  const [loading, setLoading] = useState(false)
 
   const models = make ? CAR_MODELS[make] || [] : []
   const partOptions = part ? getPartOptions(part) : []
   const selectClass = "w-full text-sm px-3 py-2.5 bg-[rgba(13,15,22,0.75)] border border-border/50 rounded-lg text-foreground appearance-none focus:border-primary/55 focus:ring-1 focus:ring-primary/20 outline-none transition-all"
 
-  async function handleSubmit(e: React.FormEvent) {
+
+
+  function handleSubmit(e: React.FormEvent) {
     e.preventDefault()
     setError(null)
 
@@ -39,28 +40,16 @@ export default function QuotePage() {
     if (!name.trim()) { setError("Please enter your name."); return }
     if (!phone.trim()) { setError("Please enter your phone number."); return }
 
-    setLoading(true)
-
-    try {
-      // Submit to API - sends emails to both admin and customer
-      const response = await fetch("/api/quote", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ part, make, model, year, option, name, phone, email, state, zip, message }),
-      })
-
-      const data = await response.json()
-
-      if (!response.ok) {
-        throw new Error(data.error || "Failed to submit quote request")
-      }
-
+    // Submit to API
+    fetch("/api/quote", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ part, make, model, year, option, name, phone, email, state, zip, message }),
+    }).then(() => {
       setSuccess(true)
-    } catch (err) {
-      setError(err instanceof Error ? err.message : "Failed to submit quote. Please try again.")
-    } finally {
-      setLoading(false)
-    }
+    }).catch(() => {
+      setError("Failed to submit quote. Please try again.")
+    })
   }
 
   return (
@@ -115,9 +104,9 @@ export default function QuotePage() {
               {success ? (
                 <div className="glass-card rounded-sm p-8 text-center">
                   <CheckCircle2 className="w-16 h-16 text-green-400 mx-auto mb-4" />
-                  <h3 className="text-2xl font-bold text-foreground mb-3">Quote Request Submitted!</h3>
+                  <h3 className="text-2xl font-bold text-foreground mb-3">Quote Request Prepared!</h3>
                   <p className="text-muted-foreground text-sm leading-relaxed mb-2">
-                    Your quote request has been sent to our team. {email && "A confirmation email has been sent to your inbox."}
+                    Your email client should open with the quote details pre-filled. Please click &quot;Send&quot; in your email client to submit.
                   </p>
                   <p className="text-muted-foreground text-sm leading-relaxed mb-6">
                     If the email didn&apos;t open, please call us at <a href="tel:8888185001" className="text-primary font-bold hover:underline">(888) 818-5001</a> or try again.
@@ -222,19 +211,8 @@ export default function QuotePage() {
                       <textarea rows={3} placeholder="Any extra details that help us find the right part faster..." className={`${selectClass} resize-none`} value={message} onChange={e => setMessage(e.target.value)} />
                     </div>
 
-                    <button 
-                      type="submit" 
-                      disabled={loading}
-                      className="btn-led w-full inline-flex items-center justify-center gap-2 px-6 py-4 text-[0.75rem] font-bold tracking-[0.18em] uppercase rounded-lg transition-all shadow-lg hover:shadow-xl hover:shadow-primary/20 mt-8 disabled:opacity-60 disabled:cursor-not-allowed"
-                    >
-                      {loading ? (
-                        <>
-                          <Loader2 className="w-4 h-4 animate-spin" />
-                          Sending Request...
-                        </>
-                      ) : (
-                        "Get A Free Quote"
-                      )}
+                    <button type="submit" className="btn-led w-full inline-flex items-center justify-center gap-2 px-6 py-4 text-[0.75rem] font-bold tracking-[0.18em] uppercase rounded-lg transition-all shadow-lg hover:shadow-xl hover:shadow-primary/20 mt-8">
+                      Get A Free Quote
                     </button>
                     <p className="text-[11px] text-muted-foreground text-center">
                       Clicking &quot;Get A Quote&quot; will send your request to our team. No spam, no obligation.
