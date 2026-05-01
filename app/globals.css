@@ -2340,7 +2340,7 @@ footer .wordmark-3d {
 
 /* ═══════════════════════════════════════════════════════
    PROCESS SECTION — Diamond LED Flash Typography
-   ══════════════════���════════════════════════════════════ */
+   ════════════════��═���════════════════════════════════════ */
 
 /* Card base */
 .process-card {
@@ -3608,45 +3608,125 @@ footer .wordmark-3d {
     inset 1px 1px 2px rgba(255,255,255,0.08);
 }
 
-/* ── FOOTER DESCRIPTION TEXT — permanent dark mode chrome effect ── */
-.footer-steel-text {
-  font-weight: 700;
-  letter-spacing: 0.06em;
-  background: linear-gradient(
-    to bottom,
-    #e8e8e8 0%,
-    #d0d0d0 15%,
-    #a8a8a8 30%,
-    #707070 50%,
-    #505050 70%,
-    #a8a8a8 85%,
-    #d8d8d8 100%
-  );
+/* ═══════════════════════════════════════════════════
+   HYPER POP MACHINED TEXT EFFECT
+   3D extruded chrome bevel - Space Grotesk
+   ═══════════════════════════════════════════════════ */
+
+/* Machined Chrome Gradient for Bevels */
+.chrome-bevel-top {
+  background: linear-gradient(to bottom, #ffffff 0%, #e0e0e0 8%, #b0b0b0 20%, #808080 35%, #606060 50%, #404040 65%, #808080 80%, #e0e0e0 92%, #ffffff 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+
+/* Hyper Pop Embossed Effect - Main Class */
+.machined-text {
+  position: relative;
+  font-family: 'Space Grotesk', system-ui, sans-serif;
+  color: #050505;
+  display: inline-block;
+  line-height: 1;
+  font-weight: 900;
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+  text-shadow: 
+    1px 1px 0px #000,
+    2px 2px 0px #111,
+    3px 3px 0px #222,
+    4px 4px 10px rgba(0,0,0,0.8);
+}
+
+.machined-text::before {
+  content: attr(data-text);
+  position: absolute;
+  top: -2px;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom, #ffffff 0%, #e0e0e0 8%, #b0b0b0 20%, #808080 35%, #606060 50%, #404040 65%, #808080 80%, #e0e0e0 92%, #ffffff 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  filter: drop-shadow(0 1px 0 rgba(0,0,0,0.8)) drop-shadow(0 2px 4px rgba(0,0,0,0.6));
+  z-index: 1;
+  pointer-events: none;
+  mask-image: linear-gradient(to bottom, black 2px, transparent 4px);
+  -webkit-mask-image: linear-gradient(to bottom, black 2px, transparent 4px);
+}
+
+.machined-text::after {
+  content: attr(data-text);
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to top, #ffffff 0%, #e0e0e0 15%, transparent 40%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  z-index: 2;
+  pointer-events: none;
+  opacity: 0.5;
+}
+
+/* Smaller variant for labels/descriptions */
+.machined-text-sm {
+  position: relative;
+  font-family: 'Space Grotesk', system-ui, sans-serif;
+  color: #080808;
+  display: inline-block;
+  line-height: 1.2;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  text-shadow: 
+    1px 1px 0px #000,
+    2px 2px 0px #111,
+    2px 2px 6px rgba(0,0,0,0.7);
+}
+
+.machined-text-sm::before {
+  content: attr(data-text);
+  position: absolute;
+  top: -1px;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom, #ffffff 0%, #d0d0d0 15%, #909090 40%, #505050 60%, #909090 80%, #e0e0e0 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  z-index: 1;
+  pointer-events: none;
+  mask-image: linear-gradient(to bottom, black 1px, transparent 3px);
+  -webkit-mask-image: linear-gradient(to bottom, black 1px, transparent 3px);
+}
+
+/* Chrome edge box shadow for panels */
+.chrome-edge {
+  box-shadow: inset 0 1px 0 0 rgba(255,255,255,0.2), 0 1px 0 0 rgba(0,0,0,1);
+}
+
+/* ── FOOTER DESCRIPTION TEXT — permanent dark mode chrome effect ── */
+.footer-steel-text {
+  font-family: 'Space Grotesk', system-ui, sans-serif;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  line-height: 1.6;
+  color: #a0a8b8 !important;
+  -webkit-text-fill-color: #a0a8b8 !important;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.6);
 }
 
 /* ── FOOTER COPYRIGHT — small steel text with chrome effect ── */
 .footer-copyright {
-  font-weight: 800;
-  letter-spacing: 0.1em;
+  font-family: 'Space Grotesk', system-ui, sans-serif;
+  font-weight: 600;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
-  background: linear-gradient(
-    to bottom,
-    #f0f0f0 0%,
-    #d8d8d8 10%,
-    #b0b0b0 25%,
-    #606060 50%,
-    #404040 70%,
-    #b0b0b0 85%,
-    #e0e0e0 100%
-  );
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  filter: drop-shadow(0 1px 0 rgba(0,0,0,0.9)) drop-shadow(0 3px 6px rgba(0,0,0,0.7));
+  color: #909aa8 !important;
+  -webkit-text-fill-color: #909aa8 !important;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.7);
 }
 
 /* ═══════════════════════════════════════════════════
@@ -3667,51 +3747,42 @@ footer .wordmark-3d {
 
 /* All plain text inside footer stays light-on-dark */
 .footer-dark-permanent p,
-.footer-dark-permanent span,
 .footer-dark-permanent li,
-.footer-dark-permanent a,
-.footer-dark-permanent h3,
-.footer-dark-permanent h4,
 .footer-dark-permanent label {
   color: #e8eaf0 !important;
   -webkit-text-fill-color: #e8eaf0 !important;
 }
 
-/* Links in footer */
-.footer-dark-permanent a {
+/* Links in footer (not machined-text) */
+.footer-dark-permanent a:not(.machined-text) {
   color: #c8ccd8 !important;
   -webkit-text-fill-color: #c8ccd8 !important;
 }
-.footer-dark-permanent a:hover {
+.footer-dark-permanent a:not(.machined-text):hover {
   color: #ffffff !important;
   -webkit-text-fill-color: #ffffff !important;
 }
 
-/* Headings keep chrome gradient effect */
-.footer-dark-permanent h3,
-.footer-dark-permanent h4 {
-  background: linear-gradient(
-    to bottom,
-    #f0f0f0 0%,
-    #d8d8d8 15%,
-    #a0a0a0 35%,
-    #606060 55%,
-    #a0a0a0 75%,
-    #e0e0e0 100%
-  );
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent !important;
-  background-clip: text;
-  filter: drop-shadow(0 1px 0 rgba(0,0,0,0.9));
+/* Machined text in footer - preserve the 3D effect */
+.footer-dark-permanent .machined-text,
+.footer-dark-permanent h3.machined-text,
+.footer-dark-permanent h4.machined-text,
+.footer-dark-permanent span.machined-text {
+  color: #050505 !important;
+  -webkit-text-fill-color: #050505 !important;
+  background: none !important;
 }
 
-/* Footer-steel-text and footer-copyright stay chrome inside footer */
+/* Footer-steel-text keeps readable light text */
 .footer-dark-permanent .footer-steel-text {
-  color: #9ca8b8 !important;
-  -webkit-text-fill-color: transparent !important;
+  color: #a0a8b8 !important;
+  -webkit-text-fill-color: #a0a8b8 !important;
 }
+
+/* Footer-copyright stays readable */
 .footer-dark-permanent .footer-copyright {
-  -webkit-text-fill-color: transparent !important;
+  color: #909aa8 !important;
+  -webkit-text-fill-color: #909aa8 !important;
 }
 
 /* Borders stay dark */
@@ -4765,7 +4836,7 @@ footer .wordmark-3d {
 
 /* ════════════════════════════════════════════════════════════
    GLOBAL BUTTON UNIFICATION - ALL BUTTONS USE SAME PILL DESIGN
-   ════════════════════════════════════════════════════════════ */
+   ═══════════════════════════════════════���════════════════════ */
 
 /* Apply base .auapw-btn styling to ALL button types */
 .get-quote-btn,
