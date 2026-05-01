@@ -39,8 +39,8 @@ export function FloatingScrollArrows() {
   }
 
   return (
-    // On mobile: left-3 to stay away from the FAB on the right. On sm+: right-6 as before.
-    <div className="fixed left-3 sm:left-auto sm:right-6 bottom-24 sm:bottom-24 z-40 flex flex-col gap-2">
+    // On mobile: left-0 to position at far left edge. On sm+: right-6 for desktop.
+    <div className="fixed left-0 sm:left-auto sm:right-6 bottom-24 sm:bottom-24 z-40 flex flex-col gap-2 pl-2 sm:pl-0">
 
       {/* Scroll to top button */}
       <button
